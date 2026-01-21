@@ -8,12 +8,12 @@ export default function About() {
           WINDUP
         </h2>
         {/* Single Line Marquee - Below WINDUP */}
-        <div className="overflow-hidden mt-4 animate-fade-in-up [animation-delay:200ms]">
+        <div className="overflow-hidden mt-2 animate-fade-in-up [animation-delay:200ms]">
           <div className="whitespace-nowrap animate-marquee">
-            <span className="text-lg md:text-2xl font-medium uppercase tracking-wider opacity-40 mx-6">Interactions That Can Make the World Better</span>
-            <span className="text-lg md:text-2xl font-medium uppercase tracking-wider opacity-40 mx-6">Interactions That Can Make the World Better</span>
-            <span className="text-lg md:text-2xl font-medium uppercase tracking-wider opacity-40 mx-6">Interactions That Can Make the World Better</span>
-            <span className="text-lg md:text-2xl font-medium uppercase tracking-wider opacity-40 mx-6">Interactions That Can Make the World Better</span>
+            <span className="text-5xl md:text-[7rem] lg:text-[10rem] font-bold uppercase tracking-tighter text-neutral-300 dark:text-neutral-700 mx-8">Interactions That Can Make the World Better</span>
+            <span className="text-5xl md:text-[7rem] lg:text-[10rem] font-bold uppercase tracking-tighter text-neutral-300 dark:text-neutral-700 mx-8">Interactions That Can Make the World Better</span>
+            <span className="text-5xl md:text-[7rem] lg:text-[10rem] font-bold uppercase tracking-tighter text-neutral-300 dark:text-neutral-700 mx-8">Interactions That Can Make the World Better</span>
+            <span className="text-5xl md:text-[7rem] lg:text-[10rem] font-bold uppercase tracking-tighter text-neutral-300 dark:text-neutral-700 mx-8">Interactions That Can Make the World Better</span>
           </div>
         </div>
       </div>

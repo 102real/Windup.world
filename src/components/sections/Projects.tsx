@@ -11,8 +11,8 @@ const projects = [
   {
     id: "02",
     name: "Project G",
-    direction: "중력건을 이용한 4인코옵 퍼즐 플랫포머",
-    description: "",
+    direction: "중력을 뒤집을 시간",
+    description: "동료들과 함께 중력건을 쏘아 길을 만들고, 함정과 절벽을 넘어 앞으로 나아가세요.\n이 여정을 완성할 주인공은 바로 당신의 팀입니다.",
     tags: ["2026 Q2", "Co-op", "Puzzle", "Platformer"]
   }
 ];
