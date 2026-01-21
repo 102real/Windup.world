@@ -10,7 +10,7 @@ export default function About() {
       </div>
       
       {/* Single Line Marquee - Full Width Below WINDUP */}
-      <div className="absolute left-0 w-full overflow-hidden opacity-[0.07] pointer-events-none" style={{ top: 'calc(20vh + 8rem)', width: '100vw' }}>
+      <div className="absolute left-0 w-full overflow-hidden opacity-[0.07] pointer-events-none" style={{ top: 'calc(20vh + 12rem)', width: '100vw' }}>
         <div className="whitespace-nowrap animate-marquee flex items-center">
           <span className="text-[15vh] font-black uppercase mx-4">Interactions That Can Make the World Better</span>
           <span className="text-[15vh] font-black uppercase mx-4">Interactions That Can Make the World Better</span>
