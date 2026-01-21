@@ -7,14 +7,15 @@ export default function About() {
         <h2 className="text-6xl md:text-[8rem] lg:text-[11rem] font-bold leading-[0.9] tracking-tighter break-keep animate-fade-in-up">
           WINDUP
         </h2>
-        {/* Single Line Marquee - Below WINDUP */}
-        <div className="overflow-hidden mt-2 animate-fade-in-up [animation-delay:200ms]">
-          <div className="whitespace-nowrap animate-marquee">
-            <span className="text-5xl md:text-[7rem] lg:text-[10rem] font-bold uppercase tracking-tighter text-neutral-300 dark:text-neutral-700 mx-8">Interactions That Can Make the World Better</span>
-            <span className="text-5xl md:text-[7rem] lg:text-[10rem] font-bold uppercase tracking-tighter text-neutral-300 dark:text-neutral-700 mx-8">Interactions That Can Make the World Better</span>
-            <span className="text-5xl md:text-[7rem] lg:text-[10rem] font-bold uppercase tracking-tighter text-neutral-300 dark:text-neutral-700 mx-8">Interactions That Can Make the World Better</span>
-            <span className="text-5xl md:text-[7rem] lg:text-[10rem] font-bold uppercase tracking-tighter text-neutral-300 dark:text-neutral-700 mx-8">Interactions That Can Make the World Better</span>
-          </div>
+      </div>
+      
+      {/* Single Line Marquee - Full Width Below WINDUP */}
+      <div className="w-full overflow-hidden mt-2 animate-fade-in-up [animation-delay:200ms] -mx-6 md:-mx-12" style={{ width: '100vw', marginLeft: 'calc(-50vw + 50%)' }}>
+        <div className="whitespace-nowrap animate-marquee">
+          <span className="text-5xl md:text-[7rem] lg:text-[10rem] font-bold uppercase tracking-tighter text-neutral-300 dark:text-neutral-700 mx-8">Interactions That Can Make the World Better</span>
+          <span className="text-5xl md:text-[7rem] lg:text-[10rem] font-bold uppercase tracking-tighter text-neutral-300 dark:text-neutral-700 mx-8">Interactions That Can Make the World Better</span>
+          <span className="text-5xl md:text-[7rem] lg:text-[10rem] font-bold uppercase tracking-tighter text-neutral-300 dark:text-neutral-700 mx-8">Interactions That Can Make the World Better</span>
+          <span className="text-5xl md:text-[7rem] lg:text-[10rem] font-bold uppercase tracking-tighter text-neutral-300 dark:text-neutral-700 mx-8">Interactions That Can Make the World Better</span>
         </div>
       </div>
 
