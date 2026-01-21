@@ -10,12 +10,11 @@ export default function About() {
       </div>
       
       {/* Single Line Marquee - Full Width Below WINDUP */}
-      <div className="w-full overflow-hidden mt-2 animate-fade-in-up [animation-delay:200ms] -mx-6 md:-mx-12" style={{ width: '100vw', marginLeft: 'calc(-50vw + 50%)' }}>
-        <div className="whitespace-nowrap animate-marquee">
-          <span className="text-5xl md:text-[7rem] lg:text-[10rem] font-bold uppercase tracking-tighter text-neutral-300 dark:text-neutral-700 mx-8">Interactions That Can Make the World Better</span>
-          <span className="text-5xl md:text-[7rem] lg:text-[10rem] font-bold uppercase tracking-tighter text-neutral-300 dark:text-neutral-700 mx-8">Interactions That Can Make the World Better</span>
-          <span className="text-5xl md:text-[7rem] lg:text-[10rem] font-bold uppercase tracking-tighter text-neutral-300 dark:text-neutral-700 mx-8">Interactions That Can Make the World Better</span>
-          <span className="text-5xl md:text-[7rem] lg:text-[10rem] font-bold uppercase tracking-tighter text-neutral-300 dark:text-neutral-700 mx-8">Interactions That Can Make the World Better</span>
+      <div className="absolute left-0 w-full overflow-hidden opacity-[0.07] pointer-events-none" style={{ top: 'calc(20vh + 8rem)', width: '100vw' }}>
+        <div className="whitespace-nowrap animate-marquee flex items-center">
+          <span className="text-[15vh] font-black uppercase mx-4">Interactions That Can Make the World Better</span>
+          <span className="text-[15vh] font-black uppercase mx-4">Interactions That Can Make the World Better</span>
+          <span className="text-[15vh] font-black uppercase mx-4">Interactions That Can Make the World Better</span>
         </div>
       </div>
 

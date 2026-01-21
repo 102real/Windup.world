@@ -42,10 +42,10 @@ export default function Contact() {
             <div className="flex gap-4 text-sm md:text-base font-medium">
               <a href="#" className="hover:underline underline-offset-4">YOUTUBE</a>
               <a href="#" className="hover:underline underline-offset-4">INSTAGRAM</a>
-              <a href="#" className="hover:underline underline-offset-4">TWITTER</a>
+              <a href="#" className="hover:underline underline-offset-4">X</a>
             </div>
             <p className="text-[10px] md:text-xs tracking-widest opacity-50 uppercase mt-8">
-              © {new Date().getFullYear()} Windup Studio.<br />
+              © {new Date().getFullYear()} Windup.<br />
               All Rights Reserved.
             </p>
           </div>
