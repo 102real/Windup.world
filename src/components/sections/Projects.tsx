@@ -7,6 +7,13 @@ const projects = [
     direction: "마지막 패를 공개할 시간",
     description: "모든 것이 불타 사라지는 전장, 침묵을 깨는 것은 카드 섞이는 소리뿐.\n운조차 실력이 되는 이곳에서 당신의 직감을 시험해 보세요.\n이 판을 뒤집을 주인공은 바로 당신입니다.",
     tags: ["2026 Q1", "Roguelike", "Action", "Poker"]
+  },
+  {
+    id: "02",
+    name: "Project G",
+    direction: "중력건을 이용한 4인코옵 퍼즐 플랫포머",
+    description: "",
+    tags: ["2026 Q2", "Co-op", "Puzzle", "Platformer"]
   }
 ];
 
