@@ -6,8 +6,8 @@ const rotatingWords = ['Interaction', 'Imagination', 'Emotion', 'World', 'Future
 
 export default function About() {
   const [currentIndex, setCurrentIndex] = useState(0);
-  const [phase, setPhase] = useState<'showing' | 'hiding' | 'transitioning'>('showing');
-  const [textOpacity, setTextOpacity] = useState(1);
+  const [phase, setPhase] = useState<'fade-in' | 'stay' | 'fade-out' | 'prepare'>('fade-in');
+  const [textOpacity, setTextOpacity] = useState(0);
   const textContainerRef = useRef<HTMLSpanElement>(null);
   const [underlineWidth, setUnderlineWidth] = useState(0);
 
@@ -17,32 +17,37 @@ export default function About() {
       const width = textContainerRef.current.offsetWidth;
       setUnderlineWidth(width);
     }
-  }, [currentIndex, phase]);
+  }, [currentIndex]);
 
   useEffect(() => {
     let timeout: NodeJS.Timeout;
 
-    if (phase === 'showing') {
-      // Show text for 2 seconds
-      timeout = setTimeout(() => {
-        setPhase('hiding');
-      }, 2000);
-    } else if (phase === 'hiding') {
-      // Fade out text (1.5s)
-      setTextOpacity(0);
-      timeout = setTimeout(() => {
-        setPhase('transitioning');
-      }, 1500);
-    } else if (phase === 'transitioning') {
-      // Change to next word
+    if (phase === 'prepare') {
+      // 0.5s: Adjust underline length for the next word
       const next = (currentIndex + 1) % rotatingWords.length;
       setCurrentIndex(next);
+      setTextOpacity(0);
       
-      // Wait for underline to adjust, then fade in
       timeout = setTimeout(() => {
-        setTextOpacity(1);
-        setPhase('showing');
+        setPhase('fade-in');
       }, 500);
+    } else if (phase === 'fade-in') {
+      // 1.5s: Fade in (opacity 0 to 1)
+      setTextOpacity(1);
+      timeout = setTimeout(() => {
+        setPhase('stay');
+      }, 1500);
+    } else if (phase === 'stay') {
+      // 2s: Stay at opacity 1
+      timeout = setTimeout(() => {
+        setPhase('fade-out');
+      }, 2000);
+    } else if (phase === 'fade-out') {
+      // 1.5s: Fade out (opacity 1 to 0)
+      setTextOpacity(0);
+      timeout = setTimeout(() => {
+        setPhase('prepare');
+      }, 1500);
     }
 
     return () => clearTimeout(timeout);
@@ -58,7 +63,7 @@ export default function About() {
         
         {/* the + rotating word - Smaller with underline only on word */}
         <div className="animate-fade-in-up [animation-delay:200ms] mt-2">
-          <div className="text-[10vh] md:text-[12vh] lg:text-[14vh] font-bold tracking-tighter flex items-baseline gap-x-4">
+          <div className="text-[7vh] md:text-[9vh] lg:text-[11vh] font-bold tracking-tighter flex items-baseline gap-x-4">
             <span className="font-medium">the</span>
             <span className="relative inline-block">
               <span 
