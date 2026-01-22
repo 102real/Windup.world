@@ -30,7 +30,7 @@ export default function LanguageToggle() {
                             `}></span>
                         </button>
                         {index < languages.length - 1 && (
-                            <span className="opacity-20 text-xs md:text-sm font-light">/</span>
+                            <span className="text-xs md:text-sm font-bold opacity-100">/</span>
                         )}
                     </React.Fragment>
                 );
