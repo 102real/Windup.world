@@ -96,6 +96,7 @@ const translations: Record<Language, TranslationData> = {
 
 interface LanguageContextType {
     language: Language;
+    setLanguage: (lang: Language) => void;
     toggleLanguage: () => void;
     t: TranslationData;
 }
@@ -112,7 +113,7 @@ export function LanguageProvider({ children }: { children: ReactNode }) {
     const t = translations[language];
 
     return (
-        <LanguageContext.Provider value={{ language, toggleLanguage, t }}>
+        <LanguageContext.Provider value={{ language, setLanguage, toggleLanguage, t }}>
             {children}
         </LanguageContext.Provider>
     );

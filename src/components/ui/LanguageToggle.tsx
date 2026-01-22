@@ -4,27 +4,33 @@ import React from 'react';
 import { useLanguage } from '@/context/LanguageContext';
 
 export default function LanguageToggle() {
-    const { language, toggleLanguage } = useLanguage();
+    const { language, setLanguage } = useLanguage();
+
+    const languages = [
+        { code: 'ko' as const, label: 'KR' },
+        { code: 'en' as const, label: 'EN' }
+    ];
 
     return (
-        <div className="fixed right-6 top-1/2 -translate-y-1/2 z-[60] flex flex-col gap-4 items-center mix-blend-difference text-white">
-            <button
-                onClick={toggleLanguage}
-                className="group relative flex items-center justify-center w-12 h-12 rounded-full border border-white/20 hover:border-white transition-colors duration-300"
-            >
-                <span className="text-[10px] font-bold tracking-widest uppercase">
-                    {language === 'ko' ? 'EN' : 'KR'}
-                </span>
-
-                {/* Hover Effect */}
-                <span className="absolute inset-0 rounded-full bg-white opacity-0 group-hover:opacity-10 transition-opacity duration-300"></span>
-            </button>
-
-            <div className="h-20 w-[1px] bg-white/20"></div>
-
-            <div className="[writing-mode:vertical-lr] text-[10px] font-bold tracking-[0.3em] uppercase opacity-40">
-                Language
-            </div>
+        <div className="fixed right-6 md:right-12 top-6 z-[60] flex gap-4 md:gap-6 items-center mix-blend-difference text-white">
+            {languages.map((lang) => {
+                const isActive = language === lang.code;
+                return (
+                    <button
+                        key={lang.code}
+                        onClick={() => setLanguage(lang.code)}
+                        className={`text-xs md:text-sm font-bold tracking-[0.2em] transition-all duration-300 relative
+                            ${isActive ? 'opacity-100' : 'opacity-40 hover:opacity-70'}
+                        `}
+                    >
+                        {lang.label}
+                        {/* Active Indicator Underline */}
+                        <span className={`absolute -bottom-2 left-0 w-full h-[1px] bg-white transition-transform duration-300 origin-left
+                            ${isActive ? 'scale-x-100' : 'scale-x-0'}
+                        `}></span>
+                    </button>
+                );
+            })}
         </div>
     );
 }
