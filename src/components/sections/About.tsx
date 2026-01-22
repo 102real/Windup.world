@@ -6,35 +6,56 @@ const rotatingWords = ['Interaction', 'Imagination', 'Emotion', 'World', 'Future
 
 export default function About() {
   const [currentIndex, setCurrentIndex] = useState(0);
-  const [isVisible, setIsVisible] = useState(true);
+  const [displayedText, setDisplayedText] = useState('');
+  const [isTyping, setIsTyping] = useState(true);
 
   useEffect(() => {
-    const interval = setInterval(() => {
-      setIsVisible(false);
-      setTimeout(() => {
+    const currentWord = rotatingWords[currentIndex];
+    
+    if (isTyping) {
+      if (displayedText.length < currentWord.length) {
+        const timeout = setTimeout(() => {
+          setDisplayedText(currentWord.slice(0, displayedText.length + 1));
+        }, 80);
+        return () => clearTimeout(timeout);
+      } else {
+        const timeout = setTimeout(() => {
+          setIsTyping(false);
+        }, 2000);
+        return () => clearTimeout(timeout);
+      }
+    } else {
+      if (displayedText.length > 0) {
+        const timeout = setTimeout(() => {
+          setDisplayedText(displayedText.slice(0, -1));
+        }, 40);
+        return () => clearTimeout(timeout);
+      } else {
         setCurrentIndex((prev) => (prev + 1) % rotatingWords.length);
-        setIsVisible(true);
-      }, 500);
-    }, 3000);
-
-    return () => clearInterval(interval);
-  }, []);
+        setIsTyping(true);
+      }
+    }
+  }, [currentIndex, displayedText, isTyping]);
 
   return (
     <section id="about" className="min-h-screen flex flex-col justify-between px-6 py-10 md:px-12 md:py-20 relative overflow-hidden">
       <div className="z-10 mt-20 md:mt-32 w-full max-w-[90vw] mx-auto">
-        <h2 className="text-[12vw] md:text-[15vw] lg:text-[12vw] font-bold leading-[0.9] tracking-tighter break-keep animate-fade-in-up flex flex-wrap items-baseline gap-x-4">
+        <h2 className="text-[15vh] md:text-[18vh] lg:text-[20vh] font-bold leading-[0.9] tracking-tighter break-keep animate-fade-in-up flex items-baseline gap-x-4 whitespace-nowrap">
           <span>WINDUP</span>
-          <span className="text-[8vw] md:text-[10vw] lg:text-[8vw] font-medium">the</span>
-          <span 
-            className={`font-dancing-script font-normal italic border-b-4 border-current pb-2 transition-all duration-500 ${
-              isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
-            }`}
-            style={{ fontFamily: 'var(--font-dancing-script)' }}
-          >
-            {rotatingWords[currentIndex]}
-          </span>
+          <span className="text-[10vh] md:text-[12vh] lg:text-[14vh] font-medium">the</span>
         </h2>
+        <div className="animate-fade-in-up [animation-delay:200ms] mt-2">
+          <div className="relative inline-block">
+            <span 
+              className="text-[12vh] md:text-[14vh] lg:text-[16vh] font-normal italic"
+              style={{ fontFamily: 'var(--font-dancing-script)' }}
+            >
+              {displayedText}
+              <span className="animate-pulse">|</span>
+            </span>
+            <div className="absolute bottom-0 left-0 w-full h-1 bg-current"></div>
+          </div>
+        </div>
       </div>
       
       {/* Single Line Marquee - Full Width Below WINDUP */}
