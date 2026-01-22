@@ -1,11 +1,39 @@
-import React from 'react';
+'use client';
+
+import React, { useState, useEffect } from 'react';
+
+const rotatingWords = ['Interaction', 'Imagination', 'Emotion', 'World', 'Future'];
 
 export default function About() {
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [isVisible, setIsVisible] = useState(true);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setIsVisible(false);
+      setTimeout(() => {
+        setCurrentIndex((prev) => (prev + 1) % rotatingWords.length);
+        setIsVisible(true);
+      }, 500);
+    }, 3000);
+
+    return () => clearInterval(interval);
+  }, []);
+
   return (
     <section id="about" className="min-h-screen flex flex-col justify-between px-6 py-10 md:px-12 md:py-20 relative overflow-hidden">
       <div className="z-10 mt-20 md:mt-32 w-full max-w-[90vw] mx-auto">
-        <h2 className="text-6xl md:text-[8rem] lg:text-[11rem] font-bold leading-[0.9] tracking-tighter break-keep animate-fade-in-up">
-          WINDUP
+        <h2 className="text-[12vw] md:text-[15vw] lg:text-[12vw] font-bold leading-[0.9] tracking-tighter break-keep animate-fade-in-up flex flex-wrap items-baseline gap-x-4">
+          <span>WINDUP</span>
+          <span className="text-[8vw] md:text-[10vw] lg:text-[8vw] font-medium">the</span>
+          <span 
+            className={`font-dancing-script font-normal italic border-b-4 border-current pb-2 transition-all duration-500 ${
+              isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
+            }`}
+            style={{ fontFamily: 'var(--font-dancing-script)' }}
+          >
+            {rotatingWords[currentIndex]}
+          </span>
         </h2>
       </div>
       

@@ -71,3 +71,8 @@ html {
   animation: marquee 20s linear infinite;
   display: flex; /* Ensure inline elements behave correctly */
 }
+
+/* Dancing Script Font */
+.font-dancing-script {
+  font-family: var(--font-dancing-script), cursive;
+}
