@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Noto_Sans_KR, Dancing_Script } from "next/font/google";
+import { Noto_Sans_KR, Great_Vibes } from "next/font/google";
 import "./globals.css";
 
 const notoSansKR = Noto_Sans_KR({
@@ -8,10 +8,10 @@ const notoSansKR = Noto_Sans_KR({
   weight: ["100", "300", "400", "500", "700", "900"],
 });
 
-const dancingScript = Dancing_Script({
-  variable: "--font-dancing-script",
+const greatVibes = Great_Vibes({
+  variable: "--font-great-vibes",
   subsets: ["latin"],
-  weight: ["400", "700"],
+  weight: ["400"],
 });
 
 export const metadata: Metadata = {
@@ -27,7 +27,7 @@ export default function RootLayout({
   return (
     <html lang="ko">
       <body
-        className={`${notoSansKR.variable} ${dancingScript.variable} antialiased`}
+        className={`${notoSansKR.variable} ${greatVibes.variable} antialiased`}
       >
         {children}
       </body>

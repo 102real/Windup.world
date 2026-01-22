@@ -72,7 +72,49 @@ html {
   display: flex; /* Ensure inline elements behave correctly */
 }
 
-/* Dancing Script Font */
-.font-dancing-script {
-  font-family: var(--font-dancing-script), cursive;
+/* Great Vibes Font */
+.font-great-vibes {
+  font-family: var(--font-great-vibes), cursive;
+}
+
+/* SVG Stroke Animation */
+@keyframes draw-stroke {
+  0% {
+    stroke-dashoffset: 1000;
+    fill-opacity: 0;
+  }
+  70% {
+    stroke-dashoffset: 0;
+    fill-opacity: 0;
+  }
+  100% {
+    stroke-dashoffset: 0;
+    fill-opacity: 1;
+  }
+}
+
+@keyframes erase-stroke {
+  0% {
+    stroke-dashoffset: 0;
+    fill-opacity: 1;
+  }
+  30% {
+    stroke-dashoffset: 0;
+    fill-opacity: 0;
+  }
+  100% {
+    stroke-dashoffset: 1000;
+    fill-opacity: 0;
+  }
+}
+
+.animate-draw {
+  stroke-dasharray: 1000;
+  stroke-dashoffset: 1000;
+  animation: draw-stroke 2s ease-out forwards;
+}
+
+.animate-erase {
+  stroke-dasharray: 1000;
+  animation: erase-stroke 1s ease-in forwards;
 }
