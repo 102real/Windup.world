@@ -29,7 +29,7 @@ export default function About() {
 
       timeout = setTimeout(() => {
         setPhase('fade-in');
-      }, 500);
+      }, 1000);
     } else if (phase === 'fade-in') {
       // 1.5s: Fade in (opacity 0 to 1)
       setTextOpacity(1);
@@ -56,14 +56,14 @@ export default function About() {
     <section id="about" className="min-h-screen flex flex-col justify-between px-6 py-10 md:px-12 md:py-20 relative overflow-hidden">
       <div className="z-10 mt-20 md:mt-32 w-full max-w-[90vw] mx-auto">
         {/* WINDUP - Large */}
-        <h2 className="text-[15vh] md:text-[18vh] lg:text-[20vh] font-bold leading-[0.9] tracking-tighter animate-fade-in-up">
+        <h2 className="text-[16vw] md:text-[18vh] lg:text-[20vh] font-bold leading-[0.9] tracking-tighter animate-fade-in-up">
           WINDUP
         </h2>
 
         {/* the + rotating word - Smaller with underline only on word */}
         <div className="animate-fade-in-up [animation-delay:200ms] mt-2">
-          <div className="text-[5vh] md:text-[6.5vh] lg:text-[7.5vh] font-bold tracking-tighter flex items-baseline gap-x-4">
-            <span className="font-medium">the</span>
+          <div className="text-[6vw] md:text-[6.5vh] lg:text-[7.5vh] font-bold tracking-tighter flex items-baseline gap-x-4">
+            <span className="font-medium">&nbsp;&nbsp;the</span>
             <span className="relative inline-block">
               <span
                 ref={textContainerRef}
