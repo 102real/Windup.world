@@ -12,7 +12,7 @@ export default function LanguageToggle() {
     ];
 
     return (
-        <div className="fixed right-6 md:right-12 top-6 z-[60] flex gap-2 md:gap-3 items-center mix-blend-difference text-white">
+        <div className="fixed right-6 md:right-12 top-1/2 -translate-y-1/2 md:top-6 md:translate-y-0 z-[60] flex flex-col md:flex-row gap-2 md:gap-3 items-center mix-blend-difference text-white">
             {languages.map((lang, index) => {
                 const isActive = language === lang.code;
                 return (
@@ -30,7 +30,10 @@ export default function LanguageToggle() {
                             `}></span>
                         </button>
                         {index < languages.length - 1 && (
-                            <span className="text-xs md:text-sm font-bold opacity-100">/</span>
+                            <>
+                                <span className="hidden md:block text-xs md:text-sm font-bold opacity-100">/</span>
+                                <span className="block md:hidden w-3 h-[1px] bg-white opacity-40"></span>
+                            </>
                         )}
                     </React.Fragment>
                 );
