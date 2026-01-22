@@ -62,7 +62,7 @@ export default function About() {
 
         {/* the + rotating word - Smaller with underline only on word */}
         <div className="animate-fade-in-up [animation-delay:200ms] mt-2">
-          <div className="text-[6vw] md:text-[6.5vh] lg:text-[7.5vh] font-bold tracking-tighter flex items-baseline gap-x-4">
+          <div className="text-[6vw] md:text-[6.5vh] lg:text-[7.5vh] font-bold tracking-tighter flex items-baseline gap-x-2 md:gap-x-4">
             <span className="font-medium">&nbsp;the</span>
             <span className="relative inline-block">
               <span
