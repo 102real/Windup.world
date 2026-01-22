@@ -1,10 +1,12 @@
 'use client';
 
 import React, { useState, useEffect, useRef } from 'react';
+import { useLanguage } from '@/context/LanguageContext';
 
 const rotatingWords = ['Imagination', 'Interaction', 'Emotion', 'Life', 'World'];
 
 export default function About() {
+  const { t } = useLanguage();
   const [currentIndex, setCurrentIndex] = useState(0);
   const [phase, setPhase] = useState<'fade-in' | 'stay' | 'fade-out' | 'prepare'>('fade-in');
   const [textOpacity, setTextOpacity] = useState(0);
@@ -23,7 +25,7 @@ export default function About() {
     let timeout: NodeJS.Timeout;
 
     if (phase === 'prepare') {
-      // 0.5s: Adjust underline length for the next word
+      // 1.0s: Adjust underline length for the next word
       setCurrentIndex((prev) => (prev + 1) % rotatingWords.length);
       setTextOpacity(0);
 
@@ -93,11 +95,11 @@ export default function About() {
       <div className="z-10 flex flex-col items-end justify-end w-full max-w-[90vw] mx-auto gap-10 mt-20 md:mt-0 text-right">
         <div className="animate-fade-in-up [animation-delay:400ms]">
           <p className="text-sm font-bold tracking-[0.2em] uppercase mb-2 opacity-50">
-            Our Mission
+            {t.about.mission}
           </p>
           <p className="text-xl md:text-3xl font-medium">
-            세상을 바꾸는<br />
-            움직임
+            {t.about.movement}<br />
+            {t.about.movementSub}
           </p>
         </div>
       </div>
@@ -105,7 +107,7 @@ export default function About() {
       {/* Scroll Indicator */}
       <div className="absolute bottom-10 left-1/2 -translate-x-1/2 animate-reveal [animation-delay:800ms]">
         <div className="w-[1px] h-16 bg-current opacity-30 mx-auto mb-2"></div>
-        <span className="text-[10px] tracking-widest uppercase opacity-50">Scroll</span>
+        <span className="text-[10px] tracking-widest uppercase opacity-50">{t.about.scroll}</span>
       </div>
     </section>
   );

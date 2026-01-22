@@ -13,6 +13,9 @@ export const metadata: Metadata = {
   description: "세상을 바꾸는 조그만 움직임",
 };
 
+import { LanguageProvider } from "@/context/LanguageContext";
+import LanguageToggle from "@/components/ui/LanguageToggle";
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -21,7 +24,10 @@ export default function RootLayout({
   return (
     <html lang="ko">
       <body className={`${notoSansKR.variable} antialiased`}>
-        {children}
+        <LanguageProvider>
+          <LanguageToggle />
+          {children}
+        </LanguageProvider>
       </body>
     </html>
   );
