@@ -6,8 +6,8 @@ export default function Contact() {
       {/* Moving Text Background */}
       <div className="absolute top-0 left-0 w-full h-[60%] overflow-hidden opacity-[0.05] pointer-events-none flex items-center">
         <div className="whitespace-nowrap animate-marquee">
-          <span className="text-[8vw] md:text-[7vw] lg:text-[6vw] font-black uppercase mx-4">Join the Movement</span>
-          <span className="text-[8vw] md:text-[7vw] lg:text-[6vw] font-black uppercase mx-4">Join the Movement</span>
+          <span className="text-[15vh] md:text-[18vh] lg:text-[20vh] font-black uppercase mx-4">Join the Movement</span>
+          <span className="text-[15vh] md:text-[18vh] lg:text-[20vh] font-black uppercase mx-4">Join the Movement</span>
         </div>
       </div>
 

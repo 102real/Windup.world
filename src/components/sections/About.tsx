@@ -4,19 +4,20 @@ import React, { useState, useEffect, useRef } from 'react';
 
 const rotatingWords = ['Interaction', 'Imagination', 'Emotion', 'World', 'Future'];
 
-// Approximate character widths for calculating underline length
-const getWordWidth = (word: string) => {
-  // Rough estimate: each character is about 0.55em at this font size
-  return word.length * 0.55;
-};
-
 export default function About() {
   const [currentIndex, setCurrentIndex] = useState(0);
-  const [nextIndex, setNextIndex] = useState(1);
   const [phase, setPhase] = useState<'showing' | 'hiding' | 'transitioning'>('showing');
   const [textOpacity, setTextOpacity] = useState(1);
-  const [underlineWidth, setUnderlineWidth] = useState(getWordWidth(rotatingWords[0]));
-  const textRef = useRef<HTMLSpanElement>(null);
+  const textContainerRef = useRef<HTMLSpanElement>(null);
+  const [underlineWidth, setUnderlineWidth] = useState(0);
+
+  // Measure actual text width
+  useEffect(() => {
+    if (textContainerRef.current) {
+      const width = textContainerRef.current.offsetWidth;
+      setUnderlineWidth(width);
+    }
+  }, [currentIndex, phase]);
 
   useEffect(() => {
     let timeout: NodeJS.Timeout;
@@ -27,20 +28,18 @@ export default function About() {
         setPhase('hiding');
       }, 2000);
     } else if (phase === 'hiding') {
-      // Fade out text
+      // Fade out text (1.5s)
       setTextOpacity(0);
       timeout = setTimeout(() => {
         setPhase('transitioning');
-      }, 500);
+      }, 1500);
     } else if (phase === 'transitioning') {
-      // Change underline width to next word
+      // Change to next word
       const next = (currentIndex + 1) % rotatingWords.length;
-      setNextIndex(next);
-      setUnderlineWidth(getWordWidth(rotatingWords[next]));
+      setCurrentIndex(next);
       
+      // Wait for underline to adjust, then fade in
       timeout = setTimeout(() => {
-        // Update to next word and fade in
-        setCurrentIndex(next);
         setTextOpacity(1);
         setPhase('showing');
       }, 500);
@@ -51,32 +50,39 @@ export default function About() {
 
   return (
     <section id="about" className="min-h-screen flex flex-col justify-between px-6 py-10 md:px-12 md:py-20 relative overflow-hidden">
-      <div className="z-10 mt-20 md:mt-32 w-full max-w-[95vw] mx-auto">
-        <h2 className="text-[5.5vw] md:text-[6vw] lg:text-[5.5vw] font-bold leading-[1] tracking-tighter break-keep animate-fade-in-up flex items-baseline gap-x-[0.5vw] whitespace-nowrap">
-          <span>WINDUP</span>
-          <span className="font-medium">the</span>
-          <span className="relative inline-block">
-            <span 
-              ref={textRef}
-              className="transition-opacity duration-500"
-              style={{ opacity: textOpacity }}
-            >
-              {phase === 'transitioning' ? rotatingWords[nextIndex] : rotatingWords[currentIndex]}
-            </span>
-            {/* Animated underline */}
-            <span 
-              className="absolute bottom-0 left-0 h-[0.15vw] bg-current transition-all duration-500 ease-in-out"
-              style={{ width: `${underlineWidth}em` }}
-            ></span>
-          </span>
+      <div className="z-10 mt-20 md:mt-32 w-full max-w-[90vw] mx-auto">
+        {/* WINDUP - Large */}
+        <h2 className="text-[15vh] md:text-[18vh] lg:text-[20vh] font-bold leading-[0.9] tracking-tighter animate-fade-in-up">
+          WINDUP
         </h2>
+        
+        {/* the + rotating word - Smaller with underline only on word */}
+        <div className="animate-fade-in-up [animation-delay:200ms] mt-2">
+          <div className="text-[10vh] md:text-[12vh] lg:text-[14vh] font-bold tracking-tighter flex items-baseline gap-x-4">
+            <span className="font-medium">the</span>
+            <span className="relative inline-block">
+              <span 
+                ref={textContainerRef}
+                className="transition-opacity duration-[1500ms] ease-in-out"
+                style={{ opacity: textOpacity }}
+              >
+                {rotatingWords[currentIndex]}
+              </span>
+              {/* Animated underline - only under rotating word */}
+              <span 
+                className="absolute bottom-0 left-0 h-[4px] bg-current transition-all duration-500 ease-in-out"
+                style={{ width: underlineWidth > 0 ? `${underlineWidth}px` : '100%' }}
+              ></span>
+            </span>
+          </div>
+        </div>
       </div>
       
       {/* Single Line Marquee - Full Width Below WINDUP */}
-      <div className="absolute left-0 w-full overflow-hidden opacity-[0.07] pointer-events-none" style={{ top: 'calc(15vw + 8rem)', width: '100vw' }}>
+      <div className="absolute left-0 w-full overflow-hidden opacity-[0.07] pointer-events-none" style={{ top: 'calc(20vh + 16rem)', width: '100vw' }}>
         <div className="whitespace-nowrap animate-marquee flex items-center">
-          <span className="text-[8vw] md:text-[7vw] lg:text-[6vw] font-black uppercase mx-4">Interactions That Can Make the World Better</span>
-          <span className="text-[8vw] md:text-[7vw] lg:text-[6vw] font-black uppercase mx-4">Interactions That Can Make the World Better</span>
+          <span className="text-[15vh] md:text-[18vh] lg:text-[20vh] font-black uppercase mx-4">Interactions That Can Make the World Better</span>
+          <span className="text-[15vh] md:text-[18vh] lg:text-[20vh] font-black uppercase mx-4">Interactions That Can Make the World Better</span>
         </div>
       </div>
 
