@@ -8,7 +8,6 @@ export default function Contact() {
         <div className="whitespace-nowrap animate-marquee">
           <span className="text-[20vh] font-black uppercase mx-4">Join the Movement</span>
           <span className="text-[20vh] font-black uppercase mx-4">Join the Movement</span>
-          <span className="text-[20vh] font-black uppercase mx-4">Join the Movement</span>
         </div>
       </div>
 
