@@ -1,66 +1,82 @@
 'use client';
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 
 const rotatingWords = ['Interaction', 'Imagination', 'Emotion', 'World', 'Future'];
 
+// Approximate character widths for calculating underline length
+const getWordWidth = (word: string) => {
+  // Rough estimate: each character is about 0.55em at this font size
+  return word.length * 0.55;
+};
+
 export default function About() {
   const [currentIndex, setCurrentIndex] = useState(0);
-  const [displayedText, setDisplayedText] = useState('');
-  const [isTyping, setIsTyping] = useState(true);
+  const [nextIndex, setNextIndex] = useState(1);
+  const [phase, setPhase] = useState<'showing' | 'hiding' | 'transitioning'>('showing');
+  const [textOpacity, setTextOpacity] = useState(1);
+  const [underlineWidth, setUnderlineWidth] = useState(getWordWidth(rotatingWords[0]));
+  const textRef = useRef<HTMLSpanElement>(null);
 
   useEffect(() => {
-    const currentWord = rotatingWords[currentIndex];
-    
-    if (isTyping) {
-      if (displayedText.length < currentWord.length) {
-        const timeout = setTimeout(() => {
-          setDisplayedText(currentWord.slice(0, displayedText.length + 1));
-        }, 80);
-        return () => clearTimeout(timeout);
-      } else {
-        const timeout = setTimeout(() => {
-          setIsTyping(false);
-        }, 1500);
-        return () => clearTimeout(timeout);
-      }
-    } else {
-      if (displayedText.length > 0) {
-        const timeout = setTimeout(() => {
-          setDisplayedText(displayedText.slice(0, -1));
-        }, 40);
-        return () => clearTimeout(timeout);
-      } else {
-        setCurrentIndex((prev) => (prev + 1) % rotatingWords.length);
-        setIsTyping(true);
-      }
+    let timeout: NodeJS.Timeout;
+
+    if (phase === 'showing') {
+      // Show text for 2 seconds
+      timeout = setTimeout(() => {
+        setPhase('hiding');
+      }, 2000);
+    } else if (phase === 'hiding') {
+      // Fade out text
+      setTextOpacity(0);
+      timeout = setTimeout(() => {
+        setPhase('transitioning');
+      }, 500);
+    } else if (phase === 'transitioning') {
+      // Change underline width to next word
+      const next = (currentIndex + 1) % rotatingWords.length;
+      setNextIndex(next);
+      setUnderlineWidth(getWordWidth(rotatingWords[next]));
+      
+      timeout = setTimeout(() => {
+        // Update to next word and fade in
+        setCurrentIndex(next);
+        setTextOpacity(1);
+        setPhase('showing');
+      }, 500);
     }
-  }, [currentIndex, displayedText, isTyping]);
+
+    return () => clearTimeout(timeout);
+  }, [phase, currentIndex]);
 
   return (
     <section id="about" className="min-h-screen flex flex-col justify-between px-6 py-10 md:px-12 md:py-20 relative overflow-hidden">
-      <div className="z-10 mt-20 md:mt-32 w-full max-w-[90vw] mx-auto">
-        <h2 className="text-[15vh] md:text-[18vh] lg:text-[20vh] font-bold leading-[0.9] tracking-tighter break-keep animate-fade-in-up flex items-baseline gap-x-4 whitespace-nowrap">
+      <div className="z-10 mt-20 md:mt-32 w-full max-w-[95vw] mx-auto">
+        <h2 className="text-[5.5vw] md:text-[6vw] lg:text-[5.5vw] font-bold leading-[1] tracking-tighter break-keep animate-fade-in-up flex items-baseline gap-x-[0.5vw] whitespace-nowrap">
           <span>WINDUP</span>
-          <span className="text-[10vh] md:text-[12vh] lg:text-[14vh] font-medium">the</span>
-        </h2>
-        <div className="animate-fade-in-up [animation-delay:200ms] mt-2">
-          <div className="relative inline-block min-w-[45vw] md:min-w-[35vw]">
-            <span className="text-[12vh] md:text-[14vh] lg:text-[16vh] font-bold tracking-tighter">
-              {displayedText}
-              <span className="animate-pulse">|</span>
+          <span className="font-medium">the</span>
+          <span className="relative inline-block">
+            <span 
+              ref={textRef}
+              className="transition-opacity duration-500"
+              style={{ opacity: textOpacity }}
+            >
+              {phase === 'transitioning' ? rotatingWords[nextIndex] : rotatingWords[currentIndex]}
             </span>
-            {/* Fixed underline - always visible */}
-            <div className="absolute bottom-0 left-0 w-full h-[3px] bg-current"></div>
-          </div>
-        </div>
+            {/* Animated underline */}
+            <span 
+              className="absolute bottom-0 left-0 h-[0.15vw] bg-current transition-all duration-500 ease-in-out"
+              style={{ width: `${underlineWidth}em` }}
+            ></span>
+          </span>
+        </h2>
       </div>
       
       {/* Single Line Marquee - Full Width Below WINDUP */}
-      <div className="absolute left-0 w-full overflow-hidden opacity-[0.07] pointer-events-none" style={{ top: 'calc(20vh + 12rem)', width: '100vw' }}>
+      <div className="absolute left-0 w-full overflow-hidden opacity-[0.07] pointer-events-none" style={{ top: 'calc(15vw + 8rem)', width: '100vw' }}>
         <div className="whitespace-nowrap animate-marquee flex items-center">
-          <span className="text-[20vh] font-black uppercase mx-4">Interactions That Can Make the World Better</span>
-          <span className="text-[20vh] font-black uppercase mx-4">Interactions That Can Make the World Better</span>
+          <span className="text-[8vw] md:text-[7vw] lg:text-[6vw] font-black uppercase mx-4">Interactions That Can Make the World Better</span>
+          <span className="text-[8vw] md:text-[7vw] lg:text-[6vw] font-black uppercase mx-4">Interactions That Can Make the World Better</span>
         </div>
       </div>
 
