@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect, useRef } from 'react';
 
-const rotatingWords = ['Interaction', 'Imagination', 'Emotion', 'World', 'Future'];
+const rotatingWords = ['Imagination', 'Interaction', 'Emotion', 'Life', 'World'];
 
 export default function About() {
   const [currentIndex, setCurrentIndex] = useState(0);
