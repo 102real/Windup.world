@@ -24,10 +24,9 @@ export default function About() {
 
     if (phase === 'prepare') {
       // 0.5s: Adjust underline length for the next word
-      const next = (currentIndex + 1) % rotatingWords.length;
-      setCurrentIndex(next);
+      setCurrentIndex((prev) => (prev + 1) % rotatingWords.length);
       setTextOpacity(0);
-      
+
       timeout = setTimeout(() => {
         setPhase('fade-in');
       }, 500);
@@ -51,7 +50,7 @@ export default function About() {
     }
 
     return () => clearTimeout(timeout);
-  }, [phase, currentIndex]);
+  }, [phase]);
 
   return (
     <section id="about" className="min-h-screen flex flex-col justify-between px-6 py-10 md:px-12 md:py-20 relative overflow-hidden">
@@ -60,13 +59,13 @@ export default function About() {
         <h2 className="text-[15vh] md:text-[18vh] lg:text-[20vh] font-bold leading-[0.9] tracking-tighter animate-fade-in-up">
           WINDUP
         </h2>
-        
+
         {/* the + rotating word - Smaller with underline only on word */}
         <div className="animate-fade-in-up [animation-delay:200ms] mt-2">
-          <div className="text-[7vh] md:text-[9vh] lg:text-[11vh] font-bold tracking-tighter flex items-baseline gap-x-4">
+          <div className="text-[5vh] md:text-[6.5vh] lg:text-[7.5vh] font-bold tracking-tighter flex items-baseline gap-x-4">
             <span className="font-medium">the</span>
             <span className="relative inline-block">
-              <span 
+              <span
                 ref={textContainerRef}
                 className="transition-opacity duration-[1500ms] ease-in-out"
                 style={{ opacity: textOpacity }}
@@ -74,7 +73,7 @@ export default function About() {
                 {rotatingWords[currentIndex]}
               </span>
               {/* Animated underline - only under rotating word */}
-              <span 
+              <span
                 className="absolute bottom-0 left-0 h-[4px] bg-current transition-all duration-500 ease-in-out"
                 style={{ width: underlineWidth > 0 ? `${underlineWidth}px` : '100%' }}
               ></span>
@@ -82,7 +81,7 @@ export default function About() {
           </div>
         </div>
       </div>
-      
+
       {/* Single Line Marquee - Full Width Below WINDUP */}
       <div className="absolute left-0 w-full overflow-hidden opacity-[0.07] pointer-events-none" style={{ top: 'calc(20vh + 16rem)', width: '100vw' }}>
         <div className="whitespace-nowrap animate-marquee flex items-center">
@@ -102,7 +101,7 @@ export default function About() {
           </p>
         </div>
       </div>
-      
+
       {/* Scroll Indicator */}
       <div className="absolute bottom-10 left-1/2 -translate-x-1/2 animate-reveal [animation-delay:800ms]">
         <div className="w-[1px] h-16 bg-current opacity-30 mx-auto mb-2"></div>
