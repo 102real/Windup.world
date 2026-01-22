@@ -6,33 +6,36 @@ const rotatingWords = ['Interaction', 'Imagination', 'Emotion', 'World', 'Future
 
 export default function About() {
   const [currentIndex, setCurrentIndex] = useState(0);
-  const [animationPhase, setAnimationPhase] = useState<'drawing' | 'waiting' | 'erasing'>('drawing');
-  const [key, setKey] = useState(0);
+  const [displayedText, setDisplayedText] = useState('');
+  const [isTyping, setIsTyping] = useState(true);
 
   useEffect(() => {
-    let timeout: NodeJS.Timeout;
+    const currentWord = rotatingWords[currentIndex];
     
-    if (animationPhase === 'drawing') {
-      // Wait for draw animation (2s) then move to waiting
-      timeout = setTimeout(() => {
-        setAnimationPhase('waiting');
-      }, 2000);
-    } else if (animationPhase === 'waiting') {
-      // Wait 1.5s then start erasing
-      timeout = setTimeout(() => {
-        setAnimationPhase('erasing');
-      }, 1500);
-    } else if (animationPhase === 'erasing') {
-      // Wait for erase animation (1s) then move to next word
-      timeout = setTimeout(() => {
+    if (isTyping) {
+      if (displayedText.length < currentWord.length) {
+        const timeout = setTimeout(() => {
+          setDisplayedText(currentWord.slice(0, displayedText.length + 1));
+        }, 80);
+        return () => clearTimeout(timeout);
+      } else {
+        const timeout = setTimeout(() => {
+          setIsTyping(false);
+        }, 1500);
+        return () => clearTimeout(timeout);
+      }
+    } else {
+      if (displayedText.length > 0) {
+        const timeout = setTimeout(() => {
+          setDisplayedText(displayedText.slice(0, -1));
+        }, 40);
+        return () => clearTimeout(timeout);
+      } else {
         setCurrentIndex((prev) => (prev + 1) % rotatingWords.length);
-        setKey((prev) => prev + 1);
-        setAnimationPhase('drawing');
-      }, 1000);
+        setIsTyping(true);
+      }
     }
-    
-    return () => clearTimeout(timeout);
-  }, [animationPhase]);
+  }, [currentIndex, displayedText, isTyping]);
 
   return (
     <section id="about" className="min-h-screen flex flex-col justify-between px-6 py-10 md:px-12 md:py-20 relative overflow-hidden">
@@ -43,29 +46,12 @@ export default function About() {
         </h2>
         <div className="animate-fade-in-up [animation-delay:200ms] mt-2">
           <div className="relative inline-block min-w-[45vw] md:min-w-[35vw]">
-            <svg 
-              key={key}
-              viewBox="0 0 500 120" 
-              className="w-full h-[12vh] md:h-[14vh] lg:h-[16vh] overflow-visible"
-              preserveAspectRatio="xMinYMid meet"
-            >
-              <text
-                x="0"
-                y="85"
-                className={animationPhase === 'erasing' ? 'animate-erase' : 'animate-draw'}
-                style={{
-                  fontFamily: 'var(--font-great-vibes)',
-                  fontSize: '90px',
-                  fill: 'currentColor',
-                  stroke: 'currentColor',
-                  strokeWidth: '1px',
-                }}
-              >
-                {rotatingWords[currentIndex]}
-              </text>
-            </svg>
+            <span className="text-[12vh] md:text-[14vh] lg:text-[16vh] font-bold tracking-tighter">
+              {displayedText}
+              <span className="animate-pulse">|</span>
+            </span>
             {/* Fixed underline - always visible */}
-            <div className="absolute bottom-2 left-0 w-full h-[3px] bg-current"></div>
+            <div className="absolute bottom-0 left-0 w-full h-[3px] bg-current"></div>
           </div>
         </div>
       </div>
@@ -98,4 +84,3 @@ export default function About() {
     </section>
   );
 }
-

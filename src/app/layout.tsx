@@ -1,17 +1,11 @@
 import type { Metadata } from "next";
-import { Noto_Sans_KR, Great_Vibes } from "next/font/google";
+import { Noto_Sans_KR } from "next/font/google";
 import "./globals.css";
 
 const notoSansKR = Noto_Sans_KR({
   variable: "--font-noto-sans-kr",
   subsets: ["latin"],
   weight: ["100", "300", "400", "500", "700", "900"],
-});
-
-const greatVibes = Great_Vibes({
-  variable: "--font-great-vibes",
-  subsets: ["latin"],
-  weight: ["400"],
 });
 
 export const metadata: Metadata = {
@@ -26,9 +20,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="ko">
-      <body
-        className={`${notoSansKR.variable} ${greatVibes.variable} antialiased`}
-      >
+      <body className={`${notoSansKR.variable} antialiased`}>
         {children}
       </body>
     </html>
