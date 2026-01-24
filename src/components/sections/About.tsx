@@ -89,6 +89,8 @@ export default function About() {
         <div className="whitespace-nowrap animate-marquee flex items-center">
           <span className="text-[15vh] md:text-[18vh] lg:text-[20vh] font-black uppercase mx-4">Interactions That Can Make the World Better</span>
           <span className="text-[15vh] md:text-[18vh] lg:text-[20vh] font-black uppercase mx-4">Interactions That Can Make the World Better</span>
+          <span className="text-[15vh] md:text-[18vh] lg:text-[20vh] font-black uppercase mx-4">Interactions That Can Make the World Better</span>
+          <span className="text-[15vh] md:text-[18vh] lg:text-[20vh] font-black uppercase mx-4">Interactions That Can Make the World Better</span>
         </div>
       </div>
 
