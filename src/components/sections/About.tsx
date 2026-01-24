@@ -3,7 +3,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { useLanguage } from '@/context/LanguageContext';
 
-const rotatingWords = ['Imagination', 'Interaction', 'Emotion', 'Life', 'World'];
+const rotatingWords = ['Interaction', 'Imagination', 'Experience', 'Emotion', 'World', 'Moment'];
 
 export default function About() {
   const { t } = useLanguage();
@@ -76,7 +76,7 @@ export default function About() {
               </span>
               {/* Animated underline - only under rotating word */}
               <span
-                className="absolute bottom-0 left-0 h-[2px] md:h-[3px] lg:h-[4px] bg-current transition-all duration-500 ease-in-out"
+                className="absolute bottom-0 left-0 h-[1px] md:h-[3px] lg:h-[4px] bg-current transition-all duration-500 ease-in-out"
                 style={{ width: underlineWidth > 0 ? `${underlineWidth}px` : '100%' }}
               ></span>
             </span>
