@@ -70,8 +70,8 @@ const translations: Record<Language, TranslationData> = {
         },
         about: {
             mission: 'Our Mission',
-            movement: 'Small Winding to',
-            movementSub: 'Move the World Better',
+            movement: 'Small Winding',
+            movementSub: 'to Move the World Better',
             scroll: 'Scroll',
         },
         projects: {
