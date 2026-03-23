@@ -7,12 +7,12 @@ const projects = [
   {
     id: "01",
     name: "Showhand",
-    tags: ["2026 Q1", "Roguelike", "Action", "Poker"]
+    tags: ["2026 Q2", "Roguelike", "Action", "Poker"]
   },
   {
     id: "02",
-    name: "Project G",
-    tags: ["2026 Q2", "Co-op", "Puzzle", "Platformer"]
+    name: "OMG : Oh My Gravity",
+    tags: ["2026 Q3", "Co-op", "Puzzle", "Platformer"]
   }
 ];
 

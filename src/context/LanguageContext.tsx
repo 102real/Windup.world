@@ -51,7 +51,7 @@ const translations: Record<Language, TranslationData> = {
                     direction: '마지막 패를 공개할 시간',
                     description: '모든 것이 불타 사라지는 전장, 침묵을 깨는 것은 카드 섞이는 소리뿐.\n운조차 실력이 되는 이곳에서 당신의 직감을 시험해 보세요.\n이 판을 뒤집을 주인공은 당신입니다.',
                 },
-                'Project G': {
+                'OMG : Oh My Gravity': {
                     direction: '중력을 뒤집을 시간',
                     description: '동료들과 함께 중력건을 쏘아 길을 만들고, 함정과 절벽을 넘어 앞으로 나아가세요.\n이 여정을 완성할 주인공은 당신의 팀입니다.',
                 },
@@ -81,7 +81,7 @@ const translations: Record<Language, TranslationData> = {
                     direction: 'Time to reveal the last hand',
                     description: 'A battlefield where everything burns away, only the sound of shuffling cards breaks the silence.\nTest your intuition in a place where even luck becomes a skill.\nYou are the one to turn the tide.',
                 },
-                'Project G': {
+                'OMG : Oh My Gravity': {
                     direction: 'Time to flip gravity',
                     description: 'Shoot gravity guns with your comrades to create paths, and move forward across traps and cliffs.\nYour team is the one to complete this journey.',
                 },
