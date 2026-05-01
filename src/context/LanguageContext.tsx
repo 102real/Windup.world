@@ -21,7 +21,7 @@ interface TranslationData {
         items: {
             [key: string]: {
                 direction: string;
-                description: string;
+                description?: string;
             } | undefined;
         };
     };
@@ -55,6 +55,9 @@ const translations: Record<Language, TranslationData> = {
                     direction: '중력을 뒤집을 시간',
                     description: '동료들과 함께 중력건을 쏘아 길을 만들고, 함정과 절벽을 넘어 앞으로 나아가세요.\n이 여정을 완성할 주인공은 당신의 팀입니다.',
                 },
+                'Project C': {
+                    direction: '곧 프로젝트가 공개됩니다',
+                },
             },
         },
         contact: {
@@ -84,6 +87,9 @@ const translations: Record<Language, TranslationData> = {
                 'Project G': {
                     direction: 'Time to flip gravity',
                     description: 'Shoot gravity guns with your comrades to create paths, and move forward across traps and cliffs.\nYour team is the one to complete this journey.',
+                },
+                'Project C': {
+                    direction: 'The project will be revealed soon.',
                 },
             },
         },

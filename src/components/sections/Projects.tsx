@@ -31,7 +31,7 @@ const projects: Project[] = [
   {
     id: "03",
     name: "Project C",
-    tags: ["2026 Q4"]
+    tags: ["2026 Q4", "TBA"]
   }
 ];
 
@@ -98,15 +98,15 @@ export default function Projects() {
                       </span>
                     ))}
                   </div>
-                  {itemT && (
-                    <>
-                      <h4 className="text-xl md:text-2xl font-medium">
-                        {itemT.direction}
-                      </h4>
-                      <p className="text-sm md:text-base leading-relaxed break-keep whitespace-pre-line">
-                        {itemT.description}
-                      </p>
-                    </>
+                  {itemT?.direction && (
+                    <h4 className="text-xl md:text-2xl font-medium">
+                      {itemT.direction}
+                    </h4>
+                  )}
+                  {itemT?.description && (
+                    <p className="text-sm md:text-base leading-relaxed break-keep whitespace-pre-line">
+                      {itemT.description}
+                    </p>
                   )}
                   {project.link && (
                     <a
