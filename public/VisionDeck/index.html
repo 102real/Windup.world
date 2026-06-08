@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>WINDUP Vision Deck</title>
-  <meta name="description" content="WINDUP의 게임 현황, 교차 세계관, For The Queen 프로젝트 킥오프를 정리한 16:9 발표형 HTML 덱입니다.">
+  <meta name="description" content="WINDUP의 게임 현황, 교차 세계관, For The Queen 프로젝트 킥오프와 장기 페이즈 로드맵을 정리한 16:9 발표형 HTML 덱입니다.">
   <style>
     :root {
       color-scheme: light;
@@ -595,6 +595,127 @@
       font-weight: 900;
     }
 
+    .phase-roadmap,
+    .phase-projects {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 18px;
+      align-items: stretch;
+      min-height: 0;
+    }
+
+    .phase-card {
+      min-height: 360px;
+      display: grid;
+      grid-template-rows: auto auto 1fr;
+      gap: 16px;
+      border: 1px solid var(--line);
+      background: var(--white);
+      padding: 20px;
+    }
+
+    .phase-card.one {
+      border-top: 6px solid var(--green);
+    }
+
+    .phase-card.two {
+      border-top: 6px solid var(--gold);
+    }
+
+    .phase-tag {
+      display: inline-flex;
+      width: fit-content;
+      border: 1px solid var(--line);
+      padding: 5px 8px;
+      color: var(--muted);
+      font-size: 10px;
+      font-weight: 900;
+      text-transform: uppercase;
+    }
+
+    .phase-card h3,
+    .phase-project-copy h3 {
+      margin-bottom: 8px;
+      font-size: 28px;
+      text-transform: uppercase;
+    }
+
+    .phase-card p,
+    .phase-project-copy p {
+      margin-bottom: 0;
+      color: var(--muted);
+      font-size: 14px;
+      font-weight: 780;
+      word-break: keep-all;
+    }
+
+    .phase-list {
+      display: grid;
+      gap: 9px;
+      align-content: end;
+    }
+
+    .phase-item {
+      display: grid;
+      grid-template-columns: 104px 1fr;
+      gap: 12px;
+      align-items: center;
+      border: 1px solid var(--line);
+      background: var(--paper);
+      padding: 10px 12px;
+    }
+
+    .phase-item b {
+      font-size: 12px;
+      line-height: 1.05;
+      text-transform: uppercase;
+    }
+
+    .phase-item span {
+      color: var(--muted);
+      font-size: 12px;
+      font-weight: 780;
+      word-break: keep-all;
+    }
+
+    .phase-project {
+      min-height: 414px;
+      display: grid;
+      grid-template-rows: 220px 1fr;
+      border: 1px solid var(--line);
+      background: var(--white);
+      overflow: hidden;
+    }
+
+    .phase-project img {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+    }
+
+    .phase-project-copy {
+      display: grid;
+      grid-template-rows: auto auto 1fr;
+      gap: 10px;
+      padding: 18px;
+    }
+
+    .phase-project-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 7px;
+      align-self: end;
+    }
+
+    .phase-project-meta span {
+      border: 1px solid var(--line);
+      padding: 4px 7px;
+      color: var(--muted);
+      font-size: 10px;
+      font-weight: 900;
+      text-transform: uppercase;
+    }
+
     .loop {
       display: grid;
       grid-template-columns: repeat(6, minmax(0, 1fr));
@@ -804,6 +925,42 @@
         height: 54px;
         font-size: 22px;
       }
+
+      .phase-card {
+        min-height: 286px;
+        padding: 15px;
+        gap: 10px;
+      }
+
+      .phase-card h3,
+      .phase-project-copy h3 {
+        font-size: 22px;
+      }
+
+      .phase-card p,
+      .phase-project-copy p,
+      .phase-item span {
+        font-size: 11px;
+      }
+
+      .phase-item {
+        grid-template-columns: 88px 1fr;
+        gap: 9px;
+        padding: 8px 10px;
+      }
+
+      .phase-project {
+        min-height: 318px;
+        grid-template-rows: 148px 1fr;
+      }
+
+      .phase-project img {
+        height: 148px;
+      }
+
+      .phase-project-copy {
+        padding: 13px;
+      }
     }
 
     @media (max-width: 760px) {
@@ -855,6 +1012,8 @@
       .story-points,
       .universe-map,
       .bridge,
+      .phase-roadmap,
+      .phase-projects,
       .loop,
       .expansion-grid {
         grid-template-columns: 1fr;
@@ -877,6 +1036,11 @@
         height: 56px;
         margin: 0 auto;
       }
+
+      .phase-card,
+      .phase-project {
+        min-height: auto;
+      }
     }
   </style>
 </head>
@@ -897,7 +1061,7 @@
       <div class="slide-inner">
         <header class="slide-head">
           <span class="kicker">WINDUP</span>
-          <span>01 / 16</span>
+          <span>01 / 18</span>
         </header>
         <div class="cover-grid">
           <div>
@@ -911,7 +1075,7 @@
           </div>
         </div>
         <footer class="slide-foot">
-          <span>Project Status + Shared Universe</span>
+          <span>Project Status + Shared Universe + Phase Roadmap</span>
           <span>2026</span>
         </footer>
       </div>
@@ -923,11 +1087,11 @@
       <div class="slide-inner">
         <header class="slide-head">
           <span class="kicker">Project Status Map</span>
-          <span>02 / 16</span>
+          <span>02 / 18</span>
         </header>
         <div>
           <h2>프로젝트 현황</h2>
-          <p class="lead">네 게임은 서로 다른 장르와 제작 단계에 있지만, 모두 “작은 핵심 규칙이 반복과 확장으로 커지는 경험”을 중심에 둡니다.</p>
+          <p class="lead">1페이즈의 네 게임은 서로 다른 장르와 제작 단계에 있지만, 모두 “작은 핵심 규칙이 반복과 확장으로 커지는 경험”을 중심에 둡니다.</p>
         </div>
         <div class="status-grid">
           <article class="status-card">
@@ -965,7 +1129,7 @@
         </div>
         <footer class="slide-foot">
           <span>Game Status First</span>
-          <span>World Context Next</span>
+          <span>Phase Roadmap Next</span>
         </footer>
       </div>
     </div>
@@ -976,7 +1140,7 @@
       <div class="slide-inner">
         <header class="slide-head">
           <span class="kicker">SHOWHAND Status</span>
-          <span>03 / 16</span>
+          <span>03 / 18</span>
         </header>
         <div class="story-grid">
           <div>
@@ -1003,7 +1167,7 @@
       <div class="slide-inner">
         <header class="slide-head">
           <span class="kicker">Oh My Gravity Status</span>
-          <span>04 / 16</span>
+          <span>04 / 18</span>
         </header>
         <div class="story-grid">
           <div>
@@ -1030,7 +1194,7 @@
       <div class="slide-inner">
         <header class="slide-head">
           <span class="kicker">CLIMB Status</span>
-          <span>05 / 16</span>
+          <span>05 / 18</span>
         </header>
         <div class="story-grid">
           <div>
@@ -1057,7 +1221,7 @@
       <div class="slide-inner">
         <header class="slide-head">
           <span class="kicker">For The Queen Status</span>
-          <span>06 / 16</span>
+          <span>06 / 18</span>
         </header>
         <div class="story-grid">
           <div>
@@ -1084,11 +1248,11 @@
       <div class="slide-inner">
         <header class="slide-head">
           <span class="kicker">Universe Map</span>
-          <span>07 / 16</span>
+          <span>07 / 18</span>
         </header>
         <div>
           <h2>두 개의 유니버스</h2>
-          <p class="lead">Future Universe는 Bob의 상승 욕망이 회사와 우주 노동으로 이어지는 축이고, Fantasy Universe는 붉은 여왕의 통제와 형벌 시스템을 다루는 축입니다.</p>
+          <p class="lead">Future Universe는 Bob의 상승 욕망이 회사와 우주 노동으로 이어지는 축이고, Fantasy Universe는 붉은 여왕의 통제와 탈출, 반격을 다루는 축입니다.</p>
         </div>
         <div class="universe-map">
           <article class="universe future">
@@ -1103,7 +1267,7 @@
               </div>
               <div class="node" data-placeholder="bob-company">
                 <img src="assets/bob-company-generated.png" alt="Bob Company concept image">
-                <div><b>Bob Company</b><p>정상 너머 달을 바라본 욕망이 회사의 출발점이 됩니다.</p></div>
+                <div><b>BOB Company</b><p>음료 판매 회사가 우주기업으로 커지는 과정을 Phase 2 게임으로 다룹니다.</p></div>
               </div>
               <div class="node">
                 <img src="assets/omg-title.png" alt="Oh My Gravity">
@@ -1115,7 +1279,7 @@
           <article class="universe fantasy">
             <div class="universe-title">
               <b>Fantasy Universe</b>
-              <span>Red Queen → SHOWHAND → For The Queen</span>
+              <span>Red Queen → SHOWHAND → For The Queen → DASHIFT</span>
             </div>
             <div class="timeline">
               <div class="node" data-placeholder="red-queen">
@@ -1129,6 +1293,10 @@
               <div class="node">
                 <img src="assets/for-the-queen-title.png" alt="For The Queen">
                 <div><b>For The Queen</b><p>여왕의 검열실에서 선물을 판정하고 폐기하는 시스템을 플레이합니다.</p></div>
+              </div>
+              <div class="node">
+                <img src="assets/DASHIFT.png" alt="DASHIFT concept image">
+                <div><b>DASHIFT</b><p>SHOWHAND의 세계에서 빠져나온 주인공이 여왕과 카드로 전투합니다.</p></div>
               </div>
             </div>
           </article>
@@ -1146,7 +1314,7 @@
       <div class="slide-inner">
         <header class="slide-head">
           <span class="kicker">CLIMB World</span>
-          <span>08 / 16</span>
+          <span>08 / 18</span>
         </header>
         <div class="story-grid">
           <div>
@@ -1173,7 +1341,7 @@
       <div class="slide-inner">
         <header class="slide-head">
           <span class="kicker">OMG World</span>
-          <span>09 / 16</span>
+          <span>09 / 18</span>
         </header>
         <div class="story-grid">
           <div>
@@ -1200,7 +1368,7 @@
       <div class="slide-inner">
         <header class="slide-head">
           <span class="kicker">SHOWHAND World</span>
-          <span>10 / 16</span>
+          <span>10 / 18</span>
         </header>
         <div class="story-grid">
           <div>
@@ -1227,7 +1395,7 @@
       <div class="slide-inner">
         <header class="slide-head">
           <span class="kicker">For The Queen World</span>
-          <span>11 / 16</span>
+          <span>11 / 18</span>
         </header>
         <div class="story-grid">
           <div>
@@ -1254,7 +1422,7 @@
       <div class="slide-inner">
         <header class="slide-head">
           <span class="kicker">Crossed Worlds</span>
-          <span>12 / 16</span>
+          <span>12 / 18</span>
         </header>
         <div>
           <h2>두 세계는<br>서로의 흔적으로 연결된다</h2>
@@ -1281,9 +1449,106 @@
     </div>
   </section>
 
+  <section class="slide" aria-label="WINDUP Phase Roadmap">
+    <div class="frame">
+      <div class="slide-inner">
+        <header class="slide-head">
+          <span class="kicker">WINDUP Phase Roadmap</span>
+          <span>13 / 18</span>
+        </header>
+        <div>
+          <h2>1페이즈는 네 개의 시작점,<br>2페이즈는 두 개의 확장</h2>
+          <p class="lead">WINDUP은 먼저 서로 다른 장르의 핵심 규칙을 시장에 꺼내고, 이후 가장 강한 세계관 연결부를 후속작으로 키워 하나의 장기 IP 라인업을 만듭니다.</p>
+        </div>
+        <div class="phase-roadmap">
+          <article class="phase-card one">
+            <span class="phase-tag">Phase 1 / Foundation</span>
+            <div>
+              <h3>네 개의 게임으로<br>플레이 감각을 검증</h3>
+              <p>SHOWHAND, Oh My Gravity, CLIMB, For The Queen은 각각 다른 장르지만 반복, 판단, 물리, 성장이라는 WINDUP식 핵심 루프를 공유합니다.</p>
+            </div>
+            <div class="phase-list">
+              <div class="phase-item"><b>SHOWHAND</b><span>포커 덱빌딩 액션 로그라이트</span></div>
+              <div class="phase-item"><b>OMG</b><span>중력건 기반 4인 코옵 물리 퍼즐</span></div>
+              <div class="phase-item"><b>CLIMB</b><span>등산, 판매, 성장의 인크리멘탈 루프</span></div>
+              <div class="phase-item"><b>For The Queen</b><span>1인칭 3D 물리 검열/자동화 게임</span></div>
+            </div>
+          </article>
+          <article class="phase-card two">
+            <span class="phase-tag">Phase 2 / Expansion</span>
+            <div>
+              <h3>후속작으로<br>세계관을 장르화</h3>
+              <p>Phase 2는 Phase 1에서 만든 두 축을 더 큰 장르로 확장합니다. Fantasy 축은 여왕과 카드 전투로, Future 축은 Bob Company의 우주 시뮬레이션으로 이어집니다.</p>
+            </div>
+            <div class="phase-list">
+              <div class="phase-item"><b>DASHIFT</b><span>SHOWHAND와 For The Queen 이후의 카드 덱빌딩 플랫포머 액션 어드벤처</span></div>
+              <div class="phase-item"><b>BOB Company</b><span>CLIMB와 OMG 사이, 음료 회사가 우주기업이 되는 우주 시뮬레이터</span></div>
+              <div class="phase-item"><b>Goal</b><span>각 세계의 전후 관계를 게임플레이로 직접 경험하게 만드는 장기 IP 확장</span></div>
+            </div>
+          </article>
+        </div>
+        <footer class="slide-foot">
+          <span>Four Games First</span>
+          <span>Two Sequel Bridges Next</span>
+        </footer>
+      </div>
+    </div>
+  </section>
+
+  <section class="slide" aria-label="Phase 2 Projects">
+    <div class="frame">
+      <div class="slide-inner">
+        <header class="slide-head">
+          <span class="kicker">Phase 2 Projects</span>
+          <span>14 / 18</span>
+        </header>
+        <div>
+          <h2>Phase 2는<br>두 세계의 후속작</h2>
+          <p class="lead">DASHIFT와 BOB Company는 단순한 추가 타이틀이 아니라, Phase 1에서 만든 세계의 원인과 결과를 플레이어가 직접 조작하는 후속 프로젝트입니다.</p>
+        </div>
+        <div class="phase-projects">
+          <article class="phase-project">
+            <img src="assets/DASHIFT.png" alt="DASHIFT concept image">
+            <div class="phase-project-copy">
+              <span class="phase-tag">Fantasy Universe Sequel</span>
+              <div>
+                <h3>DASHIFT</h3>
+                <p>SHOWHAND의 세계에서 빠져나온 주인공이 붉은 여왕의 질서에 도전합니다. Dash와 Shift 카드로 이동, 전투, 세계 전환을 조합하는 카드 덱빌딩 플랫포머 액션 어드벤처입니다.</p>
+              </div>
+              <div class="phase-project-meta">
+                <span>Card Deckbuilding</span>
+                <span>Platformer Action</span>
+                <span>Queen Battle</span>
+              </div>
+            </div>
+          </article>
+          <article class="phase-project">
+            <img src="assets/bob-company-generated.png" alt="BOB Company concept image">
+            <div class="phase-project-copy">
+              <span class="phase-tag">Future Universe Bridge</span>
+              <div>
+                <h3>BOB Company</h3>
+                <p>CLIMB 이후, 음료를 팔던 Bob의 회사가 어떻게 우주기업으로 성장했는지를 다룹니다. 자원, 물류, 궤도 시설을 확장하며 OMG 이전 시대를 만드는 우주 시뮬레이터입니다.</p>
+              </div>
+              <div class="phase-project-meta">
+                <span>Space Simulator</span>
+                <span>Company Growth</span>
+                <span>CLIMB to OMG</span>
+              </div>
+            </div>
+          </article>
+        </div>
+        <footer class="slide-foot">
+          <span>DASHIFT: Outrun The Queen</span>
+          <span>BOB Company: From Drinks To Orbit</span>
+        </footer>
+      </div>
+    </div>
+  </section>
+
   <section class="slide" aria-label="For The Queen Title">
     <div class="frame title-only" style="--bg: url('assets/for-the-queen-title.png');">
-      <span class="poster-count">13 / 16</span>
+      <span class="poster-count">15 / 18</span>
     </div>
   </section>
 
@@ -1292,7 +1557,7 @@
       <div class="slide-inner">
         <header class="slide-head">
           <span class="kicker">For The Queen Core Loop</span>
-          <span>14 / 16</span>
+          <span>16 / 18</span>
         </header>
         <div>
           <h2>소환, 해체,<br>판정, 확장</h2>
@@ -1319,7 +1584,7 @@
       <div class="slide-inner">
         <header class="slide-head">
           <span class="kicker">Inspection Rules</span>
-          <span>15 / 16</span>
+          <span>17 / 18</span>
         </header>
         <div>
           <h2>검수는 정답을<br>찾아가는 판정 게임</h2>
@@ -1384,7 +1649,7 @@
       <div class="slide-inner">
         <header class="slide-head">
           <span class="kicker">For The Queen Expansion</span>
-          <span>16 / 16</span>
+          <span>18 / 18</span>
         </header>
         <div>
           <h2>작은 검열실에서<br>자동화 공장으로</h2>

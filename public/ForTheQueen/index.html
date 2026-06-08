@@ -1,0 +1,1758 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>For The Queen Prototype</title>
+  <meta name="description" content="WINDUP For The Queen 검열실 핵심 루프를 테스트하는 정적 HTML 프로토타입입니다.">
+  <style>
+    :root {
+      color-scheme: dark;
+      --ink: #f7efe1;
+      --paper: #e7d9bd;
+      --paper-deep: #cbb58e;
+      --charcoal: #151311;
+      --panel: rgba(28, 25, 21, 0.92);
+      --panel-soft: rgba(45, 39, 32, 0.86);
+      --line: rgba(247, 239, 225, 0.18);
+      --line-strong: rgba(247, 239, 225, 0.34);
+      --muted: rgba(247, 239, 225, 0.68);
+      --red: #b83c38;
+      --red-hot: #ee6a55;
+      --gold: #d7a747;
+      --green: #63a66d;
+      --teal: #4fa6a0;
+      --blue: #6487bf;
+      --shadow: rgba(0, 0, 0, 0.48);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      min-height: 100%;
+      background: var(--charcoal);
+    }
+
+    body {
+      min-height: 100vh;
+      margin: 0;
+      background:
+        linear-gradient(110deg, rgba(12, 10, 9, 0.9), rgba(23, 19, 15, 0.8)),
+        url("../VisionDeck/assets/for-the-queen-title.png") center / cover fixed no-repeat;
+      color: var(--ink);
+      font-family: Pretendard, "Noto Sans KR", "Apple SD Gothic Neo", "Malgun Gothic", Inter, Arial, sans-serif;
+      line-height: 1.45;
+      letter-spacing: 0;
+      overflow-x: hidden;
+    }
+
+    body.locked {
+      overflow: hidden;
+    }
+
+    button,
+    input {
+      font: inherit;
+      letter-spacing: 0;
+    }
+
+    button {
+      color: inherit;
+    }
+
+    img {
+      display: block;
+      max-width: 100%;
+    }
+
+    .password-gate {
+      min-height: 100vh;
+      display: grid;
+      place-items: center;
+      padding: 24px;
+      background:
+        linear-gradient(rgba(12, 10, 9, 0.58), rgba(12, 10, 9, 0.88)),
+        url("../VisionDeck/assets/for-the-queen-title.png") center / cover no-repeat;
+    }
+
+    body:not(.locked) .password-gate {
+      display: none;
+    }
+
+    body.locked .prototype {
+      display: none;
+    }
+
+    .password-panel {
+      width: min(430px, 100%);
+      border: 1px solid rgba(247, 239, 225, 0.24);
+      background: rgba(16, 13, 11, 0.9);
+      box-shadow: 0 28px 90px rgba(0, 0, 0, 0.56);
+      padding: 28px;
+    }
+
+    .password-panel h1 {
+      margin: 0 0 8px;
+      font-size: 30px;
+      line-height: 1.08;
+      text-transform: uppercase;
+    }
+
+    .password-panel p {
+      margin: 0 0 20px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .password-form {
+      display: grid;
+      gap: 12px;
+    }
+
+    .password-form input {
+      min-height: 46px;
+      width: 100%;
+      border: 1px solid var(--line-strong);
+      background: rgba(255, 255, 255, 0.08);
+      color: var(--ink);
+      padding: 0 14px;
+      outline: none;
+    }
+
+    .password-form input:focus {
+      border-color: var(--gold);
+      box-shadow: 0 0 0 3px rgba(215, 167, 71, 0.16);
+    }
+
+    .password-form button {
+      min-height: 46px;
+      border: 0;
+      background: var(--paper);
+      color: #17110d;
+      font-weight: 900;
+      cursor: pointer;
+    }
+
+    .password-error {
+      min-height: 18px;
+      color: #ffb4a8;
+      font-size: 13px;
+    }
+
+    .prototype {
+      min-height: 100vh;
+      padding: 18px;
+      background:
+        radial-gradient(circle at 24% 18%, rgba(215, 167, 71, 0.12), transparent 28%),
+        linear-gradient(rgba(12, 10, 9, 0.62), rgba(12, 10, 9, 0.82));
+    }
+
+    .shell {
+      width: min(1540px, 100%);
+      min-height: calc(100vh - 36px);
+      margin: 0 auto;
+      display: grid;
+      grid-template-rows: auto 1fr auto;
+      gap: 12px;
+    }
+
+    .topbar {
+      display: grid;
+      grid-template-columns: minmax(230px, 1fr) auto;
+      gap: 12px;
+      align-items: stretch;
+    }
+
+    .brand,
+    .meter-strip,
+    .panel,
+    .log-panel {
+      border: 1px solid var(--line);
+      background: var(--panel);
+      box-shadow: 0 18px 46px var(--shadow);
+      backdrop-filter: blur(10px);
+    }
+
+    .brand {
+      min-height: 76px;
+      padding: 14px 16px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+    }
+
+    .brand-mark {
+      display: grid;
+      gap: 3px;
+    }
+
+    .eyebrow {
+      color: var(--gold);
+      font-size: 11px;
+      font-weight: 900;
+      text-transform: uppercase;
+    }
+
+    .brand h1 {
+      margin: 0;
+      font-size: 24px;
+      line-height: 1;
+      text-transform: uppercase;
+    }
+
+    .brand p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 12px;
+      text-align: right;
+    }
+
+    .meter-strip {
+      min-height: 76px;
+      padding: 10px;
+      display: grid;
+      grid-template-columns: repeat(5, minmax(92px, 1fr));
+      gap: 8px;
+    }
+
+    .meter {
+      border: 1px solid rgba(247, 239, 225, 0.14);
+      background: rgba(255, 255, 255, 0.05);
+      padding: 8px 10px;
+      display: grid;
+      align-content: center;
+      gap: 4px;
+    }
+
+    .meter span {
+      color: var(--muted);
+      font-size: 10px;
+      font-weight: 900;
+      text-transform: uppercase;
+    }
+
+    .meter strong {
+      font-size: 20px;
+      line-height: 1;
+    }
+
+    .game-grid {
+      display: grid;
+      grid-template-columns: minmax(250px, 0.86fr) minmax(420px, 1.45fr) minmax(300px, 1fr);
+      gap: 12px;
+      min-height: 0;
+    }
+
+    .panel {
+      min-width: 0;
+      overflow: hidden;
+      display: grid;
+      grid-template-rows: auto 1fr;
+    }
+
+    .panel-head {
+      padding: 14px 16px;
+      border-bottom: 1px solid var(--line);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+    }
+
+    .panel-head h2 {
+      margin: 0;
+      font-size: 15px;
+      text-transform: uppercase;
+    }
+
+    .panel-head span {
+      color: var(--muted);
+      font-size: 11px;
+      font-weight: 800;
+    }
+
+    .panel-body {
+      min-height: 0;
+      padding: 16px;
+      overflow: auto;
+    }
+
+    .rule-list,
+    .upgrade-list,
+    .case-list,
+    .clue-list {
+      display: grid;
+      gap: 10px;
+    }
+
+    .rule {
+      border-left: 4px solid var(--red);
+      background: rgba(255, 255, 255, 0.06);
+      padding: 10px 11px;
+    }
+
+    .rule[data-action="confiscate"] {
+      border-left-color: var(--gold);
+    }
+
+    .rule[data-action="accept"] {
+      border-left-color: var(--green);
+    }
+
+    .rule h3,
+    .upgrade-chip h3 {
+      margin: 0 0 4px;
+      font-size: 13px;
+    }
+
+    .rule p,
+    .upgrade-chip p,
+    .hint-copy,
+    .case-value small {
+      margin: 0;
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    .section-label {
+      margin: 18px 0 8px;
+      color: var(--gold);
+      font-size: 11px;
+      font-weight: 900;
+      text-transform: uppercase;
+    }
+
+    .upgrade-chip {
+      border: 1px solid var(--line);
+      background: rgba(255, 255, 255, 0.05);
+      padding: 10px;
+    }
+
+    .hint-copy {
+      border-top: 1px solid var(--line);
+      margin-top: 16px;
+      padding-top: 12px;
+    }
+
+    .workbench-panel {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .workbench-panel::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(rgba(255, 255, 255, 0.035) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.035) 1px, transparent 1px);
+      background-size: 32px 32px;
+      opacity: 0.36;
+      pointer-events: none;
+    }
+
+    .workbench {
+      position: relative;
+      z-index: 1;
+      min-height: 100%;
+      display: grid;
+      grid-template-rows: auto 1fr auto;
+      gap: 14px;
+    }
+
+    .bench-status {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .status-pill {
+      min-height: 30px;
+      border: 1px solid var(--line);
+      background: rgba(0, 0, 0, 0.22);
+      color: var(--muted);
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      padding: 0 10px;
+      font-size: 12px;
+      font-weight: 800;
+    }
+
+    .status-pill strong {
+      color: var(--ink);
+      font-weight: 900;
+    }
+
+    .stage {
+      min-height: 390px;
+      border: 1px solid rgba(247, 239, 225, 0.12);
+      background:
+        linear-gradient(rgba(0, 0, 0, 0.08), rgba(0, 0, 0, 0.42)),
+        repeating-linear-gradient(90deg, rgba(93, 66, 40, 0.34) 0 26px, rgba(72, 50, 31, 0.36) 26px 54px);
+      display: grid;
+      place-items: center;
+      perspective: 900px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .stage::before {
+      content: "QUEEN'S INSPECTION TABLE";
+      position: absolute;
+      left: 18px;
+      top: 16px;
+      color: rgba(247, 239, 225, 0.2);
+      font-size: 11px;
+      font-weight: 900;
+    }
+
+    .stage::after {
+      content: "";
+      position: absolute;
+      left: 8%;
+      right: 8%;
+      bottom: 30px;
+      height: 26px;
+      background: rgba(0, 0, 0, 0.3);
+      filter: blur(14px);
+      transform: skewX(-16deg);
+    }
+
+    .package {
+      position: relative;
+      width: min(330px, 72vw);
+      min-height: 220px;
+      transform: rotateX(12deg) rotateZ(-2deg);
+      transform-style: preserve-3d;
+      filter: drop-shadow(0 26px 24px rgba(0, 0, 0, 0.5));
+      transition: transform 260ms ease, filter 260ms ease;
+      z-index: 1;
+    }
+
+    .package.active {
+      transform: rotateX(9deg) rotateZ(1deg) translateY(-6px);
+    }
+
+    .box-face {
+      min-height: 220px;
+      border: 2px solid rgba(61, 34, 19, 0.86);
+      background:
+        linear-gradient(135deg, rgba(255, 255, 255, 0.22), transparent 36%),
+        linear-gradient(45deg, #9b6c3d, #6d4425);
+      display: grid;
+      place-items: center;
+      padding: 22px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .box-face::before,
+    .box-face::after {
+      content: "";
+      position: absolute;
+      background: rgba(40, 21, 12, 0.24);
+    }
+
+    .box-face::before {
+      width: 40px;
+      inset: 0 auto 0 50%;
+      transform: translateX(-50%);
+    }
+
+    .box-face::after {
+      height: 36px;
+      inset: 50% 0 auto;
+      transform: translateY(-50%);
+    }
+
+    .seal {
+      position: relative;
+      z-index: 2;
+      width: 92px;
+      height: 92px;
+      border-radius: 50%;
+      background: var(--red);
+      color: #280c08;
+      display: grid;
+      place-items: center;
+      border: 5px solid rgba(70, 12, 8, 0.35);
+      font-size: 36px;
+      font-weight: 900;
+      box-shadow: inset 0 8px 16px rgba(255, 255, 255, 0.16), inset 0 -10px 16px rgba(0, 0, 0, 0.28);
+    }
+
+    .open-display {
+      width: min(430px, 82vw);
+      border: 1px solid rgba(247, 239, 225, 0.2);
+      background: rgba(12, 10, 9, 0.7);
+      display: none;
+      grid-template-columns: 110px 1fr;
+      gap: 14px;
+      padding: 14px;
+      z-index: 1;
+      transform: rotateX(4deg);
+    }
+
+    .item-icon {
+      min-height: 122px;
+      border: 1px solid rgba(247, 239, 225, 0.16);
+      background: var(--paper);
+      color: #21160f;
+      display: grid;
+      place-items: center;
+      font-size: 48px;
+      font-weight: 900;
+    }
+
+    .item-copy {
+      display: grid;
+      align-content: center;
+      gap: 6px;
+    }
+
+    .item-copy h3 {
+      margin: 0;
+      font-size: 20px;
+    }
+
+    .item-copy p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .empty-state {
+      max-width: 360px;
+      padding: 22px;
+      border: 1px dashed rgba(247, 239, 225, 0.24);
+      background: rgba(0, 0, 0, 0.18);
+      color: var(--muted);
+      text-align: center;
+      z-index: 1;
+    }
+
+    .empty-state strong {
+      display: block;
+      color: var(--ink);
+      margin-bottom: 6px;
+      font-size: 18px;
+    }
+
+    .control-row {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 8px;
+    }
+
+    .btn {
+      min-height: 46px;
+      border: 1px solid var(--line-strong);
+      background: rgba(255, 255, 255, 0.08);
+      color: var(--ink);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 0 12px;
+      font-size: 13px;
+      font-weight: 900;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: transform 160ms ease, background 160ms ease, border-color 160ms ease;
+    }
+
+    .btn:hover:not(:disabled) {
+      transform: translateY(-1px);
+      border-color: var(--gold);
+      background: rgba(215, 167, 71, 0.16);
+    }
+
+    .btn:disabled {
+      color: rgba(247, 239, 225, 0.35);
+      cursor: not-allowed;
+      border-color: rgba(247, 239, 225, 0.1);
+      background: rgba(255, 255, 255, 0.04);
+    }
+
+    .btn.primary {
+      background: var(--paper);
+      color: #1d140f;
+      border-color: var(--paper);
+    }
+
+    .btn.red {
+      background: rgba(184, 60, 56, 0.22);
+      border-color: rgba(238, 106, 85, 0.52);
+    }
+
+    .btn.gold {
+      background: rgba(215, 167, 71, 0.18);
+      border-color: rgba(215, 167, 71, 0.52);
+    }
+
+    .btn.green {
+      background: rgba(99, 166, 109, 0.18);
+      border-color: rgba(99, 166, 109, 0.52);
+    }
+
+    .case-file {
+      background:
+        linear-gradient(rgba(231, 217, 189, 0.96), rgba(214, 195, 156, 0.96));
+      color: #21160f;
+    }
+
+    .case-file .panel-head {
+      border-color: rgba(33, 22, 15, 0.18);
+    }
+
+    .case-file .panel-head span,
+    .case-file .section-label {
+      color: rgba(33, 22, 15, 0.62);
+    }
+
+    .case-file .panel-body {
+      display: grid;
+      grid-template-rows: auto auto 1fr auto;
+      gap: 14px;
+    }
+
+    .case-list,
+    .clue-list {
+      gap: 8px;
+    }
+
+    .case-row {
+      border-bottom: 1px solid rgba(33, 22, 15, 0.16);
+      padding-bottom: 8px;
+      display: grid;
+      grid-template-columns: 92px 1fr;
+      gap: 10px;
+      align-items: baseline;
+    }
+
+    .case-label {
+      color: rgba(33, 22, 15, 0.56);
+      font-size: 11px;
+      font-weight: 900;
+      text-transform: uppercase;
+    }
+
+    .case-value {
+      font-size: 14px;
+      font-weight: 800;
+      min-width: 0;
+      overflow-wrap: anywhere;
+    }
+
+    .case-value small {
+      display: block;
+      color: rgba(33, 22, 15, 0.58);
+      font-weight: 600;
+      margin-top: 2px;
+    }
+
+    .clue {
+      border: 1px solid rgba(33, 22, 15, 0.18);
+      background: rgba(255, 255, 255, 0.28);
+      padding: 9px 10px;
+      display: grid;
+      gap: 3px;
+    }
+
+    .clue strong {
+      font-size: 13px;
+    }
+
+    .clue span {
+      color: rgba(33, 22, 15, 0.64);
+      font-size: 12px;
+    }
+
+    .decision-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 8px;
+    }
+
+    .decision-grid .btn {
+      min-height: 54px;
+      color: #21160f;
+      border-color: rgba(33, 22, 15, 0.24);
+      background: rgba(255, 255, 255, 0.32);
+    }
+
+    .decision-grid .btn.green {
+      background: rgba(99, 166, 109, 0.24);
+    }
+
+    .decision-grid .btn.gold {
+      background: rgba(215, 167, 71, 0.28);
+    }
+
+    .decision-grid .btn.red {
+      background: rgba(184, 60, 56, 0.22);
+    }
+
+    .btn:disabled,
+    .btn.primary:disabled,
+    .btn.red:disabled,
+    .btn.gold:disabled,
+    .btn.green:disabled,
+    .decision-grid .btn:disabled,
+    .decision-grid .btn.green:disabled,
+    .decision-grid .btn.gold:disabled,
+    .decision-grid .btn.red:disabled {
+      color: rgba(247, 239, 225, 0.35);
+      cursor: not-allowed;
+      border-color: rgba(247, 239, 225, 0.1);
+      background: rgba(255, 255, 255, 0.04);
+      transform: none;
+    }
+
+    .feedback {
+      min-height: 72px;
+      border: 1px solid rgba(33, 22, 15, 0.18);
+      background: rgba(255, 255, 255, 0.24);
+      padding: 12px;
+      display: grid;
+      gap: 4px;
+    }
+
+    .feedback strong {
+      font-size: 14px;
+    }
+
+    .feedback p {
+      margin: 0;
+      color: rgba(33, 22, 15, 0.66);
+      font-size: 12px;
+    }
+
+    .feedback.correct {
+      border-color: rgba(52, 126, 65, 0.48);
+      background: rgba(99, 166, 109, 0.2);
+    }
+
+    .feedback.wrong {
+      border-color: rgba(184, 60, 56, 0.48);
+      background: rgba(184, 60, 56, 0.16);
+    }
+
+    .log-panel {
+      min-height: 106px;
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 14px;
+      padding: 12px 14px;
+      align-items: start;
+    }
+
+    .log-panel h2 {
+      margin: 0;
+      color: var(--gold);
+      font-size: 12px;
+      text-transform: uppercase;
+    }
+
+    .log-list {
+      min-width: 0;
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 8px;
+    }
+
+    .log-entry {
+      min-height: 56px;
+      border: 1px solid var(--line);
+      background: rgba(255, 255, 255, 0.05);
+      padding: 8px;
+      color: var(--muted);
+      font-size: 12px;
+      overflow-wrap: anywhere;
+    }
+
+    .overlay {
+      position: fixed;
+      inset: 0;
+      z-index: 20;
+      display: none;
+      place-items: center;
+      padding: 18px;
+      background: rgba(12, 10, 9, 0.78);
+      backdrop-filter: blur(10px);
+    }
+
+    .overlay.active {
+      display: grid;
+    }
+
+    .modal {
+      width: min(760px, 100%);
+      border: 1px solid var(--line-strong);
+      background: rgba(24, 20, 17, 0.97);
+      box-shadow: 0 30px 90px rgba(0, 0, 0, 0.62);
+      padding: 20px;
+    }
+
+    .modal h2 {
+      margin: 0 0 8px;
+      font-size: 24px;
+    }
+
+    .modal p {
+      margin: 0 0 16px;
+      color: var(--muted);
+    }
+
+    .upgrade-options {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 10px;
+    }
+
+    .upgrade-card {
+      min-height: 170px;
+      border: 1px solid var(--line);
+      background: rgba(255, 255, 255, 0.06);
+      color: var(--ink);
+      padding: 14px;
+      text-align: left;
+      display: grid;
+      align-content: space-between;
+      gap: 12px;
+      cursor: pointer;
+    }
+
+    .upgrade-card:hover {
+      border-color: var(--gold);
+      background: rgba(215, 167, 71, 0.14);
+    }
+
+    .upgrade-card strong {
+      display: block;
+      margin-bottom: 6px;
+      font-size: 16px;
+    }
+
+    .upgrade-card span {
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    .summary-stats {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 8px;
+      margin: 16px 0;
+    }
+
+    .summary-stat {
+      border: 1px solid var(--line);
+      background: rgba(255, 255, 255, 0.06);
+      padding: 12px;
+    }
+
+    .summary-stat span {
+      display: block;
+      color: var(--muted);
+      font-size: 11px;
+      font-weight: 900;
+      text-transform: uppercase;
+    }
+
+    .summary-stat strong {
+      display: block;
+      margin-top: 5px;
+      font-size: 22px;
+    }
+
+    @media (max-width: 1180px) {
+      .topbar {
+        grid-template-columns: 1fr;
+      }
+
+      .game-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .rules-panel {
+        grid-column: 1 / -1;
+      }
+
+      .rules-panel .panel-body {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 14px;
+      }
+
+      .section-label {
+        margin-top: 0;
+      }
+    }
+
+    @media (max-width: 780px) {
+      .prototype {
+        padding: 10px;
+      }
+
+      .shell {
+        min-height: calc(100vh - 20px);
+      }
+
+      .brand,
+      .log-panel {
+        display: grid;
+      }
+
+      .brand p {
+        text-align: left;
+      }
+
+      .meter-strip {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .game-grid,
+      .rules-panel .panel-body,
+      .control-row,
+      .decision-grid,
+      .upgrade-options,
+      .summary-stats {
+        grid-template-columns: 1fr;
+      }
+
+      .stage {
+        min-height: 320px;
+      }
+
+      .open-display {
+        grid-template-columns: 1fr;
+      }
+
+      .log-list {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body class="locked">
+  <main class="password-gate" aria-label="Password required">
+    <section class="password-panel">
+      <span class="eyebrow">WINDUP Internal Prototype</span>
+      <h1>For The Queen</h1>
+      <p>검열실 테스트 페이지입니다. 동일한 비밀번호를 입력하세요.</p>
+      <form class="password-form" id="passwordForm">
+        <input id="passwordInput" type="password" autocomplete="current-password" placeholder="Password" aria-label="Password">
+        <button type="submit">ENTER</button>
+        <span class="password-error" id="passwordError" role="status" aria-live="polite"></span>
+      </form>
+    </section>
+  </main>
+
+  <main class="prototype" aria-label="For The Queen Prototype">
+    <div class="shell">
+      <header class="topbar">
+        <section class="brand">
+          <div class="brand-mark">
+            <span class="eyebrow">For The Queen / HTML Prototype</span>
+            <h1>검열실의 노동</h1>
+          </div>
+          <p>소환, 해체, 검열, 판정, 보상까지 핵심 루프를 빠르게 검증합니다.</p>
+        </section>
+        <section class="meter-strip" aria-label="Session meters">
+          <div class="meter"><span>Order</span><strong id="meterOrder">0 / 8</strong></div>
+          <div class="meter"><span>Coins</span><strong id="meterCoins">0</strong></div>
+          <div class="meter"><span>Favor</span><strong id="meterFavor">50</strong></div>
+          <div class="meter"><span>Suspicion</span><strong id="meterSuspicion">0</strong></div>
+          <div class="meter"><span>Streak</span><strong id="meterStreak">0</strong></div>
+        </section>
+      </header>
+
+      <section class="game-grid">
+        <aside class="panel rules-panel">
+          <header class="panel-head">
+            <h2>Queen's Rulebook</h2>
+            <span id="ruleCount">3 decrees</span>
+          </header>
+          <div class="panel-body">
+            <div>
+              <div class="rule-list" id="ruleList"></div>
+              <p class="hint-copy">명백한 반역은 신고, 위험 물품은 압수, 이상이 없으면 승인입니다. 틀린 판정은 의심도를 크게 올립니다.</p>
+            </div>
+            <div>
+              <div class="section-label">Tools</div>
+              <div class="upgrade-list" id="upgradeList"></div>
+            </div>
+          </div>
+        </aside>
+
+        <section class="panel workbench-panel">
+          <header class="panel-head">
+            <h2>Inspection Table</h2>
+            <span id="phaseLabel">대기 중</span>
+          </header>
+          <div class="panel-body">
+            <div class="workbench">
+              <div class="bench-status">
+                <span class="status-pill">Sender <strong id="senderBadge">없음</strong></span>
+                <span class="status-pill">Seal <strong id="sealBadge">없음</strong></span>
+                <span class="status-pill">Tear <strong id="tearBadge">0 / 0</strong></span>
+                <span class="status-pill">Inspect <strong id="inspectBadge">0</strong></span>
+              </div>
+
+              <div class="stage" aria-live="polite">
+                <div class="empty-state" id="emptyState">
+                  <strong>다음 상자를 소환하세요.</strong>
+                  폐하께 도착한 선물은 아직 검열대에 없습니다.
+                </div>
+                <div class="package" id="packageView" hidden>
+                  <div class="box-face">
+                    <div class="seal" id="sealIcon">Q</div>
+                  </div>
+                </div>
+                <div class="open-display" id="openDisplay">
+                  <div class="item-icon" id="itemIcon">?</div>
+                  <div class="item-copy">
+                    <span class="eyebrow">Recovered Contents</span>
+                    <h3 id="itemName">미확인 물품</h3>
+                    <p id="itemDescription">포장을 해체하면 내용물이 표시됩니다.</p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="control-row">
+                <button class="btn primary" id="summonButton" type="button">상자 소환</button>
+                <button class="btn gold" id="tearButton" type="button" disabled>포장 찢기</button>
+                <button class="btn" id="inspectButton" type="button" disabled>추가 검열</button>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <aside class="panel case-file">
+          <header class="panel-head">
+            <h2>Case File</h2>
+            <span id="caseNumber">No case</span>
+          </header>
+          <div class="panel-body">
+            <div class="case-list" id="caseList"></div>
+
+            <div>
+              <div class="section-label">Revealed Evidence</div>
+              <div class="clue-list" id="clueList"></div>
+            </div>
+
+            <div class="feedback" id="feedbackBox">
+              <strong>판정 대기</strong>
+              <p>상자를 열고 증거를 확인한 뒤 왕실 장부에 판정하세요.</p>
+            </div>
+
+            <div class="decision-grid">
+              <button class="btn green" id="acceptButton" type="button" disabled>승인</button>
+              <button class="btn gold" id="confiscateButton" type="button" disabled>압수</button>
+              <button class="btn red" id="reportButton" type="button" disabled>신고</button>
+            </div>
+          </div>
+        </aside>
+      </section>
+
+      <footer class="log-panel">
+        <h2>Case Log</h2>
+        <div class="log-list" id="logList"></div>
+      </footer>
+    </div>
+  </main>
+
+  <div class="overlay" id="upgradeOverlay" role="dialog" aria-modal="true" aria-labelledby="upgradeTitle">
+    <section class="modal">
+      <h2 id="upgradeTitle">시설 보강 선택</h2>
+      <p>오늘의 검열 업무가 누적되었습니다. 다음 묶음부터 적용할 도구 하나를 고르세요.</p>
+      <div class="upgrade-options" id="upgradeOptions"></div>
+    </section>
+  </div>
+
+  <div class="overlay" id="summaryOverlay" role="dialog" aria-modal="true" aria-labelledby="summaryTitle">
+    <section class="modal">
+      <h2 id="summaryTitle">근무 종료</h2>
+      <p id="summaryCopy">오늘의 검열 결과입니다.</p>
+      <div class="summary-stats">
+        <div class="summary-stat"><span>Correct</span><strong id="summaryCorrect">0</strong></div>
+        <div class="summary-stat"><span>Coins</span><strong id="summaryCoins">0</strong></div>
+        <div class="summary-stat"><span>Favor</span><strong id="summaryFavor">0</strong></div>
+        <div class="summary-stat"><span>Suspicion</span><strong id="summarySuspicion">0</strong></div>
+      </div>
+      <button class="btn primary" id="restartButton" type="button">새 근무 시작</button>
+    </section>
+  </div>
+
+  <script>
+    (function () {
+      var password = "WINDUP!";
+      var storageKey = "windup-forthequeen-unlocked";
+      var form = document.getElementById("passwordForm");
+      var input = document.getElementById("passwordInput");
+      var error = document.getElementById("passwordError");
+
+      function unlock() {
+        document.body.classList.remove("locked");
+      }
+
+      if (window.localStorage.getItem(storageKey) === "true") {
+        unlock();
+      } else {
+        input.focus();
+      }
+
+      form.addEventListener("submit", function (event) {
+        event.preventDefault();
+
+        if (input.value === password) {
+          window.localStorage.setItem(storageKey, "true");
+          unlock();
+          return;
+        }
+
+        error.textContent = "Incorrect password.";
+        input.value = "";
+        input.focus();
+      });
+    })();
+
+    (function () {
+      var maxOrders = 8;
+      var upgradeMoments = [3, 6];
+
+      var rulebook = [
+        {
+          id: "blackthorn",
+          title: "검은 가시 봉인",
+          detail: "검은 가시 문장이 찍힌 봉인은 반역 문서로 간주하고 신고한다.",
+          action: "report"
+        },
+        {
+          id: "mirror-dust",
+          title: "거울 가루",
+          detail: "반짝이는 은분이나 거울 가루가 나오면 환각 위험 물품으로 압수한다.",
+          action: "confiscate"
+        },
+        {
+          id: "wolf-house",
+          title: "늑대 가문",
+          detail: "늑대 가문의 사절이 보낸 선물은 열람 뒤 반드시 신고한다.",
+          action: "report"
+        },
+        {
+          id: "clean-tribute",
+          title: "왕실 승인 물품",
+          detail: "흰 백합 표식과 푸른 리본이 함께 있으면 이상 없음으로 승인한다.",
+          action: "accept"
+        }
+      ];
+
+      var deliveries = [
+        {
+          sender: "로웬 백작",
+          house: "늑대 가문",
+          seal: "검은 가시",
+          sealIcon: "T",
+          packageNote: "왕관 아래 침묵을 기원합니다.",
+          item: "은제 편지칼",
+          itemIcon: "K",
+          description: "손잡이에 검은 가시가 얕게 새겨져 있습니다.",
+          clues: [
+            ["봉인", "검은 가시 문장이 밀랍 아래 보입니다."],
+            ["발신자", "늑대 가문의 검은 문장이 장부와 일치합니다."],
+            ["숨은 쪽지", "여왕 폐하의 즉위를 부정하는 문장이 접혀 있습니다."]
+          ],
+          verdict: "report",
+          reason: "늑대 가문과 검은 가시 봉인이 동시에 확인된 반역성 선물입니다."
+        },
+        {
+          sender: "페라 유리공방",
+          house: "상인 조합",
+          seal: "푸른 리본",
+          sealIcon: "B",
+          packageNote: "축제 조명을 위한 합법 납품품.",
+          item: "장식용 유리병",
+          itemIcon: "G",
+          description: "병 바닥에서 은빛 가루가 묻어납니다.",
+          clues: [
+            ["포장", "리본은 정상이나 내부 완충재가 지나치게 반짝입니다."],
+            ["잔여물", "손끝에 거울 가루가 묻습니다."],
+            ["냄새", "달콤한 약품 냄새가 희미하게 남아 있습니다."]
+          ],
+          verdict: "confiscate",
+          reason: "거울 가루가 발견된 환각 위험 물품입니다."
+        },
+        {
+          sender: "수도원 정원사",
+          house: "백합 수도원",
+          seal: "흰 백합",
+          sealIcon: "L",
+          packageNote: "폐하의 회복을 기원하는 향초.",
+          item: "백합 향초",
+          itemIcon: "C",
+          description: "푸른 리본과 수도원 납품장이 함께 들어 있습니다.",
+          clues: [
+            ["표식", "흰 백합 표식이 왕실 장부의 승인 목록과 일치합니다."],
+            ["리본", "푸른 리본은 정상 납품품에만 묶입니다."],
+            ["영수증", "세금 납부 인장이 온전합니다."]
+          ],
+          verdict: "accept",
+          reason: "흰 백합 표식과 푸른 리본이 함께 있는 승인 물품입니다."
+        },
+        {
+          sender: "제3 창고 하역장",
+          house: "무소속",
+          seal: "붉은 밀랍",
+          sealIcon: "R",
+          packageNote: "검열 생략 요청. 급한 왕실 부품.",
+          item: "태엽 심장",
+          itemIcon: "H",
+          description: "금속 심장 안쪽에서 거울 가루가 새어 나옵니다.",
+          clues: [
+            ["요청문", "검열 생략이라는 문구가 반복됩니다."],
+            ["잔여물", "태엽 틈 사이에 거울 가루가 끼어 있습니다."],
+            ["소리", "흔들면 내부에서 유리 조각 소리가 납니다."]
+          ],
+          verdict: "confiscate",
+          reason: "거울 가루가 들어 있는 위험 부품입니다."
+        },
+        {
+          sender: "엘드 남작부인",
+          house: "백합 수도원",
+          seal: "흰 백합",
+          sealIcon: "L",
+          packageNote: "왕실 정원에 바치는 새 품종.",
+          item: "푸른 리본 묘목",
+          itemIcon: "S",
+          description: "흙, 리본, 납품장이 모두 정리되어 있습니다.",
+          clues: [
+            ["표식", "흰 백합 표식이 선명합니다."],
+            ["리본", "푸른 리본이 줄기에 묶여 있습니다."],
+            ["흙", "검역 도장이 찍힌 흙 봉투가 포함되어 있습니다."]
+          ],
+          verdict: "accept",
+          reason: "승인 표식과 검역 도장이 모두 맞는 안전 선물입니다."
+        },
+        {
+          sender: "밤의 인쇄소",
+          house: "늑대 가문",
+          seal: "회색 밀랍",
+          sealIcon: "W",
+          packageNote: "새 법령 초안. 직접 전달.",
+          item: "인쇄 원판",
+          itemIcon: "P",
+          description: "원판에는 여왕의 칭호가 지워진 문장이 있습니다.",
+          clues: [
+            ["발신자", "늑대 가문 대리인이 서명했습니다."],
+            ["원판", "여왕의 칭호가 빠진 문구가 반복됩니다."],
+            ["잉크", "검은 가시 인쇄용 판이 함께 들어 있습니다."]
+          ],
+          verdict: "report",
+          reason: "늑대 가문 발신이며 반역 인쇄물이 포함되어 있습니다."
+        },
+        {
+          sender: "황금 재단사",
+          house: "상인 조합",
+          seal: "푸른 리본",
+          sealIcon: "B",
+          packageNote: "대관식 예복 보수품.",
+          item: "금실 장갑",
+          itemIcon: "M",
+          description: "금실과 납품표가 정상이며 위험 잔여물이 없습니다.",
+          clues: [
+            ["납품표", "왕실 의복실의 확인 서명이 있습니다."],
+            ["리본", "푸른 리본이 손상 없이 묶여 있습니다."],
+            ["검사", "가루, 독침, 금지 문장이 없습니다."]
+          ],
+          verdict: "accept",
+          reason: "금지 조건이 없는 정상 납품품입니다."
+        },
+        {
+          sender: "북문 약제상",
+          house: "상인 조합",
+          seal: "붉은 밀랍",
+          sealIcon: "R",
+          packageNote: "두통 완화제. 어두운 곳에 보관.",
+          item: "수면 약병",
+          itemIcon: "V",
+          description: "병마개 주변에 은빛 가루가 붙어 있습니다.",
+          clues: [
+            ["분말", "약병 입구에서 거울 가루가 검출됩니다."],
+            ["처방", "왕실 의무실 승인 번호가 비어 있습니다."],
+            ["냄새", "기록된 약재와 다른 단 냄새가 납니다."]
+          ],
+          verdict: "confiscate",
+          reason: "거울 가루와 승인 누락이 있는 위험 약병입니다."
+        },
+        {
+          sender: "붉은 사냥단",
+          house: "늑대 가문",
+          seal: "검은 가시",
+          sealIcon: "T",
+          packageNote: "충성의 전리품.",
+          item: "부러진 왕관 조각",
+          itemIcon: "Q",
+          description: "왕관 안쪽에 폐위 문구가 새겨져 있습니다.",
+          clues: [
+            ["봉인", "검은 가시 봉인이 선명합니다."],
+            ["발신자", "늑대 가문 계열 사냥단입니다."],
+            ["문구", "폐하를 모욕하는 문장이 안쪽에 있습니다."]
+          ],
+          verdict: "report",
+          reason: "검은 가시 봉인의 반역 증거가 명확합니다."
+        }
+      ];
+
+      var upgrades = {
+        cutter: 0,
+        lens: 0,
+        ledger: 0
+      };
+
+      var state = {
+        order: 0,
+        coins: 0,
+        favor: 50,
+        suspicion: 0,
+        streak: 0,
+        correct: 0,
+        phase: "idle",
+        current: null,
+        tearProgress: 0,
+        tearRequired: 0,
+        inspectRemaining: 0,
+        revealed: [],
+        usedDeliveryIds: [],
+        pendingUpgrade: false,
+        finished: false,
+        log: []
+      };
+
+      var els = {
+        meterOrder: document.getElementById("meterOrder"),
+        meterCoins: document.getElementById("meterCoins"),
+        meterFavor: document.getElementById("meterFavor"),
+        meterSuspicion: document.getElementById("meterSuspicion"),
+        meterStreak: document.getElementById("meterStreak"),
+        ruleCount: document.getElementById("ruleCount"),
+        ruleList: document.getElementById("ruleList"),
+        upgradeList: document.getElementById("upgradeList"),
+        phaseLabel: document.getElementById("phaseLabel"),
+        senderBadge: document.getElementById("senderBadge"),
+        sealBadge: document.getElementById("sealBadge"),
+        tearBadge: document.getElementById("tearBadge"),
+        inspectBadge: document.getElementById("inspectBadge"),
+        emptyState: document.getElementById("emptyState"),
+        packageView: document.getElementById("packageView"),
+        sealIcon: document.getElementById("sealIcon"),
+        openDisplay: document.getElementById("openDisplay"),
+        itemIcon: document.getElementById("itemIcon"),
+        itemName: document.getElementById("itemName"),
+        itemDescription: document.getElementById("itemDescription"),
+        summonButton: document.getElementById("summonButton"),
+        tearButton: document.getElementById("tearButton"),
+        inspectButton: document.getElementById("inspectButton"),
+        caseNumber: document.getElementById("caseNumber"),
+        caseList: document.getElementById("caseList"),
+        clueList: document.getElementById("clueList"),
+        feedbackBox: document.getElementById("feedbackBox"),
+        acceptButton: document.getElementById("acceptButton"),
+        confiscateButton: document.getElementById("confiscateButton"),
+        reportButton: document.getElementById("reportButton"),
+        logList: document.getElementById("logList"),
+        upgradeOverlay: document.getElementById("upgradeOverlay"),
+        upgradeOptions: document.getElementById("upgradeOptions"),
+        summaryOverlay: document.getElementById("summaryOverlay"),
+        summaryCopy: document.getElementById("summaryCopy"),
+        summaryCorrect: document.getElementById("summaryCorrect"),
+        summaryCoins: document.getElementById("summaryCoins"),
+        summaryFavor: document.getElementById("summaryFavor"),
+        summarySuspicion: document.getElementById("summarySuspicion"),
+        restartButton: document.getElementById("restartButton")
+      };
+
+      function clamp(value, min, max) {
+        return Math.max(min, Math.min(max, value));
+      }
+
+      function actionLabel(action) {
+        if (action === "accept") return "승인";
+        if (action === "confiscate") return "압수";
+        return "신고";
+      }
+
+      function phaseText() {
+        if (state.finished) return "근무 종료";
+        if (state.phase === "idle") return "대기 중";
+        if (state.phase === "boxed") return "포장 해체 필요";
+        if (state.phase === "open") return "검열 가능";
+        if (state.phase === "resolved") return "판정 완료";
+        return "진행 중";
+      }
+
+      function getDelivery() {
+        if (state.usedDeliveryIds.length >= deliveries.length) {
+          state.usedDeliveryIds = [];
+        }
+
+        var candidates = deliveries
+          .map(function (delivery, index) {
+            return { delivery: delivery, index: index };
+          })
+          .filter(function (entry) {
+            return state.usedDeliveryIds.indexOf(entry.index) === -1;
+          });
+
+        var picked = candidates[Math.floor(Math.random() * candidates.length)];
+        state.usedDeliveryIds.push(picked.index);
+        return picked.delivery;
+      }
+
+      function setFeedback(title, copy, tone) {
+        els.feedbackBox.className = "feedback" + (tone ? " " + tone : "");
+        els.feedbackBox.innerHTML = "<strong>" + title + "</strong><p>" + copy + "</p>";
+      }
+
+      function renderRulebook() {
+        els.ruleCount.textContent = rulebook.length + " decrees";
+        els.ruleList.innerHTML = rulebook.map(function (rule) {
+          return [
+            '<article class="rule" data-action="' + rule.action + '">',
+            "<h3>" + rule.title + "</h3>",
+            "<p>" + rule.detail + "</p>",
+            "</article>"
+          ].join("");
+        }).join("");
+      }
+
+      function renderUpgrades() {
+        var rows = [
+          ["은가위", upgrades.cutter, "포장 해체 필요 클릭 수 감소"],
+          ["확대 렌즈", upgrades.lens, "추가 검열 횟수 증가"],
+          ["정리 장부", upgrades.ledger, "정답 보상 증가"]
+        ];
+
+        els.upgradeList.innerHTML = rows.map(function (row) {
+          return [
+            '<article class="upgrade-chip">',
+            "<h3>" + row[0] + " Lv." + row[1] + "</h3>",
+            "<p>" + row[2] + "</p>",
+            "</article>"
+          ].join("");
+        }).join("");
+      }
+
+      function renderMeters() {
+        els.meterOrder.textContent = state.order + " / " + maxOrders;
+        els.meterCoins.textContent = state.coins;
+        els.meterFavor.textContent = state.favor;
+        els.meterSuspicion.textContent = state.suspicion;
+        els.meterStreak.textContent = state.streak;
+      }
+
+      function renderStage() {
+        var current = state.current;
+        var hasCurrent = Boolean(current);
+
+        els.phaseLabel.textContent = phaseText();
+        els.senderBadge.textContent = hasCurrent ? current.sender : "없음";
+        els.sealBadge.textContent = hasCurrent ? current.seal : "없음";
+        els.tearBadge.textContent = state.tearProgress + " / " + state.tearRequired;
+        els.inspectBadge.textContent = state.inspectRemaining;
+
+        els.emptyState.hidden = hasCurrent;
+        els.packageView.hidden = !hasCurrent || state.phase !== "boxed";
+        els.openDisplay.style.display = hasCurrent && state.phase !== "boxed" ? "grid" : "none";
+        els.packageView.classList.toggle("active", state.phase === "boxed");
+
+        if (hasCurrent) {
+          els.sealIcon.textContent = current.sealIcon;
+          els.itemIcon.textContent = current.itemIcon;
+          els.itemName.textContent = state.phase === "boxed" ? "봉인된 상자" : current.item;
+          els.itemDescription.textContent = state.phase === "boxed" ? "포장을 찢어 내용물을 확인하세요." : current.description;
+        }
+      }
+
+      function renderCaseFile() {
+        var current = state.current;
+
+        if (!current) {
+          els.caseNumber.textContent = "No case";
+          els.caseList.innerHTML = '<div class="case-row"><span class="case-label">Status</span><div class="case-value">검열 대기<small>상자를 소환하면 장부가 생성됩니다.</small></div></div>';
+          els.clueList.innerHTML = '<article class="clue"><strong>증거 없음</strong><span>아직 확인된 물품이 없습니다.</span></article>';
+          return;
+        }
+
+        els.caseNumber.textContent = "Case " + String(state.order).padStart(2, "0");
+        els.caseList.innerHTML = [
+          caseRow("발신자", current.sender, current.house),
+          caseRow("봉인", current.seal, current.packageNote),
+          caseRow("내용물", state.phase === "boxed" ? "미개봉" : current.item, state.phase === "boxed" ? "포장을 먼저 해체해야 합니다." : current.description)
+        ].join("");
+
+        if (state.revealed.length === 0) {
+          els.clueList.innerHTML = '<article class="clue"><strong>미확인</strong><span>추가 검열을 눌러 단서를 드러내세요.</span></article>';
+          return;
+        }
+
+        els.clueList.innerHTML = state.revealed.map(function (clue) {
+          return '<article class="clue"><strong>' + clue[0] + '</strong><span>' + clue[1] + '</span></article>';
+        }).join("");
+      }
+
+      function caseRow(label, value, detail) {
+        return '<div class="case-row"><span class="case-label">' + label + '</span><div class="case-value">' + value + '<small>' + detail + '</small></div></div>';
+      }
+
+      function renderButtons() {
+        var canSummon = !state.finished && (state.phase === "idle" || state.phase === "resolved") && !state.pendingUpgrade;
+        var canTear = state.phase === "boxed";
+        var canInspect = state.phase === "open" && state.inspectRemaining > 0 && state.revealed.length < state.current.clues.length;
+        var canDecide = state.phase === "open";
+
+        els.summonButton.disabled = !canSummon;
+        els.tearButton.disabled = !canTear;
+        els.inspectButton.disabled = !canInspect;
+        els.acceptButton.disabled = !canDecide;
+        els.confiscateButton.disabled = !canDecide;
+        els.reportButton.disabled = !canDecide;
+
+        els.summonButton.textContent = state.phase === "resolved" ? "다음 상자" : "상자 소환";
+        els.tearButton.textContent = state.phase === "boxed" ? "포장 찢기 " + state.tearProgress + "/" + state.tearRequired : "포장 찢기";
+      }
+
+      function renderLog() {
+        var visible = state.log.slice(0, 4);
+        if (visible.length === 0) {
+          visible = ["판정 기록이 여기에 남습니다."];
+        }
+
+        els.logList.innerHTML = visible.map(function (entry) {
+          return '<div class="log-entry">' + entry + '</div>';
+        }).join("");
+      }
+
+      function render() {
+        renderRulebook();
+        renderUpgrades();
+        renderMeters();
+        renderStage();
+        renderCaseFile();
+        renderButtons();
+        renderLog();
+      }
+
+      function summon() {
+        if (state.order >= maxOrders) {
+          finishSession(false);
+          return;
+        }
+
+        state.order += 1;
+        state.current = getDelivery();
+        state.phase = "boxed";
+        state.tearProgress = 0;
+        state.tearRequired = clamp(3 - upgrades.cutter, 1, 3);
+        state.inspectRemaining = 1 + upgrades.lens;
+        state.revealed = [];
+        setFeedback("상자 도착", "봉인을 확인하고 포장을 찢어 내용물을 검열하세요.", "");
+        render();
+      }
+
+      function tear() {
+        if (state.phase !== "boxed") return;
+
+        state.tearProgress += 1;
+        if (state.tearProgress >= state.tearRequired) {
+          state.phase = "open";
+          revealNextClue();
+          setFeedback("포장 해체 완료", "첫 단서가 드러났습니다. 더 조사하거나 바로 판정할 수 있습니다.", "");
+        }
+
+        render();
+      }
+
+      function revealNextClue() {
+        if (!state.current) return;
+        if (state.revealed.length >= state.current.clues.length) return;
+
+        state.revealed.push(state.current.clues[state.revealed.length]);
+      }
+
+      function inspect() {
+        if (state.phase !== "open" || state.inspectRemaining <= 0) return;
+
+        state.inspectRemaining -= 1;
+        revealNextClue();
+        setFeedback("추가 검열", "새 증거가 장부에 기록되었습니다.", "");
+        render();
+      }
+
+      function decide(action) {
+        if (state.phase !== "open" || !state.current) return;
+
+        var current = state.current;
+        var correct = action === current.verdict;
+        var reward = correct ? 10 + upgrades.ledger * 4 + state.streak : 1;
+
+        state.coins += reward;
+
+        if (correct) {
+          state.correct += 1;
+          state.streak += 1;
+          state.favor = clamp(state.favor + 4, 0, 100);
+          state.suspicion = clamp(state.suspicion - 2, 0, 100);
+          setFeedback("정확한 판정: " + actionLabel(action), current.reason + " +" + reward + " coins", "correct");
+          state.log.unshift("Case " + state.order + ": " + actionLabel(action) + " 성공. " + current.item);
+        } else {
+          state.streak = 0;
+          state.favor = clamp(state.favor - 6, 0, 100);
+          state.suspicion = clamp(state.suspicion + 18, 0, 100);
+          setFeedback("오판: 정답은 " + actionLabel(current.verdict), current.reason + " 의심도 +" + 18, "wrong");
+          state.log.unshift("Case " + state.order + ": 오판. 정답은 " + actionLabel(current.verdict) + ".");
+        }
+
+        state.phase = "resolved";
+        state.revealed = current.clues.slice();
+
+        if (state.suspicion >= 100) {
+          render();
+          finishSession(true);
+          return;
+        }
+
+        if (upgradeMoments.indexOf(state.order) !== -1) {
+          state.pendingUpgrade = true;
+          render();
+          window.setTimeout(showUpgrade, 420);
+          return;
+        }
+
+        if (state.order >= maxOrders) {
+          render();
+          window.setTimeout(function () {
+            finishSession(false);
+          }, 520);
+          return;
+        }
+
+        render();
+      }
+
+      function showUpgrade() {
+        var options = [
+          {
+            id: "cutter",
+            title: "은가위",
+            copy: "포장 찢기 필요 횟수가 1 감소합니다. 최소 1회까지 줄어듭니다."
+          },
+          {
+            id: "lens",
+            title: "확대 렌즈",
+            copy: "매 상자마다 추가 검열 횟수가 1 늘어납니다."
+          },
+          {
+            id: "ledger",
+            title: "정리 장부",
+            copy: "정답 판정 보상이 4 coins 증가합니다."
+          }
+        ];
+
+        els.upgradeOptions.innerHTML = options.map(function (option) {
+          return [
+            '<button class="upgrade-card" type="button" data-upgrade="' + option.id + '">',
+            "<div><strong>" + option.title + "</strong><span>" + option.copy + "</span></div>",
+            "<span>현재 Lv." + upgrades[option.id] + "</span>",
+            "</button>"
+          ].join("");
+        }).join("");
+
+        els.upgradeOverlay.classList.add("active");
+      }
+
+      function chooseUpgrade(id) {
+        upgrades[id] += 1;
+        state.pendingUpgrade = false;
+        els.upgradeOverlay.classList.remove("active");
+        state.log.unshift("시설 보강: " + upgradeName(id) + " Lv." + upgrades[id]);
+        render();
+      }
+
+      function upgradeName(id) {
+        if (id === "cutter") return "은가위";
+        if (id === "lens") return "확대 렌즈";
+        return "정리 장부";
+      }
+
+      function finishSession(terminated) {
+        state.finished = true;
+        state.phase = "resolved";
+        els.summaryCopy.textContent = terminated
+          ? "의심도가 한계에 도달해 검열관이 업무에서 배제되었습니다."
+          : "오늘 배정된 모든 선물을 처리했습니다.";
+        els.summaryCorrect.textContent = state.correct + " / " + state.order;
+        els.summaryCoins.textContent = state.coins;
+        els.summaryFavor.textContent = state.favor;
+        els.summarySuspicion.textContent = state.suspicion;
+        els.summaryOverlay.classList.add("active");
+        render();
+      }
+
+      function restart() {
+        upgrades.cutter = 0;
+        upgrades.lens = 0;
+        upgrades.ledger = 0;
+
+        state.order = 0;
+        state.coins = 0;
+        state.favor = 50;
+        state.suspicion = 0;
+        state.streak = 0;
+        state.correct = 0;
+        state.phase = "idle";
+        state.current = null;
+        state.tearProgress = 0;
+        state.tearRequired = 0;
+        state.inspectRemaining = 0;
+        state.revealed = [];
+        state.usedDeliveryIds = [];
+        state.pendingUpgrade = false;
+        state.finished = false;
+        state.log = [];
+
+        els.summaryOverlay.classList.remove("active");
+        setFeedback("판정 대기", "상자를 열고 증거를 확인한 뒤 왕실 장부에 판정하세요.", "");
+        render();
+      }
+
+      els.summonButton.addEventListener("click", summon);
+      els.tearButton.addEventListener("click", tear);
+      els.inspectButton.addEventListener("click", inspect);
+      els.acceptButton.addEventListener("click", function () {
+        decide("accept");
+      });
+      els.confiscateButton.addEventListener("click", function () {
+        decide("confiscate");
+      });
+      els.reportButton.addEventListener("click", function () {
+        decide("report");
+      });
+      els.restartButton.addEventListener("click", restart);
+      els.upgradeOptions.addEventListener("click", function (event) {
+        var button = event.target.closest("[data-upgrade]");
+        if (!button) return;
+        chooseUpgrade(button.getAttribute("data-upgrade"));
+      });
+
+      render();
+    })();
+  </script>
+</body>
+</html>
