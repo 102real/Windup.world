@@ -1,0 +1,538 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>For The Queen Deck</title>
+  <meta name="description" content="For The Queen 게임 소개 PPT입니다.">
+  <style>
+    :root {
+      color-scheme: light;
+      --paper: #eeeae2;
+      --white: #fbfaf7;
+      --ink: #101010;
+      --muted: #565047;
+      --line: #d7d0c5;
+      --charcoal: #151311;
+      --red: #c92121;
+      --gold: #d68a00;
+      --cyan: #0f8d9b;
+      --fantasy: #9b335b;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      min-height: 100%;
+      scroll-snap-type: y mandatory;
+      background: var(--paper);
+    }
+
+    body {
+      min-height: 100vh;
+      margin: 0;
+      background: var(--paper);
+      color: var(--ink);
+      font-family: Pretendard, "Noto Sans KR", "Apple SD Gothic Neo", "Malgun Gothic", Inter, Arial, sans-serif;
+      letter-spacing: 0;
+    }
+
+    body.locked {
+      overflow: hidden;
+      background: var(--charcoal);
+    }
+
+    body:not(.locked) .password-gate,
+    body.locked .deck {
+      display: none;
+    }
+
+    button,
+    input {
+      font: inherit;
+      letter-spacing: 0;
+    }
+
+    .password-gate {
+      min-height: 100vh;
+      display: grid;
+      place-items: center;
+      padding: 24px;
+      background:
+        linear-gradient(rgba(12, 10, 9, 0.54), rgba(12, 10, 9, 0.9)),
+        url("../VisionDeck/assets/for-the-queen-title.png") center / cover no-repeat;
+      color: #f7efe1;
+    }
+
+    .password-panel {
+      width: min(430px, 100%);
+      border: 1px solid rgba(247, 239, 225, 0.24);
+      background: rgba(16, 13, 11, 0.92);
+      box-shadow: 0 28px 90px rgba(0, 0, 0, 0.56);
+      padding: 28px;
+    }
+
+    .password-panel h1 {
+      margin: 0 0 10px;
+      font-size: 32px;
+      line-height: 1;
+      text-transform: uppercase;
+    }
+
+    .password-panel p {
+      margin: 0 0 20px;
+      color: rgba(247, 239, 225, 0.72);
+      font-size: 14px;
+      line-height: 1.5;
+      word-break: keep-all;
+    }
+
+    .password-form {
+      display: grid;
+      gap: 12px;
+    }
+
+    .password-form input,
+    .password-form button {
+      width: 100%;
+      min-height: 46px;
+      border-radius: 0;
+    }
+
+    .password-form input {
+      border: 1px solid rgba(247, 239, 225, 0.34);
+      background: rgba(255, 255, 255, 0.08);
+      color: #f7efe1;
+      padding: 0 14px;
+      outline: none;
+    }
+
+    .password-form button {
+      border: 0;
+      background: #e7d9bd;
+      color: #17110d;
+      font-weight: 900;
+      cursor: pointer;
+    }
+
+    .password-error {
+      min-height: 18px;
+      color: #ffb4a8;
+      font-size: 13px;
+    }
+
+    .slide {
+      min-height: 100vh;
+      display: grid;
+      place-items: center;
+      padding: 20px;
+      scroll-snap-align: start;
+    }
+
+    .frame {
+      position: relative;
+      width: min(1180px, calc(100vw - 40px));
+      aspect-ratio: 16 / 9;
+      overflow: hidden;
+      border: 1px solid var(--line);
+      background: var(--paper);
+      box-shadow: 0 18px 60px rgba(16, 16, 16, 0.08);
+    }
+
+    .frame.dark {
+      background: var(--charcoal);
+      color: var(--white);
+    }
+
+    .frame.title-only {
+      border: 0;
+      background:
+        linear-gradient(rgba(0, 0, 0, 0.08), rgba(0, 0, 0, 0.14)),
+        var(--bg) center / cover no-repeat;
+    }
+
+    .slide-inner {
+      height: 100%;
+      display: grid;
+      grid-template-rows: auto auto 1fr auto;
+      gap: 18px;
+      padding: 34px 38px;
+    }
+
+    .slide-head,
+    .slide-foot {
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      color: var(--muted);
+      font-size: 11px;
+      font-weight: 900;
+      text-transform: uppercase;
+    }
+
+    .frame.dark .slide-head,
+    .frame.dark .slide-foot {
+      color: rgba(251, 250, 247, 0.72);
+    }
+
+    h2 {
+      margin: 0;
+      font-size: 52px;
+      line-height: 0.95;
+      letter-spacing: 0;
+      text-transform: uppercase;
+    }
+
+    h3 {
+      margin: 0 0 8px;
+      font-size: 22px;
+      line-height: 1.02;
+      text-transform: uppercase;
+    }
+
+    .lead {
+      max-width: 880px;
+      margin: 12px 0 0;
+      color: var(--muted);
+      font-size: 16px;
+      font-weight: 760;
+      line-height: 1.5;
+      word-break: keep-all;
+    }
+
+    .frame.dark .lead {
+      color: rgba(251, 250, 247, 0.72);
+    }
+
+    .poster-count {
+      position: absolute;
+      top: 30px;
+      right: 34px;
+      color: var(--white);
+      font-size: 12px;
+      font-weight: 900;
+      text-shadow: 0 2px 12px rgba(0, 0, 0, 0.55);
+    }
+
+    .loop {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 12px;
+      align-content: stretch;
+    }
+
+    .loop-step,
+    .block {
+      border: 1px solid var(--line);
+      background: var(--white);
+      padding: 16px;
+    }
+
+    .frame.dark .loop-step {
+      border-color: rgba(251, 250, 247, 0.16);
+      background: rgba(255, 255, 255, 0.06);
+    }
+
+    .loop-step {
+      min-height: 136px;
+      display: grid;
+      align-content: space-between;
+      gap: 14px;
+    }
+
+    .loop-step span,
+    .num {
+      display: inline-flex;
+      width: fit-content;
+      border: 1px solid currentColor;
+      padding: 5px 8px;
+      color: var(--muted);
+      font-size: 10px;
+      font-weight: 900;
+      text-transform: uppercase;
+    }
+
+    .frame.dark .loop-step span {
+      color: rgba(251, 250, 247, 0.68);
+    }
+
+    .loop-step p,
+    .block p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 13px;
+      font-weight: 780;
+      line-height: 1.42;
+      word-break: keep-all;
+    }
+
+    .frame.dark .loop-step p {
+      color: rgba(251, 250, 247, 0.72);
+    }
+
+    .expansion-grid,
+    .purpose-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 12px;
+    }
+
+    .block {
+      min-height: 152px;
+      display: grid;
+      gap: 16px;
+      align-content: space-between;
+    }
+
+    .num.accent-red {
+      color: var(--red);
+    }
+
+    .num.accent-gold {
+      color: var(--gold);
+    }
+
+    .num.accent-cyan {
+      color: var(--cyan);
+    }
+
+    .num.accent-fantasy {
+      color: var(--fantasy);
+    }
+
+    @media (max-width: 760px) {
+      html {
+        scroll-snap-type: y proximity;
+      }
+
+      .slide {
+        min-height: auto;
+        padding: 16px;
+      }
+
+      .frame {
+        width: 100%;
+        min-height: calc(100vh - 32px);
+        aspect-ratio: auto;
+        overflow: visible;
+      }
+
+      .frame.title-only {
+        min-height: auto;
+        aspect-ratio: 16 / 9;
+        overflow: hidden;
+      }
+
+      .slide-inner {
+        min-height: calc(100vh - 32px);
+        padding: 26px 22px;
+      }
+
+      h2 {
+        font-size: 34px;
+      }
+
+      .lead {
+        font-size: 14px;
+      }
+
+      .loop,
+      .expansion-grid,
+      .purpose-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body class="locked">
+  <main class="password-gate" aria-label="Password required">
+    <section class="password-panel">
+      <h1>For The Queen Deck</h1>
+      <p>비밀번호를 입력하면 게임 소개 PPT를 볼 수 있습니다.</p>
+      <form class="password-form" id="passwordForm">
+        <input id="passwordInput" type="password" autocomplete="current-password" placeholder="Password" aria-label="Password">
+        <button type="submit">ENTER</button>
+        <span class="password-error" id="passwordError" role="status" aria-live="polite"></span>
+      </form>
+    </section>
+  </main>
+
+  <main class="deck" aria-label="For The Queen Deck">
+    <section class="slide" aria-label="For The Queen Title">
+      <div class="frame title-only" style="--bg: url('../VisionDeck/assets/for-the-queen-title.png');">
+        <span class="poster-count">01 / 04</span>
+      </div>
+    </section>
+
+    <section class="slide" aria-label="For The Queen 핵심 루프">
+      <div class="frame dark">
+        <div class="slide-inner">
+          <header class="slide-head">
+            <span>For The Queen 핵심 루프</span>
+            <span>02 / 04</span>
+          </header>
+          <div>
+            <h2>소환, 해체,<br>판정, 확장</h2>
+            <p class="lead">모든 작업은 물리 엔진의 영향을 받습니다. 플레이어는 상자를 뜯고, 내용물을 확인하고, 여왕의 규칙에 맞춰 판정하며 다음 확장으로 이어지는 보상을 얻습니다.</p>
+          </div>
+          <div class="loop">
+            <article class="loop-step"><span>01 소환</span><div><h3>소환</h3><p>큰 버튼을 눌러 상자를 레일 위로 호출합니다.</p></div></article>
+            <article class="loop-step"><span>02 해체</span><div><h3>해체</h3><p>테이프, 뚜껑, 완충재를 직접 뜯고 치웁니다.</p></div></article>
+            <article class="loop-step"><span>03 검수</span><div><h3>검수</h3><p>여왕의 규칙에 맞춰 내용물을 돌려보고 판단합니다.</p></div></article>
+            <article class="loop-step"><span>04 분류</span><div><h3>분류</h3><p>합격품은 레일로 보내고, 문제 물품은 신고하거나 제거합니다.</p></div></article>
+            <article class="loop-step"><span>05 보상</span><div><h3>보상</h3><p>처리 성과에 따라 크레딧과 확장 동기를 얻습니다.</p></div></article>
+            <article class="loop-step"><span>06 확장</span><div><h3>업그레이드</h3><p>도구와 시설을 열어 작업 속도와 규모를 키웁니다.</p></div></article>
+          </div>
+          <footer class="slide-foot">
+            <span>손작업에서 자동화로</span>
+            <span>1인칭 물리 감각</span>
+          </footer>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide" aria-label="For The Queen 검수 규칙">
+      <div class="frame">
+        <div class="slide-inner">
+          <header class="slide-head">
+            <span>검수 규칙</span>
+            <span>03 / 04</span>
+          </header>
+          <div>
+            <h2>검수는 정답을<br>찾아가는 판정 게임</h2>
+            <p class="lead">플레이어는 내용물, 형태, 발신자, 포장 단서를 확인하며 여왕의 금지 규칙을 추론합니다. 처음에는 모르고 통과시킨 선택이 실패로 돌아오고, 반복을 통해 정답과 예외를 학습합니다.</p>
+          </div>
+          <div class="expansion-grid">
+            <article class="block">
+              <span class="num accent-red">위험 물품</span>
+              <div>
+                <h3>위험 물품 판정</h3>
+                <p>폭탄, 독극물, 여왕의 알러지 물질처럼 즉시 문제가 되는 내용물을 찾아냅니다.</p>
+              </div>
+            </article>
+            <article class="block">
+              <span class="num accent-gold">여왕의 트라우마</span>
+              <div>
+                <h3>형태와 기억</h3>
+                <p>위험물이 아니어도 여왕이 트라우마로 두려워하는 형태, 색, 상징은 통과시킬 수 없습니다.</p>
+              </div>
+            </article>
+            <article class="block">
+              <span class="num accent-fantasy">발신자 규칙</span>
+              <div>
+                <h3>발신자와 가문</h3>
+                <p>선물 자체가 멀쩡해도 발신자 이름에 금지 가문이 포함되면 폐기 또는 신고 대상이 됩니다.</p>
+              </div>
+            </article>
+          </div>
+          <div class="purpose-grid">
+            <article class="block">
+              <span class="num">결정</span>
+              <div>
+                <h3>분류 선택</h3>
+                <p>문제가 나온 선물을 신고할지, 위험 요소만 제거하고 레일로 보낼지 플레이어가 결정합니다.</p>
+              </div>
+            </article>
+            <article class="block">
+              <span class="num">학습 루프</span>
+              <div>
+                <h3>실패로 학습</h3>
+                <p>잘못 통과시킨 선물이 게임오버로 돌아오며, 플레이어는 다음 루프에서 더 정확한 기준을 찾습니다.</p>
+              </div>
+            </article>
+            <article class="block">
+              <span class="num">레퍼런스</span>
+              <div>
+                <h3>Papers, Please식 판정</h3>
+                <p>명확히 알려진 규칙과 숨겨진 금지 조건이 겹치며 검수의 긴장감을 만듭니다.</p>
+              </div>
+            </article>
+          </div>
+          <footer class="slide-foot">
+            <span>검수, 신고, 예외 발견</span>
+            <span>For The Queen</span>
+          </footer>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide" aria-label="For The Queen 확장">
+      <div class="frame">
+        <div class="slide-inner">
+          <header class="slide-head">
+            <span>For The Queen 확장</span>
+            <span>04 / 04</span>
+          </header>
+          <div>
+            <h2>작은 검열실에서<br>자동화 공장으로</h2>
+            <p class="lead">초반에는 칼 하나로 상자를 뜯지만, 후반에는 로봇팔과 레일이 여왕의 기준에 맞춰 선물을 처리하는 광경을 1인칭으로 바라보게 됩니다.</p>
+          </div>
+          <div class="expansion-grid">
+            <article class="block">
+              <span class="num accent-gold">개인 도구</span>
+              <div>
+                <h3>도구 업그레이드</h3>
+                <p>레이저 커터, 진공청소기, 빠른 집기 도구로 반복 작업의 손맛과 효율을 동시에 키웁니다.</p>
+              </div>
+            </article>
+            <article class="block">
+              <span class="num accent-cyan">공간 확장</span>
+              <div>
+                <h3>시설 확장</h3>
+                <p>벽을 허물고 레일을 늘리며, 투시 터널로 상자 내용물을 미리 확인하는 공장형 공간으로 변합니다.</p>
+              </div>
+            </article>
+            <article class="block">
+              <span class="num accent-red">부조리한 자동화</span>
+              <div>
+                <h3>부조리한 자동화</h3>
+                <p>분류 로봇팔과 블랙홀 소각장이 조건에 따라 물건을 집어 던지고, 폭발과 랙돌이 작업장을 흔듭니다.</p>
+              </div>
+            </article>
+          </div>
+          <footer class="slide-foot">
+            <span>규모, 혼돈, 통제</span>
+            <span>For The Queen / 포더퀸</span>
+          </footer>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    (function () {
+      var password = "WINDUP!";
+      var storageKey = "windup-forthequeen-unlocked";
+      var form = document.getElementById("passwordForm");
+      var input = document.getElementById("passwordInput");
+      var error = document.getElementById("passwordError");
+
+      function unlock() {
+        document.body.classList.remove("locked");
+      }
+
+      if (window.localStorage.getItem(storageKey) === "true") {
+        unlock();
+      } else {
+        input.focus();
+      }
+
+      form.addEventListener("submit", function (event) {
+        event.preventDefault();
+
+        if (input.value === password) {
+          window.localStorage.setItem(storageKey, "true");
+          unlock();
+          return;
+        }
+
+        error.textContent = "Incorrect password.";
+        input.value = "";
+        input.focus();
+      });
+    })();
+  </script>
+</body>
+</html>
