@@ -598,10 +598,33 @@
     .phase-flow {
       position: relative;
       display: grid;
-      grid-template-columns: minmax(0, 1fr) 72px minmax(0, 0.96fr) 72px minmax(0, 0.96fr);
-      gap: 0;
+      grid-template-columns: minmax(0, 1fr) minmax(0, 0.96fr) minmax(0, 0.96fr);
+      gap: 84px;
       align-items: stretch;
       min-height: 0;
+    }
+
+    .phase-link-layer {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      overflow: visible;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .phase-link-paths path {
+      fill: none;
+      stroke: var(--ink);
+      stroke-width: 3.5;
+      stroke-linecap: butt;
+      stroke-linejoin: miter;
+    }
+
+    .phase-link-paths polygon {
+      fill: var(--ink);
+      stroke: none;
     }
 
     .flow-column {
@@ -641,8 +664,26 @@
     .flow-stack {
       display: grid;
       gap: 8px;
-      grid-auto-rows: minmax(0, 1fr);
+      grid-template-rows: repeat(4, minmax(0, 1fr));
       align-content: stretch;
+    }
+
+    .flow-column.two .flow-node:nth-child(1) {
+      grid-row: 1 / span 2;
+      align-self: center;
+      height: calc((100% - 8px) / 2);
+    }
+
+    .flow-column.two .flow-node:nth-child(2) {
+      grid-row: 3 / span 2;
+      align-self: center;
+      height: calc((100% - 8px) / 2);
+    }
+
+    .flow-column.three .flow-node {
+      grid-row: 1 / span 4;
+      align-self: center;
+      height: calc((100% - 24px) / 4);
     }
 
     .flow-node {
@@ -671,114 +712,12 @@
 
     .flow-node.final-node {
       align-content: center;
-      gap: 14px;
-      padding: 18px;
+      gap: 6px;
+      padding: 11px 12px;
     }
 
     .flow-node.final-node b {
       font-size: 16px;
-    }
-
-    .flow-node-sub {
-      border-top: 1px solid var(--line);
-      padding-top: 12px;
-    }
-
-    .flow-node-sub b {
-      display: block;
-      margin-bottom: 6px;
-    }
-
-    .flow-connector {
-      min-height: 394px;
-      display: grid;
-      position: relative;
-      z-index: 0;
-      padding: 82px 8px 14px;
-      pointer-events: none;
-    }
-
-    .connector-body {
-      min-height: 0;
-      display: grid;
-      align-content: stretch;
-    }
-
-    .connector-body.two-groups {
-      grid-template-rows: 1fr 1fr;
-      gap: 8px;
-    }
-
-    .connector-body.final {
-      align-content: stretch;
-    }
-
-    .connector-group {
-      position: relative;
-      min-height: 0;
-    }
-
-    .connector-body.final .connector-group {
-      align-self: stretch;
-    }
-
-    .connector-group::before {
-      content: "";
-      position: absolute;
-      left: 28px;
-      top: 24%;
-      bottom: 24%;
-      border-left: 4px solid var(--ink);
-    }
-
-    .connector-group::after {
-      content: "";
-      position: absolute;
-      left: 28px;
-      right: 12px;
-      top: 50%;
-      height: 4px;
-      background: var(--ink);
-      transform: translateY(-50%);
-    }
-
-    .connector-branch {
-      position: absolute;
-      left: 0;
-      width: 28px;
-      height: 4px;
-      background: var(--ink);
-      transform: translateY(-50%);
-    }
-
-    .connector-branch.top {
-      top: 24%;
-    }
-
-    .connector-branch.bottom {
-      top: 76%;
-    }
-
-    .connector-tip {
-      position: absolute;
-      right: 2px;
-      top: 50%;
-      width: 0;
-      height: 0;
-      border-top: 7px solid transparent;
-      border-bottom: 7px solid transparent;
-      border-left: 11px solid var(--ink);
-      transform: translateY(-50%);
-    }
-
-    .connector-group.final-merge::before {
-      top: 24%;
-      bottom: 24%;
-    }
-
-    .connector-group.final-merge::after,
-    .connector-group.final-merge .connector-tip {
-      top: 50%;
     }
 
     .phase-projects {
@@ -787,6 +726,7 @@
       gap: 18px;
       align-items: stretch;
       min-height: 0;
+      margin-top: -4px;
     }
 
     .phase-card {
@@ -841,6 +781,16 @@
       word-break: keep-all;
     }
 
+    .phase-project-copy h3 {
+      margin-bottom: 4px;
+      font-size: 24px;
+    }
+
+    .phase-project-copy p {
+      font-size: 13px;
+      line-height: 1.28;
+    }
+
     .phase-list {
       display: grid;
       gap: 9px;
@@ -871,65 +821,71 @@
     }
 
     .phase-project {
-      min-height: 414px;
+      min-height: 500px;
       display: grid;
-      grid-template-rows: 220px 1fr;
+      grid-template-rows: auto auto 1fr;
       border: 1px solid var(--line);
       background: var(--white);
       overflow: hidden;
     }
 
     .phase-project img {
+      display: block;
       width: 100%;
-      height: 220px;
-      object-fit: cover;
-      object-position: center bottom;
+      height: auto;
+      aspect-ratio: 16 / 9;
+      object-fit: contain;
+      object-position: center;
+      background: var(--paper);
     }
 
     .phase-project-copy {
       display: grid;
-      grid-template-rows: auto auto 1fr;
-      gap: 10px;
-      padding: 18px;
-    }
-
-    .phase-project-meta {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 7px;
-      align-self: end;
-    }
-
-    .phase-project-meta span {
-      border: 1px solid var(--line);
-      padding: 4px 7px;
-      color: var(--muted);
-      font-size: 10px;
-      font-weight: 900;
-      text-transform: uppercase;
+      align-content: start;
+      gap: 8px;
+      padding: 10px 18px;
     }
 
     .phase-one-grid {
       display: grid;
       grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 12px;
+      gap: 18px;
       min-height: 0;
     }
 
-    .phase-one-card {
-      min-height: 142px;
+    .phase-one-universe {
+      min-height: 0;
       display: grid;
-      grid-template-columns: 210px 1fr;
+      grid-template-rows: auto 1fr;
       border: 1px solid var(--line);
       background: var(--white);
       overflow: hidden;
     }
 
+    .phase-one-stack {
+      display: grid;
+      gap: 10px;
+      padding: 14px;
+      align-content: stretch;
+    }
+
+    .phase-one-card {
+      min-height: 126px;
+      display: grid;
+      grid-template-columns: 210px 1fr;
+      border: 1px solid var(--line);
+      background: var(--paper);
+      overflow: hidden;
+    }
+
     .phase-one-card img {
       width: 100%;
-      height: 100%;
-      object-fit: cover;
-      object-position: center bottom;
+      height: auto;
+      aspect-ratio: 16 / 9;
+      align-self: center;
+      object-fit: contain;
+      object-position: center;
+      background: var(--paper);
     }
 
     .phase-one-copy {
@@ -955,7 +911,7 @@
 
     .phase-title-feature {
       display: grid;
-      grid-template-columns: minmax(0, 1.42fr) minmax(320px, 0.58fr);
+      grid-template-columns: minmax(0, 764px) minmax(420px, 1fr);
       gap: 16px;
       align-items: stretch;
       min-height: 0;
@@ -963,16 +919,52 @@
 
     .phase-title-image {
       min-height: 398px;
+      display: grid;
+      grid-template-rows: auto 1fr;
       border: 1px solid var(--line);
-      background: var(--ink);
+      background: var(--paper);
       overflow: hidden;
     }
 
     .phase-title-image img {
+      display: block;
       width: 100%;
       height: 100%;
-      object-fit: cover;
-      object-position: center bottom;
+      min-height: 0;
+      object-fit: contain;
+      object-position: center;
+    }
+
+    .universe-ribbon,
+    .universe-ribbon-pair span {
+      min-height: 30px;
+      display: flex;
+      align-items: center;
+      padding: 7px 12px;
+      color: var(--white);
+      font-size: 11px;
+      font-weight: 950;
+      line-height: 1;
+      text-transform: uppercase;
+    }
+
+    .universe-ribbon.future,
+    .universe-ribbon-pair .future {
+      background: var(--future);
+    }
+
+    .universe-ribbon.fantasy,
+    .universe-ribbon-pair .fantasy {
+      background: var(--fantasy);
+    }
+
+    .universe-ribbon-pair {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .universe-ribbon-pair span:last-child {
+      justify-content: flex-end;
     }
 
     .phase-title-copy {
@@ -1193,11 +1185,6 @@
         gap: 8px;
       }
 
-      .flow-connector {
-        min-height: 318px;
-        padding: 72px 6px 12px;
-      }
-
       .flow-column h3,
       .phase-project-copy h3 {
         font-size: 22px;
@@ -1221,11 +1208,11 @@
 
       .phase-project {
         min-height: 318px;
-        grid-template-rows: 148px 1fr;
+        grid-template-rows: auto auto 1fr;
       }
 
       .phase-project img {
-        height: 148px;
+        height: auto;
       }
 
       .phase-project-copy {
@@ -1234,6 +1221,11 @@
 
       .phase-one-grid {
         gap: 9px;
+      }
+
+      .phase-one-stack {
+        gap: 8px;
+        padding: 10px;
       }
 
       .phase-one-card {
@@ -1254,7 +1246,7 @@
       }
 
       .phase-title-feature {
-        grid-template-columns: minmax(0, 1.35fr) minmax(276px, 0.65fr);
+        grid-template-columns: minmax(0, 566px) minmax(300px, 1fr);
         gap: 10px;
       }
 
@@ -1337,7 +1329,11 @@
         grid-template-columns: 1fr;
       }
 
-      .flow-connector {
+      .phase-projects {
+        margin-top: 0;
+      }
+
+      .phase-link-layer {
         display: none;
       }
 
@@ -1398,7 +1394,7 @@
       <div class="slide-inner">
         <header class="slide-head">
           <span class="kicker">WINDUP</span>
-          <span>01 / 16</span>
+          <span>01 / 12</span>
         </header>
         <div class="cover-grid">
           <div>
@@ -1424,11 +1420,11 @@
       <div class="slide-inner">
         <header class="slide-head">
           <span class="kicker">프로젝트 현황 맵</span>
-          <span>02 / 16</span>
+          <span>02 / 12</span>
         </header>
         <div>
           <h2>프로젝트 현황</h2>
-          <p class="lead">1페이즈의 네 게임은 서로 다른 장르와 제작 단계에 있지만, 모두 “작은 핵심 규칙이 반복과 확장으로 커지는 경험”을 중심에 둡니다.</p>
+          <p class="lead">페이즈 1의 네 인디 타이틀은 서로 다른 장르와 제작 단계에 있지만, 모두 “작은 핵심 규칙이 반복과 확장으로 커지는 경험”을 중심에 둡니다.</p>
         </div>
         <div class="status-grid">
           <article class="status-card">
@@ -1477,7 +1473,7 @@
       <div class="slide-inner">
         <header class="slide-head">
           <span class="kicker">SHOWHAND 현황</span>
-          <span>03 / 16</span>
+          <span>03 / 12</span>
         </header>
         <div class="story-grid">
           <div>
@@ -1504,7 +1500,7 @@
       <div class="slide-inner">
         <header class="slide-head">
           <span class="kicker">Oh My Gravity 현황</span>
-          <span>04 / 16</span>
+          <span>04 / 12</span>
         </header>
         <div class="story-grid">
           <div>
@@ -1531,7 +1527,7 @@
       <div class="slide-inner">
         <header class="slide-head">
           <span class="kicker">CLIMB 현황</span>
-          <span>05 / 16</span>
+          <span>05 / 12</span>
         </header>
         <div class="story-grid">
           <div>
@@ -1558,7 +1554,7 @@
       <div class="slide-inner">
         <header class="slide-head">
           <span class="kicker">For The Queen 현황</span>
-          <span>06 / 16</span>
+          <span>06 / 12</span>
         </header>
         <div class="story-grid">
           <div>
@@ -1585,11 +1581,11 @@
       <div class="slide-inner">
         <header class="slide-head">
           <span class="kicker">유니버스 맵</span>
-          <span>07 / 16</span>
+          <span>07 / 12</span>
         </header>
         <div>
           <h2>두 개의 유니버스</h2>
-          <p class="lead">Tech Universe는 Bob의 상승 욕망이 회사 성장, 궤도 산업, 우주 노동으로 이어지는 축이고, Fantasy Universe는 붉은 여왕의 통제와 탈출, 반격을 다루는 축입니다.</p>
+          <p class="lead">Tech Universe는 Bob이 다른 사람들에게 새로운 세상을 보여주고 싶은 마음에서 출발해 회사 성장, 궤도 산업, 우주 노동으로 이어지는 축이고, Fantasy Universe는 붉은 여왕의 통제와 탈출, 반격을 다루는 축입니다.</p>
         </div>
         <div class="universe-map">
           <article class="universe future">
@@ -1600,11 +1596,11 @@
             <div class="timeline">
               <div class="node">
                 <img src="assets/climb-title.png" alt="CLIMB">
-                <div><b>CLIMB</b><p>등산의 즐거움에서 밀려난 Bob이 노동을 통해 진짜 정상에 도달합니다.</p></div>
+                <div><b>CLIMB</b><p>Bob은 산에서 만난 사람들에게 더 넓은 풍경을 보여주고 싶은 마음으로 더 큰 세계를 꿈꿉니다.</p></div>
               </div>
               <div class="node">
                 <img src="assets/bob-company-title.png" alt="BOB Company title image">
-                <div><b>BOB Company</b><p>음료 판매 회사가 우주기업으로 커지는 과정을 페이즈 2 게임으로 다룹니다.</p></div>
+                <div><b>BOB Company</b><p>Bob의 마음이 회사로 확장되고, 더 많은 사람에게 새로운 세상을 보여주기 위한 우주기업으로 성장합니다.</p></div>
               </div>
               <div class="node">
                 <img src="assets/omg-title.png" alt="Oh My Gravity">
@@ -1646,120 +1642,12 @@
     </div>
   </section>
 
-  <section class="slide" aria-label="CLIMB World">
-    <div class="frame image" style="--bg: url('assets/climb-title.png');">
-      <div class="slide-inner">
-        <header class="slide-head">
-          <span class="kicker">CLIMB 세계</span>
-          <span>08 / 16</span>
-        </header>
-        <div class="story-grid">
-          <div>
-            <h2>CLIMB:<br>정상 밖에 선 Bob</h2>
-            <p class="lead">Bob은 모두가 즐기는 등산길에서 유일하게 일하는 사람입니다. 산에 가장 오래 머물지만, 정작 등산객처럼 정상에 도달하지 못합니다.</p>
-          </div>
-          <div class="story-points">
-            <div class="point"><b>외부자 노동자</b> 즐김이 아닌 음료 판매로 산에 머무는 Bob은 등산의 즐거움에서 타자화된 인물입니다.</div>
-            <div class="point"><b>성장형 등반</b> 돈을 벌고 장비를 갖추며, 다른 등산객보다 더 빠르고 많이 산에 오르게 됩니다.</div>
-            <div class="point"><b>가짜 정상</b> 모두가 아는 정상 위에 아무도 가보지 못한 진짜 산이 하나 더 있음을 깨닫습니다.</div>
-            <div class="point"><b>달을 바라보는 순간</b> 진짜 정상에 처음 도달한 Bob은 아래를 내려다본 뒤, 마지막으로 달을 바라봅니다.</div>
-          </div>
-        </div>
-        <footer class="slide-foot">
-          <span>Bob이 주인공이 되는 순간</span>
-          <span class="accent-green">더 높이 가려는 욕망</span>
-        </footer>
-      </div>
-    </div>
-  </section>
-
-  <section class="slide" aria-label="OMG World">
-    <div class="frame image" style="--bg: url('assets/omg-title.png');">
-      <div class="slide-inner">
-        <header class="slide-head">
-          <span class="kicker">OMG 세계</span>
-          <span>09 / 16</span>
-        </header>
-        <div class="story-grid">
-          <div>
-            <h2>OMG:<br>BOB Company의 우주</h2>
-            <p class="lead">CLIMB로부터 300년 후, 산에서 음료를 팔던 Bob의 회사는 세계 우주산업의 중심이 됩니다.</p>
-          </div>
-          <div class="story-points">
-            <div class="point"><b>이어받은 꿈</b> Bob은 달에 가지 못했지만, 후대의 BOB Company는 달과 다른 행성에 도달합니다.</div>
-            <div class="point"><b>과성장</b> 우주의 꿈을 향한 무리한 성장은 궤도 위에 너무 많은 우주 쓰레기를 남깁니다.</div>
-            <div class="point"><b>ESG 미션</b> BOB Company는 우주 쓰레기를 수거하기 위한 청소부 프로그램을 만듭니다.</div>
-            <div class="point"><b>코옵 노동</b> Oh My Gravity의 4인 코옵은 거대한 회사가 만든 우주 노동의 현장으로 제시됩니다.</div>
-          </div>
-        </div>
-        <footer class="slide-foot">
-          <span>산속 상인에서 궤도 산업으로</span>
-          <span class="accent-cyan">중력 청소부</span>
-        </footer>
-      </div>
-    </div>
-  </section>
-
-  <section class="slide" aria-label="SHOWHAND World">
-    <div class="frame image" style="--bg: url('assets/showhand-title.png');">
-      <div class="slide-inner">
-        <header class="slide-head">
-          <span class="kicker">SHOWHAND 세계</span>
-          <span>10 / 16</span>
-        </header>
-        <div class="story-grid">
-          <div>
-            <h2>SHOWHAND:<br>흑백의 방</h2>
-            <p class="lead">붉은 여왕의 폭정 아래 수많은 반역이 일어났고, 반역자들은 여왕이 만든 흑백의 방에 갇혀 루프 형벌을 받습니다.</p>
-          </div>
-          <div class="story-points">
-            <div class="point"><b>붉은 여왕</b> 폭정은 반역을 낳고, 반역은 여왕의 새로운 형벌 시스템을 부릅니다.</div>
-            <div class="point"><b>흑백의 방</b> SHOWHAND의 전장은 형벌을 위해 설계된 닫힌 방입니다.</div>
-            <div class="point"><b>루프 형벌</b> 플레이어는 끝없이 반복되는 전투와 선택 속에서 살아남아야 합니다.</div>
-            <div class="point"><b>제작된 적</b> SHOWHAND의 모든 적은 붉은 여왕이 만들어 놓은 형벌 장치입니다.</div>
-          </div>
-        </div>
-        <footer class="slide-foot">
-          <span>여왕의 방에 갇힌 반역자들</span>
-          <span class="accent-red">형벌 루프</span>
-        </footer>
-      </div>
-    </div>
-  </section>
-
-  <section class="slide" aria-label="For The Queen World">
-    <div class="frame image" style="--bg: url('assets/for-the-queen-title.png');">
-      <div class="slide-inner">
-        <header class="slide-head">
-          <span class="kicker">For The Queen 세계</span>
-          <span>11 / 16</span>
-        </header>
-        <div class="story-grid">
-          <div>
-            <h2>For The Queen:<br>검열실의 노동</h2>
-            <p class="lead">포더퀸은 붉은 여왕의 폭정이 실제로 작동하는 현장을 다룹니다. 플레이어는 여왕의 제4 검열실에서 선물을 판정합니다.</p>
-          </div>
-          <div class="story-points">
-            <div class="point"><b>검열실</b> 합격 레일과 폐기 구덩이 사이에서 여왕의 변덕스러운 기준을 수행합니다.</div>
-            <div class="point"><b>물리 노동</b> 선물을 뜯고, 돌려보고, 욱여넣고, 던지는 행동 자체가 게임의 핵심 촉감입니다.</div>
-            <div class="point"><b>여왕의 명령</b> 전광판의 명령은 점점 기괴해지고, 검수 기준은 더 불합리해집니다.</div>
-            <div class="point"><b>SHOWHAND의 흔적</b> 검열실 밖과 소품 속에는 SHOWHAND의 형벌방과 반역자들의 흔적이 이스터에그로 남습니다.</div>
-          </div>
-        </div>
-        <footer class="slide-foot">
-          <span>For The Queen / 포더퀸</span>
-          <span class="accent-gold">여왕의 시스템</span>
-        </footer>
-      </div>
-    </div>
-  </section>
-
   <section class="slide" aria-label="교차 세계">
     <div class="frame">
       <div class="slide-inner">
         <header class="slide-head">
           <span class="kicker">교차 세계</span>
-          <span>12 / 16</span>
+          <span>08 / 12</span>
         </header>
         <div>
           <h2>두 세계는<br>서로의 흔적으로 연결된다</h2>
@@ -1768,7 +1656,7 @@
         <div class="bridge">
           <article class="bridge-panel">
             <b class="accent-future">Tech Universe</b>
-            <p>Bob의 정상 너머 욕망은 회사, 궤도 산업, 우주 쓰레기 청소부로 이어집니다. 상승과 노동, 성장의 세계관입니다.</p>
+            <p>Bob이 다른 사람들에게 새로운 세상을 보여주고 싶은 마음은 회사, 궤도 산업, 우주 노동으로 이어집니다. 확장과 연결, 탐험의 세계관입니다.</p>
             <p>Fantasy의 흔적은 광고, 장난감, 포스터, 이상한 전설처럼 Tech 세계의 배경에 스며듭니다.</p>
           </article>
           <div class="bridge-line">x</div>
@@ -1791,73 +1679,49 @@
       <div class="slide-inner">
         <header class="slide-head">
           <span class="kicker">WINDUP 페이즈 로드맵</span>
-          <span>13 / 16</span>
+          <span>09 / 12</span>
         </header>
         <div>
-          <h2>네 개의 시작점이<br>두 개의 후속작을 거쳐 TWO SKIES로</h2>
-          <p class="lead">WINDUP의 장기 IP는 페이즈 1의 네 타이틀에서 출발해, 페이즈 2의 DASHIFT와 BOB Company로 두 세계관 축을 만들고, 페이즈 3의 TWO SKIES에서 두 축을 직접 충돌시킵니다.</p>
+          <h2>세계관의 시작이<br>세계관의 고도화를 거쳐 TWO SKIES로</h2>
+          <p class="lead">WINDUP의 장기 IP는 페이즈 1의 인디 타이틀에서 세계관의 시작을 만들고, 페이즈 2의 싱글A 후속작으로 두 세계관 축을 고도화한 뒤, 페이즈 3의 AAA 어드벤처 TWO SKIES에서 두 축을 직접 충돌시킵니다.</p>
         </div>
         <div class="phase-flow">
+          <svg class="phase-link-layer" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
+            <g class="phase-link-paths"></g>
+          </svg>
           <section class="flow-column one">
-            <span class="phase-tag">페이즈 1 / 타이틀</span>
-            <h3>네 개의 시작점</h3>
+            <span class="phase-tag">페이즈 1 / 인디</span>
+            <h3>세계관의 시작</h3>
             <div class="flow-stack">
-              <div class="flow-node"><b>SHOWHAND</b><p>반복 전투와 카드 판단의 축.</p></div>
-              <div class="flow-node"><b>For The Queen</b><p>여왕의 검열실과 형벌 질서의 축.</p></div>
-              <div class="flow-node"><b>CLIMB</b><p>Bob의 상승 욕망과 노동 성장의 축.</p></div>
-              <div class="flow-node"><b>Oh My Gravity</b><p>우주 노동과 중력 장비의 결과 지점.</p></div>
+              <div class="flow-node" data-flow-id="showhand"><b>SHOWHAND</b><p>반복 전투와 카드 판단의 축.</p></div>
+              <div class="flow-node" data-flow-id="for-queen"><b>For The Queen</b><p>여왕의 검열실과 형벌 질서의 축.</p></div>
+              <div class="flow-node" data-flow-id="climb"><b>CLIMB</b><p>Bob이 더 많은 사람에게 새로운 풍경을 보여주려는 시작점.</p></div>
+              <div class="flow-node" data-flow-id="omg"><b>Oh My Gravity</b><p>우주 노동과 중력 장비의 결과 지점.</p></div>
             </div>
           </section>
-          <div class="flow-connector" aria-hidden="true">
-            <div class="connector-body two-groups">
-              <div class="connector-group">
-                <span class="connector-branch top"></span>
-                <span class="connector-branch bottom"></span>
-                <span class="connector-tip"></span>
-              </div>
-              <div class="connector-group">
-                <span class="connector-branch top"></span>
-                <span class="connector-branch bottom"></span>
-                <span class="connector-tip"></span>
-              </div>
-            </div>
-          </div>
           <section class="flow-column two">
-            <span class="phase-tag">페이즈 2 / 브리지</span>
-            <h3>두 개의 후속작</h3>
+            <span class="phase-tag">페이즈 2 / 싱글A</span>
+            <h3>세계관의 고도화</h3>
             <div class="flow-stack">
-              <div class="flow-node"><b>DASHIFT</b><p>카드 전투와 여왕의 질서를 액션 어드벤처로 확장.</p></div>
-              <div class="flow-node"><b>BOB Company</b><p>Bob의 회사 성장을 궤도 산업과 우주 노동으로 확장.</p></div>
+              <div class="flow-node" data-flow-id="dashift"><b>DASHIFT</b><p>카드 전투와 여왕의 질서를 액션 어드벤처로 확장.</p></div>
+              <div class="flow-node" data-flow-id="bob-company"><b>BOB Company</b><p>Bob의 마음을 회사 성장과 궤도 산업으로 확장.</p></div>
             </div>
           </section>
-          <div class="flow-connector" aria-hidden="true">
-            <div class="connector-body final">
-              <div class="connector-group final-merge">
-                <span class="connector-branch top"></span>
-                <span class="connector-branch bottom"></span>
-                <span class="connector-tip"></span>
-              </div>
-            </div>
-          </div>
           <section class="flow-column three">
-            <span class="phase-tag">페이즈 3 / 충돌</span>
-            <h3>TWO SKIES</h3>
+            <span class="phase-tag">페이즈 3 / AAA</span>
+            <h3>세계관의 충돌</h3>
             <div class="flow-stack">
-              <div class="flow-node final-node">
+              <div class="flow-node final-node" data-flow-id="two-skies">
                 <div>
                   <b>TWO SKIES</b>
-                  <p>Tech와 Fantasy의 전쟁을 다루는 AAA 시네마틱 액션 어드벤처.</p>
-                </div>
-                <div class="flow-node-sub">
-                  <b>우정의 축</b>
-                  <p>두 세계는 전쟁을 선택하지만 두 아이는 서로를 선택합니다.</p>
+                  <p>Tech와 Fantasy의 전쟁을 다루는 AAA 어드벤처.</p>
                 </div>
               </div>
             </div>
           </section>
         </div>
         <footer class="slide-foot">
-          <span>페이즈 1에서 페이즈 3으로</span>
+          <span>인디에서 AAA 비전으로</span>
           <span>타이틀에서 세계관 전쟁으로</span>
         </footer>
       </div>
@@ -1868,50 +1732,60 @@
     <div class="frame">
       <div class="slide-inner">
         <header class="slide-head">
-          <span class="kicker">페이즈 1 타이틀</span>
-          <span>14 / 16</span>
+          <span class="kicker">페이즈 1 / 인디 타이틀</span>
+          <span>10 / 12</span>
         </header>
         <div>
-          <h2>페이즈 1은<br>네 개의 타이틀</h2>
-          <p class="lead">WINDUP은 서로 다른 장르와 감각을 가진 네 게임을 통해 반복, 판단, 물리, 성장이라는 핵심 루프를 검증합니다.</p>
+          <h2>페이즈 1은<br>현재 개발 중인 인디 타이틀</h2>
+          <p class="lead">WINDUP은 네 개의 인디 게임을 통해 반복, 판단, 물리, 성장이라는 핵심 루프와 세계관의 출발점을 검증합니다.</p>
         </div>
         <div class="phase-one-grid">
-          <article class="phase-one-card">
-            <img src="assets/showhand-title.png" alt="SHOWHAND title image">
-            <div class="phase-one-copy">
-              <span class="phase-tag">데모 출시</span>
-              <b>SHOWHAND</b>
-              <p>카드 판단과 반복 전투가 DASHIFT의 Fantasy 전투 축으로 확장됩니다.</p>
+          <section class="phase-one-universe future">
+            <div class="universe-ribbon future">Tech Universe</div>
+            <div class="phase-one-stack">
+              <article class="phase-one-card">
+                <img src="assets/omg-title.png" alt="Oh My Gravity title image">
+                <div class="phase-one-copy">
+                  <span class="phase-tag">진행 중</span>
+                  <b>Oh My Gravity</b>
+                  <p>중력 장비와 우주 노동의 감각이 BOB Company의 Tech 축을 보강합니다.</p>
+                </div>
+              </article>
+              <article class="phase-one-card">
+                <img src="assets/climb-title.png" alt="CLIMB title image">
+                <div class="phase-one-copy">
+                  <span class="phase-tag">진행 중</span>
+                  <b>CLIMB</b>
+                  <p>Bob이 사람들에게 더 넓은 풍경을 보여주려는 마음이 BOB Company의 출발점이 됩니다.</p>
+                </div>
+              </article>
             </div>
-          </article>
-          <article class="phase-one-card">
-            <img src="assets/for-the-queen-title.png" alt="For The Queen title image">
-            <div class="phase-one-copy">
-              <span class="phase-tag">킥오프 프로젝트</span>
-              <b>For The Queen</b>
-              <p>여왕의 검열실과 형벌 질서가 DASHIFT의 세계관 전투로 이어집니다.</p>
+          </section>
+          <section class="phase-one-universe fantasy">
+            <div class="universe-ribbon fantasy">Fantasy Universe</div>
+            <div class="phase-one-stack">
+              <article class="phase-one-card">
+                <img src="assets/showhand-title.png" alt="SHOWHAND title image">
+                <div class="phase-one-copy">
+                  <span class="phase-tag">데모 출시</span>
+                  <b>SHOWHAND</b>
+                  <p>카드 판단과 반복 전투가 DASHIFT의 Fantasy 전투 축으로 확장됩니다.</p>
+                </div>
+              </article>
+              <article class="phase-one-card">
+                <img src="assets/for-the-queen-title.png" alt="For The Queen title image">
+                <div class="phase-one-copy">
+                  <span class="phase-tag">킥오프 프로젝트</span>
+                  <b>For The Queen</b>
+                  <p>여왕의 검열실과 형벌 질서가 DASHIFT의 세계관 전투로 이어집니다.</p>
+                </div>
+              </article>
             </div>
-          </article>
-          <article class="phase-one-card">
-            <img src="assets/climb-title.png" alt="CLIMB title image">
-            <div class="phase-one-copy">
-              <span class="phase-tag">진행 중</span>
-              <b>CLIMB</b>
-              <p>Bob의 상승 욕망과 노동 성장이 BOB Company의 출발점이 됩니다.</p>
-            </div>
-          </article>
-          <article class="phase-one-card">
-            <img src="assets/omg-title.png" alt="Oh My Gravity title image">
-            <div class="phase-one-copy">
-              <span class="phase-tag">진행 중</span>
-              <b>Oh My Gravity</b>
-              <p>중력 장비와 우주 노동의 감각이 BOB Company의 Tech 축을 보강합니다.</p>
-            </div>
-          </article>
+          </section>
         </div>
         <footer class="slide-foot">
-          <span>네 개의 게임으로 시작</span>
-          <span>두 세계관의 재료를 만든다</span>
+          <span>현재 개발 중인 페이즈 1</span>
+          <span>인디 타이틀로 세계관의 재료를 만든다</span>
         </footer>
       </div>
     </div>
@@ -1921,48 +1795,38 @@
     <div class="frame">
       <div class="slide-inner">
         <header class="slide-head">
-          <span class="kicker">페이즈 2 프로젝트</span>
-          <span>15 / 16</span>
+          <span class="kicker">페이즈 2 / 싱글A 비전</span>
+          <span>11 / 12</span>
         </header>
         <div>
-          <h2>페이즈 2는<br>두 세계의 후속작</h2>
-          <p class="lead">DASHIFT와 BOB Company는 단순한 추가 타이틀이 아니라, 페이즈 1에서 만든 세계의 원인과 결과를 플레이어가 직접 조작하는 후속 프로젝트입니다.</p>
+          <h2>싱글A 후속 비전</h2>
+          <p class="lead">BOB Company와 DASHIFT는 페이즈 1에서 검증한 세계관과 핵심 루프를 싱글A 규모로 확장하는 후속 비전입니다.</p>
         </div>
         <div class="phase-projects">
           <article class="phase-project">
-            <img src="assets/DASHIFT.png" alt="DASHIFT concept image">
+            <div class="universe-ribbon future">Tech Universe</div>
+            <img src="assets/bob-company-title.png" alt="BOB Company title image">
             <div class="phase-project-copy">
-              <span class="phase-tag">Fantasy Universe 후속작</span>
               <div>
-                <h3>DASHIFT</h3>
-                <p>SHOWHAND의 세계에서 빠져나온 주인공이 붉은 여왕의 질서에 도전합니다. Dash와 Shift 카드로 이동, 전투, 세계 전환을 조합하는 카드 덱빌딩 플랫포머 액션 어드벤처입니다.</p>
-              </div>
-              <div class="phase-project-meta">
-                <span>카드 덱빌딩</span>
-                <span>플랫포머 액션</span>
-                <span>여왕 전투</span>
+                <h3>BOB Company</h3>
+                <p>CLIMB 이후, Bob의 마음이 더 많은 사람에게 새로운 세상을 보여주는 회사로 확장됩니다. 자원, 물류, 궤도 시설을 키우며 OMG 이전 시대를 만드는 우주 시뮬레이터 비전입니다.</p>
               </div>
             </div>
           </article>
           <article class="phase-project">
-            <img src="assets/bob-company-title.png" alt="BOB Company title image">
+            <div class="universe-ribbon fantasy">Fantasy Universe</div>
+            <img src="assets/DASHIFT.png" alt="DASHIFT concept image">
             <div class="phase-project-copy">
-              <span class="phase-tag">Tech Universe 브리지</span>
               <div>
-                <h3>BOB Company</h3>
-                <p>CLIMB 이후, 음료를 팔던 Bob의 회사가 어떻게 우주기업으로 성장했는지를 다룹니다. 자원, 물류, 궤도 시설을 확장하며 OMG 이전 시대를 만드는 우주 시뮬레이터입니다.</p>
-              </div>
-              <div class="phase-project-meta">
-                <span>우주 시뮬레이터</span>
-                <span>회사 성장</span>
-                <span>CLIMB에서 OMG로</span>
+                <h3>DASHIFT</h3>
+                <p>SHOWHAND의 세계에서 빠져나온 주인공이 붉은 여왕의 질서에 도전합니다. Dash와 Shift 카드로 이동, 전투, 세계 전환을 조합하는 액션 어드벤처 비전입니다.</p>
               </div>
             </div>
           </article>
         </div>
         <footer class="slide-foot">
-          <span>DASHIFT: 여왕에게서 벗어나는 후속작</span>
-          <span>BOB Company: 음료 판매에서 궤도 산업으로</span>
+          <span>새로운 세상을 보여주는 회사</span>
+          <span>여왕에게서 벗어나는 싱글A 후속 비전</span>
         </footer>
       </div>
     </div>
@@ -1972,19 +1836,23 @@
     <div class="frame">
       <div class="slide-inner">
         <header class="slide-head">
-          <span class="kicker">페이즈 3 대표 타이틀</span>
-          <span>16 / 16</span>
+          <span class="kicker">페이즈 3 / AAA 대표 타이틀</span>
+          <span>12 / 12</span>
         </header>
         <div>
           <h2>TWO SKIES<br><span class="accent-future">투스카이즈</span></h2>
-          <p class="lead">Tech 세계의 아이와 Fantasy 세계의 아이가 서로를 적으로 배우지만, 함께 도망치고 서로를 구하며 두 세계의 전쟁을 멈추는 AAA 시네마틱 액션 어드벤처입니다.</p>
+          <p class="lead">Tech 세계의 아이와 Fantasy 세계의 아이가 서로를 적으로 배우지만, 함께 도망치고 서로를 구하며 두 세계의 전쟁을 멈추는 AAA 어드벤처입니다.</p>
         </div>
         <div class="phase-title-feature">
           <div class="phase-title-image">
+            <div class="universe-ribbon-pair">
+              <span class="future">Tech Universe</span>
+              <span class="fantasy">Fantasy Universe</span>
+            </div>
             <img src="assets/two-skies-title.png" alt="TWO SKIES title image">
           </div>
           <article class="phase-title-copy">
-            <span class="phase-tag">AAA 시네마틱 액션 어드벤처</span>
+            <span class="phase-tag">AAA 어드벤처</span>
             <div>
               <h3>두 세계는 전쟁을,<br>두 아이는 서로를 선택한다</h3>
               <p>BOB Company의 궤도 시설에서 자란 Tech 아이와, 붉은 여왕의 카드 서고에서 자란 Fantasy 아이가 각자의 명령을 거스르고 친구가 되는 이야기입니다.</p>
@@ -2011,9 +1879,98 @@
       var form = document.getElementById("passwordForm");
       var input = document.getElementById("passwordInput");
       var error = document.getElementById("passwordError");
+      var phaseLinks = [
+        { sources: ["showhand", "for-queen"], target: "dashift" },
+        { sources: ["climb", "omg"], target: "bob-company" },
+        { sources: ["dashift", "bob-company"], target: "two-skies" }
+      ];
+
+      function renderPhaseLinks() {
+        var flow = document.querySelector(".phase-flow");
+        if (!flow || window.getComputedStyle(flow).gridTemplateColumns === "none") return;
+
+        var svg = flow.querySelector(".phase-link-layer");
+        var pathGroup = flow.querySelector(".phase-link-paths");
+        if (!svg || !pathGroup) return;
+
+        if (window.getComputedStyle(svg).display === "none") {
+          pathGroup.textContent = "";
+          return;
+        }
+
+        var flowRect = flow.getBoundingClientRect();
+        if (flowRect.width === 0 || flowRect.height === 0) return;
+
+        svg.setAttribute("viewBox", "0 0 " + flowRect.width + " " + flowRect.height);
+        pathGroup.textContent = "";
+
+        phaseLinks.forEach(function (link) {
+          var target = flow.querySelector('[data-flow-id="' + link.target + '"]');
+          var sourcePoints = link.sources.map(function (sourceId) {
+            var source = flow.querySelector('[data-flow-id="' + sourceId + '"]');
+            if (!source) return null;
+
+            var sourceRect = source.getBoundingClientRect();
+            var sourceCard = source.closest(".flow-column") || source;
+            var sourceCardRect = sourceCard.getBoundingClientRect();
+            return {
+              x: sourceCardRect.right - flowRect.left + 8,
+              y: sourceRect.top + sourceRect.height / 2 - flowRect.top
+            };
+          }).filter(Boolean);
+          if (!target || sourcePoints.length === 0) return;
+
+          var targetRect = target.getBoundingClientRect();
+          var targetCard = target.closest(".flow-column") || target;
+          var targetCardRect = targetCard.getBoundingClientRect();
+          var endX = targetCardRect.left - flowRect.left - 10;
+          var endY = targetRect.top + targetRect.height / 2 - flowRect.top;
+          var startMaxX = Math.max.apply(null, sourcePoints.map(function (point) { return point.x; }));
+          var joinX = startMaxX + (endX - startMaxX) / 2;
+          var yValues = sourcePoints.map(function (point) { return point.y; }).concat(endY);
+          var minY = Math.min.apply(null, yValues);
+          var maxY = Math.max.apply(null, yValues);
+          var commands = sourcePoints.map(function (point) {
+            return "M " + point.x + " " + point.y + " H " + joinX;
+          });
+
+          var arrowWidth = 14;
+          var arrowHeight = 12;
+          var lineEndX = endX - arrowWidth;
+
+          commands.push("M " + joinX + " " + minY + " V " + maxY);
+          commands.push("M " + joinX + " " + endY + " H " + lineEndX);
+
+          var path = document.createElementNS("http://www.w3.org/2000/svg", "path");
+          path.setAttribute("d", commands.join(" "));
+          pathGroup.appendChild(path);
+
+          var arrow = document.createElementNS("http://www.w3.org/2000/svg", "polygon");
+          arrow.setAttribute("points", [
+            lineEndX + "," + (endY - arrowHeight / 2),
+            endX + "," + endY,
+            lineEndX + "," + (endY + arrowHeight / 2)
+          ].join(" "));
+          pathGroup.appendChild(arrow);
+        });
+      }
+
+      function schedulePhaseLinks() {
+        window.requestAnimationFrame(function () {
+          window.requestAnimationFrame(renderPhaseLinks);
+        });
+      }
 
       function unlock() {
         document.body.classList.remove("locked");
+        schedulePhaseLinks();
+      }
+
+      window.addEventListener("resize", schedulePhaseLinks);
+      window.addEventListener("load", schedulePhaseLinks);
+
+      if (document.fonts && document.fonts.ready) {
+        document.fonts.ready.then(schedulePhaseLinks);
       }
 
       if (window.localStorage.getItem(storageKey) === "true") {
