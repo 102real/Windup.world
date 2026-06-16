@@ -278,11 +278,43 @@
       color: rgba(255, 255, 255, 0.84);
     }
 
+    .universe-lead {
+      max-width: 920px;
+      overflow-wrap: anywhere;
+      word-break: break-word;
+    }
+
     .cover-grid {
       display: grid;
       grid-template-columns: minmax(0, 1fr);
       align-items: center;
       min-height: 0;
+    }
+
+    .closing-layout {
+      position: absolute;
+      inset: 0;
+      display: grid;
+      place-content: center;
+      justify-items: center;
+      gap: 24px;
+      text-align: center;
+    }
+
+    .closing-layout h2 {
+      margin-bottom: 0;
+      color: var(--white);
+      font-size: clamp(72px, 12vw, 154px);
+      line-height: 0.88;
+      text-transform: uppercase;
+    }
+
+    .closing-layout p {
+      margin-bottom: 0;
+      color: rgba(255, 255, 255, 0.72);
+      font-size: 22px;
+      font-weight: 900;
+      text-transform: none;
     }
 
     .purpose-grid,
@@ -515,6 +547,10 @@
       min-height: 0;
     }
 
+    .universe-map.strategy {
+      gap: 12px;
+    }
+
     .universe {
       display: grid;
       grid-template-rows: auto 1fr;
@@ -535,12 +571,20 @@
       border-bottom: 1px solid var(--line);
     }
 
+    .universe-map.strategy .universe-title {
+      padding: 14px 16px;
+    }
+
     .universe-title b {
       display: block;
       margin-bottom: 6px;
       font-size: 24px;
       line-height: 1;
       text-transform: uppercase;
+    }
+
+    .universe-map.strategy .universe-title b {
+      font-size: 22px;
     }
 
     .universe-title span {
@@ -556,6 +600,11 @@
       padding: 18px;
     }
 
+    .universe-map.strategy .timeline {
+      gap: 8px;
+      padding: 12px;
+    }
+
     .node {
       display: grid;
       grid-template-columns: 84px 1fr;
@@ -566,11 +615,22 @@
       padding: 10px;
     }
 
+    .universe-map.strategy .node {
+      grid-template-columns: 74px 1fr;
+      gap: 10px;
+      padding: 8px;
+    }
+
     .node img {
       width: 84px;
       height: 54px;
       object-fit: cover;
       border: 1px solid rgba(16, 16, 16, 0.14);
+    }
+
+    .universe-map.strategy .node img {
+      width: 74px;
+      height: 44px;
     }
 
     .node.placeholder {
@@ -603,6 +663,36 @@
       color: var(--muted);
       font-size: 12px;
       font-weight: 800;
+      word-break: keep-all;
+    }
+
+    .universe-map.strategy .node p {
+      font-size: 11px;
+      line-height: 1.28;
+    }
+
+    .universe-signal {
+      grid-column: 1 / -1;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      background: var(--ink);
+      color: var(--white);
+      padding: 14px 16px;
+    }
+
+    .universe-signal b {
+      font-size: 14px;
+      text-transform: uppercase;
+    }
+
+    .universe-signal p {
+      margin-bottom: 0;
+      color: rgba(255, 255, 255, 0.76);
+      font-size: 13px;
+      font-weight: 780;
+      text-align: right;
       word-break: keep-all;
     }
 
@@ -1169,6 +1259,14 @@
         padding: 11px 13px;
       }
 
+      .universe-signal {
+        padding: 11px 13px;
+      }
+
+      .universe-signal p {
+        font-size: 11px;
+      }
+
       .status-card {
         grid-template-rows: 102px 1fr;
         min-height: 278px;
@@ -1338,6 +1436,14 @@
         font-size: 11px;
       }
 
+      .closing-layout h2 {
+        font-size: 78px;
+      }
+
+      .closing-layout p {
+        font-size: 18px;
+      }
+
     }
 
     @media (max-width: 760px) {
@@ -1436,6 +1542,27 @@
 
       .team-support p {
         text-align: left;
+      }
+
+      .universe-lead {
+        max-width: 300px;
+      }
+
+      .universe-signal {
+        display: block;
+      }
+
+      .universe-signal p {
+        margin-top: 6px;
+        text-align: left;
+      }
+
+      .closing-layout h2 {
+        font-size: 54px;
+      }
+
+      .closing-layout p {
+        font-size: 15px;
       }
 
       .bridge-line {
@@ -1686,18 +1813,18 @@
     </div>
   </section>
 
-  <section class="slide" aria-label="유니버스 맵">
+  <section class="slide" aria-label="유니버스 전략">
     <div class="frame">
       <div class="slide-inner">
         <header class="slide-head">
-          <span class="kicker">유니버스 맵</span>
+          <span class="kicker">유니버스 전략</span>
           <span>08 / 13</span>
         </header>
         <div>
-          <h2>양대 유니버스 구조</h2>
-          <p class="lead">Tech Universe는 등반과 기업 성장을 거쳐 궤도 산업과 우주 노동으로 확장되는 축 Fantasy Universe는 붉은 여왕의 통제 체계와 저항을 다루는 축</p>
+          <h2>양대 유니버스와<br>교차 연결 구조</h2>
+          <p class="lead universe-lead">Tech와 Fantasy는 독립된 성장 축으로 전개되며, WINDUP 월드 안에서 배경 요소·사건·상징의 흔적으로 연결</p>
         </div>
-        <div class="universe-map">
+        <div class="universe-map strategy">
           <article class="universe future">
             <div class="universe-title">
               <b>Tech Universe</b>
@@ -1706,15 +1833,15 @@
             <div class="timeline">
               <div class="node">
                 <img src="assets/climb-title.png" alt="CLIMB">
-                <div><b>CLIMB</b><p>등반과 운반의 성장 루프를 통한 Tech Universe 확장 동기 설정</p></div>
+                <div><b>CLIMB</b><p>등반과 운반의 성장 루프</p></div>
               </div>
               <div class="node">
                 <img src="assets/bob-company-title.png" alt="BOB Company title image">
-                <div><b>BOB Company</b><p>CLIMB의 성장 동기를 기업 운영과 우주 인프라 구축으로 확장</p></div>
+                <div><b>BOB Company</b><p>기업 운영과 우주 인프라 확장</p></div>
               </div>
               <div class="node">
                 <img src="assets/omg-title.png" alt="Oh My Gravity">
-                <div><b>Oh My Gravity</b><p>300년 후 우주산업의 중심이 된 기업 체계가 우주 노동과 중력 장비의 배경</p></div>
+                <div><b>Oh My Gravity</b><p>우주 노동과 중력 장비의 협동 구조</p></div>
               </div>
             </div>
           </article>
@@ -1727,49 +1854,25 @@
             <div class="timeline">
               <div class="node" data-placeholder="red-queen">
                 <img src="assets/red-queen-generated.png" alt="Red Queen concept image">
-                <div><b>Red Queen</b><p>붉은 여왕의 통치 체계가 반역, 형벌, 검열 시스템의 기반</p></div>
+                <div><b>Red Queen</b><p>통치와 형벌, 검열 시스템의 기반</p></div>
               </div>
               <div class="node">
                 <img src="assets/showhand-title.png" alt="SHOWHAND">
-                <div><b>SHOWHAND</b><p>반역자 처벌 구조를 반복 전투와 카드 판단 시스템으로 구체화</p></div>
+                <div><b>SHOWHAND</b><p>반복 전투와 카드 판단으로 질서 구체화</p></div>
               </div>
               <div class="node">
                 <img src="assets/for-the-queen-title.png" alt="For The Queen">
-                <div><b>For The Queen</b><p>여왕의 검열실 운영 구조를 물리 검수와 자동화 시스템으로 확장</p></div>
+                <div><b>For The Queen</b><p>검열실 운영을 물리 검수로 확장</p></div>
               </div>
               <div class="node">
                 <img src="assets/DASHIFT.png" alt="DASHIFT concept image">
-                <div><b>DASHIFT</b><p>카드 전투와 세계 전환 규칙을 여왕의 통치 체계에 맞서는 액션 어드벤처로 확장</p></div>
+                <div><b>DASHIFT</b><p>전환 규칙과 액션 어드벤처로 확장</p></div>
               </div>
             </div>
           </article>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="slide" aria-label="교차 세계">
-    <div class="frame">
-      <div class="slide-inner">
-        <header class="slide-head">
-          <span class="kicker">세계관 연결 전략</span>
-          <span>09 / 13</span>
-        </header>
-        <div>
-          <h2>상징과 사건으로<br>연결되는 두 세계관</h2>
-          <p class="lead">Tech Universe와 Fantasy Universe는 독립된 축으로 전개 WINDUP 월드 안에서는 배경 요소, 기업명, 문장, 포스터, 사건의 흔적으로 연결</p>
-        </div>
-        <div class="bridge">
-          <article class="bridge-panel">
-            <b class="accent-future">Tech Universe</b>
-            <p>Tech Universe는 기업 성장, 궤도 산업, 우주 노동 중심의 확장과 탐험 구조</p>
-            <p>Fantasy의 흔적은 광고, 장난감, 포스터, 전설 등 배경 요소로 Tech 세계에 배치</p>
-          </article>
-          <div class="bridge-line">x</div>
-          <article class="bridge-panel">
-            <b class="accent-fantasy">Fantasy Universe</b>
-            <p>붉은 여왕의 통치 체계는 형벌방과 검열실을 만들고, SHOWHAND와 For The Queen을 하나의 질서로 연결</p>
-            <p>Tech의 흔적은 검열 대상, 상자 로고, 비현실적 장치 등으로 Fantasy 세계에 배치</p>
+          <article class="universe-signal">
+            <b>Cross Signal</b>
+            <p>독립 IP처럼 읽히되, 반복 노출되는 사건·상징·소품으로 장기 통합을 예고</p>
           </article>
         </div>
       </div>
@@ -1781,7 +1884,7 @@
       <div class="slide-inner">
         <header class="slide-head">
           <span class="kicker">WINDUP 페이즈 로드맵</span>
-          <span>10 / 13</span>
+          <span>09 / 13</span>
         </header>
         <div>
           <h2>인디 라인업에서<br>AAA 대표 IP까지</h2>
@@ -1831,7 +1934,7 @@
       <div class="slide-inner">
         <header class="slide-head">
           <span class="kicker">페이즈 1 / 4종 인디 게임</span>
-          <span>11 / 13</span>
+          <span>10 / 13</span>
         </header>
         <div>
           <h2>페이즈 1<br>4종 인디 게임 타이틀 출시</h2>
@@ -1890,7 +1993,7 @@
       <div class="slide-inner">
         <header class="slide-head">
           <span class="kicker">페이즈 2 / 싱글A 타이틀</span>
-          <span>12 / 13</span>
+          <span>11 / 13</span>
         </header>
         <div>
           <h2>페이즈 2<br>완성도 높은 싱글A 타이틀 출시</h2>
@@ -1927,7 +2030,7 @@
       <div class="slide-inner">
         <header class="slide-head">
           <span class="kicker">페이즈 3 / AAA 타이틀 출시</span>
-          <span>13 / 13</span>
+          <span>12 / 13</span>
         </header>
         <div>
           <h2>페이즈 3<br>AAA 대표 타이틀 TWO SKIES 출시</h2>
@@ -1953,6 +2056,21 @@
               <span>결말 축: 회사와 여왕의 명령 체계를 넘어선 공동 선택</span>
             </div>
           </article>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="slide" aria-label="End of Document">
+    <div class="frame dark">
+      <div class="slide-inner">
+        <header class="slide-head">
+          <span class="kicker">WINDUP</span>
+          <span>13 / 13</span>
+        </header>
+        <div class="closing-layout">
+          <h2>EOD</h2>
+          <p>End of Document</p>
         </div>
       </div>
     </div>
