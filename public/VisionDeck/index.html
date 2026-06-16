@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>WINDUP Vision Deck</title>
-  <meta name="description" content="WINDUP의 프로젝트 포트폴리오, 공유 세계관 전략, 단계별 출시 로드맵을 정리한 16:9 발표형 HTML 덱입니다.">
+  <meta name="description" content="WINDUP 프로젝트 라인업, 공유 세계관 전략, 단계별 출시 로드맵을 정리한 16:9 발표형 HTML 덱.">
   <style>
     :root {
       color-scheme: light;
@@ -197,12 +197,11 @@
       height: 100%;
       padding: 32px 36px 28px;
       display: grid;
-      grid-template-rows: auto 1fr auto;
+      grid-template-rows: auto 1fr;
       gap: 12px;
     }
 
-    .slide-head,
-    .slide-foot {
+    .slide-head {
       display: flex;
       align-items: center;
       justify-content: space-between;
@@ -214,9 +213,7 @@
     }
 
     .dark .slide-head,
-    .dark .slide-foot,
-    .image .slide-head,
-    .image .slide-foot {
+    .image .slide-head {
       color: rgba(255, 255, 255, 0.74);
     }
 
@@ -283,44 +280,9 @@
 
     .cover-grid {
       display: grid;
-      grid-template-columns: minmax(0, 1fr) 360px;
-      gap: 40px;
+      grid-template-columns: minmax(0, 1fr);
       align-items: center;
       min-height: 0;
-    }
-
-    .cover-stack {
-      display: grid;
-      grid-template-rows: repeat(4, minmax(0, 1fr));
-      gap: 10px;
-      align-self: stretch;
-      min-height: 0;
-    }
-
-    .cover-tile {
-      position: relative;
-      min-height: 0;
-      overflow: hidden;
-      border: 1px solid rgba(255, 255, 255, 0.22);
-      background: rgba(255, 255, 255, 0.08);
-    }
-
-    .cover-tile img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-
-    .cover-tile span {
-      position: absolute;
-      left: 12px;
-      bottom: 10px;
-      padding: 5px 8px;
-      background: rgba(0, 0, 0, 0.66);
-      color: var(--white);
-      font-size: 11px;
-      font-weight: 900;
-      text-transform: uppercase;
     }
 
     .purpose-grid,
@@ -1074,8 +1036,7 @@
         gap: 9px;
       }
 
-      .slide-head,
-      .slide-foot {
+      .slide-head {
         font-size: 10px;
       }
 
@@ -1094,10 +1055,6 @@
 
       .lead {
         font-size: 14px;
-      }
-
-      .cover-grid {
-        grid-template-columns: minmax(0, 1fr) 360px;
       }
 
       .status-card {
@@ -1299,8 +1256,7 @@
         padding: 26px 22px;
       }
 
-      .slide-head,
-      .slide-foot {
+      .slide-head {
         font-size: 10px;
       }
 
@@ -1312,7 +1268,6 @@
         font-size: 32px;
       }
 
-      .cover-grid,
       .purpose-grid,
       .status-grid,
       .story-grid,
@@ -1335,14 +1290,6 @@
 
       .phase-link-layer {
         display: none;
-      }
-
-      .cover-stack {
-        grid-template-rows: none;
-      }
-
-      .cover-tile {
-        height: 150px;
       }
 
       .status-card {
@@ -1400,31 +1347,21 @@
           <div>
             <h1>WINDUP<br>Vision Deck</h1>
           </div>
-          <div class="cover-stack">
-            <div class="cover-tile"><img src="assets/showhand-title.png" alt="SHOWHAND 타이틀 이미지"><span>SHOWHAND</span></div>
-            <div class="cover-tile"><img src="assets/omg-title.png" alt="Oh My Gravity 타이틀 이미지"><span>Oh My Gravity</span></div>
-            <div class="cover-tile"><img src="assets/climb-title.png" alt="CLIMB 타이틀 이미지"><span>CLIMB</span></div>
-            <div class="cover-tile"><img src="assets/for-the-queen-title.png" alt="For The Queen 타이틀 이미지"><span>For The Queen / 포더퀸</span></div>
-          </div>
         </div>
-        <footer class="slide-foot">
-          <span>프로젝트 포트폴리오 + 공유 세계관 전략 + 출시 로드맵</span>
-          <span>2026</span>
-        </footer>
       </div>
     </div>
   </section>
 
-  <section class="slide" aria-label="프로젝트 포트폴리오 현황">
+  <section class="slide" aria-label="프로젝트 라인업 현황">
     <div class="frame">
       <div class="slide-inner">
         <header class="slide-head">
-          <span class="kicker">프로젝트 포트폴리오</span>
+          <span class="kicker">프로젝트 라인업</span>
           <span>02 / 12</span>
         </header>
         <div>
-          <h2>프로젝트 포트폴리오 현황</h2>
-          <p class="lead">페이즈 1의 4종 인디 타이틀은 장르와 제작 단계가 다르지만, 핵심 루프 검증과 IP 확장 가능성 검토라는 공통 목표를 공유합니다.</p>
+          <h2>프로젝트 라인업 현황</h2>
+          <p class="lead">페이즈 1의 4종 인디 타이틀은 서로 다른 장르와 제작 단계 위에서 핵심 루프 검증과 IP 확장 가능성 검토라는 공통 목표를 공유.</p>
         </div>
         <div class="status-grid">
           <article class="status-card">
@@ -1460,10 +1397,6 @@
             </div>
           </article>
         </div>
-        <footer class="slide-foot">
-          <span>페이즈 1 출시 기반</span>
-          <span>장기 IP 로드맵 연결</span>
-        </footer>
       </div>
     </div>
   </section>
@@ -1478,7 +1411,7 @@
         <div class="story-grid">
           <div>
             <h2>SHOWHAND</h2>
-            <p class="lead">2026년 6월 4일 데모를 공개한 WINDUP의 첫 시장 검증 타이틀입니다. 포커 덱빌딩과 탑다운 액션 로그라이트를 결합해 전투 판단의 차별성을 검증합니다.</p>
+            <p class="lead">2026년 6월 4일 데모를 공개한 WINDUP의 첫 시장 검증 타이틀. 포커 덱빌딩과 탑다운 액션 로그라이트를 결합한 전투 판단 차별성 검증.</p>
           </div>
           <div class="spec-grid">
             <div class="spec"><b>장르</b> 포커 덱빌딩, 탑다운 액션 로그라이트</div>
@@ -1487,10 +1420,6 @@
             <div class="spec"><b>핵심 경험</b> 공격, 체력, 빌드가 손패에 연동되는 전략적 의사결정.</div>
           </div>
         </div>
-        <footer class="slide-foot">
-          <span>Steam 데모 공개</span>
-          <span class="accent-red">시장 검증</span>
-        </footer>
       </div>
     </div>
   </section>
@@ -1505,7 +1434,7 @@
         <div class="story-grid">
           <div>
             <h2>Oh My<br>Gravity</h2>
-            <p class="lead">우주선 중력 면허 시험장을 배경으로, 중력건 조작과 역할 분담을 결합한 4인 코옵 물리 퍼즐 액션 타이틀입니다.</p>
+            <p class="lead">우주선 중력 면허 시험장을 배경으로 중력건 조작과 역할 분담을 결합한 4인 코옵 물리 퍼즐 액션 타이틀.</p>
           </div>
           <div class="spec-grid">
             <div class="spec"><b>장르</b> 4인 코옵 1인칭 물리 기반 퍼즐 액션</div>
@@ -1514,10 +1443,6 @@
             <div class="spec"><b>핵심 경험</b> 중력건과 역할 분담으로 모든 플레이어가 필요한 협동 구조 구현.</div>
           </div>
         </div>
-        <footer class="slide-foot">
-          <span>코옵 물리</span>
-          <span class="accent-cyan">중력건</span>
-        </footer>
       </div>
     </div>
   </section>
@@ -1532,7 +1457,7 @@
         <div class="story-grid">
           <div>
             <h2>CLIMB</h2>
-            <p class="lead">음료 운반, 등산, 판매를 하나의 반복 구조로 결합한 워킹 시뮬레이터/인크리멘탈 타이틀입니다.</p>
+            <p class="lead">음료 운반, 등산, 판매를 하나의 반복 구조로 결합한 워킹 시뮬레이터/인크리멘탈 타이틀.</p>
           </div>
           <div class="spec-grid">
             <div class="spec"><b>장르</b> 워킹 시뮬레이터, 인크리멘탈</div>
@@ -1541,10 +1466,6 @@
             <div class="spec"><b>핵심 경험</b> 운반, 판매, 강화 루프가 만드는 점진적 성장과 등반 성취.</div>
           </div>
         </div>
-        <footer class="slide-foot">
-          <span>등반을 통한 성취</span>
-          <span class="accent-green">상인 성장 루프</span>
-        </footer>
       </div>
     </div>
   </section>
@@ -1559,7 +1480,7 @@
         <div class="story-grid">
           <div>
             <h2>For The<br>Queen</h2>
-            <p class="lead">포더퀸은 여왕의 제4 검열실에서 선물을 개봉, 판정, 처리하고 시설을 자동화하는 3D 1인칭 물리 인크리멘탈 시뮬레이션입니다.</p>
+            <p class="lead">포더퀸은 여왕의 제4 검열실에서 선물 개봉, 판정, 처리, 시설 자동화를 수행하는 3D 1인칭 물리 인크리멘탈 시뮬레이션.</p>
           </div>
           <div class="spec-grid">
             <div class="spec"><b>장르</b> 1인칭 3D 물리 시뮬레이션 + 인크리멘탈 성장</div>
@@ -1568,10 +1489,6 @@
             <div class="spec"><b>핵심 경험</b> 물리 해체, 판정, 시설 확장, 자동화가 연결되는 인크리멘탈 운영 구조.</div>
           </div>
         </div>
-        <footer class="slide-foot">
-          <span>신규 타이틀</span>
-          <span class="accent-gold">검수 자동화</span>
-        </footer>
       </div>
     </div>
   </section>
@@ -1585,7 +1502,7 @@
         </header>
         <div>
           <h2>양대 유니버스 구조</h2>
-          <p class="lead">Tech Universe는 등반과 기업 성장을 거쳐 궤도 산업과 우주 노동으로 확장되는 축이고, Fantasy Universe는 붉은 여왕의 통제 체계와 이에 대한 저항을 다루는 축입니다.</p>
+          <p class="lead">Tech Universe는 등반과 기업 성장을 거쳐 궤도 산업과 우주 노동으로 확장되는 축. Fantasy Universe는 붉은 여왕의 통제 체계와 저항을 다루는 축.</p>
         </div>
         <div class="universe-map">
           <article class="universe future">
@@ -1596,15 +1513,15 @@
             <div class="timeline">
               <div class="node">
                 <img src="assets/climb-title.png" alt="CLIMB">
-                <div><b>CLIMB</b><p>등반과 운반의 성장 루프를 통해 Tech Universe의 확장 동기를 설정합니다.</p></div>
+                <div><b>CLIMB</b><p>등반과 운반의 성장 루프를 통한 Tech Universe 확장 동기 설정.</p></div>
               </div>
               <div class="node">
                 <img src="assets/bob-company-title.png" alt="BOB Company title image">
-                <div><b>BOB Company</b><p>CLIMB의 성장 동기가 기업 운영과 우주 인프라 구축으로 확장됩니다.</p></div>
+                <div><b>BOB Company</b><p>CLIMB의 성장 동기를 기업 운영과 우주 인프라 구축으로 확장.</p></div>
               </div>
               <div class="node">
                 <img src="assets/omg-title.png" alt="Oh My Gravity">
-                <div><b>Oh My Gravity</b><p>300년 후 우주산업의 중심이 된 기업 체계가 우주 노동과 중력 장비의 배경이 됩니다.</p></div>
+                <div><b>Oh My Gravity</b><p>300년 후 우주산업의 중심이 된 기업 체계가 우주 노동과 중력 장비의 배경.</p></div>
               </div>
             </div>
           </article>
@@ -1617,27 +1534,23 @@
             <div class="timeline">
               <div class="node" data-placeholder="red-queen">
                 <img src="assets/red-queen-generated.png" alt="Red Queen concept image">
-                <div><b>Red Queen</b><p>붉은 여왕의 통치 체계가 반역, 형벌, 검열 시스템의 기반이 됩니다.</p></div>
+                <div><b>Red Queen</b><p>붉은 여왕의 통치 체계가 반역, 형벌, 검열 시스템의 기반.</p></div>
               </div>
               <div class="node">
                 <img src="assets/showhand-title.png" alt="SHOWHAND">
-                <div><b>SHOWHAND</b><p>반역자 처벌 구조가 반복 전투와 카드 판단 시스템으로 구체화됩니다.</p></div>
+                <div><b>SHOWHAND</b><p>반역자 처벌 구조를 반복 전투와 카드 판단 시스템으로 구체화.</p></div>
               </div>
               <div class="node">
                 <img src="assets/for-the-queen-title.png" alt="For The Queen">
-                <div><b>For The Queen</b><p>여왕의 검열실 운영 구조가 물리 검수와 자동화 시스템으로 확장됩니다.</p></div>
+                <div><b>For The Queen</b><p>여왕의 검열실 운영 구조를 물리 검수와 자동화 시스템으로 확장.</p></div>
               </div>
               <div class="node">
                 <img src="assets/DASHIFT.png" alt="DASHIFT concept image">
-                <div><b>DASHIFT</b><p>카드 전투와 세계 전환 규칙이 여왕의 통치 체계에 대한 액션 어드벤처로 확장됩니다.</p></div>
+                <div><b>DASHIFT</b><p>카드 전투와 세계 전환 규칙을 여왕의 통치 체계에 맞서는 액션 어드벤처로 확장.</p></div>
               </div>
             </div>
           </article>
         </div>
-        <footer class="slide-foot">
-          <span class="accent-future">Tech Universe</span>
-          <span class="accent-fantasy">Fantasy Universe</span>
-        </footer>
       </div>
     </div>
   </section>
@@ -1651,25 +1564,21 @@
         </header>
         <div>
           <h2>상징과 사건으로<br>연결되는 두 세계관</h2>
-          <p class="lead">Tech Universe와 Fantasy Universe는 독립된 축으로 전개되지만, WINDUP 월드 안에서는 배경 요소, 기업명, 문장, 포스터, 사건의 흔적을 통해 연결됩니다.</p>
+          <p class="lead">Tech Universe와 Fantasy Universe는 독립된 축으로 전개. WINDUP 월드 안에서는 배경 요소, 기업명, 문장, 포스터, 사건의 흔적으로 연결.</p>
         </div>
         <div class="bridge">
           <article class="bridge-panel">
             <b class="accent-future">Tech Universe</b>
-            <p>Tech Universe는 기업 성장, 궤도 산업, 우주 노동을 중심으로 확장과 탐험의 구조를 구축합니다.</p>
-            <p>Fantasy의 흔적은 광고, 장난감, 포스터, 전설 등 배경 요소로 Tech 세계에 배치됩니다.</p>
+            <p>Tech Universe는 기업 성장, 궤도 산업, 우주 노동 중심의 확장과 탐험 구조.</p>
+            <p>Fantasy의 흔적은 광고, 장난감, 포스터, 전설 등 배경 요소로 Tech 세계에 배치.</p>
           </article>
           <div class="bridge-line">x</div>
           <article class="bridge-panel">
             <b class="accent-fantasy">Fantasy Universe</b>
-            <p>붉은 여왕의 통치 체계는 형벌방과 검열실을 만들고, SHOWHAND와 For The Queen을 하나의 질서로 연결합니다.</p>
-            <p>Tech의 흔적은 검열 대상, 상자 로고, 비현실적 장치 등으로 Fantasy 세계에 배치됩니다.</p>
+            <p>붉은 여왕의 통치 체계는 형벌방과 검열실을 만들고, SHOWHAND와 For The Queen을 하나의 질서로 연결.</p>
+            <p>Tech의 흔적은 검열 대상, 상자 로고, 비현실적 장치 등으로 Fantasy 세계에 배치.</p>
           </article>
         </div>
-        <footer class="slide-foot">
-          <span>독립된 세계관 축</span>
-          <span>통합 WINDUP 월드</span>
-        </footer>
       </div>
     </div>
   </section>
@@ -1683,7 +1592,7 @@
         </header>
         <div>
           <h2>인디 라인업에서<br>AAA 대표 IP까지</h2>
-          <p class="lead">WINDUP의 장기 IP 전략은 페이즈 1의 인디 타이틀로 핵심 루프와 세계관 축을 검증하고, 페이즈 2의 싱글A 타이틀로 확장한 뒤, 페이즈 3의 AAA 타이틀 TWO SKIES로 통합됩니다.</p>
+          <p class="lead">WINDUP 장기 IP 전략은 페이즈 1 인디 타이틀의 핵심 루프와 세계관 축 검증, 페이즈 2 싱글A 확장, 페이즈 3 AAA 타이틀 TWO SKIES 통합으로 구성.</p>
         </div>
         <div class="phase-flow">
           <svg class="phase-link-layer" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
@@ -1720,10 +1629,6 @@
             </div>
           </section>
         </div>
-        <footer class="slide-foot">
-          <span>인디 라인업에서 AAA 대표 IP로</span>
-          <span>개별 타이틀에서 통합 세계관으로</span>
-        </footer>
       </div>
     </div>
   </section>
@@ -1737,7 +1642,7 @@
         </header>
         <div>
           <h2>페이즈 1<br>4종 인디 게임 타이틀 출시</h2>
-          <p class="lead">WINDUP은 4종 인디 게임을 통해 반복, 판단, 물리, 성장이라는 핵심 루프와 세계관 확장 가능성을 검증합니다.</p>
+          <p class="lead">WINDUP의 4종 인디 게임을 통한 반복, 판단, 물리, 성장 핵심 루프와 세계관 확장 가능성 검증.</p>
         </div>
         <div class="phase-one-grid">
           <section class="phase-one-universe future">
@@ -1748,7 +1653,7 @@
                 <div class="phase-one-copy">
                   <span class="phase-tag">개발 타이틀</span>
                   <b>Oh My Gravity</b>
-                  <p>중력 장비와 우주 노동의 감각이 BOB Company의 Tech 축을 보강합니다.</p>
+                  <p>중력 장비와 우주 노동의 감각으로 BOB Company의 Tech 축 보강.</p>
                 </div>
               </article>
               <article class="phase-one-card">
@@ -1756,7 +1661,7 @@
                 <div class="phase-one-copy">
                   <span class="phase-tag">개발 타이틀</span>
                   <b>CLIMB</b>
-                  <p>등반과 운반의 성장 구조가 BOB Company의 기업 성장 축으로 확장됩니다.</p>
+                  <p>등반과 운반의 성장 구조를 BOB Company의 기업 성장 축으로 확장.</p>
                 </div>
               </article>
             </div>
@@ -1769,7 +1674,7 @@
                 <div class="phase-one-copy">
                   <span class="phase-tag">데모 출시</span>
                   <b>SHOWHAND</b>
-                  <p>카드 판단과 반복 전투가 DASHIFT의 Fantasy 전투 축으로 확장됩니다.</p>
+                  <p>카드 판단과 반복 전투를 DASHIFT의 Fantasy 전투 축으로 확장.</p>
                 </div>
               </article>
               <article class="phase-one-card">
@@ -1777,16 +1682,12 @@
                 <div class="phase-one-copy">
                   <span class="phase-tag">신규 타이틀</span>
                   <b>For The Queen</b>
-                  <p>여왕의 검열실과 형벌 질서가 DASHIFT의 세계관 전투로 이어집니다.</p>
+                  <p>여왕의 검열실과 형벌 질서를 DASHIFT의 세계관 전투로 연결.</p>
                 </div>
               </article>
             </div>
           </section>
         </div>
-        <footer class="slide-foot">
-          <span>페이즈 1 출시 라인업</span>
-          <span>인디 타이틀 기반 세계관 구축</span>
-        </footer>
       </div>
     </div>
   </section>
@@ -1800,7 +1701,7 @@
         </header>
         <div>
           <h2>페이즈 2<br>완성도 높은 싱글A 타이틀 출시</h2>
-          <p class="lead">BOB Company와 DASHIFT는 페이즈 1에서 검증한 세계관과 핵심 루프를 싱글A 규모로 확장하는 출시 단계입니다.</p>
+          <p class="lead">BOB Company와 DASHIFT는 페이즈 1에서 검증한 세계관과 핵심 루프를 싱글A 규모로 확장하는 출시 단계.</p>
         </div>
         <div class="phase-projects">
           <article class="phase-project">
@@ -1809,7 +1710,7 @@
             <div class="phase-project-copy">
               <div>
                 <h3>BOB Company</h3>
-                <p>CLIMB 이후의 성장 축이 자원, 물류, 궤도 시설을 운영하는 기업 시뮬레이션으로 확장됩니다. OMG 이전 시대의 우주 인프라를 구축하는 싱글A 타이틀입니다.</p>
+                <p>CLIMB 이후의 성장 축을 자원, 물류, 궤도 시설 운영 기업 시뮬레이션으로 확장. OMG 이전 시대의 우주 인프라를 구축하는 싱글A 타이틀.</p>
               </div>
             </div>
           </article>
@@ -1819,15 +1720,11 @@
             <div class="phase-project-copy">
               <div>
                 <h3>DASHIFT</h3>
-                <p>SHOWHAND 세계관에서 파생된 주인공이 붉은 여왕의 질서에 도전합니다. Dash와 Shift 카드로 이동, 전투, 세계 전환을 조합하는 액션 어드벤처 타이틀입니다.</p>
+                <p>SHOWHAND 세계관에서 파생된 주인공의 붉은 여왕 질서 도전. Dash와 Shift 카드로 이동, 전투, 세계 전환을 조합하는 액션 어드벤처 타이틀.</p>
               </div>
             </div>
           </article>
         </div>
-        <footer class="slide-foot">
-          <span>Tech Universe 싱글A 확장</span>
-          <span>Fantasy Universe 싱글A 확장</span>
-        </footer>
       </div>
     </div>
   </section>
@@ -1841,7 +1738,7 @@
         </header>
         <div>
           <h2>페이즈 3<br>AAA 대표 타이틀 TWO SKIES 출시</h2>
-          <p class="lead">Tech Universe와 Fantasy Universe의 두 주인공이 적대 관계를 넘어 협력하고, 양대 세계관의 전쟁을 종결하는 AAA 어드벤처 타이틀입니다.</p>
+          <p class="lead">Tech Universe와 Fantasy Universe의 두 주인공이 적대 관계를 넘어 협력하고, 양대 세계관의 전쟁을 종결하는 AAA 어드벤처 타이틀.</p>
         </div>
         <div class="phase-title-feature">
           <div class="phase-title-image">
@@ -1855,7 +1752,7 @@
             <span class="phase-tag">AAA 어드벤처</span>
             <div>
               <h3>양대 세계관의 충돌과<br>통합을 담당하는 대표 IP</h3>
-              <p>BOB Company의 궤도 시설에서 성장한 Tech 주인공과 붉은 여왕의 카드 서고에서 성장한 Fantasy 주인공이 각 체계의 명령을 넘어 공동의 선택을 만드는 서사 구조입니다.</p>
+              <p>BOB Company의 궤도 시설에서 성장한 Tech 주인공과 붉은 여왕의 카드 서고에서 성장한 Fantasy 주인공이 각 체계의 명령을 넘어 공동의 선택을 만드는 서사 구조.</p>
             </div>
             <div class="phase-title-list">
               <span>Tech 주인공: 중력 장비와 드론으로 이동 경로와 방어 구조 생성</span>
@@ -1864,10 +1761,6 @@
             </div>
           </article>
         </div>
-        <footer class="slide-foot">
-          <span>양대 세계관의 충돌</span>
-          <span>AAA 대표 IP 통합</span>
-        </footer>
       </div>
     </div>
   </section>
