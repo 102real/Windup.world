@@ -1186,6 +1186,63 @@
       word-break: keep-all;
     }
 
+    .vision-mission-layout {
+      display: grid;
+      grid-template-rows: auto 1fr;
+      gap: 28px;
+      min-height: 0;
+    }
+
+    .vision-mission-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 18px;
+      min-height: 0;
+    }
+
+    .vision-mission-card {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      min-height: 370px;
+      border: 1px solid rgba(255, 255, 255, 0.28);
+      border-top: 6px solid var(--white);
+      background: rgba(255, 255, 255, 0.04);
+      padding: 28px;
+    }
+
+    .vision-mission-card .status-label {
+      margin-bottom: 34px;
+      border-color: rgba(255, 255, 255, 0.42);
+      color: var(--white);
+    }
+
+    .vision-mission-card h3 {
+      max-width: 480px;
+      margin-bottom: 24px;
+      color: var(--white);
+      font-size: 36px;
+      line-height: 1.05;
+      text-transform: none;
+    }
+
+    .vision-mission-card p {
+      max-width: 500px;
+      margin-bottom: 0;
+      color: rgba(255, 255, 255, 0.72);
+      font-size: 18px;
+      font-weight: 800;
+      word-break: keep-all;
+    }
+
+    .vision-mission-card.vision {
+      border-top-color: var(--white);
+    }
+
+    .vision-mission-card.mission {
+      border-top-color: var(--white);
+    }
+
     .accent-future {
       color: var(--future);
     }
@@ -1234,6 +1291,28 @@
       }
 
       .lead {
+        font-size: 14px;
+      }
+
+      .vision-mission-layout {
+        gap: 18px;
+      }
+
+      .vision-mission-card {
+        min-height: 300px;
+        padding: 20px;
+      }
+
+      .vision-mission-card .status-label {
+        margin-bottom: 22px;
+      }
+
+      .vision-mission-card h3 {
+        margin-bottom: 16px;
+        font-size: 28px;
+      }
+
+      .vision-mission-card p {
         font-size: 14px;
       }
 
@@ -1489,6 +1568,7 @@
       .purpose-grid,
       .team-grid,
       .status-grid,
+      .vision-mission-grid,
       .story-grid,
       .spec-grid,
       .story-points,
@@ -1610,11 +1690,44 @@
       <div class="slide-inner">
         <header class="slide-head">
           <span class="kicker">WINDUP</span>
-          <span>01 / 13</span>
+          <span>01 / 14</span>
         </header>
         <div class="cover-grid">
           <div>
             <h1>WINDUP<br>Vision Deck</h1>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="slide" aria-label="WINDUP Mission & Vision">
+    <div class="frame dark">
+      <div class="slide-inner">
+        <header class="slide-head">
+          <span class="kicker">WINDUP Mission & Vision</span>
+          <span>02 / 14</span>
+        </header>
+        <div class="vision-mission-layout">
+          <div>
+            <h2>Mission &<br>Vision</h2>
+            <p class="lead">WINDUP이 만드는 콘텐츠와 IP 생태계의 방향성</p>
+          </div>
+          <div class="vision-mission-grid">
+            <article class="vision-mission-card mission">
+              <div>
+                <span class="status-label">MISSION</span>
+                <h3>세상을 바꾸는 작은 움직임</h3>
+              </div>
+              <p>우리는 좋은 콘텐츠를 통해 사람들의 일상에 여운을 남기고, 세상을 조금 더 아름답게 만듭니다.</p>
+            </article>
+            <article class="vision-mission-card vision">
+              <div>
+                <span class="status-label">VISION</span>
+                <h3>AI 파이프라인으로 구축하는 거대한 유니버스</h3>
+              </div>
+              <p>AI 기술로 다양한 게임을 빠르게 개발하고, 모든 타이틀이 하나의 세계관을 공유하는 탄탄한 IP 생태계를 완성합니다.</p>
+            </article>
           </div>
         </div>
       </div>
@@ -1626,7 +1739,7 @@
       <div class="slide-inner">
         <header class="slide-head">
           <span class="kicker">팀 구성</span>
-          <span>02 / 13</span>
+          <span>03 / 14</span>
         </header>
         <div class="team-layout">
           <div>
@@ -1677,7 +1790,7 @@
       <div class="slide-inner">
         <header class="slide-head">
           <span class="kicker">프로젝트 라인업</span>
-          <span>03 / 13</span>
+          <span>04 / 14</span>
         </header>
         <div>
           <h2>프로젝트 라인업 현황</h2>
@@ -1711,7 +1824,7 @@
           <article class="status-card">
             <img src="assets/for-the-queen-title.png" alt="For The Queen">
             <div class="status-body">
-              <span class="status-label">신규 타이틀</span>
+              <span class="status-label">개발 단계</span>
               <b>For The Queen</b>
               <p>여왕의 제4 검열실에서 선물 판정과 시설 자동화를 수행하는 1인칭 3D 물리 검수 타이틀</p>
             </div>
@@ -1726,7 +1839,7 @@
       <div class="slide-inner">
         <header class="slide-head">
           <span class="kicker">SHOWHAND / 데모 출시</span>
-          <span>04 / 13</span>
+          <span>05 / 14</span>
         </header>
         <div class="story-grid">
           <div>
@@ -1749,7 +1862,7 @@
       <div class="slide-inner">
         <header class="slide-head">
           <span class="kicker">Oh My Gravity / 개발 단계</span>
-          <span>05 / 13</span>
+          <span>06 / 14</span>
         </header>
         <div class="story-grid">
           <div>
@@ -1772,7 +1885,7 @@
       <div class="slide-inner">
         <header class="slide-head">
           <span class="kicker">CLIMB / 개발 단계</span>
-          <span>06 / 13</span>
+          <span>07 / 14</span>
         </header>
         <div class="story-grid">
           <div>
@@ -1794,8 +1907,8 @@
     <div class="frame image" style="--bg: url('assets/for-the-queen-title.png');">
       <div class="slide-inner">
         <header class="slide-head">
-          <span class="kicker">For The Queen / 신규 타이틀</span>
-          <span>07 / 13</span>
+          <span class="kicker">For The Queen / 개발 단계</span>
+          <span>08 / 14</span>
         </header>
         <div class="story-grid">
           <div>
@@ -1818,7 +1931,7 @@
       <div class="slide-inner">
         <header class="slide-head">
           <span class="kicker">유니버스 전략</span>
-          <span>08 / 13</span>
+          <span>09 / 14</span>
         </header>
         <div>
           <h2>양대 유니버스와<br>교차 연결 구조</h2>
@@ -1884,7 +1997,7 @@
       <div class="slide-inner">
         <header class="slide-head">
           <span class="kicker">WINDUP 페이즈 로드맵</span>
-          <span>09 / 13</span>
+          <span>10 / 14</span>
         </header>
         <div>
           <h2>인디 라인업에서<br>AAA 대표 IP까지</h2>
@@ -1895,7 +2008,7 @@
             <g class="phase-link-paths"></g>
           </svg>
           <section class="flow-column one">
-            <span class="phase-tag">페이즈 1 / 인디</span>
+            <span class="phase-tag">페이즈 1 / 인디 / ~2027</span>
             <h3>핵심 루프 검증</h3>
             <div class="flow-stack">
               <div class="flow-node" data-flow-id="showhand"><b>SHOWHAND</b><p>반복 전투와 카드 판단의 축</p></div>
@@ -1905,7 +2018,7 @@
             </div>
           </section>
           <section class="flow-column two">
-            <span class="phase-tag">페이즈 2 / 싱글A</span>
+            <span class="phase-tag">페이즈 2 / 싱글A / ~2029</span>
             <h3>IP 확장 타이틀</h3>
             <div class="flow-stack">
               <div class="flow-node" data-flow-id="dashift"><b>DASHIFT</b><p>카드 전투와 여왕의 질서를 액션 어드벤처로 확장</p></div>
@@ -1913,7 +2026,7 @@
             </div>
           </section>
           <section class="flow-column three">
-            <span class="phase-tag">페이즈 3 / AAA</span>
+            <span class="phase-tag">페이즈 3 / AAA / 2031</span>
             <h3>대표 IP 통합</h3>
             <div class="flow-stack">
               <div class="flow-node final-node" data-flow-id="two-skies">
@@ -1934,7 +2047,7 @@
       <div class="slide-inner">
         <header class="slide-head">
           <span class="kicker">페이즈 1 / 4종 인디 게임</span>
-          <span>10 / 13</span>
+          <span>11 / 14</span>
         </header>
         <div>
           <h2>페이즈 1<br>4종 인디 게임 타이틀 출시</h2>
@@ -1976,7 +2089,7 @@
               <article class="phase-one-card">
                 <img src="assets/for-the-queen-title.png" alt="For The Queen title image">
                 <div class="phase-one-copy">
-                  <span class="phase-tag">신규 타이틀</span>
+                  <span class="phase-tag">개발 단계</span>
                   <b>For The Queen</b>
                   <p>여왕의 검열실과 형벌 질서를 DASHIFT의 세계관 전투로 연결</p>
                 </div>
@@ -1993,7 +2106,7 @@
       <div class="slide-inner">
         <header class="slide-head">
           <span class="kicker">페이즈 2 / 싱글A 타이틀</span>
-          <span>11 / 13</span>
+          <span>12 / 14</span>
         </header>
         <div>
           <h2>페이즈 2<br>완성도 높은 싱글A 타이틀 출시</h2>
@@ -2030,7 +2143,7 @@
       <div class="slide-inner">
         <header class="slide-head">
           <span class="kicker">페이즈 3 / AAA 타이틀 출시</span>
-          <span>12 / 13</span>
+          <span>13 / 14</span>
         </header>
         <div>
           <h2>페이즈 3<br>AAA 대표 타이틀 TWO SKIES 출시</h2>
@@ -2066,7 +2179,7 @@
       <div class="slide-inner">
         <header class="slide-head">
           <span class="kicker">WINDUP</span>
-          <span>13 / 13</span>
+          <span>14 / 14</span>
         </header>
         <div class="closing-layout">
           <h2>EOD</h2>
