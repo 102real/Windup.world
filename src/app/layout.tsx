@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { Noto_Sans_KR, Space_Grotesk, Instrument_Serif, Space_Mono, Noto_Serif_KR } from "next/font/google";
+import { Noto_Sans_KR, Space_Grotesk, Space_Mono } from "next/font/google";
 import "./globals.css";
 
 const notoSansKR = Noto_Sans_KR({
@@ -14,21 +14,8 @@ const spaceGrotesk = Space_Grotesk({
   weight: ["500", "700"],
 });
 
-const instrumentSerif = Instrument_Serif({
-  variable: "--font-instrument-serif",
-  subsets: ["latin"],
-  weight: "400",
-  style: ["normal", "italic"],
-});
-
 const spaceMono = Space_Mono({
   variable: "--font-space-mono",
-  subsets: ["latin"],
-  weight: ["400"],
-});
-
-const notoSerifKR = Noto_Serif_KR({
-  variable: "--font-noto-serif-kr",
   subsets: ["latin"],
   weight: ["400"],
 });
@@ -52,7 +39,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="ko">
-      <body className={`${notoSansKR.variable} ${spaceGrotesk.variable} ${instrumentSerif.variable} ${spaceMono.variable} ${notoSerifKR.variable} antialiased`}>
+      <body className={`${notoSansKR.variable} ${spaceGrotesk.variable} ${spaceMono.variable} antialiased`}>
         <LanguageProvider>
           <LanguageToggle />
           {children}

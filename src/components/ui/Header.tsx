@@ -39,34 +39,41 @@ export default function Header() {
   };
 
   return (
-    <header className="fixed top-0 left-0 w-full z-50 flex justify-center py-5">
-      <nav className="glass flex gap-8 md:gap-14 rounded-full px-8 py-3">
-        {['about', 'projects', 'contact'].map((id) => {
-          const isActive = activeSection === id;
-          const label = t.header[id as keyof typeof t.header];
+    <header className="fixed top-0 left-0 w-full z-50 glass border-x-0 border-t-0">
+      <div className="flex items-center justify-between h-14 px-6 md:px-12">
+        {/* Wordmark */}
+        <a
+          href="#about"
+          onClick={(e) => scrollToSection(e, 'about')}
+          className="font-display font-bold tracking-tight text-base md:text-lg leading-none"
+        >
+          WINDUP
+        </a>
 
-          return (
-            <a
-              key={id}
-              href={`#${id}`}
-              onClick={(e) => scrollToSection(e, id)}
-              className={`text-xs md:text-sm font-bold tracking-[0.2em] transition-colors duration-300 relative
-                ${isActive ? 'text-foreground' : 'text-tertiary hover:text-secondary'}
-              `}
-            >
-              {label}
-              {/* Active Indicator Underline */}
-              <span
-                className={`absolute -bottom-1.5 left-0 w-full h-[2px] rounded-full bg-foreground transition-transform duration-300 origin-left
-                  ${isActive ? 'scale-x-100' : 'scale-x-0'}
+        {/* Nav */}
+        <nav className="flex items-center gap-5 md:gap-10 mr-16 md:mr-28">
+          {['about', 'projects', 'contact'].map((id, i) => {
+            const isActive = activeSection === id;
+            const label = t.header[id as keyof typeof t.header];
+
+            return (
+              <a
+                key={id}
+                href={`#${id}`}
+                onClick={(e) => scrollToSection(e, id)}
+                className={`flex items-baseline gap-1.5 text-[11px] md:text-xs font-bold tracking-[0.15em] transition-colors duration-300
+                  ${isActive ? 'text-foreground' : 'text-tertiary hover:text-secondary'}
                 `}
-              ></span>
-            </a>
-          );
-        })}
-      </nav>
+              >
+                <span className={`font-mono text-[9px] md:text-[10px] font-normal ${isActive ? 'text-secondary' : 'text-tertiary'}`}>
+                  0{i + 1}
+                </span>
+                {label}
+              </a>
+            );
+          })}
+        </nav>
+      </div>
     </header>
   );
 }
-
-

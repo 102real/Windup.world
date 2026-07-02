@@ -1,7 +1,6 @@
 'use client';
 
 import React from 'react';
-import { ArrowUpRight } from 'lucide-react';
 import { useLanguage } from '@/context/LanguageContext';
 import Reveal from '@/components/ui/Reveal';
 
@@ -18,6 +17,16 @@ type Project = {
 const projects: Project[] = [
   {
     id: "01",
+    name: "OMG: Oh My Gravity",
+    tags: ["2026 Q4", "Co-op", "Puzzle", "Platformer"]
+  },
+  {
+    id: "02",
+    name: "CLIMB",
+    tags: ["2026 Q4", "Simulation", "Incremental"]
+  },
+  {
+    id: "03",
     name: "SHOWHAND",
     tags: ["2027 Q1", "Roguelike", "Action", "Poker"],
     link: {
@@ -26,18 +35,8 @@ const projects: Project[] = [
     },
   },
   {
-    id: "02",
-    name: "OMG: Oh My Gravity",
-    tags: ["2026 Q4", "Co-op", "Puzzle", "Platformer"]
-  },
-  {
-    id: "03",
-    name: "CLIMB",
-    tags: ["2026 Q4", "Simulation", "Incremental"]
-  },
-  {
     id: "04",
-    name: "Heart Stemp",
+    name: "Heart stamp",
     tags: ["2026 Q1", "Simulation", "Physics"]
   }
 ];
@@ -69,11 +68,19 @@ export default function Projects() {
 
   return (
     <section id="projects" className="min-h-screen py-20 px-6 md:px-12 w-full max-w-[95vw] mx-auto overflow-hidden">
-      <div className="flex items-end justify-between mb-24 border-b border-border-strong pb-4">
-        <h2 className="text-4xl md:text-6xl font-black tracking-tight uppercase font-display">
-          {t.projects.title}
-          <span className="font-serif italic font-normal text-[0.4em] tracking-normal align-super text-secondary ml-3">({projects.length})</span>
-        </h2>
+      <div className="mb-20 md:mb-24">
+        <p className="font-mono text-[10px] md:text-xs uppercase tracking-widest text-tertiary mb-4">
+          ( 02 — {t.projects.title} )
+        </p>
+        <div className="flex items-end justify-between border-b border-border-strong pb-4">
+          <h2 className="text-4xl md:text-6xl font-black tracking-tight uppercase font-display">
+            {t.projects.title}
+            <span className="font-mono font-normal text-[0.35em] tracking-normal align-super text-secondary ml-3">({projects.length})</span>
+          </h2>
+          <span className="hidden md:block font-mono text-xs text-tertiary uppercase tracking-widest pb-2">
+            2026 — 2027
+          </span>
+        </div>
       </div>
 
       <div className="flex flex-col gap-0">
@@ -91,27 +98,21 @@ export default function Projects() {
                   aria-hidden="true"
                 ></span>
 
-                <div className="flex flex-col lg:flex-row lg:items-start justify-between gap-10">
-                  {/* Index & Title */}
-                  <div className="flex flex-col md:flex-row md:items-baseline gap-4 md:gap-12 lg:w-1/2">
-                    <div className="flex flex-col">
-                      <span className="font-mono text-xs md:text-sm text-tertiary mb-4 group-hover:text-secondary transition-colors duration-500">
-                        /{project.id}
-                      </span>
-                      <div className="flex items-baseline gap-4">
-                        <h3 className="text-5xl md:text-7xl lg:text-8xl font-bold tracking-tighter leading-none group-hover:translate-x-4 transition-transform duration-500 font-display">
-                          {project.name}
-                        </h3>
-                        <ArrowUpRight
-                          className="w-8 h-8 md:w-12 md:h-12 text-foreground opacity-0 -translate-x-2 translate-y-2 group-hover:opacity-100 group-hover:translate-x-0 group-hover:translate-y-0 transition-all duration-500"
-                          aria-hidden="true"
-                        />
-                      </div>
-                    </div>
+                <div className="grid grid-cols-12 gap-x-4 gap-y-8 items-start">
+                  {/* Index */}
+                  <span className="col-span-12 md:col-span-1 font-mono text-xs md:text-sm text-tertiary group-hover:text-secondary transition-colors duration-500 md:pt-3">
+                    /{project.id}
+                  </span>
+
+                  {/* Title */}
+                  <div className="col-span-12 md:col-span-6">
+                    <h3 className="text-5xl md:text-6xl lg:text-8xl font-bold tracking-tighter leading-none uppercase group-hover:translate-x-4 transition-transform duration-500 font-display break-keep">
+                      {project.name}
+                    </h3>
                   </div>
 
                   {/* Details */}
-                  <div className="flex flex-col gap-6 lg:w-1/3 lg:pt-4">
+                  <div className="col-span-12 md:col-span-5 flex flex-col gap-5 md:pt-2">
                     <div className="flex flex-wrap gap-2 items-center">
                       {project.tags.map(tag => (
                         <span
@@ -123,7 +124,7 @@ export default function Projects() {
                       ))}
                     </div>
                     {itemT?.direction && (
-                      <h4 className="font-serif italic font-normal text-2xl md:text-3xl leading-snug">
+                      <h4 className="text-xl md:text-2xl font-semibold leading-snug">
                         {itemT.direction}
                       </h4>
                     )}

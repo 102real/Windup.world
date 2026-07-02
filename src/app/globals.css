@@ -27,7 +27,6 @@
   --color-border-strong: var(--border-strong);
   --font-sans: var(--font-noto-sans-kr);
   --font-display: var(--font-space-grotesk), var(--font-noto-sans-kr);
-  --font-serif: var(--font-instrument-serif), var(--font-noto-serif-kr), serif;
   --font-mono: var(--font-space-mono), monospace;
 }
 

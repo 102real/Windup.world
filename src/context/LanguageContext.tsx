@@ -59,9 +59,9 @@ const translations: Record<Language, TranslationData> = {
                     direction: '무거울수록, 더 높이',
                     description: '어깨에 짊어진 짐이 무거울수록, 정상에서의 보상은 달콤해집니다.\n오르고, 나르고, 판매하며 당신만의 봉우리를 쌓아 올리세요.\n이 산의 정상에 설 주인공은 당신입니다.',
                 },
-                'Heart Stemp': {
+                'Heart stamp': {
                     direction: '통과한 선물만 그녀에게 닿는다',
-                    description: '모든 선물에는 마음이 숨어 있습니다.\n열어 보고 판정하세요. 하트 스템프는 통과한 선물에만 찍힙니다.\n오직 선택받은 마음만이 그녀에게 전달됩니다.',
+                    description: '모든 선물에는 마음이 숨어 있습니다.\n열어 보고 판정하세요. 하트 스탬프는 통과한 선물에만 찍힙니다.\n오직 선택받은 마음만이 그녀에게 전달됩니다.',
                 },
             },
         },
@@ -97,7 +97,7 @@ const translations: Record<Language, TranslationData> = {
                     direction: 'The heavier, the higher',
                     description: 'The heavier the load on your shoulders, the sweeter the reward at the top.\nClimb, carry, and sell to build your own peak.\nYou are the one to stand at the summit.',
                 },
-                'Heart Stemp': {
+                'Heart stamp': {
                     direction: 'Only the gifts that pass reach Her',
                     description: 'Every gift hides a heart inside.\nOpen and judge — only the ones that pass earn the heart stamp.\nOnly the chosen hearts are delivered to Her.',
                 },

@@ -19,6 +19,9 @@ export default function Contact() {
 
       <div className="w-full max-w-[95vw] mx-auto px-6 md:px-12 relative z-10">
         <Reveal>
+          <p className="font-mono text-[10px] md:text-xs uppercase tracking-widest text-tertiary mb-4">
+            ( 03 — {t.header.contact} )
+          </p>
           <div className="w-full h-[1px] bg-border-strong"></div>
           <div className="flex flex-col md:flex-row items-end justify-between pt-12">
 
@@ -57,18 +60,18 @@ export default function Contact() {
               </a>
             </div>
 
-            <div className="flex flex-col items-end gap-6 text-right">
-              <div className="flex gap-4 font-mono text-xs md:text-sm">
-                <a href="https://www.youtube.com/@Windup_world" target="_blank" rel="noopener noreferrer" className="text-secondary hover:text-foreground transition-colors underline-offset-4 hover:underline">YOUTUBE</a>
-                <a href="https://www.instagram.com/windup_world/" target="_blank" rel="noopener noreferrer" className="text-secondary hover:text-foreground transition-colors underline-offset-4 hover:underline">INSTAGRAM</a>
-                <a href="https://x.com/windup_world" target="_blank" rel="noopener noreferrer" className="text-secondary hover:text-foreground transition-colors underline-offset-4 hover:underline">X</a>
-              </div>
-              <p className="font-mono text-[10px] md:text-xs tracking-widest text-tertiary uppercase mt-8">
-                © {new Date().getFullYear()} Windup.<br />
-                All Rights Reserved.
-              </p>
+            <div className="flex flex-col items-end gap-2 text-right font-mono text-xs md:text-sm">
+              <a href="https://www.youtube.com/@Windup_world" target="_blank" rel="noopener noreferrer" className="text-secondary hover:text-foreground transition-colors underline-offset-4 hover:underline">YOUTUBE ↗</a>
+              <a href="https://www.instagram.com/windup_world/" target="_blank" rel="noopener noreferrer" className="text-secondary hover:text-foreground transition-colors underline-offset-4 hover:underline">INSTAGRAM ↗</a>
+              <a href="https://x.com/windup_world" target="_blank" rel="noopener noreferrer" className="text-secondary hover:text-foreground transition-colors underline-offset-4 hover:underline">X ↗</a>
             </div>
 
+          </div>
+
+          {/* Footer bar */}
+          <div className="mt-16 pt-6 border-t border-border-subtle flex items-center justify-between font-mono text-[10px] md:text-xs uppercase tracking-widest text-tertiary">
+            <span>© {new Date().getFullYear()} Windup. All Rights Reserved.</span>
+            <a href="#about" className="hover:text-foreground transition-colors">Back to top ↑</a>
           </div>
         </Reveal>
       </div>

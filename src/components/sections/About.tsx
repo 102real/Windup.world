@@ -55,14 +55,21 @@ export default function About() {
   }, [phase]);
 
   return (
-    <section id="about" className="min-h-screen flex flex-col justify-between px-6 py-10 md:px-12 md:py-20 relative overflow-hidden">
+    <section id="about" className="min-h-screen flex flex-col justify-between px-6 md:px-12 pt-20 md:pt-24 pb-8 relative overflow-hidden">
       {/* Background layers */}
       <div className="absolute inset-0 bg-grid pointer-events-none" aria-hidden="true"></div>
 
-      <div className="z-10 mt-20 md:mt-32 w-full max-w-[90vw] mx-auto">
+      {/* Top meta row */}
+      <div className="relative z-10 flex items-center justify-between font-mono text-[10px] md:text-xs uppercase tracking-widest text-tertiary animate-fade-in-up border-b border-border-subtle pb-4">
+        <span>( 01 — {t.header.about} )</span>
+        <span className="hidden md:block">Game Studio</span>
+        <span>© 2026</span>
+      </div>
+
+      <div className="z-10 w-full">
         {/* WINDUP - Large */}
         <h2 className="text-[16vw] md:text-[18vh] lg:text-[20vh] font-bold leading-[0.9] tracking-tighter animate-fade-in-up font-display">
-          WINDUP<span className="font-serif italic font-normal text-[0.35em] align-super text-secondary">*</span>
+          WINDUP
         </h2>
 
         {/* the + rotating word - Smaller with underline only on word */}
@@ -75,7 +82,7 @@ export default function About() {
                 className="inline-block transition-opacity duration-[1500ms] ease-in-out"
                 style={{ opacity: textOpacity }}
               >
-                <span className="font-serif italic font-normal tracking-normal">{rotatingWords[currentIndex]}</span>
+                {rotatingWords[currentIndex]}
               </span>
               {/* Animated underline - only under rotating word */}
               <span
@@ -97,22 +104,25 @@ export default function About() {
         </div>
       </div>
 
-      <div className="z-10 flex flex-col items-end justify-end w-full max-w-[90vw] mx-auto gap-10 mt-20 md:mt-0 text-right">
-        <div className="animate-fade-in-up [animation-delay:400ms]">
-          <p className="font-mono text-xs tracking-[0.2em] uppercase mb-2 text-secondary">
+      {/* Bottom structured row */}
+      <div className="relative z-10 border-t border-border-subtle pt-6 mt-20 md:mt-0 grid grid-cols-2 md:grid-cols-12 gap-6 items-end animate-fade-in-up [animation-delay:400ms]">
+        <div className="col-span-2 md:col-span-5">
+          <p className="font-mono text-xs tracking-[0.2em] uppercase mb-3 text-secondary">
             ( {t.about.mission} )
           </p>
-          <p className="text-xl md:text-3xl font-medium">
+          <p className="text-xl md:text-2xl font-medium leading-snug">
             {t.about.movement}<br />
             {t.about.movementSub}
           </p>
         </div>
-      </div>
-
-      {/* Scroll Indicator */}
-      <div className="absolute bottom-10 left-1/2 -translate-x-1/2 animate-reveal [animation-delay:800ms]">
-        <div className="w-[1px] h-16 bg-current opacity-30 mx-auto mb-2"></div>
-        <span className="font-mono text-[10px] tracking-widest uppercase text-secondary">{t.about.scroll}</span>
+        <div className="hidden md:block md:col-span-4 font-mono text-[10px] lg:text-xs text-tertiary uppercase tracking-widest leading-relaxed">
+          Interactions that can<br />make the world better
+        </div>
+        <div className="col-span-2 md:col-span-3 flex md:justify-end">
+          <span className="font-mono text-[10px] tracking-widest uppercase text-secondary animate-reveal [animation-delay:800ms]">
+            {t.about.scroll} ↓
+          </span>
+        </div>
       </div>
     </section>
   );
