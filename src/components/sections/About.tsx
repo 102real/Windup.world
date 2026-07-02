@@ -56,10 +56,13 @@ export default function About() {
 
   return (
     <section id="about" className="min-h-screen flex flex-col justify-between px-6 py-10 md:px-12 md:py-20 relative overflow-hidden">
+      {/* Background layers */}
+      <div className="absolute inset-0 bg-grid pointer-events-none" aria-hidden="true"></div>
+
       <div className="z-10 mt-20 md:mt-32 w-full max-w-[90vw] mx-auto">
         {/* WINDUP - Large */}
-        <h2 className="text-[16vw] md:text-[18vh] lg:text-[20vh] font-bold leading-[0.9] tracking-tighter animate-fade-in-up">
-          WINDUP
+        <h2 className="text-[16vw] md:text-[18vh] lg:text-[20vh] font-bold leading-[0.9] tracking-tighter animate-fade-in-up font-display">
+          WINDUP<span className="font-serif italic font-normal text-[0.35em] align-super text-secondary">*</span>
         </h2>
 
         {/* the + rotating word - Smaller with underline only on word */}
@@ -69,14 +72,14 @@ export default function About() {
             <span className="relative inline-block">
               <span
                 ref={textContainerRef}
-                className="transition-opacity duration-[1500ms] ease-in-out"
+                className="inline-block transition-opacity duration-[1500ms] ease-in-out"
                 style={{ opacity: textOpacity }}
               >
-                {rotatingWords[currentIndex]}
+                <span className="font-serif italic font-normal tracking-normal">{rotatingWords[currentIndex]}</span>
               </span>
               {/* Animated underline - only under rotating word */}
               <span
-                className="absolute bottom-0 left-0 h-[1px] md:h-[3px] lg:h-[4px] bg-current transition-all duration-500 ease-in-out"
+                className="absolute bottom-0 left-0 h-[1px] md:h-[2px] bg-current transition-all duration-500 ease-in-out"
                 style={{ width: underlineWidth > 0 ? `${underlineWidth}px` : '100%' }}
               ></span>
             </span>
@@ -85,19 +88,19 @@ export default function About() {
       </div>
 
       {/* Single Line Marquee - Full Width Below WINDUP */}
-      <div className="absolute left-0 w-full overflow-hidden opacity-[0.07] pointer-events-none" style={{ top: 'calc(20vh + 16rem)', width: '100vw' }}>
+      <div className="absolute left-0 w-full overflow-hidden pointer-events-none" style={{ top: 'calc(20vh + 16rem)', width: '100vw' }}>
         <div className="whitespace-nowrap animate-marquee flex items-center">
-          <span className="text-[15vh] md:text-[18vh] lg:text-[20vh] font-black uppercase mx-4">Interactions That Can Make the World Better</span>
-          <span className="text-[15vh] md:text-[18vh] lg:text-[20vh] font-black uppercase mx-4">Interactions That Can Make the World Better</span>
-          <span className="text-[15vh] md:text-[18vh] lg:text-[20vh] font-black uppercase mx-4">Interactions That Can Make the World Better</span>
-          <span className="text-[15vh] md:text-[18vh] lg:text-[20vh] font-black uppercase mx-4">Interactions That Can Make the World Better</span>
+          <span className="text-outline font-display text-[15vh] md:text-[18vh] lg:text-[20vh] font-black uppercase mx-4">Interactions That Can Make the World Better&nbsp;&nbsp;✳</span>
+          <span className="text-outline font-display text-[15vh] md:text-[18vh] lg:text-[20vh] font-black uppercase mx-4">Interactions That Can Make the World Better&nbsp;&nbsp;✳</span>
+          <span className="text-outline font-display text-[15vh] md:text-[18vh] lg:text-[20vh] font-black uppercase mx-4">Interactions That Can Make the World Better&nbsp;&nbsp;✳</span>
+          <span className="text-outline font-display text-[15vh] md:text-[18vh] lg:text-[20vh] font-black uppercase mx-4">Interactions That Can Make the World Better&nbsp;&nbsp;✳</span>
         </div>
       </div>
 
       <div className="z-10 flex flex-col items-end justify-end w-full max-w-[90vw] mx-auto gap-10 mt-20 md:mt-0 text-right">
         <div className="animate-fade-in-up [animation-delay:400ms]">
-          <p className="text-sm font-bold tracking-[0.2em] uppercase mb-2 opacity-50">
-            {t.about.mission}
+          <p className="font-mono text-xs tracking-[0.2em] uppercase mb-2 text-secondary">
+            ( {t.about.mission} )
           </p>
           <p className="text-xl md:text-3xl font-medium">
             {t.about.movement}<br />
@@ -109,7 +112,7 @@ export default function About() {
       {/* Scroll Indicator */}
       <div className="absolute bottom-10 left-1/2 -translate-x-1/2 animate-reveal [animation-delay:800ms]">
         <div className="w-[1px] h-16 bg-current opacity-30 mx-auto mb-2"></div>
-        <span className="text-[10px] tracking-widest uppercase opacity-50">{t.about.scroll}</span>
+        <span className="font-mono text-[10px] tracking-widest uppercase text-secondary">{t.about.scroll}</span>
       </div>
     </section>
   );

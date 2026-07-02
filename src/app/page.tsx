@@ -5,7 +5,7 @@ import Header from "@/components/ui/Header";
 
 export default function Home() {
   return (
-    <main className="flex flex-col w-full selection:bg-black selection:text-white dark:selection:bg-white dark:selection:text-black">
+    <main className="flex flex-col w-full bg-background text-foreground">
       <Header />
       <About />
       <Projects />

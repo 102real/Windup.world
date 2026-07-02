@@ -39,8 +39,8 @@ export default function Header() {
   };
 
   return (
-    <header className="fixed top-0 left-0 w-full z-50 flex justify-center py-6 mix-blend-difference text-white">
-      <nav className="flex gap-8 md:gap-16">
+    <header className="fixed top-0 left-0 w-full z-50 flex justify-center py-5">
+      <nav className="glass flex gap-8 md:gap-14 rounded-full px-8 py-3">
         {['about', 'projects', 'contact'].map((id) => {
           const isActive = activeSection === id;
           const label = t.header[id as keyof typeof t.header];
@@ -50,15 +50,17 @@ export default function Header() {
               key={id}
               href={`#${id}`}
               onClick={(e) => scrollToSection(e, id)}
-              className={`text-xs md:text-sm font-bold tracking-[0.2em] transition-all duration-300 relative
-                ${isActive ? 'opacity-100' : 'opacity-40 hover:opacity-70'}
+              className={`text-xs md:text-sm font-bold tracking-[0.2em] transition-colors duration-300 relative
+                ${isActive ? 'text-foreground' : 'text-tertiary hover:text-secondary'}
               `}
             >
               {label}
               {/* Active Indicator Underline */}
-              <span className={`absolute -bottom-2 left-0 w-full h-[1px] bg-white transition-transform duration-300 origin-left
-                ${isActive ? 'scale-x-100' : 'scale-x-0'}
-              `}></span>
+              <span
+                className={`absolute -bottom-1.5 left-0 w-full h-[2px] rounded-full bg-foreground transition-transform duration-300 origin-left
+                  ${isActive ? 'scale-x-100' : 'scale-x-0'}
+                `}
+              ></span>
             </a>
           );
         })}
