@@ -96,6 +96,15 @@
     .chapter-content { align-self: center; max-width: 990px; }
     .chapter-content .eyebrow { margin-bottom: 24px; }
     .chapter-content p { max-width: 760px; color: #b2bac0; font-size: 20px; font-weight: 600; }
+    .universe-overview { align-self: center; display: grid; gap: 34px; }
+    .universe-overview h2 { margin: 0; }
+    .universe-axis-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+    .universe-axis { min-height: 190px; display: grid; align-content: end; gap: 10px; border: 1px solid var(--line); padding: 26px 28px; background: rgba(255,255,255,.035); }
+    .universe-axis.tech { border-top: 6px solid var(--tech); }
+    .universe-axis.fantasy { border-top: 6px solid var(--fantasy); }
+    .universe-axis span { color: var(--muted); font-size: 10px; font-weight: 900; letter-spacing: .16em; text-transform: uppercase; }
+    .universe-axis b { font-size: 31px; text-transform: uppercase; }
+    .universe-axis p { max-width: 520px; margin: 0; color: #b2bac0; font-size: 15px; font-weight: 650; }
 
     .premise { align-self: center; display: grid; grid-template-columns: .82fr 1.18fr; gap: 62px; align-items: center; }
     .signal-stack { display: grid; gap: 12px; }
@@ -126,9 +135,9 @@
     .universe-title b { font-size: 30px; text-transform: uppercase; }
     .universe-title p { margin: 8px 0 0; color: var(--muted); font-size: 13px; }
     .worldline { display: grid; gap: 0; padding: 13px 24px 16px; }
-    .world-node { display: grid; grid-template-columns: 74px 1fr; gap: 15px; align-items: center; padding: 12px 0; border-bottom: 1px solid var(--line); }
+    .world-node { display: grid; grid-template-columns: 132px 1fr; gap: 18px; align-items: center; padding: 12px 0; border-bottom: 1px solid var(--line); }
     .world-node:last-child { border-bottom: 0; }
-    .world-node img, .world-node .type-art { width: 74px; height: 50px; object-fit: cover; border: 1px solid var(--line); }
+    .world-node img, .world-node .type-art { width: 132px; height: 82px; object-fit: contain; border: 1px solid var(--line); padding: 5px; background: rgba(0,0,0,.22); }
     .type-art { display: grid; place-items: center; background: #15191d; color: var(--ink); font-size: 12px; font-weight: 950; letter-spacing: -.04em; }
     .fantasy .type-art { background: linear-gradient(135deg, #3b0b12, #120c0f); color: #ff7180; }
     .world-node b { display: block; margin-bottom: 3px; font-size: 16px; }
@@ -213,24 +222,25 @@
     .video-slide { padding: 0; }
     .video-slide .video-frame { width: min(100vw, 177.778vh); }
 
-    .roadmap-wrap { align-self: center; display: grid; gap: 22px; }
-    .roadmap-head { display: flex; align-items: end; justify-content: space-between; gap: 24px; }
+    .roadmap-wrap { align-self: center; display: grid; gap: 18px; }
+    .roadmap-head { display: flex; align-items: end; justify-content: space-between; gap: 24px; padding-bottom: 15px; border-bottom: 1px solid var(--line); }
     .roadmap-head h2 { margin-bottom: 0; }
     .roadmap-legend { display: flex; gap: 14px; color: var(--muted); font-size: 10px; font-weight: 850; text-transform: uppercase; }
     .roadmap-legend span::before { content: ""; display: inline-block; width: 8px; height: 8px; margin-right: 6px; border-radius: 50%; background: #d9dee1; }
     .roadmap-legend .release::before { background: var(--lime); }
-    .roadmap-chart { position: relative; display: grid; grid-template-columns: 130px repeat(12, minmax(0, 1fr)); border: 1px solid var(--line); background: rgba(255,255,255,.025); }
+    .roadmap-chart { position: relative; display: grid; grid-template-columns: 130px repeat(12, minmax(0, 1fr)); overflow: hidden; border: 1px solid rgba(255,255,255,.18); background: linear-gradient(180deg, rgba(255,255,255,.045), rgba(255,255,255,.012)); box-shadow: 0 20px 46px rgba(0,0,0,.24); }
     .roadmap-chart::after { content: ""; position: absolute; left: 130px; right: 0; top: 45px; bottom: 0; pointer-events: none; background: repeating-linear-gradient(90deg, transparent 0, transparent calc(8.333% - 1px), rgba(255,255,255,.08) calc(8.333% - 1px), rgba(255,255,255,.08) 8.333%); }
-    .corner, .month { min-height: 45px; display: grid; place-items: center; border-bottom: 1px solid var(--line); color: var(--muted); font-size: 10px; font-weight: 900; letter-spacing: .04em; }
+    .corner, .month { min-height: 45px; display: grid; place-items: center; border-bottom: 1px solid var(--line); background: rgba(0,0,0,.18); color: var(--muted); font-size: 10px; font-weight: 900; letter-spacing: .06em; }
     .corner { place-items: center start; padding-left: 18px; }
     .month.year-start { border-left: 2px solid rgba(255,255,255,.5); }
-    .game-label { min-height: 58px; display: flex; align-items: center; padding: 0 16px; border-top: 1px solid var(--line); font-size: 13px; font-weight: 950; z-index: 2; }
-    .track { grid-column: 2 / -1; position: relative; min-height: 58px; border-top: 1px solid var(--line); z-index: 2; }
+    .game-label { min-height: 58px; display: flex; align-items: center; padding: 0 16px; border-top: 1px solid var(--line); background: rgba(0,0,0,.16); font-size: 13px; font-weight: 950; letter-spacing: .025em; z-index: 2; }
+    .track { grid-column: 2 / -1; position: relative; min-height: 58px; border-top: 1px solid var(--line); background: linear-gradient(90deg, rgba(255,255,255,.014), transparent 45%, rgba(255,255,255,.012)); z-index: 2; }
     .track.year-cut::after { content: ""; position: absolute; left: 41.666%; top: 0; bottom: 0; border-left: 2px solid rgba(255,255,255,.36); }
-    .event { position: absolute; top: 12px; height: 34px; display: flex; align-items: center; justify-content: center; border: 1px solid rgba(255,255,255,.36); background: #11161a; padding: 0 7px; color: var(--ink); font-size: 9px; font-weight: 900; line-height: 1.1; text-align: center; white-space: nowrap; transform: translateX(-50%); }
-    .event.release { border-color: var(--lime); background: var(--lime); color: #090b0d; }
+    .event { position: absolute; top: 12px; height: 34px; display: flex; align-items: center; justify-content: center; border: 1px solid rgba(255,255,255,.34); border-radius: 3px; background: linear-gradient(180deg, #171c20, #0f1316); padding: 0 8px; color: var(--ink); font-size: 9px; font-weight: 900; line-height: 1.1; letter-spacing: .015em; text-align: center; white-space: nowrap; box-shadow: 0 5px 14px rgba(0,0,0,.24); transform: translateX(-50%); }
+    .event.release { border-color: var(--lime); background: var(--lime); color: #090b0d; box-shadow: 0 0 0 1px rgba(215,255,69,.12), 0 7px 18px rgba(0,0,0,.24); }
     .event.range { border-color: var(--lime); background: rgba(215,255,69,.1); color: var(--lime); }
-    .roadmap-callout { display: flex; justify-content: space-between; gap: 26px; border-left: 5px solid var(--lime); padding: 13px 16px; background: rgba(215,255,69,.08); }
+    .event.plan { border-color: rgba(255,255,255,.28); background: linear-gradient(180deg, rgba(142,151,158,.16), rgba(77,84,90,.12)); color: #d7dcdf; box-shadow: none; }
+    .roadmap-callout { display: flex; justify-content: space-between; gap: 26px; border: 1px solid var(--line); border-left: 3px solid rgba(255,255,255,.42); padding: 13px 16px; background: rgba(255,255,255,.025); }
     .roadmap-callout b { font-size: 15px; }
     .roadmap-callout span { color: var(--muted); font-size: 12px; font-weight: 700; text-align: right; }
 
@@ -270,7 +280,7 @@
       .slide-foot { display: none; }
       h1 { font-size: 56px; }
       h2 { font-size: 42px; }
-      .cover-content, .premise, .universe-layout, .game-layout { grid-template-columns: 1fr; gap: 24px; }
+      .cover-content, .premise, .universe-layout, .universe-axis-grid, .game-layout { grid-template-columns: 1fr; gap: 24px; }
       .lore-layout { grid-template-columns: 1fr; gap: 20px; }
       .lore-beat { grid-template-columns: 84px 1fr; }
       .lore-beat img, .lore-beat .lore-type { width: 84px; height: 64px; }
@@ -313,7 +323,7 @@
     <section class="password-panel">
       <span class="eyebrow">WINDUP · Confidential</span>
       <h1>Vision<br>Deck</h1>
-      <p>비전덱을 열려면 비밀번호를 입력해 주세요.</p>
+      <p>비전덱을 열려면 비밀번호를 입력해 주세요</p>
       <form class="password-form" id="passwordForm">
         <input id="passwordInput" type="password" autocomplete="current-password" aria-label="비밀번호">
         <button type="submit">OPEN DECK</button>
@@ -332,7 +342,6 @@
           <div class="cover-title">
             <small>WINDUP · INTERNAL PRESENTATION</small>
             <h1>Vision Deck<br>2026–2027</h1>
-            <p>와인드업의 모든 게임은 하나의 세계관으로 이어집니다.</p>
           </div>
           <div class="agenda">
             <div class="agenda-row"><span>01</span><b>WINDUP<br>UNIVERSE</b></div>
@@ -345,39 +354,29 @@
     </div>
   </section>
 
-  <section class="slide" aria-label="파트 1 와인드업 세계관">
+  <section class="slide" aria-label="와인드업 세계관 소개">
     <div class="frame chapter-frame" data-number="1">
       <div class="slide-inner">
         <header class="slide-head"><span class="chapter-mark">Part One</span><span>Universe</span></header>
-        <div class="chapter-content">
-          <div class="eyebrow">01 · WINDUP UNIVERSE</div>
-          <h2>모든 게임은<br><span class="accent">하나의 세계관으로</span><br>이어집니다.</h2>
-          <p>테크와 판타지는 서로 분리된 세계가 아니라, 와인드업 세계관 안에서 각기 다른 시기와 지역을 보여주는 두 개의 흐름입니다.</p>
-        </div>
-        <footer class="slide-foot"><span>Tech × Fantasy</span><span class="page-no">02 / 14</span></footer>
-      </div>
-    </div>
-  </section>
-
-  <section class="slide" aria-label="와인드업 세계관의 구조">
-    <div class="frame">
-      <div class="slide-inner">
-        <header class="slide-head"><span class="chapter-mark">Part One · Universe</span><span>How it grows</span></header>
-        <div class="unified-universe">
-          <div class="unified-message">
-            <span class="eyebrow">ONE CONNECTED UNIVERSE</span>
-            <h2>와인드업의 모든 게임은<br>하나의 세계관으로 이어집니다.</h2>
-            <p>게임마다 다른 시대와 장소, 인물을 다루지만 사건과 설정은 서로 연결됩니다.</p>
+        <div class="universe-overview">
+          <div>
+            <div class="eyebrow">01 · WINDUP UNIVERSE</div>
+            <h2>WINDUP<br><span class="accent">UNIVERSE</span></h2>
           </div>
-          <div class="unified-line" aria-label="연결된 게임 라인업">
-            <div class="unified-game"><b>CLIMB</b><span>Tech</span></div>
-            <div class="unified-game"><b>OMG</b><span>Tech</span></div>
-            <div class="unified-game"><b>HEART STAMP</b><span>Fantasy</span></div>
-            <div class="unified-game"><b>SHOWHAND</b><span>Fantasy</span></div>
-            <div class="unified-game"><b>RIB</b><span>Crossover Spinoff</span></div>
+          <div class="universe-axis-grid">
+            <article class="universe-axis tech">
+              <span>Bob Company Chronicle</span>
+              <b class="tech-text">Tech Universe</b>
+              <p>밥의 등산에서 BOB Company와 우주 정화 작업으로 이어지는 세계관</p>
+            </article>
+            <article class="universe-axis fantasy">
+              <span>Under the Heart Queen</span>
+              <b class="fantasy-text">Fantasy Universe</b>
+              <p>하트 여왕의 통치 아래 선물 검수소와 반역자 감옥이 존재하는 세계관</p>
+            </article>
           </div>
         </div>
-        <footer class="slide-foot"><span>One Connected Universe</span><span class="page-no">03 / 14</span></footer>
+        <footer class="slide-foot"><span><span class="tech-text">Tech</span> / <span class="fantasy-text">Fantasy</span></span><span class="page-no">02 / 14</span></footer>
       </div>
     </div>
   </section>
@@ -388,23 +387,18 @@
         <header class="slide-head"><span class="chapter-mark">Part One · Universe</span><span>Connected Universe</span></header>
         <div class="universe-layout">
           <article class="universe-card tech">
-            <div class="universe-title"><span>Bob Company Chronicle</span><b class="tech-text">Tech Universe</b><p>밥의 진짜 정상 도전에서 시작해 BOB Company와 OMG로 이어지는 이야기입니다.</p></div>
+            <div class="universe-title"><span>Bob Company Chronicle</span><b class="tech-text">Tech Universe</b><p>밥의 진짜 정상 도전에서 BOB Company와 OMG로 이어지는 연대기</p></div>
             <div class="worldline">
-              <div class="world-node"><img src="assets/climb-title.png" alt="CLIMB"><div><b>01 · CLIMB</b><p>음료 상인 밥이 끊긴 길을 연결해 진짜 정상에 오른다</p></div></div>
-              <div class="world-node"><img src="assets/omg-title.png" alt="Oh My Gravity"><div><b>02 · OH MY GRAVITY</b><p>밥의 후손들이 오염된 우주와 지구 주변을 정화한다</p></div></div>
+              <div class="world-node"><img src="assets/climb-title.png" alt="CLIMB"><div><b>01 · CLIMB</b><p>끊긴 길을 연결해 진짜 정상에 오른 밥</p></div></div>
+              <div class="world-node"><img src="assets/omg-title.png" alt="OMG"><div><b>02 · OMG</b><p>우주 쓰레기 청소부 면허에 도전하는 지원자들</p></div></div>
             </div>
           </article>
           <article class="universe-card fantasy">
-            <div class="universe-title"><span>Under the Heart Queen</span><b class="fantasy-text">Fantasy Universe</b><p>하트 여왕이 모든 선물과 반역자를 통제하는 독재 세계입니다.</p></div>
+            <div class="universe-title"><span>Under the Heart Queen</span><b class="fantasy-text">Fantasy Universe</b><p>하트 여왕이 모든 선물과 반역자를 통제하는 독재 세계</p></div>
             <div class="worldline">
-              <div class="world-node"><img src="assets/HEARTSTAMP.png" alt="HEART STAMP"><div><b>01 · HEART STAMP</b><p>검수원이 여왕에게 보내는 선물을 검사한다</p></div></div>
-              <div class="world-node"><img src="assets/showhand-title.png" alt="SHOWHAND"><div><b>02 · SHOWHAND</b><p>여왕에게 반역한 자들이 갇히는 공간</p></div></div>
+              <div class="world-node"><img src="assets/HEARTSTAMP.png" alt="HEART STAMP"><div><b>01 · HEART STAMP</b><p>여왕에게 전달되는 선물을 판정하는 검수소</p></div></div>
+              <div class="world-node"><img src="assets/showhand-title.png" alt="SHOWHAND"><div><b>02 · SHOWHAND</b><p>여왕에게 반역한 자들을 가두는 공간</p></div></div>
             </div>
-          </article>
-          <article class="universe-spinoff">
-            <img src="assets/RIB_Title.png" alt="RIB Rest in Beach">
-            <div><b>RIB · REST IN BEACH</b><p>특정 세계관에 속하지 않는 크로스오버 스핀오프. 기존 게임의 캐릭터들이 피서객 NPC로 함께 등장합니다.</p></div>
-            <span class="spinoff-label">Crossover Spinoff</span>
           </article>
         </div>
         <footer class="slide-foot"><span><span class="tech-text">Tech</span> / <span class="fantasy-text">Fantasy</span></span><span class="page-no">04 / 14</span></footer>
@@ -416,7 +410,7 @@
     <div class="frame history-frame" style="--image:url('assets/history/tech-01-beverage-merchant.png')"><div class="slide-inner">
       <header class="slide-head"><span class="chapter-mark">Part One · Tech History</span><span>CLIMB</span></header>
       <div class="history-slide">
-        <div class="history-copy"><span class="history-index">01 · Merchant</span><div><h2>산을 오르기 시작한 상인</h2><p>밥에게 산은 즐기는 곳이 아니라 장사하는 곳이었습니다. 밥은 상점 없이 등에 음료통을 메고 산을 오르내리며 등산객들에게 파란 음료를 팝니다. 더 높은 곳까지 장사를 이어가던 밥은, 모두가 정상이라고 믿던 장소 너머에 진짜 정상이 따로 있다는 사실을 알게 됩니다.</p></div></div>
+        <div class="history-copy"><span class="history-index">01 · Merchant</span><div><h2>산을 오르기 시작한 상인</h2><p>등에 음료통을 메고 산을 오르내리며 등산객에게 파란 음료를 판매<br>더 높은 곳으로 장사를 이어가다 모두가 정상이라 믿던 장소 너머의 진짜 정상을 발견</p></div></div>
       </div>
       <footer class="slide-foot"><span>Tech Universe · CLIMB</span><span class="page-no">04A / 14</span></footer>
     </div></div>
@@ -426,7 +420,7 @@
     <div class="frame history-frame" style="--image:url('assets/history/tech-02-true-summit.png')"><div class="slide-inner">
       <header class="slide-head"><span class="chapter-mark">Part One · Tech History</span><span>CLIMB</span></header>
       <div class="history-slide">
-        <div class="history-copy"><span class="history-index">02 · True Summit</span><div><h2>상인에서 등산객으로</h2><p>진짜 정상으로 향하는 길은 중간에서 끊겨 있었습니다. 밥은 음료를 팔아 모은 돈으로 직접 길을 연결하고, 마침내 상인이 아닌 등산객으로 정상에 오릅니다. 이후 다른 사람들도 밥이 만든 길을 따라 진짜 정상에 도착합니다.</p></div></div>
+        <div class="history-copy"><span class="history-index">02 · True Summit</span><div><h2>상인에서 등산객으로</h2><p>중간에서 끊겨 있던 진짜 정상으로 향하는 길<br>음료를 팔아 모은 돈으로 길을 직접 연결하고 상인에서 등산객으로 정상에 도착<br>뒤이어 다른 사람들도 밥이 만든 길을 따라 정상으로</p></div></div>
       </div>
       <footer class="slide-foot"><span>Tech Universe · CLIMB</span><span class="page-no">04B / 14</span></footer>
     </div></div>
@@ -436,7 +430,7 @@
     <div class="frame history-frame" style="--image:url('assets/history/tech-03-bob-company-founding.png')"><div class="slide-inner">
       <header class="slide-head"><span class="chapter-mark">Part One · Tech History</span><span>BOB Company</span></header>
       <div class="history-slide">
-        <div class="history-copy"><span class="history-index">03 · Foundation</span><div><h2>우주를 향한 꿈</h2><p>밥은 자신이 연결한 길을 따라 다른 등산객들이 진짜 정상에 올라와, 하늘에 뜬 달을 보며 기뻐하는 모습을 바라봅니다. 혼자 정상에 도착한 것보다 사람들이 함께 그곳을 경험하는 모습에서 더 큰 의미를 발견한 밥은, 더 많은 사람이 가지 못했던 곳을 함께 갈 수 있도록 BOB Company를 세웁니다.</p></div></div>
+        <div class="history-copy"><span class="history-index">03 · Foundation</span><div><h2>우주를 향한 꿈</h2><p>자신이 연결한 길을 따라 정상에 오른 사람들과 하늘에 뜬 달<br>혼자 도착하는 성취보다 함께 경험하는 기쁨에서 발견한 더 큰 가능성<br>더 많은 사람과 가지 못했던 곳을 향하기 위한 BOB Company의 시작</p></div></div>
       </div>
       <footer class="slide-foot"><span>Tech Universe · BOB Company</span><span class="page-no">04C / 14</span></footer>
     </div></div>
@@ -446,19 +440,19 @@
     <div class="frame history-frame" style="--image:url('assets/history/tech-04-distorted-legacy.png')"><div class="slide-inner">
       <header class="slide-head"><span class="chapter-mark">Part One · Tech History</span><span>BOB Company</span></header>
       <div class="history-slide">
-        <div class="history-copy"><span class="history-index">04 · Distorted Legacy</span><div><h2>처음과 달라진 방향</h2><p>음료 회사로 시작한 BOB Company는 수백 년 동안 거대한 우주 기업으로 성장합니다. 그러나 후손들은 모두를 행복하게 하려 했던 창업의 이유를 잊고 우주여행을 독점합니다. 무분별한 자원 채굴이 이어지며 우주와 지구 주변은 쓰레기로 뒤덮입니다.</p></div></div>
+        <div class="history-copy"><span class="history-index">04 · Distorted Legacy</span><div><h2>처음과 달라진 방향</h2><p>음료 회사에서 수백 년에 걸쳐 거대한 우주 기업으로 성장한 BOB Company<br>창업의 이유를 잊은 후손들의 우주여행 독점과 무분별한 자원 채굴<br>쓰레기로 뒤덮인 우주와 지구 주변</p></div></div>
       </div>
       <footer class="slide-foot"><span>Tech Universe · BOB Company</span><span class="page-no">04D / 14</span></footer>
     </div></div>
   </section>
 
-  <section class="slide" aria-label="테크 세계관 역사 5 OMG 창설">
+  <section class="slide" aria-label="테크 세계관 역사 5 OMG 면허 시험장">
     <div class="frame history-frame" style="--image:url('assets/history/tech-05-omg-cleanup.png')"><div class="slide-inner">
-      <header class="slide-head"><span class="chapter-mark">Part One · Tech History</span><span>OH MY GRAVITY</span></header>
+      <header class="slide-head"><span class="chapter-mark">Part One · Tech History</span><span>OMG</span></header>
       <div class="history-slide">
-        <div class="history-copy"><span class="history-index">05 · Cleanup</span><div><h2>우주 정화의 시작</h2><p>쌓인 우주 쓰레기로 지구에 이상기후와 이상중력이 발생합니다. 뒤늦게 밥의 뜻을 이해한 후손은 BOB Company의 책임을 인정하고 우주 정화 작업을 시작합니다. 그 현장에서 직접 쓰레기를 수거하는 청소부 팀이 OH MY GRAVITY입니다.</p></div></div>
+        <div class="history-copy"><span class="history-index">05 · License Test</span><div><h2>우주 청소부 면허 시험장</h2><p>쌓인 우주 쓰레기로 발생한 지구의 이상기후와 이상중력<br>지구 주변과 우주 공간을 정화할 청소부를 양성하는 BOB Company<br>중력 장비를 다루며 우주 쓰레기 청소부 면허에 도전하는 지원자들</p></div></div>
       </div>
-      <footer class="slide-foot"><span>Tech Universe · OH MY GRAVITY</span><span class="page-no">04E / 14</span></footer>
+      <footer class="slide-foot"><span>Tech Universe · OMG</span><span class="page-no">04E / 14</span></footer>
     </div></div>
   </section>
 
@@ -466,7 +460,7 @@
     <div class="frame history-frame" style="--image:url('assets/history/fantasy-01-heart-queen.png')"><div class="slide-inner">
       <header class="slide-head"><span class="chapter-mark">Part One · Fantasy History</span><span>Heart Queen</span></header>
       <div class="history-slide fantasy">
-        <div class="history-copy"><span class="history-index">01 · Dictatorship</span><div><h2>여왕이 기준이 된 세계</h2><p>판타지 세계는 하트 여왕이 모든 기준을 정하는 독재 사회입니다. 여왕은 자신에게 들어오는 물건과 사람을 엄격하게 통제하며, 시민은 여왕이 정한 질서와 판단에서 벗어날 수 없습니다.</p></div></div>
+        <div class="history-copy"><span class="history-index">01 · Dictatorship</span><div><h2>하트 여왕의 독재</h2><p>하트 여왕이 절대 권력을 행사하는 독재 사회<br>여왕에게 들어오는 물건과 사람에 대한 엄격한 통제<br>명령을 거부하거나 체제에 저항한 시민은 반역자로 처벌</p></div></div>
       </div>
       <footer class="slide-foot"><span>Fantasy Universe · Heart Queen</span><span class="page-no">04F / 14</span></footer>
     </div></div>
@@ -476,7 +470,7 @@
     <div class="frame history-frame" style="--image:url('assets/history/fantasy-02-heart-stamp-inspection.png')"><div class="slide-inner">
       <header class="slide-head"><span class="chapter-mark">Part One · Fantasy History</span><span>HEART STAMP</span></header>
       <div class="history-slide fantasy">
-        <div class="history-copy"><span class="history-index">02 · Inspection</span><div><h2>여왕에게 보내는 선물 검수</h2><p>여왕에게 보내지는 모든 선물은 검수소를 거쳐야 합니다. 플레이어는 포장을 열어 내용물을 확인하고 여왕의 기준에 맞는지 판단합니다. 통과한 선물에는 하트 도장을 찍고, 기준에서 벗어난 물건은 폐기합니다.</p></div></div>
+        <div class="history-copy"><span class="history-index">02 · Inspection</span><div><h2>여왕에게 보내는 선물 검수</h2><p>여왕에게 전달되기 전 반드시 검수소를 거치는 모든 선물<br>포장을 열어 내용물을 확인하고 통과 여부를 판정<br>통과한 선물에는 하트 도장, 기준에서 벗어난 물건은 폐기</p></div></div>
       </div>
       <footer class="slide-foot"><span>Fantasy Universe · HEART STAMP</span><span class="page-no">04G / 14</span></footer>
     </div></div>
@@ -486,7 +480,7 @@
     <div class="frame history-frame" style="--image:url('assets/history/fantasy-03-showhand-prison.png')"><div class="slide-inner">
       <header class="slide-head"><span class="chapter-mark">Part One · Fantasy History</span><span>SHOWHAND</span></header>
       <div class="history-slide fantasy">
-        <div class="history-copy"><span class="history-index">03 · Prison</span><div><h2>반역자들이 모이는 곳</h2><p>하트 여왕의 명령에 반대하거나 체제에 저항한 사람은 SHOWHAND에 수감됩니다. 이곳은 반역자로 분류된 인물들이 모이는 감옥이자, 카드와 전투 규칙으로 생존을 겨뤄야 하는 폐쇄된 공간입니다.</p></div></div>
+        <div class="history-copy"><span class="history-index">03 · Prison</span><div><h2>반역자들이 모이는 곳</h2><p>하트 여왕의 명령에 반대하거나 체제에 저항한 사람들의 수감소<br>반역자로 분류된 인물들이 카드와 전투 규칙으로 생존을 겨루는 폐쇄 공간</p></div></div>
       </div>
       <footer class="slide-foot"><span>Fantasy Universe · SHOWHAND</span><span class="page-no">04H / 14</span></footer>
     </div></div>
@@ -510,7 +504,7 @@
       <div class="slide-inner">
         <header class="slide-head"><span class="chapter-mark">Game 01 · Tech</span><span>CLIMB</span></header>
         <div class="game-layout description-only">
-          <div class="game-copy"><span class="game-number">01 / 05</span><h2>CLIMB</h2><div class="tagline">음료를 팔며 정상으로 올라가는<br>등반 시뮬레이션</div><p>밥은 산에서 음료를 파는 상인입니다. 음료를 팔며 더 높은 곳까지 올라가고, 번 돈으로 끊긴 길을 복구해 모두가 알지 못했던 진짜 정상에 도달합니다.</p><div class="facts"><span class="fact">PC</span><span class="fact">Simulation</span><span class="fact">Incremental</span><span class="fact">Solo</span></div></div>
+          <div class="game-copy"><span class="game-number">01 / 05</span><h2>CLIMB</h2><div class="tagline">음료를 팔며 정상으로 올라가는<br>등반 시뮬레이션</div><p>등에 음료통을 메고 산을 오르내리며 파란 음료를 판매<br>번 돈으로 끊긴 길을 복구해 모두가 알지 못했던 진짜 정상까지</p><div class="facts"><span class="fact">PC</span><span class="fact">Simulation</span><span class="fact">Incremental</span><span class="fact">Solo</span></div></div>
         </div>
         <footer class="slide-foot"><span>Climb · Carry · Sell · Grow</span><span class="page-no">06 / 14</span></footer>
       </div>
@@ -527,22 +521,22 @@
     </div>
   </section>
 
-  <section class="slide" aria-label="Oh My Gravity 게임 소개">
+  <section class="slide" aria-label="OMG 게임 소개">
     <div class="frame visual" style="--image:url('assets/omg-title.png')">
       <div class="slide-inner">
-        <header class="slide-head"><span class="chapter-mark">Game 02 · Tech</span><span>Oh My Gravity</span></header>
+        <header class="slide-head"><span class="chapter-mark">Game 02 · Tech</span><span>OMG</span></header>
         <div class="game-layout description-only">
-          <div class="game-copy"><span class="game-number">02 / 05</span><h2>OMG</h2><div class="tagline">중력 장비로 우주 쓰레기를 정리하는<br>협동 퍼즐 플랫폼 게임</div><p>BOB Company가 만든 우주 쓰레기 청소부들이 지구 주변과 우주 공간을 정화합니다. 동료와 중력 장비를 함께 사용해 잔해를 옮기고 위험한 작업 구역을 통과합니다.</p><div class="facts"><span class="fact">PC</span><span class="fact">Co-op</span><span class="fact">Puzzle</span><span class="fact">Platformer</span></div></div>
+          <div class="game-copy"><span class="game-number">02 / 05</span><h2>OMG</h2><div class="tagline">우주 쓰레기 청소부 면허에 도전하는<br>협동 퍼즐 플랫폼 게임</div><p>지구 주변과 우주 공간을 정화할 BOB Company의 우주 쓰레기 청소부 면허 시험장<br>동료와 중력 장비를 활용해 잔해를 옮기고 위험 구역을 통과하는 지원자들</p><div class="facts"><span class="fact">PC</span><span class="fact">Co-op</span><span class="fact">Puzzle</span><span class="fact">Platformer</span></div></div>
         </div>
         <footer class="slide-foot"><span>Aim · Connect · Traverse · Together</span><span class="page-no">07 / 14</span></footer>
       </div>
     </div>
   </section>
 
-  <section class="slide video-slide" aria-label="Oh My Gravity 영상">
+  <section class="slide video-slide" aria-label="OMG 영상">
     <div class="frame video-frame">
       <div class="slide-inner">
-        <header class="slide-head"><span class="chapter-mark">Game 02 · Video</span><span>Oh My Gravity</span></header>
+        <header class="slide-head"><span class="chapter-mark">Game 02 · Video</span><span>OMG</span></header>
         <div class="video-layout"><div class="media-shell" data-video="assets/videos/omg.mp4"><img src="assets/omg-title.png" alt="OMG 프로토타입 영상 포스터"><div class="media-placeholder"><span class="play-mark">▶</span><div class="media-label"><b>PROTOTYPE / CURRENT BUILD</b><span>OMG.MP4</span></div></div></div><div class="video-caption"><span>Prototype / Current Build</span><span>assets/videos/omg.mp4</span></div></div>
         <footer class="slide-foot"><span>Video</span><span class="page-no">07A / 14</span></footer>
       </div>
@@ -554,7 +548,7 @@
       <div class="slide-inner">
         <header class="slide-head"><span class="chapter-mark">Game 03 · Fantasy</span><span>HEART STAMP</span></header>
         <div class="game-layout description-only">
-          <div class="game-copy"><span class="game-number">03 / 05</span><h2>HEART<br>STAMP</h2><div class="tagline">여왕에게 보낼 선물을 검사하는<br>물리 기반 검수 시뮬레이션</div><p>플레이어는 하트 여왕의 선물 검수원입니다. 선물을 직접 열어 내용물을 확인하고, 여왕의 기준을 통과한 물건에만 하트 도장을 찍습니다.</p><div class="facts"><span class="fact">PC</span><span class="fact">Simulation</span><span class="fact">Physics</span><span class="fact">Judgment</span></div></div>
+          <div class="game-copy"><span class="game-number">03 / 05</span><h2>HEART<br>STAMP</h2><div class="tagline">여왕에게 보낼 선물을 검사하는<br>검수 시뮬레이션</div><p>하트 여왕에게 전달될 선물의 포장을 직접 열어 내용물을 확인<br>여왕의 기준을 통과한 물건에만 찍히는 하트 도장</p><div class="facts"><span class="fact">PC</span><span class="fact">Simulation</span><span class="fact">Inspection</span><span class="fact">Judgment</span></div></div>
         </div>
         <footer class="slide-foot"><span>Open · Inspect · Judge · Stamp</span><span class="page-no">08 / 14</span></footer>
       </div>
@@ -576,7 +570,7 @@
       <div class="slide-inner">
         <header class="slide-head"><span class="chapter-mark">Game 04 · Fantasy</span><span>SHOWHAND</span></header>
         <div class="game-layout description-only">
-          <div class="game-copy"><span class="game-number">04 / 05</span><h2>SHOWHAND</h2><div class="tagline">반역자 수용소를 배경으로 한<br>카드 액션 로그라이크</div><p>하트 여왕에게 반역한 사람들이 갇힌 SHOWHAND에서 카드 조합과 순간 판단으로 적을 상대합니다. 반복 전투를 거치며 새로운 카드와 전투 방식을 구성합니다.</p><div class="facts"><span class="fact">PC</span><span class="fact">Action</span><span class="fact">Roguelike</span><span class="fact">Poker</span></div></div>
+          <div class="game-copy"><span class="game-number">04 / 05</span><h2>SHOWHAND</h2><div class="tagline">반역자 수용소를 배경으로 한<br>카드 액션 로그라이크</div><p>하트 여왕에게 반역한 사람들이 갇힌 수용소 SHOWHAND<br>카드 조합과 순간 판단, 반복 전투로 확장되는 전투 방식</p><div class="facts"><span class="fact">PC</span><span class="fact">Action</span><span class="fact">Roguelike</span><span class="fact">Poker</span></div></div>
         </div>
         <footer class="slide-foot"><span>Draw · Decide · Strike · Repeat</span><span class="page-no">09 / 14</span></footer>
       </div>
@@ -598,7 +592,7 @@
       <div class="slide-inner">
         <header class="slide-head"><span class="chapter-mark">Game 05 · Crossover Spinoff</span><span>RIB · Rest in Beach</span></header>
         <div class="game-layout description-only">
-          <div class="game-copy"><span class="game-number">05 / 05</span><h2>RIB</h2><div class="tagline">피서객을 구조하는<br>탑다운 협동 게임</div><p>뚱뚱하고 귀여운 라이프가드들이 위기에 처한 피서객을 구조합니다. 역할을 나누어 여러 사고에 대응하며, 하트 여왕과 CLIMB의 밥·맥스·미오 등 기존 캐릭터들이 피서객 NPC로 카메오 등장합니다.</p><div class="facts"><span class="fact">PC</span><span class="fact">Co-op</span><span class="fact">Top-down</span><span class="fact">Rescue Party</span><span class="fact">Spinoff</span></div></div>
+          <div class="game-copy"><span class="game-number">05 / 05</span><h2>RIB</h2><div class="tagline">피서객을 구조하는<br>탑다운 협동 게임</div><p>위기에 처한 피서객을 구조하는 뚱뚱하고 귀여운 라이프가드들<br>역할 분담으로 여러 사고에 대응하고, 기존 캐릭터들은 피서객 NPC로 카메오 등장</p><div class="facts"><span class="fact">PC</span><span class="fact">Co-op</span><span class="fact">Top-down</span><span class="fact">Rescue Party</span><span class="fact">Spinoff</span></div></div>
         </div>
         <footer class="slide-foot"><span>Rescue · Cooperate · Survive the Vacation</span><span class="page-no">10 / 14</span></footer>
       </div>
@@ -639,7 +633,7 @@
             <div class="game-label">CLIMB</div><div class="track year-cut"><span class="event" style="left:4.166%">상점</span><span class="event" style="left:12.5%">데모</span><span class="event" style="left:20.833%">NEXT FEST</span><span class="event release" style="left:29.166%">출시</span></div>
             <div class="game-label">OMG</div><div class="track year-cut"><span class="event" style="left:4.166%">상점</span><span class="event" style="left:12.5%">데모</span><span class="event" style="left:20.833%">NEXT FEST</span><span class="event release" style="left:29.166%">출시</span></div>
             <div class="game-label">HEART STAMP</div><div class="track year-cut"><span class="event" style="left:29.166%">상점</span><span class="event" style="left:37.5%">데모</span><span class="event" style="left:54.166%">NEXT FEST</span><span class="event release" style="left:62.5%">출시</span></div>
-            <div class="game-label">SHOWHAND</div><div class="track year-cut"><span class="event range release" style="left:50%;width:31%">2027 상반기 · 아트 재정비 후 출시</span></div>
+            <div class="game-label">SHOWHAND</div><div class="track year-cut"><span class="event range plan" style="left:50%;width:31%">2027 상반기 · 아트 재정비 후 출시</span></div>
             <div class="game-label">RIB</div><div class="track year-cut"><span class="event" style="left:54.166%">상점</span><span class="event" style="left:70.833%">데모</span><span class="event" style="left:87.5%">NEXT FEST</span><span class="event release" style="left:95.833%">출시</span></div>
           </div>
           <div class="roadmap-callout"><b>핵심 출시 창</b><span>26.11 CLIMB · OMG → 27.03 HEART STAMP → 27 상반기 SHOWHAND → 27.07 RIB</span></div>
@@ -654,11 +648,11 @@
       <div class="slide-inner">
         <header class="slide-head"><span class="chapter-mark">Part Three · Roadmap</span><span>Operating rhythm</span></header>
         <div class="premise">
-          <div><span class="eyebrow">ONE YEAR · FIVE RELEASES</span><h2>한 게임의 관심이<br>다음 게임의<br>시작이 된다.</h2><p class="lead">짧은 간격의 공개와 출시로 스튜디오 인지도를 누적하고, 두 세계관의 팬을 동시에 확장합니다.</p></div>
+          <div><span class="eyebrow">ONE YEAR · FIVE RELEASES</span><h2>한 게임의 관심에서<br>다음 게임의<br>시작으로</h2><p class="lead">짧은 간격의 공개와 출시로 쌓이는 스튜디오 인지도와 두 세계관의 팬층</p></div>
           <div class="signal-stack">
-            <article class="signal"><span class="num">01</span><div><b>2026 Q3 · 먼저 발견된다</b><p>CLIMB·OMG 상점 페이지와 데모로 첫 관심을 모은다</p></div></article>
-            <article class="signal"><span class="num">02</span><div><b>2026 Q4–2027 Q1 · 연속 출시</b><p>테크 2종 출시 이후 HEART STAMP로 판타지 축을 잇는다</p></div></article>
-            <article class="signal"><span class="num">03</span><div><b>2027 H1–Q3 · 라인업 완성</b><p>SHOWHAND 재정비 출시와 RIB 출시로 다섯 타이틀을 완성한다</p></div></article>
+            <article class="signal"><span class="num">01</span><div><b>2026 Q3 · 첫 공개</b><p>CLIMB·OMG 상점 페이지와 데모로 확보하는 첫 관심</p></div></article>
+            <article class="signal"><span class="num">02</span><div><b>2026 Q4–2027 Q1 · 연속 출시</b><p>테크 2종 출시 이후 HEART STAMP로 연결되는 판타지 축</p></div></article>
+            <article class="signal"><span class="num">03</span><div><b>2027 H1–Q3 · 라인업 완성</b><p>SHOWHAND 재정비와 RIB 출시로 완성되는 다섯 타이틀</p></div></article>
           </div>
         </div>
         <footer class="slide-foot"><span>Build momentum, not isolated launches</span><span class="page-no">13 / 14</span></footer>
@@ -691,7 +685,7 @@
       form.addEventListener("submit", function (event) {
         event.preventDefault();
         if (input.value === password) { window.localStorage.setItem(storageKey, "true"); unlock(); return; }
-        error.textContent = "비밀번호가 올바르지 않습니다."; input.value = ""; input.focus();
+        error.textContent = "비밀번호를 다시 확인해 주세요"; input.value = ""; input.focus();
       });
 
       slides.forEach(function (slide, index) {
