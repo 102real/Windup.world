@@ -146,18 +146,35 @@
     .lore-badge.tech { color: var(--tech); }
     .lore-badge.fantasy { color: var(--fantasy); }
     .lore-beats { display: grid; gap: 10px; }
-    .lore-beat { display: grid; grid-template-columns: 112px 1fr; gap: 16px; align-items: center; min-height: 112px; border: 1px solid var(--line); background: rgba(255,255,255,.03); padding: 10px; }
-    .lore-beat img, .lore-beat .lore-type { width: 112px; height: 84px; object-fit: cover; border: 1px solid var(--line); }
+    .lore-beat { display: grid; grid-template-columns: 136px 1fr; gap: 16px; align-items: center; min-height: 104px; border: 1px solid var(--line); background: rgba(255,255,255,.03); padding: 10px; }
+    .lore-beat img, .lore-beat .lore-type { width: 136px; height: 77px; object-fit: cover; object-position: center; border: 1px solid var(--line); }
     .lore-type { display: grid; place-items: center; background: #12161a; color: var(--lime); font-size: 12px; font-weight: 950; text-align: center; }
     .lore-beat small { display: block; margin-bottom: 5px; color: var(--muted); font-size: 9px; font-weight: 900; letter-spacing: .12em; text-transform: uppercase; }
     .lore-beat b { display: block; margin-bottom: 5px; font-size: 18px; }
     .lore-beat p { margin: 0; color: var(--muted); font-size: 12px; font-weight: 650; word-break: keep-all; }
     .lore-layout.tech-long { grid-template-columns: minmax(300px, .68fr) minmax(0, 1.32fr); gap: 38px; }
     .lore-layout.tech-long .lore-beats { gap: 7px; }
-    .lore-layout.tech-long .lore-beat { min-height: 82px; grid-template-columns: 92px 1fr; gap: 14px; padding: 8px; }
-    .lore-layout.tech-long .lore-beat img, .lore-layout.tech-long .lore-type { width: 92px; height: 64px; }
+    .lore-layout.tech-long .lore-beat { min-height: 82px; grid-template-columns: 116px 1fr; gap: 14px; padding: 8px; }
+    .lore-layout.tech-long .lore-beat img, .lore-layout.tech-long .lore-type { width: 116px; height: 65px; }
     .lore-layout.tech-long .lore-beat b { margin-bottom: 3px; font-size: 15px; }
     .lore-layout.tech-long .lore-beat p { font-size: 10.5px; line-height: 1.35; }
+
+    .history-slide { align-self: stretch; min-height: 0; display: grid; grid-template-rows: minmax(0, 1fr) auto; gap: 14px; }
+    .history-image { width: 100%; height: 100%; min-height: 0; object-fit: contain; object-position: center; border: 1px solid var(--line); background: #000; }
+    .history-copy { display: grid; grid-template-columns: 110px minmax(0, 1fr); gap: 22px; align-items: start; padding: 2px 2px 0; }
+    .history-index { color: var(--lime); font-size: 11px; font-weight: 950; letter-spacing: .14em; text-transform: uppercase; }
+    .history-copy h2 { margin: 0 0 7px; font-size: clamp(28px, 3vw, 44px); line-height: 1; }
+    .history-copy p { max-width: 1080px; margin: 0; color: #bac1c6; font-size: 14px; font-weight: 650; line-height: 1.55; word-break: keep-all; }
+    .history-slide.fantasy .history-index { color: var(--fantasy); }
+    .history-frame { border: 0; background: var(--image) center/cover no-repeat; }
+    .history-frame::before { display: none; }
+    .history-frame::after { content: ""; position: absolute; inset: 0; z-index: 1; background: none; box-shadow: inset 0 0 0 1px rgba(255,255,255,.16); pointer-events: none; }
+    .history-frame .slide-head, .history-frame .slide-foot { text-shadow: 0 2px 8px rgba(0,0,0,.9); }
+    .history-frame .history-slide { display: flex; align-items: flex-end; }
+    .history-frame .history-copy { width: min(100%, 1040px); grid-template-columns: 120px minmax(0, 1fr); gap: 24px; padding: 22px 24px; border-left: 4px solid var(--lime); background: linear-gradient(90deg, rgba(4,6,8,.78), rgba(4,6,8,.32) 78%, transparent); }
+    .history-frame .history-copy h2 { font-size: clamp(38px, 4vw, 62px); }
+    .history-frame .history-copy p { max-width: 900px; color: #d3d8dc; font-size: 15px; }
+    .history-frame .history-slide.fantasy .history-copy { border-left-color: var(--fantasy); }
 
     .game-layout { align-self: center; min-height: 0; display: grid; grid-template-columns: minmax(330px, .78fr) minmax(0, 1.22fr); gap: 34px; align-items: center; }
     .game-layout.description-only { grid-template-columns: minmax(0, 660px); }
@@ -257,6 +274,13 @@
       .lore-layout { grid-template-columns: 1fr; gap: 20px; }
       .lore-beat { grid-template-columns: 84px 1fr; }
       .lore-beat img, .lore-beat .lore-type { width: 84px; height: 64px; }
+      .history-slide { grid-template-rows: minmax(280px, 1fr) auto; }
+      .history-copy { grid-template-columns: 1fr; gap: 8px; }
+      .history-copy h2 { font-size: 28px; }
+      .history-copy p { font-size: 13px; }
+      .history-frame .history-copy { grid-template-columns: 1fr; gap: 8px; padding: 16px; }
+      .history-frame .history-copy h2 { font-size: 30px; }
+      .history-frame .history-copy p { font-size: 13px; }
       .agenda { display: none; }
       .chapter-frame::after { font-size: 46vh; bottom: -8vh; }
       .chapter-content p { font-size: 17px; }
@@ -388,48 +412,84 @@
     </div>
   </section>
 
-  <section class="slide" aria-label="테크 세계관 스토리">
-    <div class="frame">
-      <div class="slide-inner">
-        <header class="slide-head"><span class="chapter-mark">Part One · Story</span><span>Tech Universe</span></header>
-        <div class="lore-layout tech-long">
-          <div class="lore-intro">
-            <span class="lore-badge tech">Tech Universe Story</span>
-            <h2>CLIMB에서 OMG까지<br><span class="tech-text">밥과 BOB Company</span>의 역사</h2>
-            <p>밥이 진짜 정상으로 가는 끊긴 길을 연결한 경험은 “누구나 닿지 못한 곳에 갈 수 있게 하자”는 BOB Company의 출발점이 됩니다. 수백 년 뒤, 후손들은 잊혀진 창업자의 뜻을 우주 정화 사업으로 다시 이어갑니다.</p>
-          </div>
-          <div class="lore-beats">
-            <article class="lore-beat"><img src="assets/climb-title.png" alt="CLIMB"><div><small>01 · Beverage Merchant</small><b>산에서 유일하게 음료를 파는 밥</b><p>밥에게 산은 즐기는 곳이 아니라 장사하는 곳입니다. 음료를 팔며 점점 높은 곳까지 올라가던 중, 모두가 정상이라 믿던 곳이 진짜 정상이 아니라는 사실을 알게 됩니다.</p></div></article>
-            <article class="lore-beat"><img src="assets/climb-title.png" alt="CLIMB true summit"><div><small>02 · True Summit</small><b>상인에서 등산객으로</b><p>진짜 정상으로 향하는 길은 끊겨 있었습니다. 밥은 음료를 판 돈으로 길을 연결하고 직접 정상에 오릅니다. 뒤늦게 다른 사람들도 그 길을 따라 정상에 도착합니다.</p></div></article>
-            <article class="lore-beat"><img src="assets/bob-company-title.png" alt="BOB Company"><div><small>03 · Foundation</small><b>모두를 달에 보내기 위한 회사</b><p>정상에서 사람들과 달을 바라본 밥은 더 많은 사람이 닿지 못한 곳에 가길 바라며 BOB Company를 세웁니다. 밥은 달에 가지 못한 채 세상을 떠나고, 손자 세대가 처음 달에 도착합니다.</p></div></article>
-            <article class="lore-beat"><img src="assets/bob-company-title.png" alt="BOB Company space era"><div><small>04 · Distorted Legacy</small><b>수백 년 뒤 왜곡된 꿈</b><p>음료 회사는 우주 기업으로 성장하지만 후손들은 창업의 의미를 잊습니다. 우주여행을 독점하고 자원을 무분별하게 가져오면서 우주와 지구 주변은 쓰레기로 뒤덮입니다.</p></div></article>
-            <article class="lore-beat"><img src="assets/omg-title.png" alt="Oh My Gravity"><div><small>05 · Cleanup</small><b>OMG · 우주 쓰레기 청소부</b><p>이상기후와 이상중력이 지구를 위협하자 밥의 후손은 “모두가 행복하길 바랐다”는 창업자의 뜻을 뒤늦게 이해합니다. BOB Company는 우주 정화를 위해 청소부 팀 OMG를 만듭니다.</p></div></article>
-          </div>
-        </div>
-        <footer class="slide-foot"><span>CLIMB → BOB Company → OMG</span><span class="page-no">04A / 14</span></footer>
+  <section class="slide" aria-label="테크 세계관 역사 1 산의 음료 상인">
+    <div class="frame history-frame" style="--image:url('assets/history/tech-01-beverage-merchant.png')"><div class="slide-inner">
+      <header class="slide-head"><span class="chapter-mark">Part One · Tech History</span><span>CLIMB</span></header>
+      <div class="history-slide">
+        <div class="history-copy"><span class="history-index">01 · Merchant</span><div><h2>산을 오르기 시작한 상인</h2><p>밥에게 산은 즐기는 곳이 아니라 장사하는 곳이었습니다. 등산객에게 음료를 팔며 조금씩 높은 곳까지 올라가던 밥은, 모두가 정상이라고 믿던 장소 너머에 진짜 정상이 따로 있다는 사실을 알게 됩니다.</p></div></div>
       </div>
-    </div>
+      <footer class="slide-foot"><span>Tech Universe · CLIMB</span><span class="page-no">04A / 14</span></footer>
+    </div></div>
   </section>
 
-  <section class="slide" aria-label="판타지 세계관 스토리">
-    <div class="frame">
-      <div class="slide-inner">
-        <header class="slide-head"><span class="chapter-mark">Part One · Story</span><span>Fantasy Universe</span></header>
-        <div class="lore-layout">
-          <div class="lore-intro">
-            <span class="lore-badge fantasy">Fantasy Universe Story</span>
-            <h2><span class="fantasy-text">하트 여왕이 지배하는</span><br>독재 세계</h2>
-            <p>판타지 유니버스는 하트 여왕이 선물과 사람을 통제하는 독재 사회입니다. HEART STAMP는 여왕에게 들어오는 것을 검수하고, SHOWHAND는 여왕에게 반역한 사람을 가두는 공간입니다.</p>
-          </div>
-          <div class="lore-beats">
-            <article class="lore-beat"><img src="assets/red-queen-generated.png" alt="하트 여왕"><div><small>01 · Dictatorship</small><b>하트 여왕의 통치</b><p>하트 여왕은 자신에게 들어오는 물건과 사람을 엄격하게 통제합니다. 모든 판단은 여왕의 기준을 중심으로 이루어집니다.</p></div></article>
-            <article class="lore-beat"><img src="assets/HEARTSTAMP.png" alt="HEART STAMP"><div><small>02 · Inspection Office</small><b>HEART STAMP · 여왕의 선물 검수원</b><p>플레이어는 여왕에게 보내지는 선물을 검사하는 검수원입니다. 선물을 열고 기준에 맞는지 판정한 뒤 통과한 물건에 하트 도장을 찍습니다.</p></div></article>
-            <article class="lore-beat"><img src="assets/showhand-title.png" alt="SHOWHAND"><div><small>03 · Prison</small><b>SHOWHAND · 반역자를 가두는 공간</b><p>하트 여왕에게 반역한 사람들은 SHOWHAND에 수감됩니다. SHOWHAND는 독재에 저항한 인물들이 모이는 판타지 세계관의 감옥입니다.</p></div></article>
-          </div>
-        </div>
-        <footer class="slide-foot"><span>Heart Queen → HEART STAMP → SHOWHAND</span><span class="page-no">04B / 14</span></footer>
+  <section class="slide" aria-label="테크 세계관 역사 2 진짜 정상">
+    <div class="frame history-frame" style="--image:url('assets/history/tech-02-true-summit.png')"><div class="slide-inner">
+      <header class="slide-head"><span class="chapter-mark">Part One · Tech History</span><span>CLIMB</span></header>
+      <div class="history-slide">
+        <div class="history-copy"><span class="history-index">02 · True Summit</span><div><h2>상인에서 등산객으로</h2><p>진짜 정상으로 향하는 길은 중간에서 끊겨 있었습니다. 밥은 음료를 팔아 모은 돈으로 직접 길을 연결하고, 마침내 상인이 아닌 등산객으로 정상에 오릅니다. 이후 다른 사람들도 밥이 만든 길을 따라 진짜 정상에 도착합니다.</p></div></div>
       </div>
-    </div>
+      <footer class="slide-foot"><span>Tech Universe · CLIMB</span><span class="page-no">04B / 14</span></footer>
+    </div></div>
+  </section>
+
+  <section class="slide" aria-label="테크 세계관 역사 3 BOB Company 설립">
+    <div class="frame history-frame" style="--image:url('assets/history/tech-03-bob-company-founding.png')"><div class="slide-inner">
+      <header class="slide-head"><span class="chapter-mark">Part One · Tech History</span><span>BOB Company</span></header>
+      <div class="history-slide">
+        <div class="history-copy"><span class="history-index">03 · Foundation</span><div><h2>우주를 향한 꿈</h2><p>밥은 자신이 연결한 길을 따라 다른 등산객들이 진짜 정상에 올라와, 하늘에 뜬 달을 보며 기뻐하는 모습을 바라봅니다. 혼자 정상에 도착한 것보다 사람들이 함께 그곳을 경험하는 모습에서 더 큰 의미를 발견한 밥은, 더 많은 사람이 가지 못했던 곳을 함께 갈 수 있도록 BOB Company를 세웁니다.</p></div></div>
+      </div>
+      <footer class="slide-foot"><span>Tech Universe · BOB Company</span><span class="page-no">04C / 14</span></footer>
+    </div></div>
+  </section>
+
+  <section class="slide" aria-label="테크 세계관 역사 4 왜곡된 유산">
+    <div class="frame history-frame" style="--image:url('assets/history/tech-04-distorted-legacy.png')"><div class="slide-inner">
+      <header class="slide-head"><span class="chapter-mark">Part One · Tech History</span><span>BOB Company</span></header>
+      <div class="history-slide">
+        <div class="history-copy"><span class="history-index">04 · Distorted Legacy</span><div><h2>처음과 달라진 방향</h2><p>음료 회사로 시작한 BOB Company는 수백 년 동안 거대한 우주 기업으로 성장합니다. 그러나 후손들은 모두를 행복하게 하려 했던 창업의 이유를 잊고 우주여행을 독점합니다. 무분별한 자원 채굴이 이어지며 우주와 지구 주변은 쓰레기로 뒤덮입니다.</p></div></div>
+      </div>
+      <footer class="slide-foot"><span>Tech Universe · BOB Company</span><span class="page-no">04D / 14</span></footer>
+    </div></div>
+  </section>
+
+  <section class="slide" aria-label="테크 세계관 역사 5 OMG 창설">
+    <div class="frame history-frame" style="--image:url('assets/history/tech-05-omg-cleanup.png')"><div class="slide-inner">
+      <header class="slide-head"><span class="chapter-mark">Part One · Tech History</span><span>OH MY GRAVITY</span></header>
+      <div class="history-slide">
+        <div class="history-copy"><span class="history-index">05 · Cleanup</span><div><h2>우주 정화의 시작</h2><p>쌓인 우주 쓰레기로 지구에 이상기후와 이상중력이 발생합니다. 뒤늦게 밥의 뜻을 이해한 후손은 BOB Company의 책임을 인정하고 우주 정화 작업을 시작합니다. 그 현장에서 직접 쓰레기를 수거하는 청소부 팀이 OH MY GRAVITY입니다.</p></div></div>
+      </div>
+      <footer class="slide-foot"><span>Tech Universe · OH MY GRAVITY</span><span class="page-no">04E / 14</span></footer>
+    </div></div>
+  </section>
+
+  <section class="slide" aria-label="판타지 세계관 역사 1 하트 여왕의 통치">
+    <div class="frame history-frame" style="--image:url('assets/history/fantasy-01-heart-queen.png')"><div class="slide-inner">
+      <header class="slide-head"><span class="chapter-mark">Part One · Fantasy History</span><span>Heart Queen</span></header>
+      <div class="history-slide fantasy">
+        <div class="history-copy"><span class="history-index">01 · Dictatorship</span><div><h2>여왕이 기준이 된 세계</h2><p>판타지 세계는 하트 여왕이 모든 기준을 정하는 독재 사회입니다. 여왕은 자신에게 들어오는 물건과 사람을 엄격하게 통제하며, 시민은 여왕이 정한 질서와 판단에서 벗어날 수 없습니다.</p></div></div>
+      </div>
+      <footer class="slide-foot"><span>Fantasy Universe · Heart Queen</span><span class="page-no">04F / 14</span></footer>
+    </div></div>
+  </section>
+
+  <section class="slide" aria-label="판타지 세계관 역사 2 HEART STAMP">
+    <div class="frame history-frame" style="--image:url('assets/history/fantasy-02-heart-stamp-inspection.png')"><div class="slide-inner">
+      <header class="slide-head"><span class="chapter-mark">Part One · Fantasy History</span><span>HEART STAMP</span></header>
+      <div class="history-slide fantasy">
+        <div class="history-copy"><span class="history-index">02 · Inspection</span><div><h2>여왕에게 보내는 선물 검수</h2><p>여왕에게 보내지는 모든 선물은 검수소를 거쳐야 합니다. 플레이어는 포장을 열어 내용물을 확인하고 여왕의 기준에 맞는지 판단합니다. 통과한 선물에는 하트 도장을 찍고, 기준에서 벗어난 물건은 폐기합니다.</p></div></div>
+      </div>
+      <footer class="slide-foot"><span>Fantasy Universe · HEART STAMP</span><span class="page-no">04G / 14</span></footer>
+    </div></div>
+  </section>
+
+  <section class="slide" aria-label="판타지 세계관 역사 3 SHOWHAND">
+    <div class="frame history-frame" style="--image:url('assets/history/fantasy-03-showhand-prison.png')"><div class="slide-inner">
+      <header class="slide-head"><span class="chapter-mark">Part One · Fantasy History</span><span>SHOWHAND</span></header>
+      <div class="history-slide fantasy">
+        <div class="history-copy"><span class="history-index">03 · Prison</span><div><h2>반역자들이 모이는 곳</h2><p>하트 여왕의 명령에 반대하거나 체제에 저항한 사람은 SHOWHAND에 수감됩니다. 이곳은 반역자로 분류된 인물들이 모이는 감옥이자, 카드와 전투 규칙으로 생존을 겨뤄야 하는 폐쇄된 공간입니다.</p></div></div>
+      </div>
+      <footer class="slide-foot"><span>Fantasy Universe · SHOWHAND</span><span class="page-no">04H / 14</span></footer>
+    </div></div>
   </section>
 
   <section class="slide" aria-label="파트 2 다섯 게임">
