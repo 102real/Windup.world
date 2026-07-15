@@ -244,6 +244,47 @@
     .roadmap-callout b { font-size: 15px; }
     .roadmap-callout span { color: var(--muted); font-size: 12px; font-weight: 700; text-align: right; }
 
+    .ip-plan { align-self: center; display: grid; gap: 30px; }
+    .ip-plan-head { display: grid; grid-template-columns: minmax(0, .88fr) minmax(420px, 1.12fr); gap: 54px; align-items: end; }
+    .ip-plan-head h2 { margin: 0; }
+    .ip-plan-head p { margin: 0; color: var(--muted); font-size: 17px; font-weight: 650; }
+    .ip-stage-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+    .ip-stage { position: relative; min-height: 210px; display: grid; align-content: end; gap: 10px; overflow: hidden; border: 1px solid var(--line); padding: 24px; background: linear-gradient(145deg, rgba(255,255,255,.055), rgba(255,255,255,.018)); }
+    .ip-stage::before { content: attr(data-step); position: absolute; right: 16px; top: 2px; color: rgba(255,255,255,.055); font-size: 86px; font-weight: 950; line-height: 1; }
+    .ip-stage:nth-child(1) { border-top: 5px solid var(--lime); }
+    .ip-stage:nth-child(2) { border-top: 5px solid var(--tech); }
+    .ip-stage:nth-child(3) { border-top: 5px solid var(--fantasy); }
+    .ip-stage span { color: var(--muted); font-size: 10px; font-weight: 900; letter-spacing: .16em; text-transform: uppercase; }
+    .ip-stage b { font-size: 28px; }
+    .ip-stage p { margin: 0; color: #b7bec3; font-size: 13px; font-weight: 650; }
+
+    .ip-lineup { align-self: center; display: grid; gap: 24px; }
+    .ip-lineup-head { display: flex; justify-content: space-between; gap: 34px; align-items: end; padding-bottom: 16px; border-bottom: 1px solid var(--line); }
+    .ip-lineup-head h2 { margin: 0; }
+    .ip-lineup-head p { max-width: 560px; margin: 0; color: var(--muted); font-size: 15px; font-weight: 650; text-align: right; }
+    .ip-title-strip { display: grid; grid-template-columns: repeat(5, 1fr); gap: 12px; }
+    .ip-title-card { display: grid; grid-template-rows: 132px auto; border: 1px solid var(--line); background: rgba(255,255,255,.025); }
+    .ip-title-card img { width: 100%; height: 132px; object-fit: cover; border-bottom: 1px solid var(--line); }
+    .ip-title-card div { padding: 14px 14px 15px; }
+    .ip-title-card span { display: block; margin-bottom: 5px; color: var(--muted); font-size: 9px; font-weight: 900; letter-spacing: .12em; }
+    .ip-title-card b { font-size: 15px; }
+
+    .ip-projects { align-self: center; display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+    .ip-project-card { position: relative; min-height: 570px; display: grid; align-items: end; overflow: hidden; border: 1px solid var(--line); background: #11161a; }
+    .ip-project-card > img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+    .ip-project-card::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(4,7,9,.04) 24%, rgba(4,7,9,.9) 82%, #070a0c 100%); }
+    .ip-project-copy { position: relative; z-index: 1; padding: 30px; }
+    .ip-project-copy span { color: var(--lime); font-size: 10px; font-weight: 900; letter-spacing: .16em; text-transform: uppercase; }
+    .ip-project-copy h3 { margin: 8px 0 10px; font-size: 34px; }
+    .ip-project-copy p { margin: 0; color: #c3c9cd; font-size: 14px; font-weight: 650; }
+    .ip-project-card.fantasy .ip-project-copy span { color: var(--fantasy); }
+
+    .ip-final { align-self: center; display: grid; grid-template-columns: 520px minmax(0, 1fr); gap: 42px; align-items: center; }
+    .ip-final-copy { border-left: 6px solid var(--lime); padding: 24px 28px; background: rgba(5,8,10,.82); backdrop-filter: blur(8px); }
+    .ip-final-copy span { color: var(--lime); font-size: 10px; font-weight: 900; letter-spacing: .16em; text-transform: uppercase; }
+    .ip-final-copy h2 { margin: 8px 0 12px; font-size: 54px; }
+    .ip-final-copy p { margin: 0; color: #c5cbcf; font-size: 16px; font-weight: 650; }
+
     .closing { align-self: center; text-align: center; }
     .closing h2 { max-width: none; font-size: clamp(72px, 12vw, 174px); margin-bottom: 12px; }
     .closing p { color: var(--muted); font-size: 18px; font-weight: 700; }
@@ -280,7 +321,13 @@
       .slide-foot { display: none; }
       h1 { font-size: 56px; }
       h2 { font-size: 42px; }
-      .cover-content, .premise, .universe-layout, .universe-axis-grid, .game-layout { grid-template-columns: 1fr; gap: 24px; }
+      .cover-content, .premise, .universe-layout, .universe-axis-grid, .game-layout, .ip-plan-head, .ip-projects, .ip-final { grid-template-columns: 1fr; gap: 24px; }
+      .ip-stage-grid, .ip-title-strip { grid-template-columns: 1fr; }
+      .ip-stage { min-height: 150px; }
+      .ip-title-card { grid-template-columns: 110px 1fr; grid-template-rows: auto; }
+      .ip-title-card img { width: 110px; height: 72px; border-bottom: 0; border-right: 1px solid var(--line); }
+      .ip-project-card { min-height: 420px; }
+      .ip-final-copy { max-width: 620px; }
       .lore-layout { grid-template-columns: 1fr; gap: 20px; }
       .lore-beat { grid-template-columns: 84px 1fr; }
       .lore-beat img, .lore-beat .lore-type { width: 84px; height: 64px; }
@@ -346,7 +393,8 @@
           <div class="agenda">
             <div class="agenda-row"><span>01</span><b>WINDUP<br>UNIVERSE</b></div>
             <div class="agenda-row"><span>02</span><b>FIVE<br>GAMES</b></div>
-            <div class="agenda-row"><span>03</span><b>2026–2027<br>RELEASE PLAN</b></div>
+            <div class="agenda-row"><span>03</span><b>LONG-TERM<br>IP PLAN</b></div>
+            <div class="agenda-row"><span>04</span><b>2026–2027<br>RELEASE PLAN</b></div>
           </div>
         </div>
         <footer class="slide-foot"><span>Use ↑ ↓ or Space to navigate</span><span class="page-no">01 / 14</span></footer>
@@ -637,12 +685,85 @@
     </div>
   </section>
 
-  <section class="slide" aria-label="파트 3 출시 계획">
+  <section class="slide" aria-label="파트 3 장기 IP 확장 계획">
     <div class="frame chapter-frame" data-number="3">
       <div class="slide-inner">
-        <header class="slide-head"><span class="chapter-mark">Part Three</span><span>Release Plan</span></header>
+        <header class="slide-head"><span class="chapter-mark">Part Three</span><span>Long-term IP Plan</span></header>
+        <div class="ip-plan">
+          <div class="ip-plan-head">
+            <div><span class="eyebrow">03 · IP EXPANSION</span><h2>인디 5종에서<br><span class="accent">최종 AAA까지</span></h2></div>
+            <p>두 세계관의 인디 프로젝트로 기반을 만들고, 싱글 A를 거쳐 테크와 판타지가 만나는 최종 타이틀로 확장</p>
+          </div>
+          <div class="ip-stage-grid">
+            <article class="ip-stage" data-step="01"><span>Foundation</span><b>INDIE · 5 TITLES</b><p>CLIMB · OMG · HEART STAMP · SHOWHAND · RIB</p></article>
+            <article class="ip-stage" data-step="02"><span>Expansion</span><b>SINGLE A · 2 TITLES</b><p>BOB COMPANY · DASHIFT</p></article>
+            <article class="ip-stage" data-step="03"><span>Final Goal</span><b>AAA · TWO SKIES</b><p>테크와 판타지가 격돌하는 최종 어드벤처</p></article>
+          </div>
+        </div>
+        <footer class="slide-foot"><span>Indie → Single A → AAA</span><span class="page-no">LONG-TERM PLAN</span></footer>
+      </div>
+    </div>
+  </section>
+
+  <section class="slide" aria-label="장기 IP 계획 1 인디게임 5종">
+    <div class="frame">
+      <div class="slide-inner">
+        <header class="slide-head"><span class="chapter-mark">Part Three · IP Expansion</span><span>Stage 01 · Indie</span></header>
+        <div class="ip-lineup">
+          <div class="ip-lineup-head">
+            <div><span class="eyebrow">STAGE 01 · FOUNDATION</span><h2>INDIE<br><span class="accent">5 TITLES</span></h2></div>
+            <p>현재 개발 중인 다섯 게임으로 두 세계관의 핵심 설정과 플레이 기반 확보</p>
+          </div>
+          <div class="ip-title-strip">
+            <article class="ip-title-card"><img src="assets/climb-title.png" alt="CLIMB"><div><span>01 · TECH</span><b>CLIMB</b></div></article>
+            <article class="ip-title-card"><img src="assets/omg-title.png" alt="OMG"><div><span>02 · TECH</span><b>OMG</b></div></article>
+            <article class="ip-title-card"><img src="assets/HEARTSTAMP.png" alt="HEART STAMP"><div><span>03 · FANTASY</span><b>HEART STAMP</b></div></article>
+            <article class="ip-title-card"><img src="assets/showhand-title.png" alt="SHOWHAND"><div><span>04 · FANTASY</span><b>SHOWHAND</b></div></article>
+            <article class="ip-title-card"><img src="assets/RIB_Title.png" alt="RIB"><div><span>05 · SPINOFF</span><b>RIB</b></div></article>
+          </div>
+        </div>
+        <footer class="slide-foot"><span>Two Universes · Five Starting Points</span><span class="page-no">STAGE 01</span></footer>
+      </div>
+    </div>
+  </section>
+
+  <section class="slide" aria-label="장기 IP 계획 2 싱글 A 게임 2종">
+    <div class="frame">
+      <div class="slide-inner">
+        <header class="slide-head"><span class="chapter-mark">Part Three · IP Expansion</span><span>Stage 02 · Single A</span></header>
+        <div class="ip-projects">
+          <article class="ip-project-card">
+            <img src="assets/bob-company-title.png" alt="BOB COMPANY">
+            <div class="ip-project-copy"><span>Single A · Tech Universe</span><h3>BOB COMPANY</h3><p>CLIMB 이후, OMG 이전<br>음료 회사로 시작한 BOB Company가 우주 산업으로 확장되는 과정</p></div>
+          </article>
+          <article class="ip-project-card fantasy">
+            <img src="assets/DASHIFT.png" alt="DASHIFT">
+            <div class="ip-project-copy"><span>Single A · Fantasy Universe</span><h3>DASHIFT</h3><p>SHOWHAND에서 탈출한 플레이어와 붉은 여왕의 대결<br>카드 조합으로 전투와 이동을 설계하는 덱빌딩 액션 게임</p></div>
+          </article>
+        </div>
+        <footer class="slide-foot"><span>BOB COMPANY / DASHIFT</span><span class="page-no">STAGE 02</span></footer>
+      </div>
+    </div>
+  </section>
+
+  <section class="slide" aria-label="장기 IP 계획 3 최종 AAA TWO SKIES">
+    <div class="frame visual" style="--image:url('assets/two-skies-title.png')">
+      <div class="slide-inner">
+        <header class="slide-head"><span class="chapter-mark">Part Three · IP Expansion</span><span>Stage 03 · Final Goal</span></header>
+        <div class="ip-final">
+          <div class="ip-final-copy"><span>AAA · FINAL GOAL</span><h2>TWO<br>SKIES</h2><p>테크 세계관과 판타지 세계관이 정면으로 격돌하는 대형 어드벤처 게임<br>각 타이틀에서 확장한 인물과 사건이 하나로 모이는 와인드업 IP의 최종 단계</p></div>
+        </div>
+        <footer class="slide-foot"><span>Tech Universe × Fantasy Universe</span><span class="page-no">STAGE 03</span></footer>
+      </div>
+    </div>
+  </section>
+
+  <section class="slide" aria-label="파트 4 출시 계획">
+    <div class="frame chapter-frame" data-number="4">
+      <div class="slide-inner">
+        <header class="slide-head"><span class="chapter-mark">Part Four</span><span>Release Plan</span></header>
         <div class="chapter-content">
-          <div class="eyebrow">03 · 2026–2027 ROADMAP</div>
+          <div class="eyebrow">04 · 2026–2027 ROADMAP</div>
           <h2><span class="accent">2026–2027</span><br>출시 일정</h2>
         </div>
         <footer class="slide-foot"><span>Wishlist → Demo → Festival → Launch</span><span class="page-no">11 / 14</span></footer>
@@ -653,7 +774,7 @@
   <section class="slide" aria-label="2026 2027 출시 로드맵">
     <div class="frame">
       <div class="slide-inner">
-        <header class="slide-head"><span class="chapter-mark">Part Three · Roadmap</span><span>Aug 2026 — Jul 2027</span></header>
+        <header class="slide-head"><span class="chapter-mark">Part Four · Roadmap</span><span>Aug 2026 — Jul 2027</span></header>
         <div class="roadmap-wrap">
           <div class="roadmap-head"><div><span class="eyebrow">12-MONTH RELEASE PLAN</span><h2>2026 → 2027</h2></div><div class="roadmap-legend"><span>Milestone</span><span class="release">Release</span></div></div>
           <div class="roadmap-chart" aria-label="게임 출시 일정 그래프">
@@ -674,7 +795,7 @@
   <section class="slide" aria-label="출시 전략 요약">
     <div class="frame">
       <div class="slide-inner">
-        <header class="slide-head"><span class="chapter-mark">Part Three · Roadmap</span><span>Operating rhythm</span></header>
+        <header class="slide-head"><span class="chapter-mark">Part Four · Roadmap</span><span>Operating rhythm</span></header>
         <div class="premise">
           <div><span class="eyebrow">ONE YEAR · FIVE RELEASES</span><h2>한 게임의 관심에서<br>다음 게임의<br>시작으로</h2><p class="lead">짧은 간격의 공개와 출시로 쌓이는 스튜디오 인지도와 두 세계관의 팬층</p></div>
           <div class="signal-stack">
