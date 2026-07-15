@@ -222,6 +222,10 @@
     .video-slide { padding: 0; }
     .video-slide .video-frame { width: min(100vw, 177.778vh); }
 
+    .frame.gameplay-frame { border: 0; background: var(--image) center/cover; }
+    .frame.gameplay-frame::after { content: ""; position: absolute; inset: 0; background: linear-gradient(0deg, rgba(5,7,9,.72) 0%, rgba(5,7,9,.12) 34%, transparent 58%); box-shadow: inset 0 0 0 1px rgba(255,255,255,.18); }
+    .frame.image-only-frame::before { display: none; }
+    .frame.gameplay-frame.image-only-frame::after { background: none; box-shadow: none; }
     .roadmap-wrap { align-self: center; display: grid; gap: 18px; }
     .roadmap-head { display: flex; align-items: end; justify-content: space-between; gap: 24px; padding-bottom: 15px; border-bottom: 1px solid var(--line); }
     .roadmap-head h2 { margin-bottom: 0; }
@@ -675,14 +679,12 @@
     </div>
   </section>
 
-  <section class="slide video-slide" aria-label="RIB 영상">
-    <div class="frame video-frame">
-      <div class="slide-inner">
-        <header class="slide-head"><span class="chapter-mark">Game 05 · Video</span><span>RIB · Rest in Beach</span></header>
-        <div class="video-layout"><div class="media-shell" data-video="assets/videos/rib.mp4"><img src="assets/RIB_Title.png" alt="RIB Rest in Beach 프로토타입 영상 포스터"><div class="media-placeholder"><span class="play-mark">▶</span><div class="media-label"><b>PROTOTYPE / CURRENT BUILD</b><span>RIB.MP4</span></div></div></div><div class="video-caption"><span>Prototype / Current Build</span><span>assets/videos/rib.mp4</span></div></div>
-        <footer class="slide-foot"><span>Video</span><span class="page-no">10A / 14</span></footer>
-      </div>
-    </div>
+  <section class="slide" aria-label="RIB 인게임 예시 보트 조작">
+    <div class="frame gameplay-frame image-only-frame" style="--image:url('assets/rib-gameplay-boat.png')"></div>
+  </section>
+
+  <section class="slide" aria-label="RIB 인게임 예시 해변 구조">
+    <div class="frame gameplay-frame image-only-frame" style="--image:url('assets/rib-gameplay-rescue.png')"></div>
   </section>
 
   <section class="slide" aria-label="파트 3 장기 IP 확장 계획">
