@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>WINDUP Vision Deck — 2026·2027</title>
-  <meta name="description" content="하나로 이어지는 WINDUP 세계관, 다섯 게임, 2026–2027 출시 계획을 소개하는 비전덱">
+  <title>WINDUP Vision Deck</title>
+  <meta name="description" content="WINDUP의 두 세계관, 프로젝트, 장기 IP 확장과 2026–2027 출시 계획을 정리한 사내 비전덱">
   <style>
     :root {
       color-scheme: dark;
@@ -44,7 +44,7 @@
       background: #11161a;
     }
     .password-panel { width: min(420px, 100%); border: 1px solid var(--line); background: rgba(7,9,11,.88); padding: 32px; backdrop-filter: blur(18px); }
-    .eyebrow { color: var(--lime); font-size: 11px; font-weight: 900; letter-spacing: .2em; text-transform: uppercase; }
+    .eyebrow { color: var(--lime); font-size: 12px; font-weight: 900; letter-spacing: .2em; text-transform: uppercase; }
     .password-panel h1 { margin: 12px 0 8px; font-size: 36px; line-height: .95; }
     .password-panel p { margin: 0 0 22px; color: var(--muted); font-size: 14px; }
     .password-form { display: grid; gap: 10px; }
@@ -54,14 +54,15 @@
     .password-error { min-height: 18px; color: #ff8792; font-size: 12px; }
 
     .slide { min-height: 100vh; display: grid; place-items: center; padding: 26px; scroll-snap-align: start; scroll-snap-stop: always; }
-    .frame { position: relative; width: min(1440px, calc(100vw - 52px), 164vh); aspect-ratio: 16/9; overflow: hidden; border: 1px solid var(--line); background: var(--bg); box-shadow: 0 30px 90px rgba(0,0,0,.38); }
+    .frame { position: relative; width: min(1800px, calc(100vw - 52px), 164vh); aspect-ratio: 16/9; overflow: hidden; border: 1px solid var(--line); background: var(--bg); box-shadow: 0 30px 90px rgba(0,0,0,.38); }
     .frame::before { content: ""; position: absolute; inset: 0; pointer-events: none; background-image: linear-gradient(rgba(255,255,255,.025) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.025) 1px, transparent 1px); background-size: 44px 44px; mask-image: linear-gradient(to bottom, black, transparent 76%); }
     .frame.light { background: var(--paper); color: #101418; }
     .frame.light::before { background-image: linear-gradient(rgba(0,0,0,.04) 1px, transparent 1px), linear-gradient(90deg, rgba(0,0,0,.04) 1px, transparent 1px); }
-    .frame.visual { border: 0; background: var(--image) center/cover; }
-    .frame.visual::after { content: ""; position: absolute; inset: 0; background: linear-gradient(90deg, rgba(5,7,9,.72) 0%, rgba(5,7,9,.42) 44%, rgba(5,7,9,.05) 100%), linear-gradient(0deg, rgba(5,7,9,.25), transparent 48%); box-shadow: inset 0 0 0 1px rgba(255,255,255,.16); }
+    .frame.visual { border: 0; background: var(--image) center/cover no-repeat; }
+    .frame.visual::before { display: none; }
+    .frame.visual::after { content: ""; position: absolute; inset: 0; pointer-events: none; background: none; box-shadow: inset 0 0 0 1px rgba(255,255,255,.16); }
     .slide-inner { position: relative; z-index: 2; height: 100%; display: grid; grid-template-rows: auto 1fr auto; gap: 20px; padding: 34px 42px 30px; }
-    .slide-head, .slide-foot { display: flex; align-items: center; justify-content: space-between; gap: 18px; color: var(--muted); font-size: 11px; font-weight: 850; letter-spacing: .12em; text-transform: uppercase; }
+    .slide-head, .slide-foot { display: flex; align-items: center; justify-content: space-between; gap: 18px; color: var(--muted); font-size: 12px; font-weight: 850; letter-spacing: .12em; text-transform: uppercase; }
     .slide-head strong { color: var(--ink); }
     .light .slide-head strong { color: #101418; }
     .chapter-mark { display: inline-flex; align-items: center; gap: 10px; }
@@ -74,7 +75,7 @@
     h1 { margin-bottom: 20px; font-size: clamp(58px, 7vw, 108px); line-height: .86; letter-spacing: -.07em; text-transform: uppercase; }
     h2 { margin-bottom: 16px; font-size: clamp(42px, 4.8vw, 74px); line-height: .94; letter-spacing: -.06em; text-transform: uppercase; word-break: keep-all; }
     h3 { margin-bottom: 8px; font-size: 24px; line-height: 1.08; }
-    .lead { max-width: 760px; margin-bottom: 0; color: var(--muted); font-size: 17px; font-weight: 650; word-break: keep-all; }
+    .lead { max-width: 760px; margin-bottom: 0; color: var(--muted); font-size: 18px; font-weight: 650; word-break: keep-all; }
     .light .lead { color: #555d62; }
     .accent { color: var(--lime); }
     .tech-text { color: var(--tech); }
@@ -88,7 +89,7 @@
     .light .agenda-row span { color: #747b80; }
     .agenda { display: grid; gap: 0; border-top: 1px solid var(--line); }
     .agenda-row { display: grid; grid-template-columns: 42px 1fr; gap: 14px; padding: 18px 0; border-bottom: 1px solid var(--line); }
-    .agenda-row span { color: var(--muted); font-size: 11px; font-weight: 900; }
+    .agenda-row span { color: var(--muted); font-size: 12px; font-weight: 900; }
     .agenda-row b { font-size: 17px; line-height: 1.25; }
 
     .chapter-frame { isolation: isolate; }
@@ -148,6 +149,31 @@
     .universe-spinoff p { margin: 0; color: var(--muted); font-size: 12px; font-weight: 650; }
     .spinoff-label { border: 1px solid var(--line); padding: 7px 10px; color: var(--lime); font-size: 10px; font-weight: 900; letter-spacing: .08em; text-transform: uppercase; white-space: nowrap; }
 
+    .universe-map { align-self: center; display: grid; gap: 24px; }
+    .universe-map-head { display: flex; align-items: end; justify-content: space-between; gap: 32px; padding-bottom: 16px; border-bottom: 1px solid var(--line); }
+    .universe-map-head h2 { margin: 0; }
+    .universe-map-head p { max-width: 520px; margin: 0; color: var(--muted); font-size: 18px; font-weight: 650; text-align: right; }
+    .universe-map-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+    .axis-panel { min-height: 410px; display: grid; grid-template-rows: auto 1fr; border: 1px solid var(--line); background: rgba(255,255,255,.025); }
+    .axis-panel.tech { border-top: 6px solid var(--tech); }
+    .axis-panel.fantasy { border-top: 6px solid var(--fantasy); }
+    .axis-head { padding: 22px 24px 18px; border-bottom: 1px solid var(--line); }
+    .axis-head span { display: block; margin-bottom: 7px; color: var(--muted); font-size: 12px; font-weight: 900; letter-spacing: .15em; text-transform: uppercase; }
+    .axis-head b { font-size: 30px; text-transform: uppercase; }
+    .axis-flow { display: grid; align-content: center; gap: 14px; padding: 20px 24px 24px; }
+    .timeline-row { display: grid; grid-template-columns: 1fr 28px 1fr 28px 1fr; gap: 8px; align-items: center; }
+    .timeline-node { min-height: 112px; display: grid; align-content: center; gap: 6px; border: 1px solid var(--line); padding: 14px; background: rgba(0,0,0,.2); text-align: center; }
+    .timeline-node small { color: var(--muted); font-size: 12px; font-weight: 850; letter-spacing: .08em; text-transform: uppercase; }
+    .timeline-node b { font-size: 18px; }
+    .timeline-arrow { color: var(--muted); font-size: 20px; text-align: center; }
+    .branch-origin { width: min(76%, 360px); margin: 0 auto; border: 1px solid rgba(255,77,94,.5); padding: 13px 16px; background: rgba(255,77,94,.07); text-align: center; }
+    .branch-origin small { display: block; color: var(--muted); font-size: 12px; font-weight: 850; letter-spacing: .08em; text-transform: uppercase; }
+    .branch-origin b { font-size: 20px; }
+    .branch-connector { width: 1px; height: 18px; margin: -14px auto -14px; background: rgba(255,255,255,.28); }
+    .branch-row { position: relative; display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+    .branch-row::before { content: ""; position: absolute; left: 25%; right: 25%; top: -8px; height: 1px; background: rgba(255,255,255,.28); }
+    .branch-row .timeline-node { border-top-color: var(--fantasy); }
+
     .lore-layout { align-self: center; display: grid; grid-template-columns: minmax(300px, .76fr) minmax(0, 1.24fr); gap: 52px; align-items: center; }
     .lore-intro h2 { margin-bottom: 18px; }
     .lore-intro p { max-width: 500px; margin: 0; color: var(--muted); font-size: 15px; font-weight: 650; word-break: keep-all; }
@@ -171,18 +197,18 @@
     .history-slide { align-self: stretch; min-height: 0; display: grid; grid-template-rows: minmax(0, 1fr) auto; gap: 14px; }
     .history-image { width: 100%; height: 100%; min-height: 0; object-fit: contain; object-position: center; border: 1px solid var(--line); background: #000; }
     .history-copy { display: grid; grid-template-columns: 110px minmax(0, 1fr); gap: 22px; align-items: start; padding: 2px 2px 0; }
-    .history-index { color: var(--lime); font-size: 11px; font-weight: 950; letter-spacing: .14em; text-transform: uppercase; }
+    .history-index { color: var(--lime); font-size: 12px; font-weight: 950; letter-spacing: .14em; text-transform: uppercase; }
     .history-copy h2 { margin: 0 0 7px; font-size: clamp(28px, 3vw, 44px); line-height: 1; }
-    .history-copy p { max-width: 1080px; margin: 0; color: #bac1c6; font-size: 14px; font-weight: 650; line-height: 1.55; word-break: keep-all; }
+    .history-copy p { max-width: 1080px; margin: 0; color: #d3d8dc; font-size: 18px; font-weight: 650; line-height: 1.5; word-break: keep-all; }
     .history-slide.fantasy .history-index { color: var(--fantasy); }
     .history-frame { border: 0; background: var(--image) center/cover no-repeat; }
     .history-frame::before { display: none; }
     .history-frame::after { content: ""; position: absolute; inset: 0; z-index: 1; background: none; box-shadow: inset 0 0 0 1px rgba(255,255,255,.16); pointer-events: none; }
     .history-frame .slide-head, .history-frame .slide-foot { text-shadow: 0 2px 8px rgba(0,0,0,.9); }
-    .history-frame .history-slide { display: flex; align-items: flex-end; }
-    .history-frame .history-copy { width: min(100%, 1040px); grid-template-columns: 120px minmax(0, 1fr); gap: 24px; padding: 22px 24px; border-left: 4px solid var(--lime); background: linear-gradient(90deg, rgba(4,6,8,.78), rgba(4,6,8,.32) 78%, transparent); }
+    .history-frame .history-slide { display: flex; align-items: var(--copy-v, flex-end); justify-content: var(--copy-h, flex-start); }
+    .history-frame .history-copy { width: min(42%, 560px); grid-template-columns: 104px minmax(0, 1fr); gap: 20px; padding: 20px 22px; border-left: 4px solid var(--lime); background: linear-gradient(90deg, rgba(4,6,8,.68), rgba(4,6,8,.56) 76%, rgba(4,6,8,.12)); }
     .history-frame .history-copy h2 { font-size: clamp(38px, 4vw, 62px); }
-    .history-frame .history-copy p { max-width: 900px; color: #d3d8dc; font-size: 15px; }
+    .history-frame .history-copy p { max-width: 900px; color: #eef1f2; font-size: 18px; }
     .history-frame .history-slide.fantasy .history-copy { border-left-color: var(--fantasy); }
 
     .game-layout { align-self: center; min-height: 0; display: grid; grid-template-columns: minmax(330px, .78fr) minmax(0, 1.22fr); gap: 34px; align-items: center; }
@@ -198,29 +224,36 @@
     .media-shell img, .media-shell video { width: 100%; height: 100%; object-fit: cover; }
     .media-shell video { position: absolute; inset: 0; z-index: 3; background: #000; }
     .media-shell::after { content: ""; position: absolute; inset: 0; background: linear-gradient(0deg, rgba(0,0,0,.72), transparent 52%); pointer-events: none; }
-    .media-placeholder { position: absolute; inset: 0; z-index: 2; display: flex; align-items: flex-end; justify-content: space-between; gap: 16px; padding: 20px; }
-    .play-mark { width: 54px; aspect-ratio: 1; display: grid; place-items: center; flex: 0 0 auto; border-radius: 50%; background: var(--lime); color: #0a0c0e; font-size: 17px; font-weight: 950; }
-    .media-label { text-align: right; }
-    .media-label b { display: block; font-size: 14px; }
-    .media-label span { color: #c1c8cc; font-size: 10px; font-weight: 800; letter-spacing: .08em; }
     .media-shell.no-poster { background: radial-gradient(circle at 70% 25%, rgba(255,77,94,.24), transparent 32%), linear-gradient(135deg, #1c1115, #080a0c 62%); }
     .media-shell.no-poster .type-title { position: absolute; inset: 0; display: grid; place-items: center; color: rgba(255,255,255,.16); font-size: 8vw; font-weight: 950; letter-spacing: -.08em; }
-    .video-note { margin-top: 9px; color: var(--muted); font-size: 10px; text-align: right; }
     .video-layout { align-self: center; min-height: 0; display: grid; justify-items: center; gap: 12px; }
     .video-layout .media-shell { width: min(100%, 900px); }
-    .video-caption { width: min(100%, 900px); display: flex; justify-content: space-between; gap: 20px; color: var(--muted); font-size: 10px; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; }
     .video-frame { border: 0; background: #000; }
     .video-frame::before { display: none; }
     .video-frame .slide-inner { display: block; height: 100%; padding: 0; }
-    .video-frame .slide-head, .video-frame .slide-foot, .video-frame .video-caption { display: none; }
     .video-frame .video-layout { display: block; width: 100%; height: 100%; }
     .video-frame .media-shell { width: 100%; height: 100%; aspect-ratio: auto; border: 0; box-shadow: none; }
     .video-frame .media-shell::after { display: none; }
-    .video-frame .media-placeholder { align-items: center; justify-content: center; padding: 0; }
-    .video-frame .media-label { display: none; }
-    .video-frame .play-mark { width: 72px; font-size: 21px; }
     .video-slide { padding: 0; }
     .video-slide .video-frame { width: min(100vw, 177.778vh); }
+
+    .game-intro .slide-inner { position: relative; }
+    .game-intro .game-layout { position: absolute; left: var(--copy-x, 42px); top: var(--copy-top, auto); bottom: var(--copy-y, 80px); width: min(var(--copy-w, 42%), 560px); min-height: 0; display: block; }
+    .game-intro .game-copy { border-left: 4px solid var(--lime); padding: 22px 24px; background: rgba(5,7,9,.68); box-shadow: 0 18px 48px rgba(0,0,0,.2); }
+    .game-intro.tech-intro .game-copy { border-left-color: var(--tech); }
+    .game-intro.fantasy-intro .game-copy { border-left-color: var(--fantasy); }
+    .game-intro .game-copy .tagline { margin-bottom: 12px; font-size: 24px; }
+    .game-intro .game-copy > p { max-width: none; margin-bottom: 16px; color: #eef1f2; font-size: 18px; line-height: 1.5; }
+    .game-intro .game-number { margin-bottom: 10px; font-size: 12px; }
+    .game-intro.tech-intro .game-number { color: var(--tech); }
+    .game-intro.fantasy-intro .game-number { color: var(--fantasy); }
+    .game-intro .fact { font-size: 12px; }
+    .game-intro .slide-foot { text-shadow: 0 2px 8px rgba(0,0,0,.9); }
+    .slide[data-media] { padding: 0; }
+    .slide[data-media] .frame { width: min(100vw, 177.778vh); border: 0; box-shadow: none; }
+    .slide[data-media] .slide-head, .slide[data-media] .slide-foot { display: none !important; }
+    .video-frame .media-shell > img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+    .video-frame .media-shell video[hidden] { display: none; }
 
     .frame.gameplay-frame { border: 0; background: var(--image) center/cover; }
     .frame.gameplay-frame::after { content: ""; position: absolute; inset: 0; background: linear-gradient(0deg, rgba(5,7,9,.72) 0%, rgba(5,7,9,.12) 34%, transparent 58%); box-shadow: inset 0 0 0 1px rgba(255,255,255,.18); }
@@ -229,24 +262,30 @@
     .roadmap-wrap { align-self: center; display: grid; gap: 18px; }
     .roadmap-head { display: flex; align-items: end; justify-content: space-between; gap: 24px; padding-bottom: 15px; border-bottom: 1px solid var(--line); }
     .roadmap-head h2 { margin-bottom: 0; }
-    .roadmap-legend { display: flex; gap: 14px; color: var(--muted); font-size: 10px; font-weight: 850; text-transform: uppercase; }
+    .roadmap-legend { display: flex; gap: 14px; color: var(--muted); font-size: 12px; font-weight: 850; text-transform: uppercase; }
     .roadmap-legend span::before { content: ""; display: inline-block; width: 8px; height: 8px; margin-right: 6px; border-radius: 50%; background: #d9dee1; }
     .roadmap-legend .release::before { background: var(--lime); }
     .roadmap-chart { position: relative; display: grid; grid-template-columns: 130px repeat(12, minmax(0, 1fr)); overflow: hidden; border: 1px solid rgba(255,255,255,.18); background: linear-gradient(180deg, rgba(255,255,255,.045), rgba(255,255,255,.012)); box-shadow: 0 20px 46px rgba(0,0,0,.24); }
     .roadmap-chart::after { content: ""; position: absolute; left: 130px; right: 0; top: 45px; bottom: 0; pointer-events: none; background: repeating-linear-gradient(90deg, transparent 0, transparent calc(8.333% - 1px), rgba(255,255,255,.08) calc(8.333% - 1px), rgba(255,255,255,.08) 8.333%); }
-    .corner, .month { min-height: 45px; display: grid; place-items: center; border-bottom: 1px solid var(--line); background: rgba(0,0,0,.18); color: var(--muted); font-size: 10px; font-weight: 900; letter-spacing: .06em; }
+    .corner, .month { min-height: 45px; display: grid; place-items: center; border-bottom: 1px solid var(--line); background: rgba(0,0,0,.18); color: var(--muted); font-size: 12px; font-weight: 900; letter-spacing: .06em; }
     .corner { place-items: center start; padding-left: 18px; }
     .month.year-start { border-left: 2px solid rgba(255,255,255,.5); }
     .game-label { min-height: 58px; display: flex; align-items: center; padding: 0 16px; border-top: 1px solid var(--line); background: rgba(0,0,0,.16); font-size: 13px; font-weight: 950; letter-spacing: .025em; z-index: 2; }
     .track { grid-column: 2 / -1; position: relative; min-height: 58px; border-top: 1px solid var(--line); background: linear-gradient(90deg, rgba(255,255,255,.014), transparent 45%, rgba(255,255,255,.012)); z-index: 2; }
     .track.year-cut::after { content: ""; position: absolute; left: 41.666%; top: 0; bottom: 0; border-left: 2px solid rgba(255,255,255,.36); }
-    .event { position: absolute; top: 12px; height: 34px; display: flex; align-items: center; justify-content: center; border: 1px solid rgba(255,255,255,.34); border-radius: 3px; background: linear-gradient(180deg, #171c20, #0f1316); padding: 0 8px; color: var(--ink); font-size: 9px; font-weight: 900; line-height: 1.1; letter-spacing: .015em; text-align: center; white-space: nowrap; box-shadow: 0 5px 14px rgba(0,0,0,.24); transform: translateX(-50%); }
+    .event { position: absolute; top: 12px; height: 34px; display: flex; align-items: center; justify-content: center; border: 1px solid rgba(255,255,255,.34); border-radius: 3px; background: linear-gradient(180deg, #171c20, #0f1316); padding: 0 8px; color: var(--ink); font-size: 12px; font-weight: 900; line-height: 1.1; letter-spacing: .015em; text-align: center; white-space: nowrap; box-shadow: 0 5px 14px rgba(0,0,0,.24); transform: translateX(-50%); }
     .event.release { border-color: var(--lime); background: var(--lime); color: #090b0d; box-shadow: 0 0 0 1px rgba(215,255,69,.12), 0 7px 18px rgba(0,0,0,.24); }
     .event.range { border-color: var(--lime); background: rgba(215,255,69,.1); color: var(--lime); }
     .event.plan { border-color: rgba(255,255,255,.28); background: linear-gradient(180deg, rgba(142,151,158,.16), rgba(77,84,90,.12)); color: #d7dcdf; box-shadow: none; }
     .roadmap-callout { display: flex; justify-content: space-between; gap: 26px; border: 1px solid var(--line); border-left: 3px solid rgba(255,255,255,.42); padding: 13px 16px; background: rgba(255,255,255,.025); }
     .roadmap-callout b { font-size: 15px; }
     .roadmap-callout span { color: var(--muted); font-size: 12px; font-weight: 700; text-align: right; }
+    .release-waves { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 10px; }
+    .release-wave { border: 1px solid var(--line); border-top: 3px solid var(--tech); padding: 11px 13px; background: rgba(255,255,255,.025); }
+    .release-wave.fantasy { border-top-color: var(--fantasy); }
+    .release-wave.crossover { border-top-color: var(--lime); }
+    .release-wave small { display: block; margin-bottom: 3px; color: var(--muted); font-size: 12px; font-weight: 850; letter-spacing: .08em; text-transform: uppercase; }
+    .release-wave b { font-size: 14px; }
 
     .ip-plan { align-self: center; display: grid; gap: 30px; }
     .ip-plan-head { display: grid; grid-template-columns: minmax(0, .88fr) minmax(420px, 1.12fr); gap: 54px; align-items: end; }
@@ -258,9 +297,10 @@
     .ip-stage:nth-child(1) { border-top: 5px solid var(--lime); }
     .ip-stage:nth-child(2) { border-top: 5px solid var(--tech); }
     .ip-stage:nth-child(3) { border-top: 5px solid var(--fantasy); }
-    .ip-stage span { color: var(--muted); font-size: 10px; font-weight: 900; letter-spacing: .16em; text-transform: uppercase; }
+    .ip-stage span { color: var(--muted); font-size: 12px; font-weight: 900; letter-spacing: .16em; text-transform: uppercase; }
     .ip-stage b { font-size: 28px; }
-    .ip-stage p { margin: 0; color: #b7bec3; font-size: 13px; font-weight: 650; }
+    .ip-stage p { margin: 0; color: #c7cdd1; font-size: 18px; font-weight: 650; line-height: 1.45; }
+    .ip-stage p .accent { font-size: inherit; font-weight: inherit; letter-spacing: inherit; text-transform: none; }
 
     .ip-lineup { align-self: center; display: grid; gap: 24px; }
     .ip-lineup-head { display: flex; justify-content: space-between; gap: 34px; align-items: end; padding-bottom: 16px; border-bottom: 1px solid var(--line); }
@@ -274,29 +314,31 @@
     .ip-title-card b { font-size: 15px; }
 
     .ip-projects { align-self: center; display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
-    .ip-project-card { position: relative; min-height: 570px; display: grid; align-items: end; overflow: hidden; border: 1px solid var(--line); background: #11161a; }
-    .ip-project-card > img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
-    .ip-project-card::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(4,7,9,.04) 24%, rgba(4,7,9,.9) 82%, #070a0c 100%); }
-    .ip-project-copy { position: relative; z-index: 1; padding: 30px; }
-    .ip-project-copy span { color: var(--lime); font-size: 10px; font-weight: 900; letter-spacing: .16em; text-transform: uppercase; }
+    .ip-project-card { position: relative; min-height: 0; display: grid; grid-template-rows: auto auto; overflow: hidden; border: 1px solid var(--line); background: #080a0c; }
+    .ip-project-card > img { position: relative; width: 100%; height: auto; aspect-ratio: 16/9; object-fit: contain; background: #000; }
+    .ip-project-card::after { display: none; }
+    .ip-project-copy { position: relative; z-index: 1; padding: 26px 30px; background: rgba(5,8,10,.68); }
+    .ip-project-copy span { color: var(--lime); font-size: 12px; font-weight: 900; letter-spacing: .16em; text-transform: uppercase; }
     .ip-project-copy h3 { margin: 8px 0 10px; font-size: 34px; }
-    .ip-project-copy p { margin: 0; color: #c3c9cd; font-size: 14px; font-weight: 650; }
+    .ip-project-copy p { margin: 0; color: #e2e6e8; font-size: 18px; font-weight: 650; line-height: 1.5; }
     .ip-project-card.fantasy .ip-project-copy span { color: var(--fantasy); }
 
     .ip-final { align-self: center; display: grid; grid-template-columns: 520px minmax(0, 1fr); gap: 42px; align-items: center; }
-    .ip-final-copy { border-left: 6px solid var(--lime); padding: 24px 28px; background: rgba(5,8,10,.82); backdrop-filter: blur(8px); }
-    .ip-final-copy span { color: var(--lime); font-size: 10px; font-weight: 900; letter-spacing: .16em; text-transform: uppercase; }
+    .ip-final-copy { position: relative; overflow: hidden; border-left: 0; padding: 24px 28px 24px 34px; background: rgba(5,8,10,.68); backdrop-filter: blur(8px); }
+    .ip-final-copy::before { content: ""; position: absolute; inset: 0 auto 0 0; width: 6px; background: linear-gradient(var(--tech), var(--fantasy)); }
+    .ip-final-copy span { color: #e5e9eb; font-size: 12px; font-weight: 900; letter-spacing: .16em; text-transform: uppercase; }
     .ip-final-copy h2 { margin: 8px 0 12px; font-size: 54px; }
-    .ip-final-copy p { margin: 0; color: #c5cbcf; font-size: 16px; font-weight: 650; }
+    .ip-final-copy p { margin: 0; color: #e1e5e7; font-size: 18px; font-weight: 650; line-height: 1.5; }
 
     .closing { align-self: center; text-align: center; }
     .closing h2 { max-width: none; font-size: clamp(72px, 12vw, 174px); margin-bottom: 12px; }
-    .closing p { color: var(--muted); font-size: 18px; font-weight: 700; }
+    .closing p { color: var(--lime); font-size: 18px; font-weight: 800; letter-spacing: .08em; }
 
-    .deck-nav { position: fixed; right: 17px; top: 50%; z-index: 20; display: grid; gap: 7px; transform: translateY(-50%); }
-    .deck-nav button { width: 8px; height: 8px; border: 0; border-radius: 50%; padding: 0; background: rgba(255,255,255,.28); cursor: pointer; transition: .2s; }
-    .deck-nav button.active { height: 28px; border-radius: 8px; background: var(--lime); }
-    body.video-active .deck-nav { opacity: 0; pointer-events: none; }
+    .deck-nav { position: fixed; right: 17px; top: 50%; z-index: 20; width: 8px; height: 220px; display: flex; flex-direction: column; gap: 5px; transform: translateY(-50%); }
+    .deck-nav button { position: relative; width: 8px; min-height: 16px; flex: var(--weight, 1) 1 0; overflow: hidden; border: 0; border-radius: 8px; padding: 0; background: rgba(255,255,255,.22); cursor: pointer; }
+    .deck-nav button::after { content: ""; position: absolute; inset: 0; border-radius: inherit; background: var(--lime); transform: scaleY(var(--fill, 0)); transform-origin: top; transition: transform .2s; }
+    .deck-nav button.active { transform: scaleX(1.2); }
+    body.media-active .deck-nav { opacity: 0; pointer-events: none; }
 
     @media (max-width: 1050px) {
       .slide-inner { padding: 27px 32px 24px; }
@@ -313,24 +355,44 @@
       .game-copy .tagline { font-size: 18px; }
       .game-copy > p { font-size: 13px; margin-bottom: 14px; }
       .roadmap-wrap { gap: 14px; }
-      .event { font-size: 8px; padding: 0 4px; }
+      .universe-map { gap: 14px; }
+      .universe-map-head { padding-bottom: 10px; }
+      .universe-map-head h2 { font-size: 54px; }
+      .axis-panel { min-height: 330px; }
+      .axis-head { padding: 15px 18px 12px; }
+      .axis-flow { gap: 10px; padding: 14px 18px 16px; }
+      .timeline-node { min-height: 88px; padding: 10px; }
+      .branch-origin { padding: 9px 12px; }
+      .event { font-size: 12px; padding: 0 4px; }
+    }
+
+    @media (max-height: 800px) and (min-width: 761px) {
+      .universe-map { gap: 14px; }
+      .universe-map-head { padding-bottom: 10px; }
+      .universe-map-head h2 { font-size: 54px; }
+      .axis-panel { min-height: 330px; }
+      .axis-head { padding: 15px 18px 12px; }
+      .axis-flow { gap: 10px; padding: 14px 18px 16px; }
+      .timeline-node { min-height: 88px; padding: 10px; }
+      .branch-origin { padding: 9px 12px; }
+      .ip-project-copy { padding: 18px 22px; }
     }
 
     @media (max-width: 760px) {
       html { scroll-snap-type: y proximity; }
       .slide { min-height: auto; padding: 12px; }
       .frame { width: 100%; min-height: calc(100vh - 24px); aspect-ratio: auto; overflow: hidden; }
-      .slide-inner { min-height: calc(100vh - 24px); padding: 22px 20px 18px; }
-      .slide-head { font-size: 9px; }
+      .slide-inner { height: auto; min-height: calc(100vh - 24px); padding: 22px 20px 18px; }
+      .slide-head { font-size: 12px; }
       .slide-foot { display: none; }
       h1 { font-size: 56px; }
       h2 { font-size: 42px; }
-      .cover-content, .premise, .universe-layout, .universe-axis-grid, .game-layout, .ip-plan-head, .ip-projects, .ip-final { grid-template-columns: 1fr; gap: 24px; }
+      .cover-content, .premise, .universe-layout, .universe-axis-grid, .universe-map-grid, .game-layout, .ip-plan-head, .ip-projects, .ip-final { grid-template-columns: 1fr; gap: 24px; }
       .ip-stage-grid, .ip-title-strip { grid-template-columns: 1fr; }
       .ip-stage { min-height: 150px; }
       .ip-title-card { grid-template-columns: 110px 1fr; grid-template-rows: auto; }
       .ip-title-card img { width: 110px; height: 72px; border-bottom: 0; border-right: 1px solid var(--line); }
-      .ip-project-card { min-height: 420px; }
+      .ip-project-card { min-height: 0; }
       .ip-final-copy { max-width: 620px; }
       .lore-layout { grid-template-columns: 1fr; gap: 20px; }
       .lore-beat { grid-template-columns: 84px 1fr; }
@@ -339,31 +401,46 @@
       .history-copy { grid-template-columns: 1fr; gap: 8px; }
       .history-copy h2 { font-size: 28px; }
       .history-copy p { font-size: 13px; }
-      .history-frame .history-copy { grid-template-columns: 1fr; gap: 8px; padding: 16px; }
+      .history-frame .history-copy { width: 100%; grid-template-columns: 1fr; gap: 8px; padding: 16px; }
       .history-frame .history-copy h2 { font-size: 30px; }
-      .history-frame .history-copy p { font-size: 13px; }
+      .history-frame .history-copy p { font-size: 18px; }
       .agenda { display: none; }
       .chapter-frame::after { font-size: 46vh; bottom: -8vh; }
-      .chapter-content p { font-size: 17px; }
+      .chapter-content p { font-size: 20px; }
       .signal { min-height: 84px; padding: 14px; }
       .unified-line { grid-template-columns: 1fr; gap: 8px; }
       .unified-line::before { left: 22px; right: auto; top: 22px; bottom: 22px; width: 1px; height: auto; }
       .unified-game { grid-template-columns: 46px 1fr; justify-items: start; align-items: center; text-align: left; }
       .unified-game span { display: none; }
       .universe-card { min-height: 0; }
-      .universe-card.fantasy { display: none; }
+      .universe-map-head { align-items: flex-start; flex-direction: column; }
+      .universe-map-head p { text-align: left; }
+      .axis-panel { min-height: 330px; }
+      .timeline-row { grid-template-columns: 1fr; }
+      .timeline-arrow { transform: rotate(90deg); }
       .universe-spinoff { grid-template-columns: 104px 1fr; gap: 12px; padding: 10px; }
       .universe-spinoff img { width: 104px; height: 58px; }
       .universe-spinoff .spinoff-label { display: none; }
       .game-layout { align-content: center; }
       .game-copy h2 { font-size: 49px; }
+      .game-intro .game-layout { left: 20px; right: 20px; bottom: 64px; width: auto; }
+      .game-intro .game-layout { top: auto; }
+      .game-intro .game-copy { padding: 16px 18px; }
+      .game-intro .game-copy .tagline { font-size: 20px; }
+      .game-intro .game-copy > p { font-size: 18px; }
+      .release-waves { grid-template-columns: 1fr; }
       .media-shell { order: -1; }
-      .roadmap-chart { grid-template-columns: 86px repeat(12, 64px); width: 854px; }
+      .roadmap-chart { grid-template-columns: 86px repeat(12, 72px); width: 950px; }
       .roadmap-head, .roadmap-callout { align-items: flex-start; flex-direction: column; }
       .roadmap-wrap { overflow-x: auto; }
       .roadmap-chart::after { left: 86px; }
       .roadmap-callout span { text-align: left; }
       .deck-nav { display: none; }
+      .slide[data-media] { min-height: 100svh; }
+      .slide[data-media] .frame { height: 100svh; min-height: 0; aspect-ratio: auto; }
+      .slide[data-media] .slide-inner, .slide[data-media] .video-layout, .slide[data-media] .media-shell { height: 100%; min-height: 0; }
+      .video-frame .media-shell > img, .video-frame .media-shell video { object-fit: contain; }
+      .frame.gameplay-frame.image-only-frame { background-color: #000; background-size: contain; background-repeat: no-repeat; }
     }
 
     @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
@@ -385,395 +462,350 @@
 
   <nav class="deck-nav" aria-label="슬라이드 바로가기"></nav>
 
-  <section class="slide" aria-label="표지">
+  <section class="slide" data-chapter="universe" aria-label="표지">
     <div class="frame">
       <div class="slide-inner">
-        <header class="slide-head"><strong>WINDUP</strong><span>Vision Deck · 2026–2027</span></header>
+        <header class="slide-head"><strong>WINDUP</strong><span>Internal Vision Deck</span></header>
         <div class="cover-content">
           <div class="cover-title">
-            <small>WINDUP · INTERNAL PRESENTATION</small>
-            <h1>Vision Deck<br>2026–2027</h1>
+            <small>2026–2027 RELEASE &amp; LONG-TERM IP PLAN</small>
+            <h1>WINDUP<br>VISION DECK</h1>
           </div>
           <div class="agenda">
             <div class="agenda-row"><span>01</span><b>WINDUP<br>UNIVERSE</b></div>
-            <div class="agenda-row"><span>02</span><b>FIVE<br>GAMES</b></div>
+            <div class="agenda-row"><span>02</span><b>PROJECTS</b></div>
             <div class="agenda-row"><span>03</span><b>LONG-TERM<br>IP PLAN</b></div>
             <div class="agenda-row"><span>04</span><b>2026–2027<br>RELEASE PLAN</b></div>
           </div>
         </div>
-        <footer class="slide-foot"><span>Use ↑ ↓ or Space to navigate</span><span class="page-no">01 / 14</span></footer>
+        <footer class="slide-foot"><span>Use ↑ ↓ or Space to navigate</span><span class="page-no"></span></footer>
       </div>
     </div>
   </section>
 
-  <section class="slide" aria-label="와인드업 세계관 소개">
-    <div class="frame chapter-frame" data-number="1">
-      <div class="slide-inner">
-        <header class="slide-head"><span class="chapter-mark">Part One</span><span>Universe</span></header>
-        <div class="universe-overview">
-          <div>
-            <div class="eyebrow">01 · WINDUP UNIVERSE</div>
-            <h2>WINDUP<br><span class="accent">UNIVERSE</span></h2>
-          </div>
-          <div class="universe-axis-grid">
-            <article class="universe-axis tech">
-              <span>Bob Company Chronicle</span>
-              <b class="tech-text">Tech Universe</b>
-              <p>밥의 등산에서 BOB Company와 우주 정화 작업으로 이어지는 세계관</p>
-            </article>
-            <article class="universe-axis fantasy">
-              <span>Under the Heart Queen</span>
-              <b class="fantasy-text">Fantasy Universe</b>
-              <p>하트 여왕의 통치 아래 선물 검수소와 반역자 감옥이 존재하는 세계관</p>
-            </article>
-          </div>
-        </div>
-        <footer class="slide-foot"><span><span class="tech-text">Tech</span> / <span class="fantasy-text">Fantasy</span></span><span class="page-no">02 / 14</span></footer>
-      </div>
-    </div>
-  </section>
-
-  <section class="slide" aria-label="테크와 판타지 세계관">
+  <section class="slide" data-chapter="universe" aria-label="와인드업 세계관 소개">
     <div class="frame">
       <div class="slide-inner">
-        <header class="slide-head"><span class="chapter-mark">Part One · Universe</span><span>Connected Universe</span></header>
-        <div class="universe-layout">
-          <article class="universe-card tech">
-            <div class="universe-title"><span>Bob Company Chronicle</span><b class="tech-text">Tech Universe</b><p>밥의 진짜 정상 도전에서 BOB Company와 OMG로 이어지는 연대기</p></div>
-            <div class="worldline">
-              <div class="world-node"><img src="assets/climb-title.png" alt="CLIMB"><div><b>01 · CLIMB</b><p>끊긴 길을 연결해 진짜 정상에 오른 밥</p></div></div>
-              <div class="world-node"><img src="assets/omg-title.png" alt="OMG"><div><b>02 · OMG</b><p>우주 쓰레기 청소부 면허에 도전하는 지원자들</p></div></div>
-            </div>
-          </article>
-          <article class="universe-card fantasy">
-            <div class="universe-title"><span>Under the Heart Queen</span><b class="fantasy-text">Fantasy Universe</b><p>하트 여왕이 모든 선물과 반역자를 통제하는 독재 세계</p></div>
-            <div class="worldline">
-              <div class="world-node"><img src="assets/HEARTSTAMP.png" alt="HEART STAMP"><div><b>01 · HEART STAMP</b><p>여왕에게 전달되는 선물을 판정하는 검수소</p></div></div>
-              <div class="world-node"><img src="assets/showhand-title.png" alt="SHOWHAND"><div><b>02 · SHOWHAND</b><p>여왕에게 반역한 자들을 가두는 공간</p></div></div>
-            </div>
-          </article>
+        <header class="slide-head"><span class="chapter-mark">Part One</span><span>Universe</span></header>
+        <div class="universe-map">
+          <div class="universe-map-head">
+            <div><span class="eyebrow">01 · WINDUP UNIVERSE</span><h2>WINDUP<br>UNIVERSE</h2></div>
+            <p>테크 연대기와 하트 여왕의 독재 체제</p>
+          </div>
+          <div class="universe-map-grid">
+            <article class="axis-panel tech">
+              <div class="axis-head"><b class="tech-text">Tech Universe</b></div>
+              <div class="axis-flow">
+                <div class="timeline-row">
+                  <div class="timeline-node"><b>CLIMB</b></div>
+                  <span class="timeline-arrow">→</span>
+                  <div class="timeline-node"><b>BOB Company</b></div>
+                  <span class="timeline-arrow">→</span>
+                  <div class="timeline-node"><b>OMG</b></div>
+                </div>
+              </div>
+            </article>
+            <article class="axis-panel fantasy">
+              <div class="axis-head"><b class="fantasy-text">Fantasy Universe</b></div>
+              <div class="axis-flow">
+                <div class="branch-origin"><b>HEART QUEEN</b></div>
+                <div class="branch-connector"></div>
+                <div class="branch-row">
+                  <div class="timeline-node"><b>HEART STAMP</b></div>
+                  <div class="timeline-node"><b>SHOWHAND</b></div>
+                </div>
+              </div>
+            </article>
+          </div>
         </div>
-        <footer class="slide-foot"><span><span class="tech-text">Tech</span> / <span class="fantasy-text">Fantasy</span></span><span class="page-no">04 / 14</span></footer>
+        <footer class="slide-foot"><span><span class="tech-text">Tech</span> / <span class="fantasy-text">Fantasy</span></span><span class="page-no"></span></footer>
       </div>
     </div>
   </section>
 
-  <section class="slide" aria-label="테크 세계관 구분 페이지">
+  <section class="slide" data-chapter="universe" aria-label="테크 세계관 구분 페이지">
     <div class="frame chapter-frame" data-number="T">
       <div class="slide-inner">
-        <header class="slide-head"><span class="chapter-mark">Part One · Universe</span><span>Tech History</span></header>
+        <header class="slide-head"><span class="chapter-mark">Part One · Universe</span><span>Tech Chronicle</span></header>
         <div class="chapter-content">
           <div class="eyebrow tech-text">TECH UNIVERSE</div>
           <h2><span class="tech-text">TECH</span><br>UNIVERSE</h2>
-          <p>CLIMB의 산에서 시작해 BOB Company와 OMG의 면허 시험장으로 이어지는 연대기</p>
+          <p>CLIMB → BOB Company → OMG</p>
         </div>
-        <footer class="slide-foot"><span>CLIMB → BOB Company → OMG</span><span class="page-no">TECH</span></footer>
+        <footer class="slide-foot"><span>TECH CHRONICLE</span><span class="page-no"></span></footer>
       </div>
     </div>
   </section>
 
-  <section class="slide" aria-label="테크 세계관 역사 1 산의 음료 상인">
+  <section class="slide" data-chapter="universe" data-scene="04A" aria-label="테크 연대기 1 산에서 음료를 판매하는 상인 밥">
     <div class="frame history-frame" style="--image:url('assets/history/tech-01-beverage-merchant.png')"><div class="slide-inner">
       <header class="slide-head"><span class="chapter-mark">Part One · Tech History</span><span>CLIMB</span></header>
       <div class="history-slide">
-        <div class="history-copy"><span class="history-index">01 · Merchant</span><div><h2>산을 오르기 시작한 상인</h2><p>등에 음료통을 메고 산을 오르내리며 등산객에게 파란 음료를 판매<br>더 높은 곳으로 장사를 이어가다 모두가 정상이라 믿던 장소 너머의 진짜 정상을 발견</p></div></div>
+        <div class="history-copy"><span class="history-index">04A · Merchant</span><div><h2>산에서 음료를 판매하는 상인 밥</h2><p>등에 음료통을 메고 산을 오르내리며 등산객에게 파란 음료를 판매<br>더 높은 곳으로 장사를 이어가다 모두가 정상이라 믿던 장소 너머의 진짜 정상 발견</p></div></div>
       </div>
-      <footer class="slide-foot"><span>Tech Universe · CLIMB</span><span class="page-no">04A / 14</span></footer>
+      <footer class="slide-foot"><span>TECH UNIVERSE · CLIMB</span><span class="page-no"></span></footer>
     </div></div>
   </section>
 
-  <section class="slide" aria-label="테크 세계관 역사 2 진짜 정상">
-    <div class="frame history-frame" style="--image:url('assets/history/tech-02-true-summit.png')"><div class="slide-inner">
+  <section class="slide" data-chapter="universe" data-scene="04B" aria-label="테크 연대기 2 상인에서 등산객으로">
+    <div class="frame history-frame" style="--image:url('assets/history/tech-02-true-summit.png');--copy-v:flex-start"><div class="slide-inner">
       <header class="slide-head"><span class="chapter-mark">Part One · Tech History</span><span>CLIMB</span></header>
       <div class="history-slide">
-        <div class="history-copy"><span class="history-index">02 · True Summit</span><div><h2>상인에서 등산객으로</h2><p>중간에서 끊겨 있던 진짜 정상으로 향하는 길<br>음료를 팔아 모은 돈으로 길을 직접 연결하고 상인에서 등산객으로 정상에 도착<br>뒤이어 다른 사람들도 밥이 만든 길을 따라 정상으로</p></div></div>
+        <div class="history-copy"><span class="history-index">04B · True Summit</span><div><h2>상인에서 등산객으로</h2><p>중간에서 끊긴 진짜 정상으로 향하는 길<br>음료를 팔아 모은 돈으로 길을 연결하는 과정에서 상인에서 등산객으로 정체성 전환<br>뒤이어 밥이 만든 길을 따라 정상에 도착하는 다른 등산객들</p></div></div>
       </div>
-      <footer class="slide-foot"><span>Tech Universe · CLIMB</span><span class="page-no">04B / 14</span></footer>
+      <footer class="slide-foot"><span>TECH UNIVERSE · CLIMB</span><span class="page-no"></span></footer>
     </div></div>
   </section>
 
-  <section class="slide" aria-label="테크 세계관 역사 3 BOB Company 설립">
-    <div class="frame history-frame" style="--image:url('assets/history/tech-03-bob-company-founding.png')"><div class="slide-inner">
+  <section class="slide" data-chapter="universe" data-scene="04C" aria-label="테크 연대기 3 우주를 향한 꿈">
+    <div class="frame history-frame" style="--image:url('assets/history/tech-03-bob-company-founding.png');--copy-v:flex-start"><div class="slide-inner">
       <header class="slide-head"><span class="chapter-mark">Part One · Tech History</span><span>BOB Company</span></header>
       <div class="history-slide">
-        <div class="history-copy"><span class="history-index">03 · Foundation</span><div><h2>우주를 향한 꿈</h2><p>자신이 연결한 길을 따라 정상에 오른 사람들과 하늘에 뜬 달<br>혼자 도착하는 성취보다 함께 경험하는 기쁨에서 발견한 더 큰 가능성<br>더 많은 사람과 가지 못했던 곳을 향하기 위한 BOB Company의 시작</p></div></div>
+        <div class="history-copy"><span class="history-index">04C · Foundation</span><div><h2>우주를 향한 꿈</h2><p>밥이 연결한 길을 따라 정상에 오른 사람들과 하늘에 뜬 달<br>혼자 도착하는 성취보다 함께 경험하는 기쁨에서 시작된 우주를 향한 꿈<br>더 많은 사람과 미지의 세계에 도달해 기쁨을 나누려는 마음에서 출발한 BOB Company</p></div></div>
       </div>
-      <footer class="slide-foot"><span>Tech Universe · BOB Company</span><span class="page-no">04C / 14</span></footer>
+      <footer class="slide-foot"><span>TECH UNIVERSE · BOB Company</span><span class="page-no"></span></footer>
     </div></div>
   </section>
 
-  <section class="slide" aria-label="테크 세계관 역사 4 왜곡된 유산">
+  <section class="slide" data-chapter="universe" data-scene="04D" aria-label="테크 연대기 4 커진 회사 달라진 방향">
     <div class="frame history-frame" style="--image:url('assets/history/tech-04-distorted-legacy.png')"><div class="slide-inner">
       <header class="slide-head"><span class="chapter-mark">Part One · Tech History</span><span>BOB Company</span></header>
       <div class="history-slide">
-        <div class="history-copy"><span class="history-index">04 · Distorted Legacy</span><div><h2>처음과 달라진 방향</h2><p>음료 회사에서 수백 년에 걸쳐 거대한 우주 기업으로 성장한 BOB Company<br>창업의 이유를 잊은 후손들의 우주여행 독점과 무분별한 자원 채굴<br>쓰레기로 뒤덮인 우주와 지구 주변</p></div></div>
+        <div class="history-copy"><span class="history-index">04D · Expansion</span><div><h2>커진 회사, 달라진 방향</h2><p>음료 회사에서 수백 년에 걸쳐 거대한 우주 기업으로 성장한 BOB Company<br>이동의 기회는 독점 상품으로, 개척은 무분별한 자원 채굴로 변화<br>우주와 지구 궤도에 쌓인 쓰레기, 이상기후와 이상중력</p></div></div>
       </div>
-      <footer class="slide-foot"><span>Tech Universe · BOB Company</span><span class="page-no">04D / 14</span></footer>
+      <footer class="slide-foot"><span>TECH UNIVERSE · BOB Company</span><span class="page-no"></span></footer>
     </div></div>
   </section>
 
-  <section class="slide" aria-label="테크 세계관 역사 5 OMG 면허 시험장">
-    <div class="frame history-frame" style="--image:url('assets/history/tech-05-omg-cleanup.png')"><div class="slide-inner">
+  <section class="slide" data-chapter="universe" data-scene="04E" aria-label="테크 연대기 5 우주 쓰레기 청소부 면허 시험장">
+    <div class="frame history-frame" style="--image:url('assets/history/tech-05-omg-cleanup.png');--copy-v:flex-start"><div class="slide-inner">
       <header class="slide-head"><span class="chapter-mark">Part One · Tech History</span><span>OMG</span></header>
       <div class="history-slide">
-        <div class="history-copy"><span class="history-index">05 · License Test</span><div><h2>우주 청소부 면허 시험장</h2><p>쌓인 우주 쓰레기로 발생한 지구의 이상기후와 이상중력<br>지구 주변과 우주 공간을 정화할 청소부를 양성하는 BOB Company<br>중력 장비를 다루며 우주 쓰레기 청소부 면허에 도전하는 지원자들</p></div></div>
+        <div class="history-copy"><span class="history-index">04E · License Test</span><div><h2>우주 쓰레기 청소부 면허 시험장</h2><p>지구 주변과 우주 공간을 정화할 인력을 양성하는 BOB Company<br>중력 장비 운용과 위험 구역 통과를 평가하는 면허 시험<br>우주 쓰레기 청소부 면허에 도전하는 지원자들</p></div></div>
       </div>
-      <footer class="slide-foot"><span>Tech Universe · OMG</span><span class="page-no">04E / 14</span></footer>
+      <footer class="slide-foot"><span>TECH UNIVERSE · OMG</span><span class="page-no"></span></footer>
     </div></div>
   </section>
 
-  <section class="slide" aria-label="판타지 세계관 구분 페이지">
+  <section class="slide" data-chapter="universe" aria-label="판타지 세계관 구분 페이지">
     <div class="frame chapter-frame" data-number="F">
       <div class="slide-inner">
-        <header class="slide-head"><span class="chapter-mark">Part One · Universe</span><span>Fantasy History</span></header>
+        <header class="slide-head"><span class="chapter-mark">Part One · Universe</span><span>Fantasy Structure</span></header>
         <div class="chapter-content">
           <div class="eyebrow fantasy-text">FANTASY UNIVERSE</div>
           <h2><span class="fantasy-text">FANTASY</span><br>UNIVERSE</h2>
-          <p>하트 여왕의 독재 아래 놓인 선물 검수소와 반역자 수용소</p>
+          <p>하트 여왕의 독재 → [선물 검수소 ∥ 반역자 수용소]</p>
         </div>
-        <footer class="slide-foot"><span>Heart Queen → Inspection → Prison</span><span class="page-no">FANTASY</span></footer>
+        <footer class="slide-foot"><span>PARALLEL STRUCTURE</span><span class="page-no"></span></footer>
       </div>
     </div>
   </section>
 
-  <section class="slide" aria-label="판타지 세계관 역사 1 하트 여왕의 통치">
+  <section class="slide" data-chapter="universe" data-scene="04F" aria-label="판타지 구조 1 하트 여왕의 독재">
     <div class="frame history-frame" style="--image:url('assets/history/fantasy-01-heart-queen.png')"><div class="slide-inner">
-      <header class="slide-head"><span class="chapter-mark">Part One · Fantasy History</span><span>Heart Queen</span></header>
+      <header class="slide-head"><span class="chapter-mark">Part One · Fantasy Structure</span><span>하트 여왕</span></header>
       <div class="history-slide fantasy">
-        <div class="history-copy"><span class="history-index">01 · Dictatorship</span><div><h2>하트 여왕의 독재</h2><p>하트 여왕이 절대 권력을 행사하는 독재 사회<br>여왕에게 들어오는 물건과 사람에 대한 엄격한 통제<br>명령을 거부하거나 체제에 저항한 시민은 반역자로 처벌</p></div></div>
+        <div class="history-copy"><span class="history-index">04F · Dictatorship</span><div><h2>하트 여왕의 독재</h2><p>절대 권력을 가진 하트 여왕<br>여왕에게 들어오는 물건과 사람에 대한 엄격한 통제<br>명령을 거부하거나 체제에 저항한 시민은 반역자로 분류</p></div></div>
       </div>
-      <footer class="slide-foot"><span>Fantasy Universe · Heart Queen</span><span class="page-no">04F / 14</span></footer>
+      <footer class="slide-foot"><span>FANTASY UNIVERSE · 하트 여왕</span><span class="page-no"></span></footer>
     </div></div>
   </section>
 
-  <section class="slide" aria-label="판타지 세계관 역사 2 HEART STAMP">
+  <section class="slide" data-chapter="universe" data-scene="04G" aria-label="판타지 구조 2 여왕의 선물 검수소">
     <div class="frame history-frame" style="--image:url('assets/history/fantasy-02-heart-stamp-inspection.png')"><div class="slide-inner">
-      <header class="slide-head"><span class="chapter-mark">Part One · Fantasy History</span><span>HEART STAMP</span></header>
+      <header class="slide-head"><span class="chapter-mark">Part One · Fantasy Structure</span><span>HEART STAMP</span></header>
       <div class="history-slide fantasy">
-        <div class="history-copy"><span class="history-index">02 · Inspection</span><div><h2>여왕에게 보내는 선물 검수</h2><p>여왕에게 전달되기 전 반드시 검수소를 거치는 모든 선물<br>포장을 열어 내용물을 확인하고 통과 여부를 판정<br>통과한 선물에는 하트 도장, 기준에서 벗어난 물건은 폐기</p></div></div>
+        <div class="history-copy"><span class="history-index">04G · Inspection</span><div><h2>여왕의 선물 검수소</h2><p>여왕에게 전달되는 모든 선물이 반드시 거치는 검수소<br>통과한 물건만 궁 안으로 반입, 기준에서 벗어난 물건은 폐기<br>여왕에게 들어오는 물건을 통제하는 독재 체제의 관문</p></div></div>
       </div>
-      <footer class="slide-foot"><span>Fantasy Universe · HEART STAMP</span><span class="page-no">04G / 14</span></footer>
+      <footer class="slide-foot"><span>FANTASY UNIVERSE · HEART STAMP</span><span class="page-no"></span></footer>
     </div></div>
   </section>
 
-  <section class="slide" aria-label="판타지 세계관 역사 3 SHOWHAND">
-    <div class="frame history-frame" style="--image:url('assets/history/fantasy-03-showhand-prison.png')"><div class="slide-inner">
-      <header class="slide-head"><span class="chapter-mark">Part One · Fantasy History</span><span>SHOWHAND</span></header>
+  <section class="slide" data-chapter="universe" data-scene="04H" aria-label="판타지 구조 3 반역자 수용소">
+    <div class="frame history-frame" style="--image:url('assets/history/fantasy-03-showhand-prison.png');--copy-v:flex-start"><div class="slide-inner">
+      <header class="slide-head"><span class="chapter-mark">Part One · Fantasy Structure</span><span>SHOWHAND</span></header>
       <div class="history-slide fantasy">
-        <div class="history-copy"><span class="history-index">03 · Prison</span><div><h2>반역자들이 모이는 곳</h2><p>하트 여왕의 명령에 반대하거나 체제에 저항한 사람들의 수감소<br>반역자로 분류된 인물들이 카드와 전투 규칙으로 생존을 겨루는 폐쇄 공간</p></div></div>
+        <div class="history-copy"><span class="history-index">04H · Prison</span><div><h2>반역자 수용소</h2><p>하트 여왕의 명령을 거부하거나 체제에 저항한 사람들이 수용되는 공간<br>외부와 단절된 채 반역자들을 통제하고 처벌하는 폐쇄 시설</p></div></div>
       </div>
-      <footer class="slide-foot"><span>Fantasy Universe · SHOWHAND</span><span class="page-no">04H / 14</span></footer>
+      <footer class="slide-foot"><span>FANTASY UNIVERSE · SHOWHAND</span><span class="page-no"></span></footer>
     </div></div>
   </section>
 
-  <section class="slide" aria-label="파트 2 다섯 게임">
+  <section class="slide" data-chapter="projects" aria-label="파트 2 프로젝트">
     <div class="frame chapter-frame" data-number="2">
       <div class="slide-inner">
-        <header class="slide-head"><span class="chapter-mark">Part Two</span><span>Five Games</span></header>
+        <header class="slide-head"><span class="chapter-mark">Part Two</span><span>Projects</span></header>
         <div class="chapter-content">
-          <div class="eyebrow">02 · FIVE GAMES</div>
-          <h2><span class="accent">게임 라인업</span></h2>
+          <div class="eyebrow">02 · PROJECTS</div>
+          <h2>PROJECTS</h2>
+          <p>CLIMB · OMG · HEART STAMP · SHOWHAND · RIB</p>
         </div>
-        <footer class="slide-foot"><span>Prototype → Demo → Release</span><span class="page-no">05 / 14</span></footer>
+        <footer class="slide-foot"><span>5 TITLES</span><span class="page-no"></span></footer>
       </div>
     </div>
   </section>
 
-  <section class="slide" aria-label="CLIMB 게임 소개">
-    <div class="frame visual" style="--image:url('assets/climb-title.png')">
+  <section class="slide" data-chapter="projects" aria-label="CLIMB 게임 소개">
+    <div class="frame visual game-intro tech-intro" style="--image:url('assets/climb-title.png');--copy-x:42px;--copy-y:82px;--copy-w:41%">
       <div class="slide-inner">
-        <header class="slide-head"><span class="chapter-mark">Game 01 · Tech</span><span>CLIMB</span></header>
         <div class="game-layout description-only">
-          <div class="game-copy"><span class="game-number">01 / 05</span><h2>CLIMB</h2><div class="tagline">음료를 팔며 정상으로 올라가는<br>등반 시뮬레이션</div><p>등에 음료통을 메고 산을 오르내리며 파란 음료를 판매<br>번 돈으로 끊긴 길을 복구해 모두가 알지 못했던 진짜 정상까지</p><div class="facts"><span class="fact">PC</span><span class="fact">Simulation</span><span class="fact">Incremental</span><span class="fact">Solo</span></div></div>
+          <div class="game-copy"><span class="game-number">01 / 05 · TECH</span><div class="tagline">운반 → 판매 → 길 복구</div><p>음료통을 메고 산을 오르내리며 다른 등산객에게 파란 음료를 판매<br>번 돈으로 끊긴 길을 연결해 진짜 정상으로 향하는 등반 시뮬레이션</p><div class="facts"><span class="fact">PC</span><span class="fact">Simulation</span><span class="fact">Solo</span></div></div>
         </div>
-        <footer class="slide-foot"><span>Climb · Carry · Sell · Grow</span><span class="page-no">06 / 14</span></footer>
+        <footer class="slide-foot"><span>TECH · SOLO SIMULATION</span><span class="page-no"></span></footer>
       </div>
     </div>
   </section>
 
-  <section class="slide video-slide" aria-label="CLIMB 영상">
+  <section class="slide video-slide" data-chapter="projects" data-media aria-label="CLIMB 영상">
     <div class="frame video-frame">
       <div class="slide-inner">
-        <header class="slide-head"><span class="chapter-mark">Game 01 · Video</span><span>CLIMB</span></header>
-        <div class="video-layout"><div class="media-shell" data-video="assets/videos/climb.mp4"><img src="assets/climb-title.png" alt="CLIMB 프로토타입 영상 포스터"><div class="media-placeholder"><span class="play-mark">▶</span><div class="media-label"><b>PROTOTYPE / CURRENT BUILD</b><span>CLIMB.MP4</span></div></div></div><div class="video-caption"><span>Prototype / Current Build</span><span>assets/videos/climb.mp4</span></div></div>
-        <footer class="slide-foot"><span>Video</span><span class="page-no">06A / 14</span></footer>
+        <div class="video-layout"><div class="media-shell" data-video="assets/videos/climb.mp4"><img src="assets/climb-title.png" alt="CLIMB 영상 포스터"></div></div>
       </div>
     </div>
   </section>
 
-  <section class="slide" aria-label="OMG 게임 소개">
-    <div class="frame visual" style="--image:url('assets/omg-title.png')">
+  <section class="slide" data-chapter="projects" aria-label="OMG 게임 소개">
+    <div class="frame visual game-intro tech-intro" style="--image:url('assets/omg-title.png');--copy-x:42px;--copy-y:82px;--copy-w:38%">
       <div class="slide-inner">
-        <header class="slide-head"><span class="chapter-mark">Game 02 · Tech</span><span>OMG</span></header>
         <div class="game-layout description-only">
-          <div class="game-copy"><span class="game-number">02 / 05</span><h2>OMG</h2><div class="tagline">우주 쓰레기 청소부 면허에 도전하는<br>협동 퍼즐 플랫폼 게임</div><p>지구 주변과 우주 공간을 정화할 BOB Company의 우주 쓰레기 청소부 면허 시험장<br>동료와 중력 장비를 활용해 잔해를 옮기고 위험 구역을 통과하는 지원자들</p><div class="facts"><span class="fact">PC</span><span class="fact">Co-op</span><span class="fact">Puzzle</span><span class="fact">Platformer</span></div></div>
+          <div class="game-copy"><span class="game-number">02 / 05 · TECH</span><div class="tagline">중력 장비 → 협동 시험 → 면허 취득</div><p>BOB Company가 운영하는 우주 쓰레기 청소부 면허 시험장<br>동료와 중력 장비를 연결해 잔해를 옮기고 위험 구역을 통과하는 지원자들</p><div class="facts"><span class="fact">PC</span><span class="fact">Co-op</span><span class="fact">Puzzle Platformer</span></div></div>
         </div>
-        <footer class="slide-foot"><span>Aim · Connect · Traverse · Together</span><span class="page-no">07 / 14</span></footer>
+        <footer class="slide-foot"><span>TECH · CO-OP PUZZLE PLATFORMER</span><span class="page-no"></span></footer>
       </div>
     </div>
   </section>
 
-  <section class="slide video-slide" aria-label="OMG 영상">
+  <section class="slide video-slide" data-chapter="projects" data-media aria-label="OMG 영상">
     <div class="frame video-frame">
       <div class="slide-inner">
-        <header class="slide-head"><span class="chapter-mark">Game 02 · Video</span><span>OMG</span></header>
-        <div class="video-layout"><div class="media-shell" data-video="assets/videos/omg.mp4"><img src="assets/omg-title.png" alt="OMG 프로토타입 영상 포스터"><div class="media-placeholder"><span class="play-mark">▶</span><div class="media-label"><b>PROTOTYPE / CURRENT BUILD</b><span>OMG.MP4</span></div></div></div><div class="video-caption"><span>Prototype / Current Build</span><span>assets/videos/omg.mp4</span></div></div>
-        <footer class="slide-foot"><span>Video</span><span class="page-no">07A / 14</span></footer>
+        <div class="video-layout"><div class="media-shell" data-video="assets/videos/omg.mp4"><img src="assets/omg-title.png" alt="OMG 영상 포스터"></div></div>
       </div>
     </div>
   </section>
 
-  <section class="slide" aria-label="HEART STAMP 게임 소개">
-    <div class="frame visual" style="--image:url('assets/HEARTSTAMP.png')">
+  <section class="slide" data-chapter="projects" aria-label="HEART STAMP 게임 소개">
+    <div class="frame visual game-intro fantasy-intro" style="--image:url('assets/HEARTSTAMP.png');--copy-x:42px;--copy-y:82px;--copy-w:40%">
       <div class="slide-inner">
-        <header class="slide-head"><span class="chapter-mark">Game 03 · Fantasy</span><span>HEART STAMP</span></header>
         <div class="game-layout description-only">
-          <div class="game-copy"><span class="game-number">03 / 05</span><h2>HEART<br>STAMP</h2><div class="tagline">여왕에게 보낼 선물을 검사하는<br>검수 시뮬레이션</div><p>하트 여왕에게 전달될 선물의 포장을 직접 열어 내용물을 확인<br>여왕의 기준을 통과한 물건에만 찍히는 하트 도장</p><div class="facts"><span class="fact">PC</span><span class="fact">Simulation</span><span class="fact">Inspection</span><span class="fact">Judgment</span></div></div>
+          <div class="game-copy"><span class="game-number">03 / 05 · FANTASY</span><div class="tagline">개봉 → 검수 → 판정</div><p>하트 여왕에게 전달될 선물의 포장을 열어 내용물을 확인<br>통과한 물건에만 하트 도장을 찍는 검수 시뮬레이션</p><div class="facts"><span class="fact">PC</span><span class="fact">Simulation</span><span class="fact">Inspection</span></div></div>
         </div>
-        <footer class="slide-foot"><span>Open · Inspect · Judge · Stamp</span><span class="page-no">08 / 14</span></footer>
+        <footer class="slide-foot"><span>FANTASY · INSPECTION SIMULATION</span><span class="page-no"></span></footer>
       </div>
     </div>
   </section>
 
-  <section class="slide video-slide" aria-label="HEART STAMP 영상">
+  <section class="slide video-slide" data-chapter="projects" data-media aria-label="HEART STAMP 영상">
     <div class="frame video-frame">
       <div class="slide-inner">
-        <header class="slide-head"><span class="chapter-mark">Game 03 · Video</span><span>HEART STAMP</span></header>
-        <div class="video-layout"><div class="media-shell" data-video="assets/videos/heart-stamp.mp4"><img src="assets/HEARTSTAMP.png" alt="HEART STAMP 프로토타입 영상 포스터"><div class="media-placeholder"><span class="play-mark">▶</span><div class="media-label"><b>PROTOTYPE / CURRENT BUILD</b><span>HEART-STAMP.MP4</span></div></div></div><div class="video-caption"><span>Prototype / Current Build</span><span>assets/videos/heart-stamp.mp4</span></div></div>
-        <footer class="slide-foot"><span>Video</span><span class="page-no">08A / 14</span></footer>
+        <div class="video-layout"><div class="media-shell" data-video="assets/videos/heart-stamp.mp4"><img src="assets/HEARTSTAMP.png" alt="HEART STAMP 영상 포스터"></div></div>
       </div>
     </div>
   </section>
 
-  <section class="slide" aria-label="SHOWHAND 게임 소개">
-    <div class="frame visual" style="--image:url('assets/showhand-title.png')">
+  <section class="slide" data-chapter="projects" aria-label="SHOWHAND 게임 소개">
+    <div class="frame visual game-intro fantasy-intro" style="--image:url('assets/showhand-title.png');--copy-x:42px;--copy-y:82px;--copy-w:40%">
       <div class="slide-inner">
-        <header class="slide-head"><span class="chapter-mark">Game 04 · Fantasy</span><span>SHOWHAND</span></header>
         <div class="game-layout description-only">
-          <div class="game-copy"><span class="game-number">04 / 05</span><h2>SHOWHAND</h2><div class="tagline">반역자 수용소를 배경으로 한<br>카드 액션 로그라이크</div><p>하트 여왕에게 반역한 사람들이 갇힌 수용소 SHOWHAND<br>카드 조합과 순간 판단, 반복 전투로 확장되는 전투 방식</p><div class="facts"><span class="fact">PC</span><span class="fact">Action</span><span class="fact">Roguelike</span><span class="fact">Poker</span></div></div>
+          <div class="game-copy"><span class="game-number">04 / 05 · FANTASY</span><div class="tagline">카드 조합 → 전투 → 탈출</div><p>하트 여왕에게 반역한 사람들이 갇힌 반역자 수용소<br>카드 조합과 순간 판단으로 전투를 이어가는 액션 로그라이크</p><div class="facts"><span class="fact">PC</span><span class="fact">Action Roguelike</span><span class="fact">Card Combat</span></div></div>
         </div>
-        <footer class="slide-foot"><span>Draw · Decide · Strike · Repeat</span><span class="page-no">09 / 14</span></footer>
+        <footer class="slide-foot"><span>FANTASY · CARD ACTION ROGUELIKE</span><span class="page-no"></span></footer>
       </div>
     </div>
   </section>
 
-  <section class="slide video-slide" aria-label="SHOWHAND 영상">
+  <section class="slide video-slide" data-chapter="projects" data-media aria-label="SHOWHAND 영상">
     <div class="frame video-frame">
       <div class="slide-inner">
-        <header class="slide-head"><span class="chapter-mark">Game 04 · Video</span><span>SHOWHAND</span></header>
-        <div class="video-layout"><div class="media-shell" data-video="assets/videos/showhand.mp4"><img src="assets/showhand-title.png" alt="SHOWHAND 현황 영상 포스터"><div class="media-placeholder"><span class="play-mark">▶</span><div class="media-label"><b>PROTOTYPE / CURRENT BUILD</b><span>SHOWHAND.MP4</span></div></div></div><div class="video-caption"><span>Prototype / Current Build</span><span>assets/videos/showhand.mp4</span></div></div>
-        <footer class="slide-foot"><span>Video</span><span class="page-no">09A / 14</span></footer>
+        <div class="video-layout"><div class="media-shell" data-video="assets/videos/showhand.mp4"><img src="assets/showhand-title.png" alt="SHOWHAND 영상 포스터"></div></div>
       </div>
     </div>
   </section>
 
-  <section class="slide" aria-label="RIB 게임 소개">
-    <div class="frame visual" style="--image:url('assets/RIB_Title.png')">
+  <section class="slide" data-chapter="projects" aria-label="RIB 게임 소개">
+    <div class="frame visual game-intro" style="--image:url('assets/RIB_Title.png');--copy-x:42px;--copy-y:82px;--copy-w:38%">
       <div class="slide-inner">
-        <header class="slide-head"><span class="chapter-mark">Game 05 · Crossover Spinoff</span><span>RIB · Rest in Beach</span></header>
         <div class="game-layout description-only">
-          <div class="game-copy"><span class="game-number">05 / 05</span><h2>RIB</h2><div class="tagline">피서객을 구조하는<br>탑다운 협동 게임</div><p>위기에 처한 피서객을 구조하는 뚱뚱하고 귀여운 라이프가드들<br>역할 분담으로 여러 사고에 대응하고, 기존 캐릭터들은 피서객 NPC로 카메오 등장</p><div class="facts"><span class="fact">PC</span><span class="fact">Co-op</span><span class="fact">Top-down</span><span class="fact">Rescue Party</span><span class="fact">Spinoff</span></div></div>
+          <div class="game-copy"><span class="game-number">05 / 05 · CROSSOVER SPINOFF</span><div class="tagline">역할 분담 → 동시 구조</div><p>본편 연대기 밖에서 여러 작품의 캐릭터가 피서객으로 등장하는 별도 크로스오버<br>라이프가드들이 역할을 나눠 해변과 바다의 구조 상황에 대응하는 탑다운 협동 게임</p><div class="facts"><span class="fact">PC</span><span class="fact">Co-op</span><span class="fact">Top-down Rescue</span></div></div>
         </div>
-        <footer class="slide-foot"><span>Rescue · Cooperate · Survive the Vacation</span><span class="page-no">10 / 14</span></footer>
+        <footer class="slide-foot"><span>CROSSOVER SPINOFF · TOP-DOWN CO-OP</span><span class="page-no"></span></footer>
       </div>
     </div>
   </section>
 
-  <section class="slide" aria-label="RIB 인게임 예시 보트 조작">
+  <section class="slide" data-chapter="projects" data-media aria-label="RIB 인게임 예시 보트 조작">
     <div class="frame gameplay-frame image-only-frame" style="--image:url('assets/rib-gameplay-boat.png')"></div>
   </section>
 
-  <section class="slide" aria-label="RIB 인게임 예시 해변 구조">
+  <section class="slide" data-chapter="projects" data-media aria-label="RIB 인게임 예시 해변 구조">
     <div class="frame gameplay-frame image-only-frame" style="--image:url('assets/rib-gameplay-rescue.png')"></div>
   </section>
 
-  <section class="slide" aria-label="파트 3 장기 IP 확장 계획">
+  <section class="slide" data-chapter="ip" aria-label="파트 3 장기 IP 확장 계획">
     <div class="frame chapter-frame" data-number="3">
       <div class="slide-inner">
         <header class="slide-head"><span class="chapter-mark">Part Three</span><span>Long-term IP Plan</span></header>
         <div class="ip-plan">
           <div class="ip-plan-head">
-            <div><span class="eyebrow">03 · IP EXPANSION</span><h2>인디 5종에서<br><span class="accent">최종 AAA까지</span></h2></div>
-            <p>두 세계관의 인디 프로젝트로 기반을 만들고, 싱글 A를 거쳐 테크와 판타지가 만나는 최종 타이틀로 확장</p>
+            <div><span class="eyebrow">03 · LONG-TERM IP PLAN</span><h2>INDIE 5<br><span class="accent">→ SINGLE A 2 → AAA 1</span></h2></div>
+            <p>인디 5종 이후 프로젝트 규모와 세계관 연결을 단계적으로 확장</p>
           </div>
           <div class="ip-stage-grid">
-            <article class="ip-stage" data-step="01"><span>Foundation</span><b>INDIE · 5 TITLES</b><p>CLIMB · OMG · HEART STAMP · SHOWHAND · RIB</p></article>
-            <article class="ip-stage" data-step="02"><span>Expansion</span><b>SINGLE A · 2 TITLES</b><p>BOB COMPANY · DASHIFT</p></article>
-            <article class="ip-stage" data-step="03"><span>Final Goal</span><b>AAA · TWO SKIES</b><p>테크와 판타지가 격돌하는 최종 어드벤처</p></article>
+            <article class="ip-stage" data-step="01"><span>First Step</span><b>INDIE · 5 TITLES</b><p>본편 세계관 4종<br>CLIMB · OMG · HEART STAMP · SHOWHAND<br><span class="accent">별도 크로스오버 1종 · RIB</span></p></article>
+            <article class="ip-stage" data-step="02"><span>Next</span><b>SINGLE A · 2 TITLES</b><p>BOB COMPANY · DASHIFT</p></article>
+            <article class="ip-stage" data-step="03"><span>Final</span><b>AAA · 1 TITLE</b><p>TWO SKIES<br>테크와 판타지의 본편 격돌</p></article>
           </div>
         </div>
-        <footer class="slide-foot"><span>Indie → Single A → AAA</span><span class="page-no">LONG-TERM PLAN</span></footer>
+        <footer class="slide-foot"><span>INDIE 5 → SINGLE A 2 → AAA 1</span><span class="page-no"></span></footer>
       </div>
     </div>
   </section>
 
-  <section class="slide" aria-label="장기 IP 계획 1 인디게임 5종">
+  <section class="slide" data-chapter="ip" aria-label="장기 IP 계획 싱글 A 게임 2종">
     <div class="frame">
       <div class="slide-inner">
-        <header class="slide-head"><span class="chapter-mark">Part Three · IP Expansion</span><span>Stage 01 · Indie</span></header>
-        <div class="ip-lineup">
-          <div class="ip-lineup-head">
-            <div><span class="eyebrow">STAGE 01 · FOUNDATION</span><h2>INDIE<br><span class="accent">5 TITLES</span></h2></div>
-            <p>현재 개발 중인 다섯 게임으로 두 세계관의 핵심 설정과 플레이 기반 확보</p>
-          </div>
-          <div class="ip-title-strip">
-            <article class="ip-title-card"><img src="assets/climb-title.png" alt="CLIMB"><div><span>01 · TECH</span><b>CLIMB</b></div></article>
-            <article class="ip-title-card"><img src="assets/omg-title.png" alt="OMG"><div><span>02 · TECH</span><b>OMG</b></div></article>
-            <article class="ip-title-card"><img src="assets/HEARTSTAMP.png" alt="HEART STAMP"><div><span>03 · FANTASY</span><b>HEART STAMP</b></div></article>
-            <article class="ip-title-card"><img src="assets/showhand-title.png" alt="SHOWHAND"><div><span>04 · FANTASY</span><b>SHOWHAND</b></div></article>
-            <article class="ip-title-card"><img src="assets/RIB_Title.png" alt="RIB"><div><span>05 · SPINOFF</span><b>RIB</b></div></article>
-          </div>
-        </div>
-        <footer class="slide-foot"><span>Two Universes · Five Starting Points</span><span class="page-no">STAGE 01</span></footer>
-      </div>
-    </div>
-  </section>
-
-  <section class="slide" aria-label="장기 IP 계획 2 싱글 A 게임 2종">
-    <div class="frame">
-      <div class="slide-inner">
-        <header class="slide-head"><span class="chapter-mark">Part Three · IP Expansion</span><span>Stage 02 · Single A</span></header>
+        <header class="slide-head"><span class="chapter-mark">Part Three · IP Expansion</span><span>Single A · 2 Titles</span></header>
         <div class="ip-projects">
           <article class="ip-project-card">
             <img src="assets/bob-company-title.png" alt="BOB COMPANY">
-            <div class="ip-project-copy"><span>Single A · Tech Universe</span><h3>BOB COMPANY</h3><p>CLIMB 이후, OMG 이전<br>음료 회사로 시작한 BOB Company가 우주 산업으로 확장되는 과정</p></div>
+            <div class="ip-project-copy"><span>WORLD TIMELINE · CLIMB → BOB COMPANY → OMG</span><p>CLIMB 이후, OMG 이전<br>음료 회사로 출발한 BOB Company가 우주 산업으로 확장되는 시대</p></div>
           </article>
           <article class="ip-project-card fantasy">
             <img src="assets/DASHIFT.png" alt="DASHIFT">
-            <div class="ip-project-copy"><span>Single A · Fantasy Universe</span><h3>DASHIFT</h3><p>SHOWHAND에서 탈출한 플레이어와 붉은 여왕의 대결<br>카드 조합으로 전투와 이동을 설계하는 덱빌딩 액션 게임</p></div>
+            <div class="ip-project-copy"><span>WORLD TIMELINE · SHOWHAND 이후</span><p>SHOWHAND에서 탈출한 플레이어가 하트 여왕에게 도전<br>카드 조합으로 전투와 이동을 설계하는 덱빌딩 액션</p></div>
           </article>
         </div>
-        <footer class="slide-foot"><span>BOB COMPANY / DASHIFT</span><span class="page-no">STAGE 02</span></footer>
+        <footer class="slide-foot"><span>DEVELOPMENT STAGE · SINGLE A</span><span class="page-no"></span></footer>
       </div>
     </div>
   </section>
 
-  <section class="slide" aria-label="장기 IP 계획 3 최종 AAA TWO SKIES">
+  <section class="slide" data-chapter="ip" aria-label="장기 IP 계획 최종 AAA TWO SKIES">
     <div class="frame visual" style="--image:url('assets/two-skies-title.png')">
       <div class="slide-inner">
-        <header class="slide-head"><span class="chapter-mark">Part Three · IP Expansion</span><span>Stage 03 · Final Goal</span></header>
+        <header class="slide-head"><span class="chapter-mark">Part Three · IP Expansion</span><span>AAA · Final Goal</span></header>
         <div class="ip-final">
-          <div class="ip-final-copy"><span>AAA · FINAL GOAL</span><h2>TWO<br>SKIES</h2><p>테크 세계관과 판타지 세계관이 정면으로 격돌하는 대형 어드벤처 게임<br>각 타이틀에서 확장한 인물과 사건이 하나로 모이는 와인드업 IP의 최종 단계</p></div>
+          <div class="ip-final-copy"><span>TECH UNIVERSE × FANTASY UNIVERSE</span><p>테크 세계관과 판타지 세계관이 본편에서 정면으로 격돌하는 AAA 어드벤처<br>각 타이틀의 인물과 사건이 한 지점으로 모이는 장기 IP의 최종 단계</p></div>
         </div>
-        <footer class="slide-foot"><span>Tech Universe × Fantasy Universe</span><span class="page-no">STAGE 03</span></footer>
+        <footer class="slide-foot"><span>AAA · FINAL GOAL</span><span class="page-no"></span></footer>
       </div>
     </div>
   </section>
 
-  <section class="slide" aria-label="파트 4 출시 계획">
+  <section class="slide" data-chapter="release" aria-label="파트 4 출시 계획">
     <div class="frame chapter-frame" data-number="4">
       <div class="slide-inner">
         <header class="slide-head"><span class="chapter-mark">Part Four</span><span>Release Plan</span></header>
         <div class="chapter-content">
-          <div class="eyebrow">04 · 2026–2027 ROADMAP</div>
-          <h2><span class="accent">2026–2027</span><br>출시 일정</h2>
+          <div class="eyebrow">04 · RELEASE PLAN</div>
+          <h2>LONG-TERM VISION<br><span class="accent">→ NEXT 12 MONTHS</span></h2>
+          <p>2026.08–2027.07</p>
         </div>
-        <footer class="slide-foot"><span>Wishlist → Demo → Festival → Launch</span><span class="page-no">11 / 14</span></footer>
+        <footer class="slide-foot"><span>2026.08–2027.07</span><span class="page-no"></span></footer>
       </div>
     </div>
   </section>
 
-  <section class="slide" aria-label="2026 2027 출시 로드맵">
+  <section class="slide" data-chapter="release" aria-label="2026 2027 출시 로드맵">
     <div class="frame">
       <div class="slide-inner">
         <header class="slide-head"><span class="chapter-mark">Part Four · Roadmap</span><span>Aug 2026 — Jul 2027</span></header>
@@ -781,42 +813,29 @@
           <div class="roadmap-head"><div><span class="eyebrow">12-MONTH RELEASE PLAN</span><h2>2026 → 2027</h2></div><div class="roadmap-legend"><span>Milestone</span><span class="release">Release</span></div></div>
           <div class="roadmap-chart" aria-label="게임 출시 일정 그래프">
             <div class="corner">GAME / MONTH</div><div class="month">26.08</div><div class="month">26.09</div><div class="month">26.10</div><div class="month">26.11</div><div class="month">26.12</div><div class="month year-start">27.01</div><div class="month">27.02</div><div class="month">27.03</div><div class="month">27.04</div><div class="month">27.05</div><div class="month">27.06</div><div class="month">27.07</div>
-            <div class="game-label">CLIMB</div><div class="track year-cut"><span class="event" style="left:4.166%">상점</span><span class="event" style="left:12.5%">데모</span><span class="event" style="left:20.833%">NEXT FEST</span><span class="event release" style="left:29.166%">출시</span></div>
-            <div class="game-label">OMG</div><div class="track year-cut"><span class="event" style="left:4.166%">상점</span><span class="event" style="left:12.5%">데모</span><span class="event" style="left:20.833%">NEXT FEST</span><span class="event release" style="left:29.166%">출시</span></div>
-            <div class="game-label">HEART STAMP</div><div class="track year-cut"><span class="event" style="left:29.166%">상점</span><span class="event" style="left:37.5%">데모</span><span class="event" style="left:54.166%">NEXT FEST</span><span class="event release" style="left:62.5%">출시</span></div>
-            <div class="game-label">SHOWHAND</div><div class="track year-cut"><span class="event range plan" style="left:50%;width:31%">2027 상반기 · 아트 재정비 후 출시</span></div>
-            <div class="game-label">RIB</div><div class="track year-cut"><span class="event" style="left:54.166%">상점</span><span class="event" style="left:70.833%">데모</span><span class="event" style="left:87.5%">NEXT FEST</span><span class="event release" style="left:95.833%">출시</span></div>
+            <div class="game-label">CLIMB</div><div class="track year-cut"><span class="event" style="left:4.166%">상점 페이지</span><span class="event" style="left:12.5%">데모</span><span class="event" style="left:20.833%">NEXT FEST</span><span class="event release" style="left:29.166%">출시</span></div>
+            <div class="game-label">OMG</div><div class="track year-cut"><span class="event" style="left:4.166%">상점 페이지</span><span class="event" style="left:12.5%">데모</span><span class="event" style="left:20.833%">NEXT FEST</span><span class="event release" style="left:29.166%">출시</span></div>
+            <div class="game-label">HEART STAMP</div><div class="track year-cut"><span class="event" style="left:29.166%">상점 페이지</span><span class="event" style="left:37.5%">데모</span><span class="event" style="left:54.166%">NEXT FEST</span><span class="event release" style="left:62.5%">출시</span></div>
+            <div class="game-label">SHOWHAND</div><div class="track year-cut"><span class="event range plan" style="left:66.667%;width:50%">27.01–06 · 아트 재정비 후 출시 목표</span></div>
+            <div class="game-label">RIB</div><div class="track year-cut"><span class="event" style="left:54.166%">상점 페이지</span><span class="event" style="left:70.833%">데모</span><span class="event" style="left:87.5%">NEXT FEST</span><span class="event release" style="left:95.833%">출시</span></div>
           </div>
-          <div class="roadmap-callout"><b>핵심 출시 창</b><span>26.11 CLIMB · OMG → 27.03 HEART STAMP → 27 상반기 SHOWHAND → 27.07 RIB</span></div>
+          <div class="release-waves">
+            <div class="release-wave"><small>Wave 01 · Tech</small><b>26.11 · CLIMB / OMG</b></div>
+            <div class="release-wave fantasy"><small>Wave 02 · Fantasy</small><b>27.03 / 2027 H1 · HEART STAMP / SHOWHAND</b></div>
+            <div class="release-wave crossover"><small>Wave 03 · Crossover</small><b>27.07 · RIB</b></div>
+          </div>
         </div>
-        <footer class="slide-foot"><span>Store · Demo · Next Fest · Release</span><span class="page-no">12 / 14</span></footer>
+        <footer class="slide-foot"><span>TECH 2 → FANTASY 2 → CROSSOVER 1</span><span class="page-no"></span></footer>
       </div>
     </div>
   </section>
 
-  <section class="slide" aria-label="출시 전략 요약">
+  <section class="slide" data-chapter="release" aria-label="마무리">
     <div class="frame">
       <div class="slide-inner">
-        <header class="slide-head"><span class="chapter-mark">Part Four · Roadmap</span><span>Operating rhythm</span></header>
-        <div class="premise">
-          <div><span class="eyebrow">ONE YEAR · FIVE RELEASES</span><h2>한 게임의 관심에서<br>다음 게임의<br>시작으로</h2><p class="lead">짧은 간격의 공개와 출시로 쌓이는 스튜디오 인지도와 두 세계관의 팬층</p></div>
-          <div class="signal-stack">
-            <article class="signal"><span class="num">01</span><div><b>2026 Q3 · 첫 공개</b><p>CLIMB·OMG 상점 페이지와 데모로 확보하는 첫 관심</p></div></article>
-            <article class="signal"><span class="num">02</span><div><b>2026 Q4–2027 Q1 · 연속 출시</b><p>테크 2종 출시 이후 HEART STAMP로 연결되는 판타지 축</p></div></article>
-            <article class="signal"><span class="num">03</span><div><b>2027 H1–Q3 · 라인업 완성</b><p>SHOWHAND 재정비와 RIB 출시로 완성되는 다섯 타이틀</p></div></article>
-          </div>
-        </div>
-        <footer class="slide-foot"><span>Build momentum, not isolated launches</span><span class="page-no">13 / 14</span></footer>
-      </div>
-    </div>
-  </section>
-
-  <section class="slide" aria-label="마무리">
-    <div class="frame">
-      <div class="slide-inner">
-        <header class="slide-head"><strong>WINDUP</strong><span>Vision Deck · 2026–2027</span></header>
-        <div class="closing"><span class="eyebrow">ONE UNIVERSE · FIVE GAMES · 2026–2027</span><h2>WINDUP</h2></div>
-        <footer class="slide-foot"><span>Thank you</span><span class="page-no">14 / 14</span></footer>
+        <header class="slide-head"><strong>WINDUP</strong><span>Internal Vision Deck</span></header>
+        <div class="closing"><h2>WINDUP</h2><p>INDIE 5 → SINGLE A 2 → AAA 1</p></div>
+        <footer class="slide-foot"><span>WINDUP</span><span class="page-no"></span></footer>
       </div>
     </div>
   </section>
@@ -830,61 +849,139 @@
       var form = document.getElementById("passwordForm");
       var input = document.getElementById("passwordInput");
       var error = document.getElementById("passwordError");
+      var chapterOrder = ["universe", "projects", "ip", "release"];
+      var chapterLabels = { universe: "01 세계관", projects: "02 프로젝트", ip: "03 장기 IP", release: "04 출시 일정" };
+      var chapterGroups = [];
+      var chapterButtons = [];
+      var ticking = false;
 
-      function unlock() { document.body.classList.remove("locked"); }
-      if (window.localStorage.getItem(storageKey) === "true") unlock(); else input.focus();
+      function pad(value) { return String(value).padStart(2, "0"); }
+      function scrollToSlide(slide, instant) {
+        var reduced = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+        slide.scrollIntoView({ behavior: instant || reduced ? "auto" : "smooth" });
+      }
+      function storedUnlock() {
+        try { return window.localStorage.getItem(storageKey) === "true"; }
+        catch (storageError) { return false; }
+      }
+      function rememberUnlock() {
+        try { window.localStorage.setItem(storageKey, "true"); }
+        catch (storageError) {}
+      }
+      function unlock() {
+        document.body.classList.remove("locked");
+        window.requestAnimationFrame(syncActive);
+      }
+      if (storedUnlock()) unlock(); else input.focus();
       form.addEventListener("submit", function (event) {
         event.preventDefault();
-        if (input.value === password) { window.localStorage.setItem(storageKey, "true"); unlock(); return; }
+        if (input.value === password) { rememberUnlock(); unlock(); return; }
         error.textContent = "비밀번호를 다시 확인해 주세요"; input.value = ""; input.focus();
       });
 
       slides.forEach(function (slide, index) {
-        var button = document.createElement("button");
-        button.type = "button"; button.setAttribute("aria-label", (index + 1) + "번 슬라이드");
-        button.addEventListener("click", function () { slide.scrollIntoView({ behavior: "smooth" }); });
-        nav.appendChild(button);
+        var page = slide.querySelector(".page-no");
+        if (page && !slide.hasAttribute("data-media")) page.textContent = pad(index + 1) + " / " + pad(slides.length);
       });
-      var navButtons = Array.prototype.slice.call(nav.querySelectorAll("button"));
-      var observer = new IntersectionObserver(function (entries) {
-        entries.forEach(function (entry) {
-          if (!entry.isIntersecting) return;
-          var index = slides.indexOf(entry.target);
-          navButtons.forEach(function (button, i) { button.classList.toggle("active", i === index); });
-          document.body.classList.toggle("video-active", entry.target.getAttribute("aria-label").slice(-2) === "영상");
-        });
-      }, { threshold: .58 });
-      slides.forEach(function (slide) { observer.observe(slide); });
+      if (slides.length !== 30) console.warn("VisionDeck slide count:", slides.length, "(expected 30)");
 
-      function currentIndex() {
-        var center = window.scrollY + window.innerHeight / 2;
-        var best = 0, distance = Infinity;
+      chapterOrder.forEach(function (chapter) {
+        var groupSlides = slides.filter(function (slide) { return slide.getAttribute("data-chapter") === chapter; });
+        if (!groupSlides.length) return;
+        var button = document.createElement("button");
+        button.type = "button";
+        button.setAttribute("aria-label", chapterLabels[chapter]);
+        button.style.setProperty("--weight", groupSlides.length);
+        button.style.setProperty("--fill", 0);
+        button.addEventListener("click", function () { scrollToSlide(groupSlides[0], true); });
+        nav.appendChild(button);
+        chapterGroups.push({ key: chapter, slides: groupSlides });
+        chapterButtons.push(button);
+      });
+
+      function activeIndex() {
+        var center = window.innerHeight / 2;
+        var best = 0;
+        var distance = Infinity;
         slides.forEach(function (slide, index) {
-          var value = Math.abs(slide.offsetTop + slide.offsetHeight / 2 - center);
+          var rect = slide.getBoundingClientRect();
+          var value = Math.abs(rect.top + rect.height / 2 - center);
           if (value < distance) { distance = value; best = index; }
         });
         return best;
       }
+
+      function syncActive() {
+        ticking = false;
+        if (document.body.classList.contains("locked")) return;
+        var index = activeIndex();
+        var activeSlide = slides[index];
+        var activeChapter = activeSlide.getAttribute("data-chapter");
+        var activeChapterIndex = chapterGroups.findIndex(function (group) { return group.key === activeChapter; });
+        chapterGroups.forEach(function (group, groupIndex) {
+          var button = chapterButtons[groupIndex];
+          var fill = 0;
+          if (groupIndex < activeChapterIndex) fill = 1;
+          else if (groupIndex === activeChapterIndex) fill = (group.slides.indexOf(activeSlide) + 1) / group.slides.length;
+          button.style.setProperty("--fill", fill);
+          button.classList.toggle("active", groupIndex === activeChapterIndex);
+          if (groupIndex === activeChapterIndex) button.setAttribute("aria-current", "step");
+          else button.removeAttribute("aria-current");
+        });
+        document.body.classList.toggle("media-active", activeSlide.hasAttribute("data-media"));
+        document.querySelectorAll("video").forEach(function (video) {
+          if (!activeSlide.contains(video) && !video.paused) video.pause();
+        });
+      }
+
+      function requestSync() {
+        if (ticking) return;
+        ticking = true;
+        window.requestAnimationFrame(syncActive);
+      }
+      window.addEventListener("scroll", requestSync, { passive: true });
+      window.addEventListener("resize", requestSync);
+
       window.addEventListener("keydown", function (event) {
         if (document.body.classList.contains("locked")) return;
-        var next = currentIndex();
+        var target = event.target;
+        if (event.defaultPrevented || (target instanceof Element && target.closest("input, textarea, select, button, video, [contenteditable='true']"))) return;
+        var next = activeIndex();
         if (["ArrowDown", "PageDown", " "].indexOf(event.key) >= 0) next += 1;
         else if (["ArrowUp", "PageUp"].indexOf(event.key) >= 0) next -= 1;
         else if (event.key === "Home") next = 0;
         else if (event.key === "End") next = slides.length - 1;
         else return;
-        event.preventDefault(); slides[Math.max(0, Math.min(slides.length - 1, next))].scrollIntoView({ behavior: "smooth" });
+        event.preventDefault();
+        scrollToSlide(slides[Math.max(0, Math.min(slides.length - 1, next))]);
       });
 
       document.querySelectorAll("[data-video]").forEach(function (shell) {
         var src = shell.getAttribute("data-video");
-        fetch(src, { method: "HEAD" }).then(function (response) {
-          if (!response.ok) return;
-          var video = document.createElement("video");
-          video.controls = true; video.preload = "metadata"; video.src = src;
-          shell.appendChild(video);
-        }).catch(function () {});
+        var poster = shell.querySelector("img");
+        var video = document.createElement("video");
+        video.controls = true;
+        video.preload = "metadata";
+        video.playsInline = true;
+        video.hidden = true;
+        if (poster) video.poster = poster.src;
+        video.setAttribute("aria-label", (poster ? poster.alt.replace(" 포스터", "") : "프로젝트 영상"));
+        video.addEventListener("loadedmetadata", function () {
+          video.hidden = false;
+          if (poster) poster.hidden = true;
+          shell.classList.add("is-video-ready");
+        }, { once: true });
+        video.addEventListener("error", function () {
+          if (poster) poster.hidden = false;
+          shell.classList.remove("is-video-ready");
+          shell.classList.add("video-unavailable");
+          video.remove();
+        }, { once: true });
+        shell.appendChild(video);
+        video.src = src;
+        video.load();
       });
+      window.requestAnimationFrame(syncActive);
     })();
   </script>
 </body>
