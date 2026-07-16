@@ -3,6 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
   <title>WINDUP Vision Deck</title>
   <meta name="description" content="WINDUP의 두 세계관, 프로젝트, 장기 IP 확장과 2026–2027 출시 계획을 정리한 사내 비전덱">
   <style>
@@ -255,6 +256,44 @@
     .slide[data-media] .slide-head, .slide[data-media] .slide-foot { display: none !important; }
     .video-frame .media-shell > img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
     .video-frame .media-shell video[hidden] { display: none; }
+    .video-frame .youtube-player { width: 100%; height: 100%; border: 0; background: #000; }
+
+    .art-direction-frame { background: #050505; color: #f4f1e9; }
+    .art-direction-frame::before { background-image: linear-gradient(rgba(255,255,255,.035) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.035) 1px, transparent 1px); background-size: 52px 52px; mask-image: linear-gradient(90deg, black, transparent 72%); }
+    .art-direction-layout { align-self: center; min-height: 0; display: grid; grid-template-columns: minmax(0, 1fr) minmax(420px, 1fr); gap: 58px; align-items: center; }
+    .art-direction-copy { position: relative; z-index: 2; }
+    .art-direction-kicker { display: flex; align-items: center; gap: 12px; margin-bottom: 20px; color: #ff4d5e; font-size: 11px; font-weight: 950; letter-spacing: .2em; text-transform: uppercase; }
+    .art-direction-kicker::before { content: ""; width: 42px; height: 2px; background: #ff4d5e; }
+    .art-direction-copy h2 { max-width: 700px; margin-bottom: 22px; font-size: clamp(58px, 6.3vw, 96px); }
+    .art-direction-copy h2 span { color: transparent; -webkit-text-stroke: 1px rgba(255,255,255,.72); }
+    .art-direction-copy .direction-lead { max-width: 700px; margin: 0 0 28px; color: #d9d6cf; font-size: 19px; font-weight: 650; line-height: 1.55; word-break: keep-all; }
+    .art-direction-copy .direction-lead strong { color: #fff; }
+    .direction-principles { display: grid; grid-template-columns: repeat(3, 1fr); border-top: 1px solid rgba(255,255,255,.24); border-bottom: 1px solid rgba(255,255,255,.24); }
+    .direction-principle { min-height: 112px; padding: 18px 18px 16px 0; }
+    .direction-principle + .direction-principle { border-left: 1px solid rgba(255,255,255,.16); padding-left: 18px; }
+    .direction-principle span { display: block; margin-bottom: 8px; color: #7f8589; font-size: 10px; font-weight: 900; letter-spacing: .14em; text-transform: uppercase; }
+    .direction-principle b { display: block; margin-bottom: 5px; font-size: 16px; }
+    .direction-principle p { margin: 0; color: #aeb3b6; font-size: 12px; font-weight: 650; line-height: 1.45; word-break: keep-all; }
+    .art-direction-visual { position: relative; min-height: 500px; overflow: hidden; border: 1px solid rgba(255,255,255,.3); background: #000; isolation: isolate; }
+    .art-direction-image { position: absolute; inset: 0 0 128px; width: 100%; height: calc(100% - 128px); object-fit: cover; object-position: center; filter: contrast(1.05) saturate(.9); }
+    .art-direction-visual::after { content: ""; position: absolute; inset: 0 0 128px; pointer-events: none; background: linear-gradient(0deg, rgba(0,0,0,.56), transparent 38%); box-shadow: inset 0 0 0 1px rgba(255,255,255,.08); }
+    .direction-note { position: absolute; left: 18px; top: 16px; z-index: 2; border-left: 2px solid #ff4d5e; padding: 5px 8px; background: rgba(0,0,0,.72); color: #fff; font-size: 9px; font-weight: 900; letter-spacing: .15em; text-transform: uppercase; }
+    .palette-shift { position: absolute; inset: auto 0 0; z-index: 3; height: 128px; display: grid; align-content: center; gap: 9px; border-top: 1px solid rgba(255,255,255,.28); padding: 13px 16px 14px; background: #050505; }
+    .palette-shift-title { display: flex; align-items: center; justify-content: space-between; color: #fff; font-size: 9px; font-weight: 950; letter-spacing: .14em; text-transform: uppercase; }
+    .palette-shift-title span { color: #ff4d5e; }
+    .palette-row { display: grid; grid-template-columns: 62px 1fr; gap: 9px; align-items: center; }
+    .palette-row > b { color: #8d9498; font-size: 9px; letter-spacing: .1em; }
+    .palette-bar { height: 25px; display: flex; overflow: hidden; border: 1px solid rgba(255,255,255,.35); }
+    .palette-bar span { display: flex; align-items: center; min-width: 0; padding: 0 7px; overflow: hidden; font-size: 8px; font-weight: 950; letter-spacing: .04em; white-space: nowrap; }
+    .palette-bar .black { background: #050505; color: #fff; }
+    .palette-bar .white { background: #f4f1e9; color: #050505; }
+    .palette-bar .red { background: #ff4d5e; color: transparent; padding: 0; }
+    .palette-row.current .white { flex: 7; }
+    .palette-row.current .black { flex: 2.5; }
+    .palette-row.current .red { flex: .5; }
+    .palette-row.target .black { flex: 7; }
+    .palette-row.target .white { flex: 2.5; }
+    .palette-row.target .red { flex: .5; }
 
     .frame.gameplay-frame { border: 0; background: var(--image) center/cover; }
     .frame.gameplay-frame::after { content: ""; position: absolute; inset: 0; background: linear-gradient(0deg, rgba(5,7,9,.72) 0%, rgba(5,7,9,.12) 34%, transparent 58%); box-shadow: inset 0 0 0 1px rgba(255,255,255,.18); }
@@ -355,6 +394,9 @@
       .lore-beat img, .lore-beat .lore-type { width: 92px; height: 70px; }
       .game-copy .tagline { font-size: 18px; }
       .game-copy > p { font-size: 13px; margin-bottom: 14px; }
+      .art-direction-layout { gap: 30px; grid-template-columns: minmax(0, 1.1fr) minmax(320px, .9fr); }
+      .art-direction-copy .direction-lead { font-size: 16px; }
+      .art-direction-visual { min-height: 410px; }
       .roadmap-wrap { gap: 14px; }
       .universe-map { gap: 14px; }
       .universe-map-head { padding-bottom: 10px; }
@@ -440,6 +482,12 @@
       .slide[data-media] { min-height: 100svh; }
       .slide[data-media] .frame { height: 100svh; min-height: 0; aspect-ratio: auto; }
       .slide[data-media] .slide-inner, .slide[data-media] .video-layout, .slide[data-media] .media-shell { height: 100%; min-height: 0; }
+      .art-direction-layout { grid-template-columns: 1fr; gap: 24px; }
+      .art-direction-copy h2 { font-size: clamp(48px, 15vw, 76px); }
+      .direction-principles { grid-template-columns: 1fr; }
+      .direction-principle { min-height: 0; padding: 13px 0; }
+      .direction-principle + .direction-principle { border-left: 0; border-top: 1px solid rgba(255,255,255,.16); padding-left: 0; }
+      .art-direction-visual { min-height: 320px; }
       .video-frame .media-shell > img, .video-frame .media-shell video { object-fit: contain; }
       .frame.gameplay-frame.image-only-frame { background-color: #000; background-size: contain; background-repeat: no-repeat; }
     }
@@ -698,7 +746,7 @@
   <section class="slide video-slide" data-chapter="projects" data-media aria-label="HEART STAMP 영상">
     <div class="frame video-frame">
       <div class="slide-inner">
-        <div class="video-layout"><div class="media-shell" data-video="assets/videos/heart-stamp.mp4"><img src="assets/HEARTSTAMP.png" alt="HEART STAMP 영상 포스터"></div></div>
+        <div class="video-layout"><div class="media-shell"><iframe class="youtube-player" width="100%" height="100%" src="https://www.youtube.com/embed/AOY7MQwxt50?si=_ceUP_dl4yzNXhMW" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div></div>
       </div>
     </div>
   </section>
@@ -717,7 +765,37 @@
   <section class="slide video-slide" data-chapter="projects" data-media aria-label="SHOWHAND 영상">
     <div class="frame video-frame">
       <div class="slide-inner">
-        <div class="video-layout"><div class="media-shell" data-video="assets/videos/showhand.mp4"><img src="assets/showhand-title.png" alt="SHOWHAND 영상 포스터"></div></div>
+        <div class="video-layout"><div class="media-shell"><iframe class="youtube-player" width="100%" height="100%" src="https://www.youtube.com/embed/lVLJQpgmYts?si=nipH6uYGbg-mEU69" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="slide" data-chapter="projects" aria-label="SHOWHAND 아트 스타일 변경 방향">
+    <div class="frame art-direction-frame">
+      <div class="slide-inner">
+        <header class="slide-head"><span class="chapter-mark">Part Two · Projects</span><span>SHOWHAND · Art Direction</span></header>
+        <div class="art-direction-layout">
+          <div class="art-direction-copy">
+            <span class="art-direction-kicker">Next Development Phase</span>
+            <h2>ART STYLE<br><span>SHIFT</span></h2>
+            <p class="direction-lead">현재 프로토타입은 화이트의 점유율이 높아 밝은 인상이 강합니다. 다음 아트 개편에서는 이 비율을 뒤집어 <strong>블랙을 메인 컬러</strong>로 전환하고, <strong><i>Lorelei and the Laser Eyes</i></strong>의 감각을 레퍼런스로 더 선명한 정체성을 구축합니다.</p>
+            <div class="direction-principles">
+              <div class="direction-principle"><span>01 · Color</span><b>WHITE → BLACK</b><p>화이트 중심 팔레트를 블랙 70% 중심으로 전환</p></div>
+              <div class="direction-principle"><span>02 · Space</span><b>LIGHT &amp; SHADOW</b><p>강한 명암과 기하학적 공간으로 미스터리와 긴장감 강화</p></div>
+              <div class="direction-principle"><span>03 · Graphic</span><b>SYMBOLIC UI</b><p>절제된 타이포그래피와 상징적인 인터페이스로 통일</p></div>
+            </div>
+          </div>
+          <div class="art-direction-visual" aria-hidden="true">
+            <img class="art-direction-image" src="assets/showhand-art-direction-reference.jpg" alt="블랙을 중심으로 화이트와 레드를 제한적으로 사용한 아트 스타일 예시">
+            <span class="direction-note">Target visual example · in development</span>
+            <div class="palette-shift">
+              <div class="palette-shift-title">Color balance shift <span>White → Black</span></div>
+              <div class="palette-row current"><b>CURRENT</b><div class="palette-bar"><span class="white">WHITE · 70</span><span class="black">BLACK · 25</span><span class="red">5</span></div></div>
+              <div class="palette-row target"><b>TARGET</b><div class="palette-bar"><span class="black">BLACK · 70</span><span class="white">WHITE · 25</span><span class="red">5</span></div></div>
+            </div>
+          </div>
+        </div>
+        <footer class="slide-foot"><span>PLANNED ART DIRECTION · NOT FINAL</span><span class="page-no"></span></footer>
       </div>
     </div>
   </section>
@@ -884,7 +962,7 @@
         var page = slide.querySelector(".page-no");
         if (page && !slide.hasAttribute("data-media")) page.textContent = pad(index + 1) + " / " + pad(slides.length);
       });
-      if (slides.length !== 30) console.warn("VisionDeck slide count:", slides.length, "(expected 30)");
+      if (slides.length !== 31) console.warn("VisionDeck slide count:", slides.length, "(expected 31)");
 
       chapterOrder.forEach(function (chapter) {
         var groupSlides = slides.filter(function (slide) { return slide.getAttribute("data-chapter") === chapter; });
