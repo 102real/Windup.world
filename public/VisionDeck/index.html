@@ -299,6 +299,17 @@
     .frame.gameplay-frame::after { content: ""; position: absolute; inset: 0; background: linear-gradient(0deg, rgba(5,7,9,.72) 0%, rgba(5,7,9,.12) 34%, transparent 58%); box-shadow: inset 0 0 0 1px rgba(255,255,255,.18); }
     .frame.image-only-frame::before { display: none; }
     .frame.gameplay-frame.image-only-frame::after { background: none; box-shadow: none; }
+    .climb-art-frame { border: 0; background: #07100d; }
+    .climb-art-frame::before { display: none; }
+    .climb-art-frame::after { content: ""; position: absolute; inset: 0; pointer-events: none; background: linear-gradient(90deg, rgba(3,8,7,.18), transparent 38%); box-shadow: inset 0 0 0 1px rgba(255,255,255,.18); }
+    .climb-art-background { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+    .climb-art-inset { position: absolute; right: 4%; top: 50%; z-index: 3; width: 46%; margin: 0; overflow: hidden; border: 1px solid rgba(255,255,255,.58); background: #07100d; box-shadow: 0 28px 80px rgba(0,0,0,.55); transform: translateY(-50%); }
+    .climb-art-inset img { width: 100%; aspect-ratio: 16/9; object-fit: cover; }
+    .climb-art-inset figcaption { display: flex; align-items: center; justify-content: space-between; gap: 16px; border-top: 1px solid rgba(255,255,255,.2); padding: 10px 13px; background: rgba(5,11,9,.94); color: #d4dad6; font-size: 9px; font-weight: 900; letter-spacing: .12em; text-transform: uppercase; }
+    .climb-art-inset figcaption b { color: var(--tech); font-size: inherit; }
+    .climb-art-caption { align-self: end; position: relative; z-index: 4; width: fit-content; margin-bottom: 22px; border-left: 4px solid var(--tech); padding: 13px 17px; background: rgba(3,8,7,.76); backdrop-filter: blur(8px); }
+    .climb-art-caption span { display: block; margin-bottom: 4px; color: var(--tech); font-size: 9px; font-weight: 900; letter-spacing: .15em; text-transform: uppercase; }
+    .climb-art-caption p { margin: 0; color: #f2f5f3; font-size: 15px; font-weight: 750; }
     .roadmap-wrap { align-self: center; display: grid; gap: 18px; }
     .roadmap-head { display: flex; align-items: end; justify-content: space-between; gap: 24px; padding-bottom: 15px; border-bottom: 1px solid var(--line); }
     .roadmap-head h2 { margin-bottom: 0; }
@@ -397,6 +408,7 @@
       .art-direction-layout { gap: 30px; grid-template-columns: minmax(0, 1.1fr) minmax(320px, .9fr); }
       .art-direction-copy .direction-lead { font-size: 16px; }
       .art-direction-visual { min-height: 410px; }
+      .climb-art-inset { right: 4%; top: 50%; width: 47%; }
       .roadmap-wrap { gap: 14px; }
       .universe-map { gap: 14px; }
       .universe-map-head { padding-bottom: 10px; }
@@ -488,6 +500,7 @@
       .direction-principle { min-height: 0; padding: 13px 0; }
       .direction-principle + .direction-principle { border-left: 0; border-top: 1px solid rgba(255,255,255,.16); padding-left: 0; }
       .art-direction-visual { min-height: 320px; }
+      .climb-art-inset { right: 4%; top: 50%; width: 52%; }
       .video-frame .media-shell > img, .video-frame .media-shell video { object-fit: contain; }
       .frame.gameplay-frame.image-only-frame { background-color: #000; background-size: contain; background-repeat: no-repeat; }
     }
@@ -705,10 +718,14 @@
     </div>
   </section>
 
-  <section class="slide video-slide" data-chapter="projects" data-media aria-label="CLIMB 영상">
-    <div class="frame video-frame">
+  <section class="slide" data-chapter="projects" aria-label="CLIMB 개발 진행 중 이미지">
+    <div class="frame climb-art-frame">
+      <img class="climb-art-background" src="assets/climb-environment-mountain.png" alt="침엽수림과 산 정상으로 이어지는 CLIMB의 산악 환경">
       <div class="slide-inner">
-        <div class="video-layout"><div class="media-shell" data-video="assets/videos/climb.mp4"><img src="assets/climb-title.png" alt="CLIMB 영상 포스터"></div></div>
+        <header class="slide-head"><span class="chapter-mark">Part Two · Projects</span><span>CLIMB · Environment Art</span></header>
+        <div class="climb-art-caption"><span>Environment Art · WIP</span><p>현재 개발 중인 CLIMB 인게임 환경</p></div>
+        <figure class="climb-art-inset"><img src="assets/climb-environment-character.png" alt="숲길에 서 있는 CLIMB 플레이어 캐릭터"><figcaption><span>Player in Environment</span><b>Work in Progress</b></figcaption></figure>
+        <footer class="slide-foot"><span>CLIMB · DEVELOPMENT BUILD</span><span class="page-no"></span></footer>
       </div>
     </div>
   </section>
@@ -727,7 +744,15 @@
   <section class="slide video-slide" data-chapter="projects" data-media aria-label="OMG 영상">
     <div class="frame video-frame">
       <div class="slide-inner">
-        <div class="video-layout"><div class="media-shell" data-video="assets/videos/omg.mp4"><img src="assets/omg-title.png" alt="OMG 영상 포스터"></div></div>
+        <div class="video-layout"><div class="media-shell"><iframe class="youtube-player" width="100%" height="100%" src="https://www.youtube.com/embed/cpbDDLwJzfM" title="OMG 데모" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="slide video-slide" data-chapter="projects" data-media aria-label="OMG 영상 2">
+    <div class="frame video-frame">
+      <div class="slide-inner">
+        <div class="video-layout"><div class="media-shell"><iframe class="youtube-player" width="100%" height="100%" src="https://www.youtube.com/embed/BfBWM7eVDzg" title="OMG Test" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div></div>
       </div>
     </div>
   </section>
@@ -962,7 +987,7 @@
         var page = slide.querySelector(".page-no");
         if (page && !slide.hasAttribute("data-media")) page.textContent = pad(index + 1) + " / " + pad(slides.length);
       });
-      if (slides.length !== 31) console.warn("VisionDeck slide count:", slides.length, "(expected 31)");
+      if (slides.length !== 32) console.warn("VisionDeck slide count:", slides.length, "(expected 32)");
 
       chapterOrder.forEach(function (chapter) {
         var groupSlides = slides.filter(function (slide) { return slide.getAttribute("data-chapter") === chapter; });
