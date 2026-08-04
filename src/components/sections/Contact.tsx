@@ -17,7 +17,7 @@ export default function Contact() {
         </div>
       </div>
 
-      <div className="w-full max-w-[95vw] mx-auto px-6 md:px-12 relative z-10">
+      <div className="w-full px-6 md:px-12 relative z-10">
         <Reveal>
           <p className="font-mono text-[10px] md:text-xs uppercase tracking-widest text-tertiary mb-4">
             ( 03 — {t.header.contact} )

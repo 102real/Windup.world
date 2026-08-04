@@ -50,8 +50,9 @@ export default function Header() {
           WINDUP
         </a>
 
-        {/* Nav */}
-        <nav className="flex items-center gap-5 md:gap-10 mr-16 md:mr-28">
+        {/* Nav — the language toggle only sits in the header from md up, so
+            the reserved right margin must not apply on mobile. */}
+        <nav className="flex items-center gap-4 md:gap-10 md:mr-28">
           {['about', 'projects', 'contact'].map((id, i) => {
             const isActive = activeSection === id;
             const label = t.header[id as keyof typeof t.header];
@@ -61,11 +62,11 @@ export default function Header() {
                 key={id}
                 href={`#${id}`}
                 onClick={(e) => scrollToSection(e, id)}
-                className={`flex items-baseline gap-1.5 text-[11px] md:text-xs font-bold tracking-[0.15em] transition-colors duration-300
+                className={`flex items-baseline gap-1.5 whitespace-nowrap text-[11px] md:text-xs font-bold tracking-[0.1em] md:tracking-[0.15em] transition-colors duration-300
                   ${isActive ? 'text-foreground' : 'text-tertiary hover:text-secondary'}
                 `}
               >
-                <span className={`font-mono text-[9px] md:text-[10px] font-normal ${isActive ? 'text-secondary' : 'text-tertiary'}`}>
+                <span className={`hidden md:inline font-mono text-[9px] md:text-[10px] font-normal ${isActive ? 'text-secondary' : 'text-tertiary'}`}>
                   0{i + 1}
                 </span>
                 {label}

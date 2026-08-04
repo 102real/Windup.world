@@ -67,7 +67,7 @@ export default function Projects() {
   const { t } = useLanguage();
 
   return (
-    <section id="projects" className="min-h-screen py-20 px-6 md:px-12 w-full max-w-[95vw] mx-auto overflow-hidden">
+    <section id="projects" className="min-h-screen py-20 px-6 md:px-12 w-full overflow-hidden">
       <div className="mb-20 md:mb-24">
         <p className="font-mono text-[10px] md:text-xs uppercase tracking-widest text-tertiary mb-4">
           ( 02 — {t.projects.title} )
@@ -98,21 +98,23 @@ export default function Projects() {
                   aria-hidden="true"
                 ></span>
 
+                {/* Title and details only sit side by side from xl up — below that
+                    the columns get too narrow, so they stack instead of shrinking. */}
                 <div className="grid grid-cols-12 gap-x-4 gap-y-8 items-start">
                   {/* Index */}
-                  <span className="col-span-12 md:col-span-1 font-mono text-xs md:text-sm text-tertiary group-hover:text-secondary transition-colors duration-500 md:pt-3">
+                  <span className="col-span-12 xl:col-span-1 font-mono text-xs md:text-sm text-tertiary group-hover:text-secondary transition-colors duration-500 xl:pt-3">
                     /{project.id}
                   </span>
 
                   {/* Title */}
-                  <div className="col-span-12 md:col-span-6">
-                    <h3 className="text-5xl md:text-6xl lg:text-8xl font-bold tracking-tighter leading-none uppercase group-hover:translate-x-4 transition-transform duration-500 font-display break-keep">
+                  <div className="col-span-12 xl:col-span-6">
+                    <h3 className="text-[clamp(3rem,15vw,10rem)] xl:text-[clamp(6rem,7.5vw,10rem)] font-bold tracking-tighter leading-none uppercase group-hover:translate-x-4 transition-transform duration-500 font-display break-keep">
                       {project.name}
                     </h3>
                   </div>
 
                   {/* Details */}
-                  <div className="col-span-12 md:col-span-5 flex flex-col gap-5 md:pt-2">
+                  <div className="col-span-12 xl:col-span-5 flex flex-col gap-5 max-w-3xl xl:max-w-none xl:pt-2">
                     <div className="flex flex-wrap gap-2 items-center">
                       {project.tags.map(tag => (
                         <span
@@ -124,12 +126,12 @@ export default function Projects() {
                       ))}
                     </div>
                     {itemT?.direction && (
-                      <h4 className="text-xl md:text-2xl font-semibold leading-snug">
+                      <h4 className="text-2xl lg:text-3xl xl:text-2xl font-semibold leading-snug">
                         {itemT.direction}
                       </h4>
                     )}
                     {itemT?.description && (
-                      <p className="text-sm md:text-base leading-relaxed break-keep whitespace-pre-line text-secondary">
+                      <p className="text-base lg:text-lg xl:text-base leading-relaxed break-keep whitespace-pre-line text-secondary">
                         {itemT.description}
                       </p>
                     )}

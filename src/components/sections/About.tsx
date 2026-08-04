@@ -13,13 +13,19 @@ export default function About() {
   const textContainerRef = useRef<HTMLSpanElement>(null);
   const [underlineWidth, setUnderlineWidth] = useState(0);
 
-  // Measure actual text width
+  // Measure actual text width. The font size is viewport-relative, so this has
+  // to re-run on resize and on font load, not only when the word changes.
   useEffect(() => {
-    if (textContainerRef.current) {
-      const width = textContainerRef.current.offsetWidth;
-      setUnderlineWidth(width);
-    }
-  }, [currentIndex]);
+    const el = textContainerRef.current;
+    if (!el) return;
+
+    const measure = () => setUnderlineWidth(el.offsetWidth);
+    measure();
+
+    const observer = new ResizeObserver(measure);
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, []);
 
   useEffect(() => {
     let timeout: NodeJS.Timeout;
@@ -94,34 +100,40 @@ export default function About() {
         </div>
       </div>
 
-      {/* Single Line Marquee - Full Width Below WINDUP */}
-      <div className="absolute left-0 w-full overflow-hidden pointer-events-none" style={{ top: 'calc(20vh + 16rem)', width: '100vw' }}>
-        <div className="whitespace-nowrap animate-marquee flex items-center">
-          <span className="text-outline font-display text-[15vh] md:text-[18vh] lg:text-[20vh] font-black uppercase mx-4">Interactions That Can Make the World Better&nbsp;&nbsp;✳</span>
-          <span className="text-outline font-display text-[15vh] md:text-[18vh] lg:text-[20vh] font-black uppercase mx-4">Interactions That Can Make the World Better&nbsp;&nbsp;✳</span>
-          <span className="text-outline font-display text-[15vh] md:text-[18vh] lg:text-[20vh] font-black uppercase mx-4">Interactions That Can Make the World Better&nbsp;&nbsp;✳</span>
-          <span className="text-outline font-display text-[15vh] md:text-[18vh] lg:text-[20vh] font-black uppercase mx-4">Interactions That Can Make the World Better&nbsp;&nbsp;✳</span>
+      {/* Bottom structured row — the marquee is anchored to the top of this
+          block so it can never collide with the copy on short viewports. */}
+      <div className="relative mt-20 md:mt-0">
+        {/* Single Line Marquee - Full Bleed */}
+        <div
+          className="absolute bottom-full mb-6 left-1/2 -translate-x-1/2 w-screen overflow-hidden pointer-events-none"
+          aria-hidden="true"
+        >
+          <div className="whitespace-nowrap animate-marquee flex items-center">
+            <span className="text-outline font-display text-[15vh] md:text-[18vh] lg:text-[20vh] font-black uppercase mx-4">Interactions That Can Make the World Better&nbsp;&nbsp;✳</span>
+            <span className="text-outline font-display text-[15vh] md:text-[18vh] lg:text-[20vh] font-black uppercase mx-4">Interactions That Can Make the World Better&nbsp;&nbsp;✳</span>
+            <span className="text-outline font-display text-[15vh] md:text-[18vh] lg:text-[20vh] font-black uppercase mx-4">Interactions That Can Make the World Better&nbsp;&nbsp;✳</span>
+            <span className="text-outline font-display text-[15vh] md:text-[18vh] lg:text-[20vh] font-black uppercase mx-4">Interactions That Can Make the World Better&nbsp;&nbsp;✳</span>
+          </div>
         </div>
-      </div>
 
-      {/* Bottom structured row */}
-      <div className="relative z-10 border-t border-border-subtle pt-6 mt-20 md:mt-0 grid grid-cols-2 md:grid-cols-12 gap-6 items-end animate-fade-in-up [animation-delay:400ms]">
-        <div className="col-span-2 md:col-span-5">
-          <p className="font-mono text-xs tracking-[0.2em] uppercase mb-3 text-secondary">
-            ( {t.about.mission} )
-          </p>
-          <p className="text-xl md:text-2xl font-medium leading-snug">
-            {t.about.movement}<br />
-            {t.about.movementSub}
-          </p>
-        </div>
-        <div className="hidden md:block md:col-span-4 font-mono text-[10px] lg:text-xs text-tertiary uppercase tracking-widest leading-relaxed">
-          Interactions that can<br />make the world better
-        </div>
-        <div className="col-span-2 md:col-span-3 flex md:justify-end">
-          <span className="font-mono text-[10px] tracking-widest uppercase text-secondary animate-reveal [animation-delay:800ms]">
-            {t.about.scroll} ↓
-          </span>
+        <div className="relative z-10 border-t border-border-subtle pt-6 grid grid-cols-2 md:grid-cols-12 gap-6 items-end animate-fade-in-up [animation-delay:400ms]">
+          <div className="col-span-2 md:col-span-5">
+            <p className="font-mono text-xs tracking-[0.2em] uppercase mb-3 text-secondary">
+              ( {t.about.mission} )
+            </p>
+            <p className="text-xl md:text-2xl font-medium leading-snug">
+              {t.about.movement}<br />
+              {t.about.movementSub}
+            </p>
+          </div>
+          <div className="hidden md:block md:col-span-4 font-mono text-[10px] lg:text-xs text-tertiary uppercase tracking-widest leading-relaxed">
+            Interactions that can<br />make the world better
+          </div>
+          <div className="col-span-2 md:col-span-3 flex md:justify-end">
+            <span className="font-mono text-[10px] tracking-widest uppercase text-secondary animate-reveal [animation-delay:800ms]">
+              {t.about.scroll} ↓
+            </span>
+          </div>
         </div>
       </div>
     </section>
