@@ -3,7 +3,12 @@
   "budgets": {
     "maxFileBytes": 10485760,
     "maxTotalBytes": 52428800,
-    "groups": { "initial": 15728640, "biome-1": 52428800, "biome-2": 52428800 }
+    "groups": {
+      "title": 1048576,
+      "initial": 15728640,
+      "biome-1": 52428800,
+      "biome-2": 52428800
+    }
   },
   "assets": [
     {
@@ -18,8 +23,9 @@
       "sourceArtifact": "generated/boda-title-desktop-source.png",
       "originalSha256": "a7a537bd5b4b9c9211e9cbbe1cc74e4f4f42155b0bea3a0f50b545bd912c30fb",
       "runtimeSha256": "6558c8df2b547babe4d7faacec2ec208aca2c4c71e8c4588ad204f825dde5aea",
+      "runtimeBytes": 79168,
       "maxBytes": 250000,
-      "bundles": ["initial", "biome-1", "biome-2"]
+      "bundles": ["title"]
     },
     {
       "id": "boda-title-mobile",
@@ -33,8 +39,9 @@
       "sourceArtifact": "generated/boda-title-mobile-source.png",
       "originalSha256": "0726d566c5232eb2fded3b66399e7da3955d72818cf2fd6d6aba7b5802de20fd",
       "runtimeSha256": "d0bf42044a7d96974a822cd267c1ecd723392bdcb18235f823987d19f1be6718",
+      "runtimeBytes": 69448,
       "maxBytes": 250000,
-      "bundles": ["initial", "biome-1", "biome-2"]
+      "bundles": ["title"]
     },
     {
       "id": "boda-moon-garden-sigil",
@@ -48,6 +55,7 @@
       "sourceArtifact": "generated/boda-moon-garden-sigil.svg",
       "originalSha256": "c034c8d837e3239eb24723343b882b4195d5382a41a6ee25ddd651831cd49563",
       "runtimeSha256": "c034c8d837e3239eb24723343b882b4195d5382a41a6ee25ddd651831cd49563",
+      "runtimeBytes": 1080,
       "maxBytes": 60000,
       "bundles": ["biome-2"]
     },
@@ -63,6 +71,7 @@
       "sourceArtifact": "kaykit-adventurers-free-2.0.zip",
       "originalSha256": "abe48f4763fba0896bab486ee9e6d08ca6b5b3884b9601f235c8847ae94dc479",
       "runtimeSha256": "3b6654a33b89abd51e485657d2be6ec0bd619eca5aa83c0ef5cde3e81e4b8f9e",
+      "runtimeBytes": 345672,
       "maxBytes": 600000,
       "bundles": ["initial", "biome-1", "biome-2"]
     },
@@ -78,6 +87,7 @@
       "sourceArtifact": "kaykit-skeletons-free-1.1.zip",
       "originalSha256": "21fbad59ee6cc1d7bed12d0e425acab8ebe564b8620bbc1d017aedb29dd8a3d2",
       "runtimeSha256": "3f6cdbfc03f029ea3db148816c6f9b6444a7d9585009f8c26dceff192d2beb41",
+      "runtimeBytes": 328112,
       "maxBytes": 600000,
       "bundles": ["initial", "biome-1", "biome-2"]
     },
@@ -93,6 +103,7 @@
       "sourceArtifact": "kaykit-skeletons-free-1.1.zip",
       "originalSha256": "21fbad59ee6cc1d7bed12d0e425acab8ebe564b8620bbc1d017aedb29dd8a3d2",
       "runtimeSha256": "9ba62f819e68a2146eacfc044f4b3deea2f3b55cbc4a80b8755718e07ddc33b2",
+      "runtimeBytes": 340656,
       "maxBytes": 600000,
       "bundles": ["initial", "biome-1", "biome-2"]
     },
@@ -108,6 +119,7 @@
       "sourceArtifact": "kaykit-skeletons-free-1.1.zip",
       "originalSha256": "21fbad59ee6cc1d7bed12d0e425acab8ebe564b8620bbc1d017aedb29dd8a3d2",
       "runtimeSha256": "0a4bafc44b3075f9bb0c828ce42be1f1092920c8e2ad41e42243413cf7f79745",
+      "runtimeBytes": 376944,
       "maxBytes": 600000,
       "bundles": ["initial", "biome-1", "biome-2"]
     },
@@ -123,6 +135,7 @@
       "sourceArtifact": "kaykit-skeletons-free-1.1.zip",
       "originalSha256": "21fbad59ee6cc1d7bed12d0e425acab8ebe564b8620bbc1d017aedb29dd8a3d2",
       "runtimeSha256": "429a47655b79d3c9233c921eb45e2c0af7cea40b76dc144dc137701682ae7c44",
+      "runtimeBytes": 275260,
       "maxBytes": 600000,
       "bundles": ["initial", "biome-1", "biome-2"]
     },
@@ -138,6 +151,7 @@
       "sourceArtifact": "kaykit-character-animations-free-1.1.zip",
       "originalSha256": "65882f31f905ad2e953819648a59287cdeab8f623908d5ef701971d3758be20f",
       "runtimeSha256": "11422afd50abf7e8c92ea107e2e0bc94abd38023d6d15f55ad580347efbfa29e",
+      "runtimeBytes": 689624,
       "maxBytes": 1600000,
       "bundles": ["initial", "biome-1", "biome-2"]
     },
@@ -153,6 +167,7 @@
       "sourceArtifact": "kaykit-character-animations-free-1.1.zip",
       "originalSha256": "65882f31f905ad2e953819648a59287cdeab8f623908d5ef701971d3758be20f",
       "runtimeSha256": "8b2317cf81e3f24149e4b791c27e1932bebd46cd378ed962e7d27d642fad8c56",
+      "runtimeBytes": 719628,
       "maxBytes": 1600000,
       "bundles": ["initial", "biome-1", "biome-2"]
     },
@@ -168,6 +183,7 @@
       "sourceArtifact": "kaykit-character-animations-free-1.1.zip",
       "originalSha256": "65882f31f905ad2e953819648a59287cdeab8f623908d5ef701971d3758be20f",
       "runtimeSha256": "c55e6ec1c79e83ae21d46fe1cd921c1b64be8b9a524a24517e51c6ba99231459",
+      "runtimeBytes": 999416,
       "maxBytes": 1600000,
       "bundles": ["initial", "biome-1", "biome-2"]
     },
@@ -183,6 +199,7 @@
       "sourceArtifact": "kaykit-character-animations-free-1.1.zip",
       "originalSha256": "65882f31f905ad2e953819648a59287cdeab8f623908d5ef701971d3758be20f",
       "runtimeSha256": "7fef1fc0e7b0feafd34b8e12d23f514c8c1f9d068047a691b854b56f1774dff5",
+      "runtimeBytes": 1014852,
       "maxBytes": 1600000,
       "bundles": ["initial", "biome-1", "biome-2"]
     },
@@ -198,6 +215,7 @@
       "sourceArtifact": "kaykit-character-animations-free-1.1.zip",
       "originalSha256": "65882f31f905ad2e953819648a59287cdeab8f623908d5ef701971d3758be20f",
       "runtimeSha256": "5f725c0f745f36078c7238968cd5c04843cbc6260689eb6e7f5e2bbd7ffdd7ad",
+      "runtimeBytes": 828240,
       "maxBytes": 1600000,
       "bundles": ["initial", "biome-1", "biome-2"]
     },
@@ -213,6 +231,7 @@
       "sourceArtifact": "kaykit-character-animations-free-1.1.zip",
       "originalSha256": "65882f31f905ad2e953819648a59287cdeab8f623908d5ef701971d3758be20f",
       "runtimeSha256": "74047dd2178fbed388656051664158e921b7bfc613abb119860aeb7b646bd640",
+      "runtimeBytes": 924308,
       "maxBytes": 1600000,
       "bundles": ["initial", "biome-1", "biome-2"]
     },
@@ -228,6 +247,7 @@
       "sourceArtifact": "kaykit-dungeon-pack-free-1.1.zip",
       "originalSha256": "6acb859d1aefae074f937d1e6f13656a7312b2bdb6d9f1232ebdade8d93d6a1c",
       "runtimeSha256": "15f94c0157c2b5be27fc69961b8165984158b0983cebc7e25b62bb8b66839bab",
+      "runtimeBytes": 42392,
       "maxBytes": 150000,
       "bundles": ["initial", "biome-1", "biome-2"]
     },
@@ -243,6 +263,7 @@
       "sourceArtifact": "kaykit-dungeon-pack-free-1.1.zip",
       "originalSha256": "6acb859d1aefae074f937d1e6f13656a7312b2bdb6d9f1232ebdade8d93d6a1c",
       "runtimeSha256": "53aa958d378753a52547c68635f9c6f3a8af045a4ffb3ee327a63365aa388c1a",
+      "runtimeBytes": 67692,
       "maxBytes": 150000,
       "bundles": ["initial", "biome-1", "biome-2"]
     },
@@ -258,6 +279,7 @@
       "sourceArtifact": "kaykit-dungeon-pack-free-1.1.zip",
       "originalSha256": "6acb859d1aefae074f937d1e6f13656a7312b2bdb6d9f1232ebdade8d93d6a1c",
       "runtimeSha256": "5a23df8987e38fbb6bbfa811fc3b95b76e3ccbda6fd8754acf3b3d5df0b4ec16",
+      "runtimeBytes": 35696,
       "maxBytes": 150000,
       "bundles": ["initial", "biome-1", "biome-2"]
     },
@@ -273,6 +295,7 @@
       "sourceArtifact": "kaykit-dungeon-pack-free-1.1.zip",
       "originalSha256": "6acb859d1aefae074f937d1e6f13656a7312b2bdb6d9f1232ebdade8d93d6a1c",
       "runtimeSha256": "913efedc677b7dea88501f9e92c158970f6f124d071a2839a7850b8a91b4c323",
+      "runtimeBytes": 44276,
       "maxBytes": 150000,
       "bundles": ["initial", "biome-1", "biome-2"]
     },
@@ -288,6 +311,7 @@
       "sourceArtifact": "kaykit-dungeon-pack-free-1.1.zip",
       "originalSha256": "6acb859d1aefae074f937d1e6f13656a7312b2bdb6d9f1232ebdade8d93d6a1c",
       "runtimeSha256": "28247656f8a5d9ec38504af7a01e88ca768367378b2f18da1bcff76bf2e71c62",
+      "runtimeBytes": 58292,
       "maxBytes": 150000,
       "bundles": ["initial", "biome-1", "biome-2"]
     },
@@ -303,6 +327,7 @@
       "sourceArtifact": "kaykit-adventurers-free-2.0.zip",
       "originalSha256": "abe48f4763fba0896bab486ee9e6d08ca6b5b3884b9601f235c8847ae94dc479",
       "runtimeSha256": "9efea49687b3b28c3b75f381a89440322a1e79de3df1622113f7fb294257b71c",
+      "runtimeBytes": 33952,
       "maxBytes": 100000,
       "bundles": ["initial", "biome-1", "biome-2"]
     },
@@ -318,6 +343,7 @@
       "sourceArtifact": "kaykit-adventurers-free-2.0.zip",
       "originalSha256": "abe48f4763fba0896bab486ee9e6d08ca6b5b3884b9601f235c8847ae94dc479",
       "runtimeSha256": "c65ff4bb482e3b0b0eef94258a95eef79425d0c303f9423ced3f769ff52f0427",
+      "runtimeBytes": 61956,
       "maxBytes": 100000,
       "bundles": ["initial", "biome-1", "biome-2"]
     },
@@ -333,6 +359,7 @@
       "sourceArtifact": "kaykit-adventurers-free-2.0.zip",
       "originalSha256": "abe48f4763fba0896bab486ee9e6d08ca6b5b3884b9601f235c8847ae94dc479",
       "runtimeSha256": "7f94c766175e95c4c8b6857503d2e1476f470759a3332ad665de46df44877e2b",
+      "runtimeBytes": 46352,
       "maxBytes": 100000,
       "bundles": ["initial", "biome-1", "biome-2"]
     },
@@ -348,6 +375,7 @@
       "sourceArtifact": "kenney-graveyard-kit-5.0.zip",
       "originalSha256": "1a93613f2e5675f3310acf49ec9ef13ae7adeb756ac3b205bfb6cc9311a81062",
       "runtimeSha256": "4b8acadb39c89531bea4a172387bd19b4fa16392998319c37970d1ac2346ffe6",
+      "runtimeBytes": 37820,
       "maxBytes": 100000,
       "bundles": ["initial", "biome-1", "biome-2"]
     },
@@ -363,6 +391,7 @@
       "sourceArtifact": "kenney-graveyard-kit-5.0.zip",
       "originalSha256": "1a93613f2e5675f3310acf49ec9ef13ae7adeb756ac3b205bfb6cc9311a81062",
       "runtimeSha256": "0a98dd2c0f60d9ba4c4b00fa3fdcfb25fe82c73a0db4500688414ebd2e9156aa",
+      "runtimeBytes": 44888,
       "maxBytes": 100000,
       "bundles": ["initial", "biome-1", "biome-2"]
     },
@@ -378,6 +407,7 @@
       "sourceArtifact": "kenney-graveyard-kit-5.0.zip",
       "originalSha256": "1a93613f2e5675f3310acf49ec9ef13ae7adeb756ac3b205bfb6cc9311a81062",
       "runtimeSha256": "6319480b6cc7e604523ebc1bfabb1f853f3a9bbb12d0a22c8656f895ea31fc7c",
+      "runtimeBytes": 39348,
       "maxBytes": 100000,
       "bundles": ["initial", "biome-1", "biome-2"]
     },
@@ -393,6 +423,7 @@
       "sourceArtifact": "kenney-graveyard-kit-5.0.zip",
       "originalSha256": "1a93613f2e5675f3310acf49ec9ef13ae7adeb756ac3b205bfb6cc9311a81062",
       "runtimeSha256": "77bde227237decdeaa70c7fad7de7426470921b0c13fdf98cd543cb378421d8c",
+      "runtimeBytes": 41244,
       "maxBytes": 100000,
       "bundles": ["initial", "biome-1", "biome-2"]
     },
@@ -408,6 +439,7 @@
       "sourceArtifact": "kenney-graveyard-kit-5.0.zip",
       "originalSha256": "1a93613f2e5675f3310acf49ec9ef13ae7adeb756ac3b205bfb6cc9311a81062",
       "runtimeSha256": "f574b124b6fa631efecfd8005d1bbd06348b498f500d472beafa873edf75a971",
+      "runtimeBytes": 57424,
       "maxBytes": 100000,
       "bundles": ["initial", "biome-1", "biome-2"]
     },
@@ -423,6 +455,7 @@
       "sourceArtifact": "kenney-rpg-audio-1.0.zip",
       "originalSha256": "6dbeaf8544da958d8f2adcb4a4a4b76c1ade34a05f8ab9edccd327da7375f38b",
       "runtimeSha256": "4cd96dc630bed9840c15f1dd2306da2cc56a4da26a5d3f1a03c5a7265ac5e54f",
+      "runtimeBytes": 15532,
       "maxBytes": 50000,
       "bundles": ["initial", "biome-1", "biome-2"]
     },
@@ -438,6 +471,7 @@
       "sourceArtifact": "kenney-rpg-audio-1.0.zip",
       "originalSha256": "6dbeaf8544da958d8f2adcb4a4a4b76c1ade34a05f8ab9edccd327da7375f38b",
       "runtimeSha256": "6c2064d0ef988d1ec3d56868e823ea8823a5cac00f2742560052633529407def",
+      "runtimeBytes": 15099,
       "maxBytes": 50000,
       "bundles": ["initial", "biome-1", "biome-2"]
     },
@@ -453,6 +487,7 @@
       "sourceArtifact": "kenney-rpg-audio-1.0.zip",
       "originalSha256": "6dbeaf8544da958d8f2adcb4a4a4b76c1ade34a05f8ab9edccd327da7375f38b",
       "runtimeSha256": "276403e72c3b71c47bc24db3083970c23f8e5551ffa78f436f83483c56f3f0bb",
+      "runtimeBytes": 11134,
       "maxBytes": 50000,
       "bundles": ["initial", "biome-1", "biome-2"]
     },
@@ -468,6 +503,7 @@
       "sourceArtifact": "kenney-impact-sounds-1.0.zip",
       "originalSha256": "029d734af1582474edf3a694d1b0cebc97c1c152f2f39fa34d4c2bafc5de77f8",
       "runtimeSha256": "f0e982611e97512fee5f777986b67e8b435434b601f94992ec044f7e89fb5acb",
+      "runtimeBytes": 5827,
       "maxBytes": 50000,
       "bundles": ["initial", "biome-1", "biome-2"]
     },
@@ -483,6 +519,7 @@
       "sourceArtifact": "kenney-impact-sounds-1.0.zip",
       "originalSha256": "029d734af1582474edf3a694d1b0cebc97c1c152f2f39fa34d4c2bafc5de77f8",
       "runtimeSha256": "b33a8f14068aec24ec69ba85e5e87fdc41228975f6a1a3e44a6e7d6fc3d9f8d8",
+      "runtimeBytes": 11617,
       "maxBytes": 50000,
       "bundles": ["initial", "biome-1", "biome-2"]
     },
@@ -498,6 +535,7 @@
       "sourceArtifact": "kenney-impact-sounds-1.0.zip",
       "originalSha256": "029d734af1582474edf3a694d1b0cebc97c1c152f2f39fa34d4c2bafc5de77f8",
       "runtimeSha256": "a96f879fec0864a8938e0c745b6996a6c5679c16a234ce31a01cc995e8401003",
+      "runtimeBytes": 7117,
       "maxBytes": 50000,
       "bundles": ["initial", "biome-1", "biome-2"]
     },
@@ -513,6 +551,7 @@
       "sourceArtifact": "kenney-impact-sounds-1.0.zip",
       "originalSha256": "029d734af1582474edf3a694d1b0cebc97c1c152f2f39fa34d4c2bafc5de77f8",
       "runtimeSha256": "d7267e183067757c92c169de2a379abea592cfca6b39bb2e8feea15221ad79fe",
+      "runtimeBytes": 5808,
       "maxBytes": 50000,
       "bundles": ["initial", "biome-1", "biome-2"]
     },
@@ -528,6 +567,7 @@
       "sourceArtifact": "kenney-impact-sounds-1.0.zip",
       "originalSha256": "029d734af1582474edf3a694d1b0cebc97c1c152f2f39fa34d4c2bafc5de77f8",
       "runtimeSha256": "8b513c2f0316324060b9174b8f28df6c2147418c506e6a53b77f18e149a5547b",
+      "runtimeBytes": 5805,
       "maxBytes": 50000,
       "bundles": ["initial", "biome-1", "biome-2"]
     },
@@ -543,6 +583,7 @@
       "sourceArtifact": "kenney-interface-sounds-1.0.zip",
       "originalSha256": "f2193d072726d6758a5f7871b2dcc54dcce0d5c35c6f0a62f92549b327c81232",
       "runtimeSha256": "aec0c31ea934a35936ae0d2ab8fac8123c93aa5647f935853a58dbaf90278b7a",
+      "runtimeBytes": 5468,
       "maxBytes": 50000,
       "bundles": ["initial", "biome-1", "biome-2"]
     },
@@ -558,6 +599,7 @@
       "sourceArtifact": "kenney-interface-sounds-1.0.zip",
       "originalSha256": "f2193d072726d6758a5f7871b2dcc54dcce0d5c35c6f0a62f92549b327c81232",
       "runtimeSha256": "063564703b6094d70718a3e787a55cc9141611e4ecd6b6637f8828f79b4a8c3a",
+      "runtimeBytes": 8968,
       "maxBytes": 50000,
       "bundles": ["initial", "biome-1", "biome-2"]
     },
@@ -573,6 +615,7 @@
       "sourceArtifact": "kenney-interface-sounds-1.0.zip",
       "originalSha256": "f2193d072726d6758a5f7871b2dcc54dcce0d5c35c6f0a62f92549b327c81232",
       "runtimeSha256": "46e67425d16339772e8d328fb36a49426c9467418686e11beeb71ff84b0f6433",
+      "runtimeBytes": 7373,
       "maxBytes": 50000,
       "bundles": ["initial", "biome-1", "biome-2"]
     },
@@ -588,6 +631,7 @@
       "sourceArtifact": "ironchest-dungeon-music-ogg.zip",
       "originalSha256": "f216007e669b0cf2693af8246b780894cde496895582d99837a7dcb706795063",
       "runtimeSha256": "d4a737468944e2e5a1876ed2c0968826a8e23058e4f8b9949afa966058bdf519",
+      "runtimeBytes": 415074,
       "maxBytes": 1000000,
       "bundles": ["initial", "biome-1", "biome-2"]
     },
@@ -603,6 +647,7 @@
       "sourceArtifact": "generated/boda-signature-vfx-chroma.png",
       "originalSha256": "b35cb98c78cb197a947ae87ae82f185d5398446278147cdb69d0de499fd618cf",
       "runtimeSha256": "d3271290304179c0746a29345630c55dbe97762d413ea0c8dc163c5794bc40ec",
+      "runtimeBytes": 30189,
       "maxBytes": 150000,
       "bundles": ["initial", "biome-1", "biome-2"]
     },
@@ -618,6 +663,7 @@
       "sourceArtifact": "generated/boda-signature-vfx-chroma.png",
       "originalSha256": "b35cb98c78cb197a947ae87ae82f185d5398446278147cdb69d0de499fd618cf",
       "runtimeSha256": "ed4b7f09676e6fb407c0104aa2ef5699ec4cc7426afcf908cbe8504698fd46ee",
+      "runtimeBytes": 26740,
       "maxBytes": 150000,
       "bundles": ["initial", "biome-1", "biome-2"]
     },
@@ -633,6 +679,7 @@
       "sourceArtifact": "generated/boda-signature-vfx-chroma.png",
       "originalSha256": "b35cb98c78cb197a947ae87ae82f185d5398446278147cdb69d0de499fd618cf",
       "runtimeSha256": "64f5b2f3b74ae1aa84b1e4c00fa00d14af59b3cd6592b12e02beec78e613aca9",
+      "runtimeBytes": 49803,
       "maxBytes": 150000,
       "bundles": ["initial", "biome-1", "biome-2"]
     },
@@ -648,6 +695,7 @@
       "sourceArtifact": "kenney-particle-pack-1.0.zip",
       "originalSha256": "b631d4b07f7002549fdcf155f01141ad482f79f3440e4e301eed49ce5f1d8958",
       "runtimeSha256": "91cde5482df8f0c92f250756bfeb9d30de986434ff73a71b1639e2642448b4bc",
+      "runtimeBytes": 16507,
       "maxBytes": 100000,
       "bundles": ["initial", "biome-1", "biome-2"]
     },
@@ -663,6 +711,7 @@
       "sourceArtifact": "kenney-particle-pack-1.0.zip",
       "originalSha256": "b631d4b07f7002549fdcf155f01141ad482f79f3440e4e301eed49ce5f1d8958",
       "runtimeSha256": "6a225d011f3b3ace1a5a84f32f9a35e079abb6668a02972fb519874c65d5cdb4",
+      "runtimeBytes": 31337,
       "maxBytes": 100000,
       "bundles": ["initial", "biome-1", "biome-2"]
     },
@@ -678,6 +727,7 @@
       "sourceArtifact": "kenney-particle-pack-1.0.zip",
       "originalSha256": "b631d4b07f7002549fdcf155f01141ad482f79f3440e4e301eed49ce5f1d8958",
       "runtimeSha256": "94712b5bab59a6333041828b350820796edb5a1012c741a300bd40721103415e",
+      "runtimeBytes": 10972,
       "maxBytes": 100000,
       "bundles": ["initial", "biome-1", "biome-2"]
     },
@@ -693,6 +743,7 @@
       "sourceArtifact": "kenney-particle-pack-1.0.zip",
       "originalSha256": "b631d4b07f7002549fdcf155f01141ad482f79f3440e4e301eed49ce5f1d8958",
       "runtimeSha256": "626757731376d19e400b4b0fe534069a27fbb315f29ec0307450212b136267d3",
+      "runtimeBytes": 10486,
       "maxBytes": 100000,
       "bundles": ["initial", "biome-1", "biome-2"]
     },
@@ -708,6 +759,7 @@
       "sourceArtifact": "kenney-particle-pack-1.0.zip",
       "originalSha256": "b631d4b07f7002549fdcf155f01141ad482f79f3440e4e301eed49ce5f1d8958",
       "runtimeSha256": "c9513d79b2ccba0a0129a079f6fb9731c0c84bb3762d263344b320d692264e70",
+      "runtimeBytes": 20860,
       "maxBytes": 100000,
       "bundles": ["initial", "biome-1", "biome-2"]
     },
@@ -723,6 +775,7 @@
       "sourceArtifact": "kenney-particle-pack-1.0.zip",
       "originalSha256": "b631d4b07f7002549fdcf155f01141ad482f79f3440e4e301eed49ce5f1d8958",
       "runtimeSha256": "26a0f0b7512d01eedb0326f63fd0955690894971236ad61497e3b1ce76ece086",
+      "runtimeBytes": 17972,
       "maxBytes": 100000,
       "bundles": ["initial", "biome-1", "biome-2"]
     }
