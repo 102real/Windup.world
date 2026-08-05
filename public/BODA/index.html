@@ -115,6 +115,123 @@
         font-weight: 750;
       }
 
+      #boda-static-start {
+        display: grid;
+        min-width: min(28rem, 82vw);
+        min-height: 3.6rem;
+        padding: 0.7rem 1rem;
+        margin: clamp(1.5rem, 4vh, 2.8rem) auto 0;
+        grid-template-columns: 1fr auto 1fr;
+        gap: 0.85rem;
+        align-items: center;
+        border: 0;
+        background: transparent;
+        color: #fff;
+        font: inherit;
+        font-size: clamp(0.8rem, 1.5vw, 1rem);
+        font-weight: 850;
+        letter-spacing: 0.12em;
+        text-shadow: 0 6px 16px rgba(4, 4, 7, 0.7);
+        cursor: pointer;
+        animation: boda-static-prompt 1.7s ease-in-out infinite alternate;
+      }
+
+      #boda-static-start span {
+        height: 3px;
+        border-radius: 999px;
+        background: linear-gradient(90deg, transparent, #f12b55);
+      }
+
+      #boda-static-start span:last-child {
+        background: linear-gradient(90deg, #f12b55, transparent);
+      }
+
+      #boda-static-start:focus-visible {
+        outline: 2px solid #fff;
+        outline-offset: 4px;
+      }
+
+      #boda-static-title[data-state='loading'] .boda-static-title__content {
+        visibility: hidden;
+      }
+
+      #boda-static-loading {
+        position: absolute;
+        z-index: 2;
+        top: 50%;
+        left: 50%;
+        display: grid;
+        width: min(88vw, 35rem);
+        place-items: center;
+        padding: clamp(1.5rem, 4vw, 2.6rem);
+        border: 1px solid rgba(255, 255, 255, 0.18);
+        border-radius: 16px;
+        background: linear-gradient(
+          155deg,
+          rgba(48, 48, 56, 0.96),
+          rgba(14, 14, 19, 0.97)
+        );
+        box-shadow: 0 1.5rem 5rem rgba(0, 0, 0, 0.66);
+        text-align: center;
+        transform: translate(-50%, -50%);
+      }
+
+      .boda-static-loader {
+        position: relative;
+        width: 3.6rem;
+        height: 3.6rem;
+        border: 3px solid rgba(255, 255, 255, 0.17);
+        border-top-color: #f12b55;
+        border-radius: 50%;
+        animation: boda-static-spin 0.9s linear infinite;
+      }
+
+      .boda-static-loader::after {
+        position: absolute;
+        inset: 0.75rem;
+        border: 2px solid rgba(255, 255, 255, 0.18);
+        border-right-color: #fff;
+        border-radius: 50%;
+        content: '';
+        animation: boda-static-spin 0.65s linear infinite reverse;
+      }
+
+      #boda-static-loading h2 {
+        margin: 1rem 0 0;
+        font-size: clamp(1.25rem, 3vw, 1.8rem);
+      }
+
+      #boda-static-loading-detail {
+        margin: 0.45rem 0 1.1rem;
+        color: #c8c8d0;
+        font-size: 0.76rem;
+      }
+
+      .boda-static-progress {
+        width: 100%;
+        height: 0.7rem;
+        overflow: hidden;
+        border: 1px solid rgba(255, 255, 255, 0.25);
+        border-radius: 999px;
+        background: #09090c;
+        box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.6);
+      }
+
+      .boda-static-progress span {
+        display: block;
+        width: 0;
+        height: 100%;
+        background: linear-gradient(90deg, #a50f30, #f12b55);
+      }
+
+      .boda-static-percent {
+        margin-top: 0.55rem;
+        color: #fff;
+        font-size: 0.9rem;
+        font-weight: 850;
+        font-variant-numeric: tabular-nums;
+      }
+
       #boda-static-message {
         margin: 1rem 0 0;
         color: #ffb3c3;
@@ -140,13 +257,39 @@
         display: none !important;
       }
 
+      @keyframes boda-static-prompt {
+        from {
+          opacity: 0.68;
+        }
+        to {
+          opacity: 1;
+          text-shadow:
+            0 6px 16px rgba(4, 4, 7, 0.7),
+            0 0 14px rgba(255, 255, 255, 0.48);
+        }
+      }
+
+      @keyframes boda-static-spin {
+        to {
+          transform: rotate(360deg);
+        }
+      }
+
       @media (max-width: 700px) {
         .boda-static-title__content {
           transform: translateY(-6vh);
         }
       }
+
+      @media (prefers-reduced-motion: reduce) {
+        #boda-static-start,
+        .boda-static-loader,
+        .boda-static-loader::after {
+          animation: none;
+        }
+      }
     </style>
-    <script type="module" crossorigin src="./assets/index-Izd5ONW0.js"></script>
+    <script type="module" crossorigin src="./assets/index-DdJw77Mp.js"></script>
   </head>
   <body>
     <div id="boda-static-title" aria-label="BODA 타이틀 화면">
@@ -167,10 +310,197 @@
         <p class="boda-static-title__eyebrow">THE LAST GAZE</p>
         <h1 class="boda-static-title__name">BODA</h1>
         <p class="boda-static-title__subtitle">눈을 거두면, 사냥이 시작된다</p>
+        <button id="boda-static-start" type="button" autofocus>
+          <span aria-hidden="true"></span>
+          아무 키나 눌러 시작
+          <span aria-hidden="true"></span>
+        </button>
+      </section>
+      <section
+        id="boda-static-loading"
+        role="status"
+        aria-live="polite"
+        aria-atomic="true"
+        aria-busy="true"
+        tabindex="-1"
+        hidden
+      >
+        <div class="boda-static-loader" aria-hidden="true"></div>
+        <h2>게임을 준비하는 중</h2>
+        <p id="boda-static-loading-detail">게임 코드 불러오기</p>
+        <div
+          class="boda-static-progress"
+          role="progressbar"
+          aria-label="게임 로딩 진행률"
+          aria-valuemin="0"
+          aria-valuemax="100"
+          aria-valuenow="0"
+        >
+          <span></span>
+        </div>
+        <output class="boda-static-percent">0%</output>
         <p id="boda-static-message" role="alert" hidden></p>
         <button id="boda-static-retry" type="button" hidden>다시 시도</button>
       </section>
     </div>
-    <div id="root"></div>
+    <div id="root" inert aria-hidden="true"></div>
+    <script>
+      ;(() => {
+        const title = document.getElementById('boda-static-title')
+        const start = document.getElementById('boda-static-start')
+        const loading = document.getElementById('boda-static-loading')
+        let startupFailed = false
+        let startupErrorShown = false
+        let startupWatchdog
+
+        const clearStartupTimer = () => {
+          if (startupWatchdog !== undefined) {
+            window.clearTimeout(startupWatchdog)
+            startupWatchdog = undefined
+          }
+        }
+
+        const clearStartupWatchdog = () => {
+          clearStartupTimer()
+          window.removeEventListener('error', handleStartupResourceError, true)
+          window.removeEventListener(
+            'unhandledrejection',
+            handleStartupRejection,
+          )
+        }
+
+        const showStartupError = (
+          detailText = '게임 코드를 불러오지 못했습니다.',
+          messageText = '연결을 확인한 뒤 다시 시도해 주세요.',
+        ) => {
+          startupFailed = true
+          if (!window.__BODA_START_REQUESTED__ || startupErrorShown) return
+          startupErrorShown = true
+          clearStartupWatchdog()
+          const detail = document.getElementById('boda-static-loading-detail')
+          const message = document.getElementById('boda-static-message')
+          const retry = document.getElementById('boda-static-retry')
+          const loader = document.querySelector('.boda-static-loader')
+          if (detail) detail.textContent = detailText
+          if (message) {
+            message.textContent = messageText
+            message.hidden = false
+          }
+          if (loader) loader.hidden = true
+          if (loading) loading.setAttribute('aria-busy', 'false')
+          if (retry instanceof HTMLButtonElement) {
+            retry.hidden = false
+            retry.addEventListener('click', () => window.location.reload(), {
+              once: true,
+            })
+            retry.focus()
+          }
+        }
+
+        const armStartupWatchdog = () => {
+          clearStartupTimer()
+          startupWatchdog = window.setTimeout(() => {
+            startupWatchdog = undefined
+            if (document.hidden) {
+              armStartupWatchdog()
+              return
+            }
+            showStartupError(
+              '게임 시작이 예상보다 오래 걸립니다.',
+              '다시 시도하면 타이틀부터 안전하게 시작합니다.',
+            )
+          }, 30_000)
+        }
+
+        window.__BODA_SHOW_STARTUP_ERROR__ = showStartupError
+        window.__BODA_CLEAR_STARTUP_WATCHDOG__ = clearStartupWatchdog
+
+        function handleStartupResourceError(event) {
+          const target = event.target
+          if (target instanceof HTMLScriptElement && target.type === 'module') {
+            showStartupError()
+          }
+        }
+
+        function handleStartupRejection() {
+          showStartupError()
+        }
+
+        const isStartKey = (event) => {
+          if (
+            event.defaultPrevented ||
+            event.isComposing ||
+            event.repeat ||
+            event.altKey ||
+            event.ctrlKey ||
+            event.metaKey ||
+            event.shiftKey
+          ) {
+            return false
+          }
+          return !(
+            [
+              'Alt',
+              'Control',
+              'Meta',
+              'Shift',
+              'Tab',
+              'Escape',
+              'Process',
+            ].includes(event.key) || /^F\d{1,2}$/.test(event.key)
+          )
+        }
+
+        const detach = () => {
+          window.removeEventListener('keydown', handleKey)
+          start?.removeEventListener('click', handleClick)
+        }
+
+        const captureStart = () => {
+          if (window.__BODA_START_REQUESTED__) return
+          window.__BODA_START_REQUESTED__ = true
+          detach()
+          if (title) title.dataset.state = 'loading'
+          if (start instanceof HTMLButtonElement) start.disabled = true
+          if (loading) {
+            loading.hidden = false
+            loading.focus({ preventScroll: true })
+          }
+
+          if (startupFailed) showStartupError()
+          else armStartupWatchdog()
+
+          if (!window.__BODA_PRIMED_AUDIO_CONTEXT__) {
+            const AudioContextConstructor =
+              window.AudioContext || window.webkitAudioContext
+            if (typeof AudioContextConstructor === 'function') {
+              try {
+                const context = new AudioContextConstructor()
+                window.__BODA_PRIMED_AUDIO_CONTEXT__ = context
+                context.resume().catch(() => undefined)
+              } catch {
+                // The runtime keeps its silent-audio fallback.
+              }
+            }
+          }
+          window.dispatchEvent(new Event('boda:start'))
+        }
+
+        function handleKey(event) {
+          if (!isStartKey(event)) return
+          if (event.key === ' ' || event.key === 'Enter') event.preventDefault()
+          captureStart()
+        }
+
+        function handleClick() {
+          captureStart()
+        }
+
+        window.addEventListener('keydown', handleKey)
+        window.addEventListener('error', handleStartupResourceError, true)
+        window.addEventListener('unhandledrejection', handleStartupRejection)
+        start?.addEventListener('click', handleClick)
+      })()
+    </script>
   </body>
 </html>
