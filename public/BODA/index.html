@@ -238,7 +238,8 @@
         font-size: 0.76rem;
       }
 
-      #boda-static-retry {
+      #boda-static-retry,
+      #boda-static-cancel {
         min-width: 9rem;
         min-height: 2.7rem;
         padding: 0.55rem 1rem;
@@ -251,6 +252,11 @@
         font-size: 0.78rem;
         font-weight: 800;
         cursor: pointer;
+      }
+
+      #boda-static-cancel {
+        border-color: rgba(255, 255, 255, 0.18);
+        background: linear-gradient(180deg, #3d3d47, #17171d);
       }
 
       [hidden] {
@@ -289,7 +295,7 @@
         }
       }
     </style>
-    <script type="module" crossorigin src="./assets/index-DdJw77Mp.js"></script>
+    <script type="module" crossorigin src="./assets/index-f01cvzWC.js"></script>
   </head>
   <body>
     <div id="boda-static-title" aria-label="BODA 타이틀 화면">
@@ -310,9 +316,9 @@
         <p class="boda-static-title__eyebrow">THE LAST GAZE</p>
         <h1 class="boda-static-title__name">BODA</h1>
         <p class="boda-static-title__subtitle">눈을 거두면, 사냥이 시작된다</p>
-        <button id="boda-static-start" type="button" autofocus>
+        <button id="boda-static-start" type="button">
           <span aria-hidden="true"></span>
-          아무 키나 눌러 시작
+          여기를 눌러 시작
           <span aria-hidden="true"></span>
         </button>
       </section>
@@ -326,7 +332,7 @@
         hidden
       >
         <div class="boda-static-loader" aria-hidden="true"></div>
-        <h2>게임을 준비하는 중</h2>
+        <h2>게임 로딩 중</h2>
         <p id="boda-static-loading-detail">게임 코드 불러오기</p>
         <div
           class="boda-static-progress"
@@ -341,6 +347,7 @@
         <output class="boda-static-percent">0%</output>
         <p id="boda-static-message" role="alert" hidden></p>
         <button id="boda-static-retry" type="button" hidden>다시 시도</button>
+        <button id="boda-static-cancel" type="button">타이틀로 돌아가기</button>
       </section>
     </div>
     <div id="root" inert aria-hidden="true"></div>
@@ -426,33 +433,7 @@
           showStartupError()
         }
 
-        const isStartKey = (event) => {
-          if (
-            event.defaultPrevented ||
-            event.isComposing ||
-            event.repeat ||
-            event.altKey ||
-            event.ctrlKey ||
-            event.metaKey ||
-            event.shiftKey
-          ) {
-            return false
-          }
-          return !(
-            [
-              'Alt',
-              'Control',
-              'Meta',
-              'Shift',
-              'Tab',
-              'Escape',
-              'Process',
-            ].includes(event.key) || /^F\d{1,2}$/.test(event.key)
-          )
-        }
-
         const detach = () => {
-          window.removeEventListener('keydown', handleKey)
           start?.removeEventListener('click', handleClick)
         }
 
@@ -486,20 +467,16 @@
           window.dispatchEvent(new Event('boda:start'))
         }
 
-        function handleKey(event) {
-          if (!isStartKey(event)) return
-          if (event.key === ' ' || event.key === 'Enter') event.preventDefault()
-          captureStart()
-        }
-
         function handleClick() {
           captureStart()
         }
 
-        window.addEventListener('keydown', handleKey)
         window.addEventListener('error', handleStartupResourceError, true)
         window.addEventListener('unhandledrejection', handleStartupRejection)
         start?.addEventListener('click', handleClick)
+        document
+          .getElementById('boda-static-cancel')
+          ?.addEventListener('click', () => window.location.reload())
       })()
     </script>
   </body>
