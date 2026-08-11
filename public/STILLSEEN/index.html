@@ -1,0 +1,725 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#05090b" />
+    <meta
+      name="description"
+      content="STILLSEEN — 바라보는 동안 시간이 멈추는 3D 액션 로그라이트"
+    />
+    <link rel="icon" type="image/svg+xml" href="./favicon.svg?v=2" />
+    <link
+      rel="preload"
+      as="image"
+      href="./assets/ui/title-stillseen-desktop.webp"
+      media="(min-width: 701px)"
+      fetchpriority="high"
+    />
+    <link
+      rel="preload"
+      as="image"
+      href="./assets/ui/title-stillseen-mobile.webp"
+      media="(max-width: 700px)"
+      fetchpriority="high"
+    />
+    <link
+      rel="preload"
+      as="image"
+      href="./assets/ui/title-stillseen-logo.png"
+      fetchpriority="high"
+    />
+    <title>STILLSEEN — ORBITAL CONTAINMENT</title>
+    <style id="stillseen-critical-title-style">
+      html,
+      body {
+        width: 100%;
+        height: 100%;
+        min-width: 320px;
+        min-height: 480px;
+        margin: 0;
+        overflow: hidden;
+        background: #05090b;
+      }
+
+      #root {
+        position: fixed;
+        z-index: 1;
+        inset: 0;
+      }
+
+      #stillseen-static-title {
+        position: fixed;
+        z-index: 2;
+        inset: 0;
+        display: grid;
+        place-items: center;
+        overflow: hidden;
+        background: #05090b;
+        color: #edf7f5;
+        font-family:
+          'Pretendard Variable',
+          Pretendard,
+          system-ui,
+          -apple-system,
+          'Segoe UI',
+          sans-serif;
+        isolation: isolate;
+      }
+
+      #stillseen-static-title picture,
+      #stillseen-static-title picture::after {
+        position: absolute;
+        inset: 0;
+      }
+
+      #stillseen-static-title picture {
+        z-index: -2;
+      }
+
+      #stillseen-static-title picture::after {
+        background:
+          radial-gradient(
+            circle at center,
+            transparent 28%,
+            rgba(5, 5, 8, 0.52)
+          ),
+          linear-gradient(0deg, rgba(7, 7, 10, 0.76), transparent 52%);
+        content: '';
+      }
+
+      #stillseen-static-title img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center;
+      }
+
+      .stillseen-static-title__content {
+        justify-self: start;
+        width: min(40vw, 42rem);
+        padding: 1.5rem 0;
+        margin-left: clamp(2rem, 5.5vw, 7rem);
+        text-align: left;
+        text-shadow: 0 6px 20px rgba(0, 0, 0, 0.86);
+      }
+
+      .stillseen-static-title__eyebrow {
+        margin: 0;
+        font-size: clamp(0.65rem, 1.2vw, 0.82rem);
+        font-weight: 800;
+        letter-spacing: 0.32em;
+      }
+
+      .stillseen-static-title__name {
+        width: min(100%, 38rem);
+        margin: 0.65rem 0 0;
+        line-height: 1;
+      }
+
+      .stillseen-static-title__logo {
+        display: block;
+        width: 100%;
+        height: auto;
+        filter: drop-shadow(0 0 20px rgba(35, 215, 197, 0.28))
+          drop-shadow(0 8px 16px rgba(0, 0, 0, 0.82));
+      }
+
+      .stillseen-static-title__sr-only {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        padding: 0;
+        margin: -1px;
+        overflow: hidden;
+        clip: rect(0, 0, 0, 0);
+        white-space: nowrap;
+      }
+
+      .stillseen-static-title__subtitle {
+        margin: 1.3rem 0 0;
+        font-size: clamp(0.95rem, 2vw, 1.22rem);
+        font-weight: 750;
+      }
+
+      #stillseen-static-start {
+        position: relative;
+        display: grid;
+        width: min(40rem, 88vw);
+        min-width: 0;
+        min-height: 3.8rem;
+        padding: 0.72rem 0;
+        margin: clamp(1.5rem, 4vh, 2.8rem) 0 0;
+        overflow: hidden;
+        place-items: center;
+        border: 2px solid transparent;
+        border-radius: 12px;
+        outline: 1px solid rgba(127, 255, 239, 0.32);
+        outline-offset: 4px;
+        background:
+          linear-gradient(180deg, rgba(34, 32, 39, 0.9), rgba(12, 12, 17, 0.94))
+            padding-box,
+          linear-gradient(90deg, #23d7c5 0%, #eafffc 50%, #23d7c5 100%)
+            border-box;
+        box-shadow:
+          inset 0 1px 0 rgba(255, 255, 255, 0.2),
+          inset 0 -1px 0 rgba(35, 215, 197, 0.28),
+          0 4px 0 #063c3a,
+          0 12px 26px rgba(4, 4, 7, 0.58),
+          0 0 16px rgba(35, 215, 197, 0.34),
+          0 0 38px rgba(35, 215, 197, 0.18);
+        color: #fff;
+        font: inherit;
+        font-size: clamp(0.8rem, 1.5vw, 1rem);
+        font-weight: 850;
+        letter-spacing: 0.12em;
+        text-shadow:
+          0 2px 0 #09090d,
+          0 0 12px rgba(255, 255, 255, 0.14);
+        cursor: pointer;
+        animation: stillseen-static-prompt 1.7s ease-in-out infinite alternate;
+        transition:
+          transform 140ms ease,
+          background 180ms ease,
+          box-shadow 180ms ease,
+          filter 180ms ease;
+      }
+
+      #stillseen-static-start::after {
+        position: absolute;
+        inset: 2px;
+        border-radius: 10px;
+        background: linear-gradient(
+          112deg,
+          transparent 26%,
+          rgba(255, 255, 255, 0.16) 48%,
+          transparent 70%
+        );
+        content: '';
+        pointer-events: none;
+        transform: translateX(-130%);
+        transition: transform 420ms ease;
+      }
+
+      .stillseen-static-start__label {
+        position: relative;
+        z-index: 1;
+        white-space: nowrap;
+      }
+
+      #stillseen-static-start:hover:not(:disabled),
+      #stillseen-static-start:focus-visible {
+        outline-color: rgba(234, 255, 252, 0.72);
+        background:
+          linear-gradient(
+              180deg,
+              rgba(63, 57, 66, 0.96),
+              rgba(19, 18, 24, 0.98)
+            )
+            padding-box,
+          linear-gradient(90deg, #55f3e6 0%, #fff 50%, #55f3e6 100%) border-box;
+        box-shadow:
+          inset 0 1px 0 rgba(255, 255, 255, 0.38),
+          inset 0 -1px 0 rgba(85, 243, 230, 0.52),
+          0 6px 0 #0b4a45,
+          0 16px 34px rgba(4, 4, 7, 0.66),
+          0 0 24px rgba(255, 255, 255, 0.28),
+          0 0 42px rgba(35, 215, 197, 0.62);
+        filter: brightness(1.08);
+        transform: translateY(-2px);
+        animation: none;
+      }
+
+      #stillseen-static-start:hover:not(:disabled)::after,
+      #stillseen-static-start:focus-visible::after {
+        transform: translateX(130%);
+      }
+
+      #stillseen-static-start:focus-visible {
+        outline: 2px solid #fff;
+        outline-offset: 4px;
+      }
+
+      #stillseen-static-start:active:not(:disabled) {
+        outline-color: rgba(127, 255, 239, 0.4);
+        box-shadow:
+          inset 0 3px 8px rgba(0, 0, 0, 0.64),
+          inset 0 0 18px rgba(35, 215, 197, 0.2),
+          0 1px 0 #063c3a,
+          0 5px 12px rgba(4, 4, 7, 0.62);
+        filter: brightness(0.96);
+        transform: translateY(3px);
+      }
+
+      #stillseen-static-start:disabled {
+        cursor: wait;
+        opacity: 0.68;
+        transform: none;
+        animation: none;
+      }
+
+      #stillseen-static-title[data-state='loading']
+        .stillseen-static-title__content {
+        visibility: hidden;
+      }
+
+      /* Geometry contract: these values are mirrored on
+         .stillseen-system-state__panel in src/ui/stillseen-ui.css so the
+         hand-off from this shell to React does not resize the card.
+         Change one, change both. */
+      #stillseen-static-loading {
+        position: absolute;
+        box-sizing: border-box;
+        z-index: 2;
+        top: 50%;
+        left: 50%;
+        display: grid;
+        width: min(88vw, 35rem);
+        place-items: center;
+        padding: clamp(1.5rem, 4vw, 2.6rem);
+        border: 1px solid rgba(255, 255, 255, 0.18);
+        border-radius: 16px;
+        background: linear-gradient(
+          155deg,
+          rgba(48, 48, 56, 0.96),
+          rgba(14, 14, 19, 0.97)
+        );
+        box-shadow: 0 1.5rem 5rem rgba(0, 0, 0, 0.66);
+        text-align: center;
+        transform: translate(-50%, -50%);
+      }
+
+      .stillseen-static-loader {
+        position: relative;
+        width: 3.6rem;
+        height: 3.6rem;
+        border: 3px solid rgba(255, 255, 255, 0.17);
+        border-top-color: #23d7c5;
+        border-radius: 50%;
+        animation: stillseen-static-spin 0.9s linear infinite;
+      }
+
+      .stillseen-static-loader::after {
+        position: absolute;
+        inset: 0.75rem;
+        border: 2px solid rgba(255, 255, 255, 0.18);
+        border-right-color: #fff;
+        border-radius: 50%;
+        content: '';
+        animation: stillseen-static-spin 0.65s linear infinite reverse;
+      }
+
+      #stillseen-static-loading h2 {
+        margin: 1rem 0 0;
+        font-size: clamp(1.25rem, 3vw, 1.8rem);
+      }
+
+      #stillseen-static-loading-detail {
+        margin: 0.45rem 0 1.1rem;
+        color: #c8c8d0;
+        font-size: 0.76rem;
+      }
+
+      .stillseen-static-progress {
+        width: 100%;
+        height: 0.7rem;
+        overflow: hidden;
+        border: 1px solid rgba(255, 255, 255, 0.25);
+        border-radius: 999px;
+        background: #05090b;
+        box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.6);
+      }
+
+      .stillseen-static-progress span {
+        display: block;
+        width: 0;
+        height: 100%;
+        background: linear-gradient(90deg, #0b4a45, #23d7c5);
+      }
+
+      .stillseen-static-percent {
+        margin-top: 0.55rem;
+        color: #fff;
+        font-size: 0.9rem;
+        font-weight: 850;
+        font-variant-numeric: tabular-nums;
+      }
+
+      #stillseen-static-message {
+        margin: 1rem 0 0;
+        color: #fff;
+        font-size: 0.76rem;
+      }
+
+      #stillseen-static-retry,
+      #stillseen-static-cancel {
+        min-width: 9rem;
+        min-height: 2.7rem;
+        padding: 0.55rem 1rem;
+        margin-top: 0.8rem;
+        border: 1px solid rgba(255, 255, 255, 0.28);
+        border-radius: 10px;
+        background: linear-gradient(180deg, #7fffef, #23d7c5);
+        color: #fff;
+        font: inherit;
+        font-size: 0.78rem;
+        font-weight: 800;
+        cursor: pointer;
+      }
+
+      #stillseen-static-cancel {
+        border-color: rgba(255, 255, 255, 0.18);
+        background: linear-gradient(180deg, #3d3d47, #17171d);
+      }
+
+      [hidden] {
+        display: none !important;
+      }
+
+      @keyframes stillseen-static-prompt {
+        from {
+          outline-color: rgba(127, 255, 239, 0.28);
+          box-shadow:
+            inset 0 1px 0 rgba(255, 255, 255, 0.2),
+            inset 0 -1px 0 rgba(35, 215, 197, 0.26),
+            0 4px 0 #063c3a,
+            0 12px 26px rgba(4, 4, 7, 0.58),
+            0 0 14px rgba(35, 215, 197, 0.28),
+            0 0 32px rgba(35, 215, 197, 0.12);
+        }
+        to {
+          outline-color: rgba(202, 255, 249, 0.56);
+          box-shadow:
+            inset 0 1px 0 rgba(255, 255, 255, 0.28),
+            inset 0 -1px 0 rgba(85, 243, 230, 0.44),
+            0 4px 0 #063c3a,
+            0 12px 26px rgba(4, 4, 7, 0.58),
+            0 0 22px rgba(255, 255, 255, 0.18),
+            0 0 42px rgba(35, 215, 197, 0.46);
+        }
+      }
+
+      @keyframes stillseen-static-spin {
+        to {
+          transform: rotate(360deg);
+        }
+      }
+
+      @media (max-width: 700px) {
+        .stillseen-static-title__content {
+          box-sizing: border-box;
+          width: 100%;
+          min-width: 0;
+          justify-self: center;
+          padding-inline: 1rem;
+          margin: max(3.5rem, env(safe-area-inset-top)) 0 0;
+          align-self: start;
+          text-align: center;
+        }
+
+        .stillseen-static-title__eyebrow {
+          font-size: 0.62rem;
+          letter-spacing: 0.18em;
+        }
+
+        .stillseen-static-title__name {
+          width: min(88vw, 34rem);
+          margin-inline: auto;
+        }
+
+        .stillseen-static-title__subtitle {
+          font-size: clamp(0.82rem, 3.8vw, 0.98rem);
+        }
+
+        #stillseen-static-start {
+          width: min(32rem, calc(100vw - 2rem));
+          max-width: 100%;
+          margin-inline: auto;
+          font-size: 0.78rem;
+          letter-spacing: 0.08em;
+        }
+      }
+
+      #stillseen-static-orientation {
+        display: none;
+      }
+
+      @media (hover: none) and (pointer: coarse) and (orientation: portrait) {
+        #stillseen-static-orientation {
+          position: fixed;
+          z-index: 40;
+          inset: 0;
+          display: grid;
+          align-content: center;
+          justify-items: center;
+          gap: 0.7rem;
+          padding: 2rem;
+          background:
+            radial-gradient(
+              circle at 50% 45%,
+              rgba(35, 215, 197, 0.13),
+              transparent 28%
+            ),
+            #05090b;
+          color: #edf7f5;
+          text-align: center;
+        }
+
+        #stillseen-static-orientation::before {
+          width: 4.8rem;
+          height: 2.8rem;
+          margin-bottom: 0.45rem;
+          border: 2px solid #67f5e3;
+          box-shadow: 0 0 24px rgba(35, 215, 197, 0.22);
+          content: '';
+          transform: rotate(-8deg);
+        }
+
+        #stillseen-static-orientation strong {
+          color: #7fffef;
+          font-size: 1.3rem;
+        }
+
+        #stillseen-static-orientation span {
+          color: #9fb1ae;
+          font-size: 0.82rem;
+        }
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        #stillseen-static-start,
+        .stillseen-static-loader,
+        .stillseen-static-loader::after {
+          animation: none;
+        }
+
+        #stillseen-static-start,
+        #stillseen-static-start::after {
+          transition: none;
+        }
+      }
+
+      @media (forced-colors: active) {
+        #stillseen-static-start {
+          border-color: ButtonText;
+          outline-color: ButtonText;
+          background: Canvas;
+          box-shadow: none;
+          color: ButtonText;
+        }
+
+        #stillseen-static-start::after {
+          display: none;
+        }
+
+        #stillseen-static-start:focus-visible {
+          outline-color: Highlight;
+        }
+      }
+    </style>
+    <script type="module" crossorigin src="/STILLSEEN/assets/index-D1BdmZBn.js"></script>
+    <link rel="stylesheet" crossorigin href="/STILLSEEN/assets/index-D-80bc65.css">
+  </head>
+  <body>
+    <div id="stillseen-static-title" aria-label="STILLSEEN 타이틀 화면">
+      <div id="stillseen-static-orientation" role="status">
+        <strong>가로 모드가 필요합니다</strong>
+        <span>기기를 가로로 돌리면 계속할 수 있습니다.</span>
+      </div>
+      <picture aria-hidden="true">
+        <source
+          media="(max-width: 700px)"
+          srcset="./assets/ui/title-stillseen-mobile.webp"
+        />
+        <img
+          src="./assets/ui/title-stillseen-desktop.webp"
+          alt=""
+          width="1920"
+          height="1080"
+          fetchpriority="high"
+        />
+      </picture>
+      <section class="stillseen-static-title__content">
+        <p class="stillseen-static-title__eyebrow">ENDLESS SURVIVAL PROTOCOL</p>
+        <h1 class="stillseen-static-title__name">
+          <img
+            class="stillseen-static-title__logo"
+            src="./assets/ui/title-stillseen-logo.png"
+            alt=""
+            width="1679"
+            height="253"
+          />
+          <span class="stillseen-static-title__sr-only">STILLSEEN</span>
+        </h1>
+        <p class="stillseen-static-title__subtitle">
+          자동 무장을 구축하고, 끝없이 살아남아라
+        </p>
+        <button id="stillseen-static-start" type="button">
+          <span class="stillseen-static-start__label">COMMAND DECK 접속</span>
+        </button>
+      </section>
+      <section
+        id="stillseen-static-loading"
+        role="status"
+        aria-live="polite"
+        aria-atomic="true"
+        aria-busy="true"
+        tabindex="-1"
+        hidden
+      >
+        <div class="stillseen-static-loader" aria-hidden="true"></div>
+        <h2>게임 로딩 중</h2>
+        <p id="stillseen-static-loading-detail">게임 코드 불러오기</p>
+        <div
+          class="stillseen-static-progress"
+          role="progressbar"
+          aria-label="게임 로딩 진행률"
+          aria-valuemin="0"
+          aria-valuemax="100"
+          aria-valuenow="0"
+        >
+          <span></span>
+        </div>
+        <output class="stillseen-static-percent">0%</output>
+        <p id="stillseen-static-message" role="alert" hidden></p>
+        <button id="stillseen-static-retry" type="button" hidden>
+          다시 시도
+        </button>
+        <button id="stillseen-static-cancel" type="button">
+          타이틀로 돌아가기
+        </button>
+      </section>
+    </div>
+    <div id="root" inert aria-hidden="true"></div>
+    <script>
+      ;(() => {
+        const title = document.getElementById('stillseen-static-title')
+        const start = document.getElementById('stillseen-static-start')
+        const loading = document.getElementById('stillseen-static-loading')
+        let startupFailed = false
+        let startupErrorShown = false
+        let startupWatchdog
+
+        const clearStartupTimer = () => {
+          if (startupWatchdog !== undefined) {
+            window.clearTimeout(startupWatchdog)
+            startupWatchdog = undefined
+          }
+        }
+
+        const clearStartupWatchdog = () => {
+          clearStartupTimer()
+          window.removeEventListener('error', handleStartupResourceError, true)
+          window.removeEventListener(
+            'unhandledrejection',
+            handleStartupRejection,
+          )
+        }
+
+        const showStartupError = (
+          detailText = '게임 코드를 불러오지 못했습니다.',
+          messageText = '연결을 확인한 뒤 다시 시도해 주세요.',
+        ) => {
+          startupFailed = true
+          if (!window.__STILLSEEN_START_REQUESTED__ || startupErrorShown) return
+          startupErrorShown = true
+          clearStartupWatchdog()
+          const detail = document.getElementById(
+            'stillseen-static-loading-detail',
+          )
+          const message = document.getElementById('stillseen-static-message')
+          const retry = document.getElementById('stillseen-static-retry')
+          const loader = document.querySelector('.stillseen-static-loader')
+          if (detail) detail.textContent = detailText
+          if (message) {
+            message.textContent = messageText
+            message.hidden = false
+          }
+          if (loader) loader.hidden = true
+          if (loading) loading.setAttribute('aria-busy', 'false')
+          if (retry instanceof HTMLButtonElement) {
+            retry.hidden = false
+            retry.addEventListener('click', () => window.location.reload(), {
+              once: true,
+            })
+            retry.focus()
+          }
+        }
+
+        const armStartupWatchdog = () => {
+          clearStartupTimer()
+          startupWatchdog = window.setTimeout(() => {
+            startupWatchdog = undefined
+            if (document.hidden) {
+              armStartupWatchdog()
+              return
+            }
+            showStartupError(
+              '게임 시작이 예상보다 오래 걸립니다.',
+              '다시 시도하면 타이틀부터 안전하게 시작합니다.',
+            )
+          }, 30_000)
+        }
+
+        window.__STILLSEEN_SHOW_STARTUP_ERROR__ = showStartupError
+        window.__STILLSEEN_CLEAR_STARTUP_WATCHDOG__ = clearStartupWatchdog
+
+        function handleStartupResourceError(event) {
+          const target = event.target
+          if (target instanceof HTMLScriptElement && target.type === 'module') {
+            showStartupError()
+          }
+        }
+
+        function handleStartupRejection() {
+          showStartupError()
+        }
+
+        const detach = () => {
+          start?.removeEventListener('click', handleClick)
+        }
+
+        const captureStart = () => {
+          if (window.__STILLSEEN_START_REQUESTED__) return
+          window.__STILLSEEN_START_REQUESTED__ = true
+          detach()
+          if (title) title.dataset.state = 'loading'
+          if (start instanceof HTMLButtonElement) start.disabled = true
+          if (loading) {
+            loading.hidden = false
+            loading.focus({ preventScroll: true })
+          }
+
+          if (startupFailed) showStartupError()
+          else armStartupWatchdog()
+
+          if (!window.__STILLSEEN_PRIMED_AUDIO_CONTEXT__) {
+            const AudioContextConstructor =
+              window.AudioContext || window.webkitAudioContext
+            if (typeof AudioContextConstructor === 'function') {
+              try {
+                const context = new AudioContextConstructor()
+                window.__STILLSEEN_PRIMED_AUDIO_CONTEXT__ = context
+                context.resume().catch(() => undefined)
+              } catch {
+                // The runtime keeps its silent-audio fallback.
+              }
+            }
+          }
+          window.dispatchEvent(new Event('stillseen:start'))
+        }
+
+        function handleClick() {
+          captureStart()
+        }
+
+        window.addEventListener('error', handleStartupResourceError, true)
+        window.addEventListener('unhandledrejection', handleStartupRejection)
+        start?.addEventListener('click', handleClick)
+        document
+          .getElementById('stillseen-static-cancel')
+          ?.addEventListener('click', () => window.location.reload())
+      })()
+    </script>
+  </body>
+</html>
