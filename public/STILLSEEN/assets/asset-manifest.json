@@ -60,6 +60,38 @@
       "bundles": ["title"]
     },
     {
+      "id": "stillseen-cursor-pointer",
+      "runtimePath": "ui/cursors/stillseen-pointer.svg",
+      "kind": "ui",
+      "sourceName": "STILLSEEN Observation Pointer",
+      "sourceUrl": "project://vector/stillseen-pointer",
+      "author": "Project STILLSEEN",
+      "license": "Project-Owned",
+      "downloadedAt": "2026-08-04",
+      "sourceArtifact": "generated/stillseen-pointer.svg",
+      "originalSha256": "97ea30adb97aa4199ff89f24fb78d3702b11ec1637c16e82213f81b917a9475a",
+      "runtimeSha256": "97ea30adb97aa4199ff89f24fb78d3702b11ec1637c16e82213f81b917a9475a",
+      "runtimeBytes": 223,
+      "maxBytes": 1024,
+      "bundles": ["initial"]
+    },
+    {
+      "id": "stillseen-cursor-aim",
+      "runtimePath": "ui/cursors/stillseen-aim.svg",
+      "kind": "ui",
+      "sourceName": "STILLSEEN Four-Line Aim Cursor",
+      "sourceUrl": "project://vector/stillseen-aim",
+      "author": "Project STILLSEEN",
+      "license": "Project-Owned",
+      "downloadedAt": "2026-08-04",
+      "sourceArtifact": "generated/stillseen-aim.svg",
+      "originalSha256": "5c8e67fe0404345905b0104c267b9812322c566896ea3ba640aabd5e48e8c38b",
+      "runtimeSha256": "5c8e67fe0404345905b0104c267b9812322c566896ea3ba640aabd5e48e8c38b",
+      "runtimeBytes": 183,
+      "maxBytes": 1024,
+      "bundles": ["initial"]
+    },
+    {
       "id": "kenney-sfx-pulse-blade-1",
       "runtimePath": "audio/sfx/pulse-blade-1.ogg",
       "kind": "audio",
