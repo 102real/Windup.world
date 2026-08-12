@@ -1,0 +1,1 @@
+var e=0,t=1;function n(t){!Number.isFinite(t)||t<=0||(e=Math.min(.06,Math.max(e,t)))}function r(n){t=e>0?0:1,!(!Number.isFinite(n)||n<=0||e<=0)&&(e=Math.max(0,e-n))}function i(){return t}function a(e){return!Number.isFinite(e)||e<=0?0:e*i()}function o(){e=0,t=1}export{r as a,o as i,i as n,n as r,a as t};
