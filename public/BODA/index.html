@@ -467,9 +467,10 @@
         }
       }
 
-      /* Portrait-only gate for touch devices. Toggled by the inline script
-         below the #root element; no CSS orientation query on purpose —
-         Android's soft keyboard can fake landscape in portrait. */
+      /* Landscape-only gate for touch devices. Toggled by the inline script
+         below the #root element; no CSS orientation query on purpose — the
+         viewport aspect is the one signal that matters (split-screen windows
+         make physical rotation misleading). */
       #boda-orientation-gate {
         position: fixed;
         z-index: 2000;
@@ -500,6 +501,7 @@
         border: 3px solid #d81f4d;
         border-radius: 0.55rem;
         animation: boda-orientation-rotate 1.6s ease-in-out infinite;
+        /* Ends rotated 90deg: the phone settles into landscape. */
       }
 
       #boda-orientation-gate strong {
@@ -517,12 +519,12 @@
       @keyframes boda-orientation-rotate {
         0%,
         20% {
-          transform: rotate(90deg);
+          transform: rotate(0deg);
         }
 
         55%,
         100% {
-          transform: rotate(0deg);
+          transform: rotate(90deg);
         }
       }
 
@@ -532,7 +534,7 @@
         }
       }
     </style>
-    <script type="module" crossorigin src="./assets/index-Bu1d4ynO.js"></script>
+    <script type="module" crossorigin src="./assets/index-BliX1oKr.js"></script>
   </head>
   <body>
     <div id="boda-static-title" aria-label="BODA 타이틀 화면">
@@ -591,8 +593,8 @@
     <div id="boda-orientation-gate" role="status">
       <div class="boda-orientation-gate__content">
         <span class="boda-orientation-gate__icon" aria-hidden="true"></span>
-        <strong>가로모드는 지원하지 않습니다</strong>
-        <p>기기를 세로로 회전해 주세요</p>
+        <strong>세로모드는 지원하지 않습니다</strong>
+        <p>기기를 가로로 회전해 주세요</p>
       </div>
     </div>
     <script>
@@ -601,20 +603,14 @@
         if (!gate || typeof window.matchMedia !== 'function') return
         const coarseQuery = window.matchMedia('(pointer: coarse)')
 
-        // Both signals must agree: the viewport alone is faked by Android's
-        // soft keyboard, and screen.orientation alone is faked by
-        // split-screen windows and partial emulators. Without the API the
-        // viewport decides (iOS below 16.4 keeps innerHeight stable).
-        const isLandscape = () => {
-          const wide = window.innerWidth > window.innerHeight
-          const type = window.screen?.orientation?.type
-          if (typeof type === 'string')
-            return type.indexOf('landscape') === 0 && wide
-          return wide
-        }
+        // The viewport aspect alone decides: the game needs a wide window,
+        // so a portrait-shaped split-screen pane on a rotated device must
+        // still be blocked. A landscape soft keyboard only shrinks the
+        // height further, so it can never fake portrait mid-play.
+        const isPortrait = () => window.innerHeight > window.innerWidth
 
         const update = () => {
-          if (coarseQuery.matches && isLandscape()) {
+          if (coarseQuery.matches && isPortrait()) {
             gate.setAttribute('data-active', 'true')
           } else {
             gate.removeAttribute('data-active')
