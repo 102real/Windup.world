@@ -2,7 +2,10 @@
 <html lang="ko">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, viewport-fit=cover, maximum-scale=1, user-scalable=no"
+    />
     <meta name="theme-color" content="#09090c" />
     <meta
       name="description"
@@ -463,8 +466,73 @@
           outline-color: Highlight;
         }
       }
+
+      /* Portrait-only gate for touch devices. Toggled by the inline script
+         below the #root element; no CSS orientation query on purpose —
+         Android's soft keyboard can fake landscape in portrait. */
+      #boda-orientation-gate {
+        position: fixed;
+        z-index: 2000;
+        inset: 0;
+        display: none;
+        background: #09090c;
+        color: #f7f7fa;
+        font-family:
+          'Arial Rounded MT Bold', 'Trebuchet MS', 'Noto Sans KR', system-ui,
+          sans-serif;
+      }
+
+      #boda-orientation-gate[data-active] {
+        display: grid;
+        place-items: center;
+      }
+
+      .boda-orientation-gate__content {
+        padding: 2rem;
+        text-align: center;
+      }
+
+      .boda-orientation-gate__icon {
+        display: block;
+        width: 2.1rem;
+        height: 3.4rem;
+        margin: 0 auto 1.2rem;
+        border: 3px solid #d81f4d;
+        border-radius: 0.55rem;
+        animation: boda-orientation-rotate 1.6s ease-in-out infinite;
+      }
+
+      #boda-orientation-gate strong {
+        display: block;
+        font-size: 1.15rem;
+        letter-spacing: 0.02em;
+      }
+
+      #boda-orientation-gate p {
+        margin: 0.55rem 0 0;
+        color: #c8c8d0;
+        font-size: 0.82rem;
+      }
+
+      @keyframes boda-orientation-rotate {
+        0%,
+        20% {
+          transform: rotate(90deg);
+        }
+
+        55%,
+        100% {
+          transform: rotate(0deg);
+        }
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        .boda-orientation-gate__icon {
+          animation: none;
+        }
+      }
     </style>
-    <script type="module" crossorigin src="./assets/index-CkWx0ske.js"></script>
+    <script type="module" crossorigin src="./assets/index-Bu1d4ynO.js"></script>
   </head>
   <body>
     <div id="boda-static-title" aria-label="BODA 타이틀 화면">
@@ -520,6 +588,53 @@
       </section>
     </div>
     <div id="root" inert aria-hidden="true"></div>
+    <div id="boda-orientation-gate" role="status">
+      <div class="boda-orientation-gate__content">
+        <span class="boda-orientation-gate__icon" aria-hidden="true"></span>
+        <strong>가로모드는 지원하지 않습니다</strong>
+        <p>기기를 세로로 회전해 주세요</p>
+      </div>
+    </div>
+    <script>
+      ;(() => {
+        const gate = document.getElementById('boda-orientation-gate')
+        if (!gate || typeof window.matchMedia !== 'function') return
+        const coarseQuery = window.matchMedia('(pointer: coarse)')
+
+        // Both signals must agree: the viewport alone is faked by Android's
+        // soft keyboard, and screen.orientation alone is faked by
+        // split-screen windows and partial emulators. Without the API the
+        // viewport decides (iOS below 16.4 keeps innerHeight stable).
+        const isLandscape = () => {
+          const wide = window.innerWidth > window.innerHeight
+          const type = window.screen?.orientation?.type
+          if (typeof type === 'string')
+            return type.indexOf('landscape') === 0 && wide
+          return wide
+        }
+
+        const update = () => {
+          if (coarseQuery.matches && isLandscape()) {
+            gate.setAttribute('data-active', 'true')
+          } else {
+            gate.removeAttribute('data-active')
+          }
+        }
+
+        const orientation = window.screen?.orientation
+        if (orientation && typeof orientation.addEventListener === 'function') {
+          orientation.addEventListener('change', update)
+        }
+        window.addEventListener('orientationchange', update)
+        window.addEventListener('resize', update)
+        if (typeof coarseQuery.addEventListener === 'function') {
+          coarseQuery.addEventListener('change', update)
+        } else if (typeof coarseQuery.addListener === 'function') {
+          coarseQuery.addListener(update)
+        }
+        update()
+      })()
+    </script>
     <script>
       ;(() => {
         const title = document.getElementById('boda-static-title')
