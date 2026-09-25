@@ -4,16 +4,16 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="referrer" content="strict-origin-when-cross-origin">
-  <meta name="description" content="공국 열쇠관리소 — 국가의 열쇠를 만드는 1인칭 공방 시뮬레이터. 세계와 이야기 4장, 게임플레이 6장.">
-  <title>공국 열쇠관리소 · 게임 기획</title>
-  <link rel="stylesheet" href="style.css">
+  <meta name="description" content="마지막 열쇠관리국 — 공국의 회수 열쇠를 검사·수선·등록·격리하는 1인칭 작업 시뮬레이터. 이야기와 게임 설계 14장.">
+  <title>마지막 열쇠관리국 · 게임 기획</title>
+  <link rel="stylesheet" href="style.css?v=37505cbfa585">
 </head>
 <body class="locked">
   <main class="password-gate" aria-label="기획 덱 접근">
     <form class="password-panel" id="passwordForm">
       <span class="overline">WINDUP / RESTRICTED FILE</span>
       <div class="gate-mark">K<span>·</span>01</div>
-      <h1>공국 열쇠관리소<br>설계 기록</h1>
+      <h1>마지막 열쇠관리국<br>설계 기록</h1>
       <p>내부 제작팀 열람용 기획 덱입니다.</p>
       <label for="passwordInput">ACCESS CODE</label>
       <input id="passwordInput" type="password" autocomplete="current-password" aria-label="비밀번호">
@@ -23,15 +23,179 @@
   </main>
   <header class="site-bar" aria-label="덱 메뉴">
     <a href="#slide-1" class="brand" id="brandLink">WINDUP <span>/</span> PROJECT K</a>
-    <div class="site-actions">
-      <button type="button" id="storyJump" aria-pressed="true">세계와 이야기</button>
-      <button type="button" id="playJump" aria-pressed="false">게임플레이</button>
-      <span id="barCount">01 / 10</span>
-    </div>
+    <div class="site-actions"><button type="button" id="storyJump" data-jump="story" aria-pressed="true">이야기</button><button type="button" id="workJump" data-jump="work" aria-pressed="false">검사와 손작업</button><button type="button" id="growthJump" data-jump="growth" aria-pressed="false">성장과 운영</button><span id="barCount" aria-live="polite">01 / 14</span></div>
   </header>
   <nav class="deck-nav" aria-label="챕터 바로가기"></nav>
-  <main id="deck" aria-label="공국 열쇠관리소 게임 기획 덱"></main>
+  <main id="deck" aria-label="마지막 열쇠관리국 게임 기획 덱">
+<section class="slide" id="slide-1" data-chapter="story" aria-label="모든 문은 국가가 열 수 있다">
+<div class="sheet cover"><div class="inner">
+<header class="topline"><span>이야기</span><span>마지막 열쇠관리국</span></header>
+<div class="slide-body">
+<div class="heading"><span class="eyebrow">가상의 공산주의 공국 / 1인칭 작업 시뮬레이터</span><h2>모든 문은 국가가 열 수 있다</h2></div>
+<div class="hero"><img src="assets/key-bureau-concept.webp" alt="열쇠 산, 작업대, 열쇠구멍 문과 자동화 설비가 있는 무인 작업실"><div class="hero-title"><span>THE LAST KEY BUREAU</span><h1>마지막<br>열쇠관리국</h1></div><div class="hero-labels"><span>01 쌓여가는 열쇠</span><span>02 책상 위 손작업</span><span>03 아직 닫힌 문</span></div></div>
+<p class="summary">온 세상의 열쇠가 한 방으로 쏟아져 들어온다. 검사하고, 고쳐서 등록하고, 존재해서는 안 되는 것은 격리하라.</p>
+</div>
+<footer class="bottomline"><span>세계관·자동화 콘셉트 이미지 · 실제 플레이 화면 아님</span><span class="page-count">01 / 14</span></footer>
+</div></div>
+</section>
+
+<section class="slide" id="slide-2" data-chapter="story" aria-label="사라진 문의 열쇠를 받는 사람">
+<div class="sheet paper"><div class="inner">
+<header class="topline"><span>이야기</span><span>마지막 열쇠관리국</span></header>
+<div class="slide-body">
+<div class="heading"><span class="eyebrow">발령 / 당신은 열쇠관리 공무원이다</span><h2>사라진 문의 열쇠를 받는 사람</h2></div>
+<div class="intake scene"><div class="hatch"><span>회수 투입구</span><div class="slot"></div><svg class="key" viewBox="0 0 600 170" role="img" aria-label="K-302 열쇠"><circle cx="80" cy="75" r="48"/><circle class="hole" cx="80" cy="75" r="23"/><path d="M125 57H565V145H520V133H488V145H453V97H421V145H386V121H354V145H319V109H287V145H252V121H220V145H125Z"/><text x="156" y="81">K-302</text></svg></div><div class="ticket"><span class="micro">공국 / 회수 접수표</span><strong>K-302</strong><dl><div><dt>몸통</dt><dd>B형</dd></div><div><dt>홈 깊이</dt><dd>2 / 3 / 2 / 4 / 1</dd></div><div><dt>문 상태</dt><dd>폐쇄 · 보존 대상</dd></div></dl></div><blockquote>문이 사라져도<br>국가의 접근 권한은<br>소멸하지 않는다.<small>공국 열쇠관리 규정 제1조</small></blockquote></div>
+<p class="summary">열쇠 제작과 관리는 국가가 독점한다. 당신은 폐쇄·철거된 건물의 열쇠를 회수하며, 사람 대신 투입구와 인쇄 지침으로 업무를 받는다.</p>
+</div>
+<footer class="bottomline"><span>게임 설계 도해 · 실제 플레이 화면 아님</span><span class="page-count">02 / 14</span></footer>
+</div></div>
+</section>
+
+<section class="slide" id="slide-3" data-chapter="story" aria-label="문은 없는데, 열쇠는 돌아간다">
+<div class="sheet "><div class="inner">
+<header class="topline"><span>이야기</span><span>마지막 열쇠관리국</span></header>
+<div class="slide-body">
+<div class="heading"><span class="eyebrow">이상 기록 / 같은 번호, 다른 흔적</span><h2>문은 없는데, 열쇠는 돌아간다</h2></div>
+<div class="sequence scene"><article><span class="micro">첫 접수</span><svg class="key" viewBox="0 0 600 170" role="img" aria-label="N-000 열쇠"><circle cx="80" cy="75" r="48"/><circle class="hole" cx="80" cy="75" r="23"/><path d="M125 57H565V145H520V133H488V145H453V97H421V145H386V121H354V145H319V109H287V145H252V121H220V145H125Z"/><text x="156" y="81">N-000</text></svg><span class="stamp ">문 없음</span><p>새것처럼 빛나는 표면</p></article><article class="worn"><span class="micro">등록 뒤 재접수</span><svg class="key" viewBox="0 0 600 170" role="img" aria-label="N-000 열쇠"><circle cx="80" cy="75" r="48"/><circle class="hole" cx="80" cy="75" r="23"/><path d="M125 57H565V145H520V133H488V145H453V97H421V145H386V121H354V145H319V109H287V145H252V121H220V145H125Z"/><text x="156" y="81">N-000</text></svg><span class="stamp ">같은 번호</span><p>누군가 사용한 마모 흔적</p></article><article><span class="micro">작업실 안쪽</span><div class="door"><i></i><b>N-000</b></div><p>문의 구멍에 새겨진 번호</p></article></div>
+<p class="summary">등록한 열쇠가 닳은 상태로 돌아온다. “존재 여부를 확인하려고 문을 열지 말 것.” 새 지침이 금지한 번호는 안쪽 문에도 있다.</p>
+</div>
+<footer class="bottomline"><span>게임 설계 도해 · 실제 플레이 화면 아님</span><span class="page-count">03 / 14</span></footer>
+</div></div>
+</section>
+
+<section class="slide" id="slide-4" data-chapter="story" aria-label="문을 열면 업무의 의미가 바뀐다">
+<div class="sheet "><div class="inner">
+<header class="topline"><span>이야기</span><span>마지막 열쇠관리국</span></header>
+<div class="slide-body">
+<div class="heading"><span class="eyebrow">결말 / 보존된 접근 권한</span><h2>문을 열면 업무의 의미가 바뀐다</h2></div>
+<div class="loop-room scene"><div class="room-node"><span>익숙한 작업실</span><svg class="room" viewBox="0 0 600 290" role="img" aria-label="정리된 바닥과 자동화 설비"><path d="M20 250V55L300 15 580 55V250Z" fill="#253c32" stroke="#829282"/><path d="M20 250L180 125H420L580 250" fill="#3c493e" stroke="#829282"/><path d="M140 250L225 125M460 250L375 125M300 250V125M95 192H505" stroke="#74816b" opacity=".5"/><rect x="256" y="35" width="88" height="100" rx="5" fill="#14241d" stroke="#c8a466"/><circle cx="300" cy="75" r="8" fill="#8cc5b5"/><rect x="205" y="190" width="190" height="36" fill="#8c6943"/><path d="M217 226V270M382 226V270" stroke="#97734a" stroke-width="8"/><path d="M25 230L70 190 130 235Z" fill="#b39350"/><circle cx="30" cy="214" r="5" fill="none" stroke="#ead59b" stroke-width="2"/><circle cx="61" cy="223" r="5" fill="none" stroke="#ead59b" stroke-width="2"/><circle cx="92" cy="232" r="5" fill="none" stroke="#ead59b" stroke-width="2"/><circle cx="123" cy="216" r="5" fill="none" stroke="#ead59b" stroke-width="2"/><circle cx="154" cy="225" r="5" fill="none" stroke="#ead59b" stroke-width="2"/><circle cx="60" cy="234" r="5" fill="none" stroke="#ead59b" stroke-width="2"/><circle cx="91" cy="218" r="5" fill="none" stroke="#ead59b" stroke-width="2"/><circle cx="122" cy="227" r="5" fill="none" stroke="#ead59b" stroke-width="2"/><rect x="426" y="155" width="138" height="40" fill="#69816c"/><path d="M430 170H558" stroke="#d6b776" stroke-width="8"/><rect x="460" y="120" width="50" height="40" fill="#acb49f"/><circle cx="483" cy="140" r="9" fill="#8cc5b5"/></svg></div><div class="connection"><span>접근 권한 승인 · 마지막 열쇠</span><div class="open-door"><i></i></div><b>투입구의 반대편</b><span class="loop-line">같은 방으로 돌아오는 연결</span></div></div>
+<p class="summary">관리국은 사라진 문들의 접근 권한을 보존하고 있었다. 마지막 문 너머에서 같은 작업실의 투입구를 발견한다. 조명과 지침은 바뀌고, 업무는 계속된다.</p>
+</div>
+<footer class="bottomline"><span>게임 설계 도해 · 실제 플레이 화면 아님</span><span class="page-count">04 / 14</span></footer>
+</div></div>
+</section>
+
+<section class="slide" id="slide-5" data-chapter="work" aria-label="열쇠 하나가 들어온다">
+<div class="sheet paper"><div class="inner">
+<header class="topline"><span>검사와 손작업</span><span>마지막 열쇠관리국</span></header>
+<div class="slide-body">
+<div class="heading"><span class="eyebrow">대표 사례 / K-302</span><h2>열쇠 하나가 들어온다</h2></div>
+<div class="inspection scene"><div class="ticket"><span class="micro">공국 / 회수 접수표</span><strong>K-302</strong><dl><div><dt>몸통</dt><dd>B형</dd></div><div><dt>홈 깊이</dt><dd>2 / 3 / 2 / 4 / 1</dd></div><div><dt>문 상태</dt><dd>폐쇄 · 보존 대상</dd></div></dl></div><div class="specimen"><svg class="key" viewBox="0 0 600 170" role="img" aria-label="K-302 열쇠"><circle cx="80" cy="75" r="48"/><circle class="hole" cx="80" cy="75" r="23"/><path d="M125 57H565V145H520V133H488V145H453V97H421V145H386V133H354V145H319V109H287V145H252V121H220V145H125Z"/><text x="156" y="81">K-302</text></svg><div class="measure"><span>몸통 B ✓</span><span>각인 K-302 ✓</span><span class="warn">세 번째 홈 1 → 2</span></div><div class="depths"><span>2</span><span>3</span><span class="warn">1</span><span>4</span><span>1</span></div><span class="micro">실물의 홈 깊이 / 접수표와 비교</span></div></div>
+<p class="summary">열쇠를 집으면 접수표와 나란히 놓이고, 드래그로 돌려 본다. K-302는 세 번째 홈만 얕다. 번호와 몸통은 맞으므로 그 홈을 수선한다.</p>
+</div>
+<footer class="bottomline"><span>게임 설계 도해 · 실제 플레이 화면 아님</span><span class="page-count">05 / 14</span></footer>
+</div></div>
+</section>
+
+<section class="slide" id="slide-6" data-chapter="work" aria-label="보고, 비교하고, 갈 곳을 정한다">
+<div class="sheet paper"><div class="inner">
+<header class="topline"><span>검사와 손작업</span><span>마지막 열쇠관리국</span></header>
+<div class="slide-body">
+<div class="heading"><span class="eyebrow">판정 흐름 / 격리 지시를 먼저 확인</span><h2>보고, 비교하고, 갈 곳을 정한다</h2></div>
+<div class="routing scene"><div class="checkline">몸통 형태 · 홈 5개 · 각인 번호 · 문 상태</div><div class="routes"><article class="isolate"><span class="micro">격리 지시 있음</span><h3>격리</h3><p>작동 여부와 무관</p></article><article class="repair"><span class="micro">수선 가능한 불일치</span><h3>수리 대기</h3><p>수선 후 다시 검사</p></article><article class="register"><span class="micro">지시·규격·시험 통과</span><h3>등록</h3><p>국가 보관함으로 이송</p></article></div><div class="return">수리 대기 ↺ 검사대로 복귀</div></div>
+<p class="summary">수리 대기는 중간 단계다. 번호 불일치는 수리 대기에 보류하고, 복원 지시가 확인된 각인만 수정한다. 검증되지 않은 열쇠는 등록하지 않는다.</p>
+</div>
+<footer class="bottomline"><span>게임 설계 도해 · 실제 플레이 화면 아님</span><span class="page-count">06 / 14</span></footer>
+</div></div>
+</section>
+
+<section class="slide" id="slide-7" data-chapter="work" aria-label="깎는 손맛">
+<div class="sheet "><div class="inner">
+<header class="topline"><span>검사와 손작업</span><span>마지막 열쇠관리국</span></header>
+<div class="slide-body">
+<div class="heading"><span class="eyebrow">직접 조작 / 세 번째 홈을 목표 깊이로</span><h2>깎는 손맛</h2></div>
+<div class="cut-scene scene"><div class="workpiece"><svg class="key" viewBox="0 0 600 170" role="img" aria-label="K-302 열쇠"><circle cx="80" cy="75" r="48"/><circle class="hole" cx="80" cy="75" r="23"/><path d="M125 57H565V145H520V133H488V145H453V97H421V145H386V133H354V145H319V109H287V145H252V121H220V145H125Z"/><text x="156" y="81">K-302</text></svg><div class="file-tool"></div><span class="cut-mark"></span><span class="dust">· ˙ · ˙ ·</span></div><div class="depth-scale"><span class="micro">목표 깊이</span><div><b>1</b><strong>2</strong><b>3</b><b>4</b></div><span>얕은 홈을 한 단계 더 깎는다</span></div></div>
+<p class="summary">홈을 선택하고 줄을 왕복해 깊이를 조절한다. 깎인 모양, 떨어지는 금속 가루, 거칠어지는 소리가 진행을 알려준다. 줄을 놓으면 즉시 멈춘다.</p>
+</div>
+<footer class="bottomline"><span>게임 설계 도해 · 실제 플레이 화면 아님</span><span class="page-count">07 / 14</span></footer>
+</div></div>
+</section>
+
+<section class="slide" id="slide-8" data-chapter="work" aria-label="딱 맞아 돌아가는 순간">
+<div class="sheet "><div class="inner">
+<header class="topline"><span>검사와 손작업</span><span>마지막 열쇠관리국</span></header>
+<div class="slide-body">
+<div class="heading"><span class="eyebrow">시험 / 핀의 경계가 일직선이 된다</span><h2>딱 맞아 돌아가는 순간</h2></div>
+<div class="test-scene scene"><div class="lock-test"><div class="pins"><div class="pin"><i style="height:54%"></i><em style="height:51%"></em></div><div class="pin"><i style="height:63%"></i><em style="height:44%"></em></div><div class="pin"><i style="height:54%"></i><em style="height:51%"></em></div><div class="pin"><i style="height:72%"></i><em style="height:37%"></em></div><div class="pin"><i style="height:45%"></i><em style="height:58%"></em></div></div><span class="shear">회전 경계</span><svg class="key" viewBox="0 0 600 170" role="img" aria-label="K-302 열쇠"><circle cx="80" cy="75" r="48"/><circle class="hole" cx="80" cy="75" r="23"/><path d="M125 57H565V145H520V133H488V145H453V97H421V145H386V121H354V145H319V109H287V145H252V121H220V145H125Z"/><text x="156" y="81">K-302</text></svg></div><div class="turn-result"><span class="turn-icon">↻</span><h3>딸깍.</h3><span class="stamp good">기계적 적합</span><p>끝까지 돌아가는 손잡이</p></div></div>
+<p class="summary">수선한 K-302를 시험 장치에 꽂아 돌린다. 핀이 정렬되면 짧은 금속음과 회전으로 성공을 알린다. 너무 깊게 깎았다면 새 원형으로 다시 만든다.</p>
+</div>
+<footer class="bottomline"><span>게임 설계 도해 · 실제 플레이 화면 아님</span><span class="page-count">08 / 14</span></footer>
+</div></div>
+</section>
+
+<section class="slide" id="slide-9" data-chapter="work" aria-label="돌아간다고 등록할 수는 없다">
+<div class="sheet paper"><div class="inner">
+<header class="topline"><span>검사와 손작업</span><span>마지막 열쇠관리국</span></header>
+<div class="slide-body">
+<div class="heading"><span class="eyebrow">예외 판정 / N-000</span><h2>돌아간다고 등록할 수는 없다</h2></div>
+<div class="contradiction scene"><div class="test-pass"><svg class="key" viewBox="0 0 600 170" role="img" aria-label="N-000 열쇠"><circle cx="80" cy="75" r="48"/><circle class="hole" cx="80" cy="75" r="23"/><path d="M125 57H565V145H520V133H488V145H453V97H421V145H386V121H354V145H319V109H287V145H252V121H220V145H125Z"/><text x="156" y="81">N-000</text></svg><span class="stamp good">시험 통과</span><p>홈은 정확하다.</p></div><div class="directive"><span class="micro">개정 지침 / 예외 번호</span><strong>N-000</strong><p>문 없음 · 격리 대상</p><span class="stamp ">등록 금지</span></div><div class="verdict"><span>최종 판정</span><h3>격리</h3><p>지침이 우선한다</p></div></div>
+<p class="summary">시험 장치는 열쇠가 맞는지만 알려준다. N-000은 돌아가도 개정 지침상 격리 대상이다. 업무가 진행될수록 짧은 규칙이 하나씩 추가되어 같은 열쇠를 다르게 보게 한다.</p>
+</div>
+<footer class="bottomline"><span>게임 설계 도해 · 실제 플레이 화면 아님</span><span class="page-count">09 / 14</span></footer>
+</div></div>
+</section>
+
+<section class="slide" id="slide-10" data-chapter="work" aria-label="실수해도 업무는 계속된다">
+<div class="sheet paper"><div class="inner">
+<header class="topline"><span>검사와 손작업</span><span>마지막 열쇠관리국</span></header>
+<div class="slide-body">
+<div class="heading"><span class="eyebrow">복구 / 이유를 보여주고 다시 시도</span><h2>실수해도 업무는 계속된다</h2></div>
+<div class="recovery scene"><div class="routes"><article><span class="micro">과절삭</span><h3>새 원형</h3><p>기존 규격으로 재작업</p></article><article><span class="micro">오분류</span><h3>재검사함</h3><p>틀린 이유와 함께 반송</p></article><article><span class="micro">주요 열쇠 누락</span><h3>회수·재지급</h3><p>보관함에서 다시 확보</p></article></div><div class="return">기본 도구와 원형은 항상 제공</div></div>
+<p class="summary">오류는 이유가 표시된 재작업으로 돌아온다. 올바른 등록·수리·격리는 모두 보상하며, 금전 부족으로 진행을 막지 않는다. 게임오버와 영구 손실 없이 다시 시도한다.</p>
+</div>
+<footer class="bottomline"><span>게임 설계 도해 · 실제 플레이 화면 아님</span><span class="page-count">10 / 14</span></footer>
+</div></div>
+</section>
+
+<section class="slide" id="slide-11" data-chapter="growth" aria-label="손에서 설비로">
+<div class="sheet "><div class="inner">
+<header class="topline"><span>성장과 운영</span><span>마지막 열쇠관리국</span></header>
+<div class="slide-body">
+<div class="heading"><span class="eyebrow">성장 / 새 장비가 새로운 동작을 만든다</span><h2>손에서 설비로</h2></div>
+<div class="equipment scene"><article><span class="micro">직접 다루기</span><div class="tool-art"><span class="hand-tool">╱</span><svg class="key" viewBox="0 0 600 170" role="img" aria-label="수동 줄 열쇠"><circle cx="80" cy="75" r="48"/><circle class="hole" cx="80" cy="75" r="23"/><path d="M125 57H565V145H520V133H488V145H453V97H421V145H386V121H354V145H319V109H287V145H252V121H220V145H125Z"/><text x="156" y="81">수동 줄</text></svg></div><h3>집고, 깎는다</h3><p>검사등 · 수동 줄</p></article><article><span class="micro">한 번에 측정하기</span><div class="tool-art gauge"><svg class="key" viewBox="0 0 600 170" role="img" aria-label="깊이 게이지 열쇠"><circle cx="80" cy="75" r="48"/><circle class="hole" cx="80" cy="75" r="23"/><path d="M125 57H565V145H520V133H488V145H453V97H421V145H386V121H354V145H319V109H287V145H252V121H220V145H125Z"/><text x="156" y="81">깊이 게이지</text></svg><div class="teeth">▥ ▥ ▥ ▥ ▥</div></div><h3>읽고, 고정한다</h3><p>홈 게이지 · 절삭 지그 · 각인기</p></article><article><span class="micro">묶음으로 옮기기</span><div class="tool-art batch"><svg class="key" viewBox="0 0 600 170" role="img" aria-label="B 열쇠"><circle cx="80" cy="75" r="48"/><circle class="hole" cx="80" cy="75" r="23"/><path d="M125 57H565V145H520V133H488V145H453V97H421V145H386V121H354V145H319V109H287V145H252V121H220V145H125Z"/><text x="156" y="81">B</text></svg><svg class="key" viewBox="0 0 600 170" role="img" aria-label="B 열쇠"><circle cx="80" cy="75" r="48"/><circle class="hole" cx="80" cy="75" r="23"/><path d="M125 57H565V145H520V133H488V145H453V97H421V145H386V121H354V145H319V109H287V145H252V121H220V145H125Z"/><text x="156" y="81">B</text></svg><svg class="key" viewBox="0 0 600 170" role="img" aria-label="B 열쇠"><circle cx="80" cy="75" r="48"/><circle class="hole" cx="80" cy="75" r="23"/><path d="M125 57H565V145H520V133H488V145H453V97H421V145H386V121H354V145H319V109H287V145H252V121H220V145H125Z"/><text x="156" y="81">B</text></svg></div><h3>모으고, 흘려보낸다</h3><p>묶음 집게 · 선별 라인</p></article></div>
+<p class="summary">정확히 처리한 보상으로 정해진 자리에 설비를 설치한다. 장비는 새 동작을 주고 작업대의 풍경을 바꾼다. 반복 물량만 처리해도 개선을 이어갈 수 있다.</p>
+</div>
+<footer class="bottomline"><span>게임 설계 도해 · 실제 플레이 화면 아님</span><span class="page-count">11 / 14</span></footer>
+</div></div>
+</section>
+
+<section class="slide" id="slide-12" data-chapter="growth" aria-label="기계는 평범한 것부터 맡는다">
+<div class="sheet "><div class="inner">
+<header class="topline"><span>성장과 운영</span><span>마지막 열쇠관리국</span></header>
+<div class="slide-body">
+<div class="heading"><span class="eyebrow">자동화 / 예외는 플레이어가 판정한다</span><h2>기계는 평범한 것부터 맡는다</h2></div>
+<div class="automation scene"><div class="machine"><span class="micro">선별기 설정</span><strong>B형 / 승인 패턴</strong><span class="tag">지침 개정 → 설정 갱신</span></div><div class="belt"><svg class="key" viewBox="0 0 600 170" role="img" aria-label="B 열쇠"><circle cx="80" cy="75" r="48"/><circle class="hole" cx="80" cy="75" r="23"/><path d="M125 57H565V145H520V133H488V145H453V97H421V145H386V121H354V145H319V109H287V145H252V121H220V145H125Z"/><text x="156" y="81">B</text></svg><svg class="key" viewBox="0 0 600 170" role="img" aria-label="B 열쇠"><circle cx="80" cy="75" r="48"/><circle class="hole" cx="80" cy="75" r="23"/><path d="M125 57H565V145H520V133H488V145H453V97H421V145H386V121H354V145H319V109H287V145H252V121H220V145H125Z"/><text x="156" y="81">B</text></svg><svg class="key" viewBox="0 0 600 170" role="img" aria-label="B 열쇠"><circle cx="80" cy="75" r="48"/><circle class="hole" cx="80" cy="75" r="23"/><path d="M125 57H565V145H520V133H488V145H453V97H421V145H386V121H354V145H319V109H287V145H252V121H220V145H125Z"/><text x="156" y="81">B</text></svg></div><div class="machine-out"><div class="register"><h3>일반 물량</h3><p>설정된 규격만 자동 처리</p></div><div class="isolate"><h3>예외함</h3><p>미등록 번호 · 충돌 · 판독 불가</p></div></div></div>
+<p class="summary">선별기는 설정된 기준으로만 처리하고 예외는 검사대로 돌린다. 개정문을 받으면 설정을 갱신하고 표본을 확인한다. 오래된 설정의 오분류도 재검사로 복구한다.</p>
+</div>
+<footer class="bottomline"><span>게임 설계 도해 · 실제 플레이 화면 아님</span><span class="page-count">12 / 14</span></footer>
+</div></div>
+</section>
+
+<section class="slide" id="slide-13" data-chapter="growth" aria-label="열쇠 산이 줄고, 방이 드러난다">
+<div class="sheet paper"><div class="inner">
+<header class="topline"><span>성장과 운영</span><span>마지막 열쇠관리국</span></header>
+<div class="slide-body">
+<div class="heading"><span class="eyebrow">공간 / 같은 자리에서 느끼는 변화</span><h2>열쇠 산이 줄고, 방이 드러난다</h2></div>
+<div class="before-after scene"><figure><svg class="room" viewBox="0 0 600 290" role="img" aria-label="열쇠 적체와 수동 작업대"><path d="M20 250V55L300 15 580 55V250Z" fill="#253c32" stroke="#829282"/><path d="M20 250L180 125H420L580 250" fill="#3c493e" stroke="#829282"/><path d="M140 250L225 125M460 250L375 125M300 250V125M95 192H505" stroke="#74816b" opacity=".5"/><rect x="256" y="35" width="88" height="100" rx="5" fill="#14241d" stroke="#c8a466"/><circle cx="300" cy="75" r="8" fill="#806e4c"/><rect x="205" y="190" width="190" height="36" fill="#8c6943"/><path d="M217 226V270M382 226V270" stroke="#97734a" stroke-width="8"/><path d="M20 238L38 105 80 130 115 90 185 241Z" fill="#b39350"/><circle cx="30" cy="137" r="5" fill="none" stroke="#ead59b" stroke-width="2"/><circle cx="61" cy="150" r="5" fill="none" stroke="#ead59b" stroke-width="2"/><circle cx="92" cy="163" r="5" fill="none" stroke="#ead59b" stroke-width="2"/><circle cx="123" cy="176" r="5" fill="none" stroke="#ead59b" stroke-width="2"/><circle cx="154" cy="189" r="5" fill="none" stroke="#ead59b" stroke-width="2"/><circle cx="60" cy="202" r="5" fill="none" stroke="#ead59b" stroke-width="2"/><circle cx="91" cy="215" r="5" fill="none" stroke="#ead59b" stroke-width="2"/><circle cx="122" cy="228" r="5" fill="none" stroke="#ead59b" stroke-width="2"/><circle cx="153" cy="145" r="5" fill="none" stroke="#ead59b" stroke-width="2"/><circle cx="59" cy="158" r="5" fill="none" stroke="#ead59b" stroke-width="2"/><circle cx="90" cy="171" r="5" fill="none" stroke="#ead59b" stroke-width="2"/><circle cx="121" cy="184" r="5" fill="none" stroke="#ead59b" stroke-width="2"/><circle cx="152" cy="197" r="5" fill="none" stroke="#ead59b" stroke-width="2"/><circle cx="58" cy="210" r="5" fill="none" stroke="#ead59b" stroke-width="2"/><circle cx="89" cy="223" r="5" fill="none" stroke="#ead59b" stroke-width="2"/><circle cx="120" cy="140" r="5" fill="none" stroke="#ead59b" stroke-width="2"/><circle cx="151" cy="153" r="5" fill="none" stroke="#ead59b" stroke-width="2"/><circle cx="57" cy="166" r="5" fill="none" stroke="#ead59b" stroke-width="2"/><circle cx="88" cy="179" r="5" fill="none" stroke="#ead59b" stroke-width="2"/><circle cx="119" cy="192" r="5" fill="none" stroke="#ead59b" stroke-width="2"/><circle cx="150" cy="205" r="5" fill="none" stroke="#ead59b" stroke-width="2"/><circle cx="56" cy="218" r="5" fill="none" stroke="#ead59b" stroke-width="2"/><circle cx="87" cy="231" r="5" fill="none" stroke="#ead59b" stroke-width="2"/><circle cx="118" cy="148" r="5" fill="none" stroke="#ead59b" stroke-width="2"/><circle cx="149" cy="161" r="5" fill="none" stroke="#ead59b" stroke-width="2"/><circle cx="55" cy="174" r="5" fill="none" stroke="#ead59b" stroke-width="2"/><circle cx="86" cy="187" r="5" fill="none" stroke="#ead59b" stroke-width="2"/><circle cx="117" cy="200" r="5" fill="none" stroke="#ead59b" stroke-width="2"/><circle cx="148" cy="213" r="5" fill="none" stroke="#ead59b" stroke-width="2"/><circle cx="54" cy="226" r="5" fill="none" stroke="#ead59b" stroke-width="2"/><circle cx="85" cy="143" r="5" fill="none" stroke="#ead59b" stroke-width="2"/><circle cx="116" cy="156" r="5" fill="none" stroke="#ead59b" stroke-width="2"/></svg><figcaption>처음 · 열쇠 더미와 수동 책상</figcaption></figure><figure><svg class="room" viewBox="0 0 600 290" role="img" aria-label="정리된 바닥과 자동화 설비"><path d="M20 250V55L300 15 580 55V250Z" fill="#253c32" stroke="#829282"/><path d="M20 250L180 125H420L580 250" fill="#3c493e" stroke="#829282"/><path d="M140 250L225 125M460 250L375 125M300 250V125M95 192H505" stroke="#74816b" opacity=".5"/><rect x="256" y="35" width="88" height="100" rx="5" fill="#14241d" stroke="#c8a466"/><circle cx="300" cy="75" r="8" fill="#8cc5b5"/><rect x="205" y="190" width="190" height="36" fill="#8c6943"/><path d="M217 226V270M382 226V270" stroke="#97734a" stroke-width="8"/><path d="M25 230L70 190 130 235Z" fill="#b39350"/><circle cx="30" cy="214" r="5" fill="none" stroke="#ead59b" stroke-width="2"/><circle cx="61" cy="223" r="5" fill="none" stroke="#ead59b" stroke-width="2"/><circle cx="92" cy="232" r="5" fill="none" stroke="#ead59b" stroke-width="2"/><circle cx="123" cy="216" r="5" fill="none" stroke="#ead59b" stroke-width="2"/><circle cx="154" cy="225" r="5" fill="none" stroke="#ead59b" stroke-width="2"/><circle cx="60" cy="234" r="5" fill="none" stroke="#ead59b" stroke-width="2"/><circle cx="91" cy="218" r="5" fill="none" stroke="#ead59b" stroke-width="2"/><circle cx="122" cy="227" r="5" fill="none" stroke="#ead59b" stroke-width="2"/><rect x="426" y="155" width="138" height="40" fill="#69816c"/><path d="M430 170H558" stroke="#d6b776" stroke-width="8"/><rect x="460" y="120" width="50" height="40" fill="#acb49f"/><circle cx="483" cy="140" r="9" fill="#8cc5b5"/></svg><figcaption>성장 후 · 드러난 바닥과 돌아가는 설비</figcaption></figure></div><div class="materials"><span>황동 / 열쇠</span><span>녹색 철판 / 설비</span><span>누런 종이 / 지침</span><span>청록 / 이상 현상</span></div>
+<p class="summary">따뜻한 검사등 아래에서 줄질·각인·낙하음이 작업 리듬을 만든다. 적체가 줄수록 바닥과 안쪽 문의 단서가 드러난다. 주요 열쇠는 진행에 맞춰 확정 등장하고, 대응하는 문 구멍에 불을 켠다.</p>
+</div>
+<footer class="bottomline"><span>게임 설계 도해 · 실제 플레이 화면 아님</span><span class="page-count">13 / 14</span></footer>
+</div></div>
+</section>
+
+<section class="slide" id="slide-14" data-chapter="growth" aria-label="문을 연 뒤에도 계속되는 관리국">
+<div class="sheet "><div class="inner">
+<header class="topline"><span>성장과 운영</span><span>마지막 열쇠관리국</span></header>
+<div class="slide-body">
+<div class="heading"><span class="eyebrow">지속 운영 / 행동과 결과가 보이는 장면</span><h2>문을 연 뒤에도 계속되는 관리국</h2></div>
+<div class="final-clips scene"><article><span class="micro">정확한 회전</span><div class="clip-symbol">↻</div><h3>깎고, 딸깍.</h3><p>손작업의 즉각적인 보상</p></article><article><span class="micro">묶음 처리</span><div class="mini-batch"><svg class="key" viewBox="0 0 600 170" role="img" aria-label="B 열쇠"><circle cx="80" cy="75" r="48"/><circle class="hole" cx="80" cy="75" r="23"/><path d="M125 57H565V145H520V133H488V145H453V97H421V145H386V121H354V145H319V109H287V145H252V121H220V145H125Z"/><text x="156" y="81">B</text></svg><svg class="key" viewBox="0 0 600 170" role="img" aria-label="B 열쇠"><circle cx="80" cy="75" r="48"/><circle class="hole" cx="80" cy="75" r="23"/><path d="M125 57H565V145H520V133H488V145H453V97H421V145H386V121H354V145H319V109H287V145H252V121H220V145H125Z"/><text x="156" y="81">B</text></svg><svg class="key" viewBox="0 0 600 170" role="img" aria-label="B 열쇠"><circle cx="80" cy="75" r="48"/><circle class="hole" cx="80" cy="75" r="23"/><path d="M125 57H565V145H520V133H488V145H453V97H421V145H386V121H354V145H319V109H287V145H252V121H220V145H125Z"/><text x="156" y="81">B</text></svg></div><h3>한 개에서 한 줄로.</h3><p>같은 구도의 성장 비교</p></article><article><span class="micro">불가능한 연결</span><div class="open-door"><i></i></div><h3>문 뒤에, 같은 방.</h3><p>짧게 보여주는 미스터리</p></article></div>
+<p class="summary">결말 뒤에도 새 물량이 투입함으로 들어온다. 장비·기록·정리된 공간은 유지되고, 형식과 패턴을 조합한 검사·수선·격리를 자기 속도로 이어간다.</p>
+</div>
+<footer class="bottomline"><span>게임 설계 도해 · 실제 플레이 화면 아님</span><span class="page-count">14 / 14</span></footer>
+</div></div>
+</section>
+</main>
   <div class="key-hint" aria-hidden="true">↑ ↓ / SPACE <span>페이지 이동</span></div>
-  <script src="deck.js" defer></script>
+  <script src="deck.js?v=afdff9ae3b9c" defer></script>
 </body>
 </html>
