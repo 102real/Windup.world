@@ -4,8 +4,8 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="referrer" content="strict-origin-when-cross-origin">
-  <meta name="description" content="ProjectK 게임 기획 덱 — 내부 제작팀용 본편 22장과 상세 부록 14장">
-  <title>ProjectK · 게임 설계 기록</title>
+  <meta name="description" content="공국 열쇠관리소 — 국가의 열쇠를 만드는 1인칭 공방 시뮬레이터. 세계와 이야기 4장, 게임플레이 6장.">
+  <title>공국 열쇠관리소 · 게임 기획</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body class="locked">
@@ -13,7 +13,7 @@
     <form class="password-panel" id="passwordForm">
       <span class="overline">WINDUP / RESTRICTED FILE</span>
       <div class="gate-mark">K<span>·</span>01</div>
-      <h1>열쇠관리국<br>설계 기록</h1>
+      <h1>공국 열쇠관리소<br>설계 기록</h1>
       <p>내부 제작팀 열람용 기획 덱입니다.</p>
       <label for="passwordInput">ACCESS CODE</label>
       <input id="passwordInput" type="password" autocomplete="current-password" aria-label="비밀번호">
@@ -24,13 +24,13 @@
   <header class="site-bar" aria-label="덱 메뉴">
     <a href="#slide-1" class="brand" id="brandLink">WINDUP <span>/</span> PROJECT K</a>
     <div class="site-actions">
-      <button type="button" id="mainJump">본편</button>
-      <button type="button" id="appendixJump">상세 부록</button>
-      <span id="barCount">01 / 36</span>
+      <button type="button" id="storyJump" aria-pressed="true">세계와 이야기</button>
+      <button type="button" id="playJump" aria-pressed="false">게임플레이</button>
+      <span id="barCount">01 / 10</span>
     </div>
   </header>
   <nav class="deck-nav" aria-label="챕터 바로가기"></nav>
-  <main id="deck" aria-label="ProjectK 게임 기획 덱"></main>
+  <main id="deck" aria-label="공국 열쇠관리소 게임 기획 덱"></main>
   <div class="key-hint" aria-hidden="true">↑ ↓ / SPACE <span>페이지 이동</span></div>
   <script src="deck.js" defer></script>
 </body>
