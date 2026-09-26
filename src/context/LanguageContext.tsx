@@ -19,6 +19,7 @@ interface TranslationData {
         taglineSub: string;
         intro: string;
         scroll: string;
+        status: string;
     };
     studio: {
         label: string;
@@ -29,6 +30,8 @@ interface TranslationData {
     games: {
         label: string;
         wishlist: string;
+        onSteam: string;
+        gallery: string;
         release: string;
         items: Record<GameKey, {
             tagline: string;
@@ -61,6 +64,7 @@ const translations: Record<Language, TranslationData> = {
             taglineSub: '작은 회전',
             intro: '작은 아이디어와 이야기로 새로운 경험을 만듭니다.',
             scroll: 'Scroll',
+            status: '출시 예정',
         },
         studio: {
             label: 'Studio',
@@ -74,6 +78,8 @@ const translations: Record<Language, TranslationData> = {
         games: {
             label: 'Games',
             wishlist: 'Steam 위시리스트',
+            onSteam: 'Steam에서 만나요',
+            gallery: '스크린샷',
             release: 'Release',
             items: {
                 bob: {
@@ -115,6 +121,7 @@ const translations: Record<Language, TranslationData> = {
             taglineSub: 'that moves the world',
             intro: 'We craft new experiences from small ideas and stories.',
             scroll: 'Scroll',
+            status: 'Launching',
         },
         studio: {
             label: 'Studio',
@@ -128,6 +135,8 @@ const translations: Record<Language, TranslationData> = {
         games: {
             label: 'Games',
             wishlist: 'Wishlist on Steam',
+            onSteam: 'Now on Steam',
+            gallery: 'Screenshots',
             release: 'Release',
             items: {
                 bob: {

@@ -3,6 +3,7 @@
 import React, { useState, useEffect } from 'react';
 import { useLanguage } from '@/context/LanguageContext';
 import LanguageToggle from '@/components/ui/LanguageToggle';
+import { games } from '@/data/games';
 
 const sections = ['studio', 'games', 'history', 'contact'] as const;
 
@@ -41,12 +42,12 @@ export default function Header() {
   };
 
   return (
-    <header
-      className={`fixed top-0 left-0 w-full z-50 transition-[background-color,backdrop-filter,border-color] duration-500 border-b
-        ${scrolled ? 'bg-black/40 backdrop-blur-2xl border-border-subtle' : 'bg-transparent border-transparent'}
-      `}
-    >
-      <div className="flex items-center justify-between h-14 md:h-16 px-4 md:px-12">
+    <header className="fixed inset-x-0 top-3 md:top-4 z-50 px-3 md:px-6 pointer-events-none">
+      <div
+        className={`glass-border pointer-events-auto mx-auto flex h-12 md:h-14 max-w-[1100px] items-center justify-between gap-4 rounded-full pl-5 pr-2 transition-[background-color,box-shadow] duration-500 backdrop-blur-xl backdrop-saturate-150
+          ${scrolled ? 'bg-black/60 shadow-[0_20px_60px_-20px_rgba(0,0,0,0.9)]' : 'bg-white/[0.03]'}
+        `}
+      >
         <a
           href="#top"
           onClick={(e) => scrollToSection(e, 'top')}
@@ -55,26 +56,34 @@ export default function Header() {
           WINDUP
         </a>
 
-        <div className="flex items-center gap-3 md:gap-10">
-          <nav className="hidden sm:flex items-center gap-6 md:gap-9">
-            {sections.map((id, i) => {
-              const isActive = activeSection === id;
-              return (
-                <a
-                  key={id}
-                  href={`#${id}`}
-                  onClick={(e) => scrollToSection(e, id)}
-                  className={`group flex items-baseline gap-1.5 whitespace-nowrap text-[11px] md:text-xs font-bold tracking-[0.15em] transition-colors duration-300
-                    ${isActive ? 'text-foreground' : 'text-tertiary hover:text-foreground'}
-                  `}
-                >
-                  <span className="hidden md:inline font-mono text-[10px] font-normal text-tertiary">0{i + 1}</span>
-                  {t.header[id]}
-                </a>
-              );
-            })}
-          </nav>
+        <nav className="hidden md:flex items-center gap-1">
+          {sections.map((id) => {
+            const isActive = activeSection === id;
+            return (
+              <a
+                key={id}
+                href={`#${id}`}
+                onClick={(e) => scrollToSection(e, id)}
+                className={`rounded-full px-4 py-2 text-[11px] font-bold tracking-[0.15em] transition-colors duration-300
+                  ${isActive ? 'bg-white/10 text-foreground' : 'text-tertiary hover:text-foreground'}
+                `}
+              >
+                {t.header[id]}
+              </a>
+            );
+          })}
+        </nav>
+
+        <div className="flex items-center gap-2">
           <LanguageToggle />
+          <a
+            href={games[0].steamUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hidden sm:inline-flex h-9 items-center rounded-full bg-foreground px-4 text-xs font-bold text-background transition-transform duration-300 hover:-translate-y-px"
+          >
+            Wishlist
+          </a>
         </div>
       </div>
     </header>

@@ -3,6 +3,7 @@
 import React from 'react';
 import { useLanguage } from '@/context/LanguageContext';
 import Reveal from '@/components/ui/Reveal';
+import SpotlightCard from '@/components/ui/SpotlightCard';
 import { SectionLabel } from '@/components/sections/Studio';
 import { games } from '@/data/games';
 
@@ -25,105 +26,127 @@ function SteamLogo() {
 
 export default function Projects() {
   const { t } = useLanguage();
+  const shots = games.flatMap((game) => game.shots.map((src) => ({ src, name: game.name })));
 
   return (
-    <section id="games" className="relative px-4 md:px-12 py-28 md:py-40">
+    <section id="games" className="relative isolate section-y">
+      <div
+        className="absolute inset-x-0 top-1/3 -z-10 h-[70%] pointer-events-none"
+        style={{ background: 'radial-gradient(ellipse 50% 50% at 50% 50%, rgba(255,255,255,0.05), transparent 70%)' }}
+        aria-hidden="true"
+      />
+
+      <div className="wrap">
+        <Reveal>
+          <SectionLabel index="02" label={t.games.label} />
+          <div className="mt-8 flex flex-wrap items-end justify-between gap-6">
+            <h2 className="font-display font-bold tracking-[-0.04em] leading-none text-section">
+              GAMES
+              <span className="meta ml-3 align-super text-[0.9rem] md:text-base">({String(games.length).padStart(2, '0')})</span>
+            </h2>
+            <span className="pill py-2 pl-3 pr-4">
+              <span className="pulse-dot" />
+              <span className="text-xs font-medium">{t.games.onSteam}</span>
+            </span>
+          </div>
+        </Reveal>
+
+        {/* Feature cards — side by side from lg up so both games fit on one screen */}
+        <div className="mt-12 md:mt-16 grid gap-6 lg:grid-cols-2">
+          {games.map((game, index) => {
+            const item = t.games.items[game.key];
+            return (
+              <Reveal key={game.key} delay={index * 120} className="h-full">
+                <SpotlightCard
+                  as="article"
+                  id={`game-${game.key}`}
+                  className="group flex h-full scroll-mt-28 flex-col overflow-hidden rounded-3xl bg-white/[0.025]"
+                >
+                  <a
+                    href={game.steamUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="relative block aspect-video overflow-hidden"
+                  >
+                    {/* Key art already carries the game logo, so no title is overlaid */}
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    <img
+                      src={game.keyArt}
+                      alt={`${game.name} key art`}
+                      loading="lazy"
+                      className="h-full w-full object-cover transition-transform duration-[1200ms] ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-[1.04]"
+                    />
+                    <div className="absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-black/70 to-transparent" />
+                    <div className="absolute left-4 right-4 top-4 flex justify-between">
+                      <span className="pill meta bg-black/30 px-3 py-1.5 text-foreground">/{String(index + 1).padStart(2, '0')}</span>
+                      <span className="pill meta bg-black/30 px-3 py-1.5 text-foreground">
+                        {t.games.release} · {item.release}
+                      </span>
+                    </div>
+                  </a>
+
+                  <div className="relative z-[3] flex flex-1 flex-col gap-4 p-6 md:p-8">
+                    <p className="text-sm md:text-base font-medium text-secondary break-keep">{item.tagline}</p>
+                    <h3 className="font-display font-bold uppercase tracking-[-0.03em] leading-[0.95] text-card">
+                      {game.name}
+                    </h3>
+                    <p className="text-sm md:text-base leading-relaxed text-secondary break-keep whitespace-pre-line">
+                      {item.description}
+                    </p>
+
+                    <div className="mt-auto flex flex-wrap items-center justify-between gap-4 pt-4">
+                      <div className="flex flex-wrap gap-2">
+                        {game.tags.map((tag) => (
+                          <span key={tag} className="meta rounded-full border border-border-subtle px-3 py-1.5">
+                            {tag}
+                          </span>
+                        ))}
+                      </div>
+                      <a
+                        href={game.steamUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-2 rounded-full bg-foreground px-5 py-3 text-sm font-bold text-background transition-[transform,box-shadow] duration-300 hover:-translate-y-0.5 hover:shadow-[0_10px_40px_-8px_rgba(255,255,255,0.45)]"
+                      >
+                        <SteamLogo />
+                        {t.games.wishlist}
+                        <span aria-hidden="true">↗</span>
+                      </a>
+                    </div>
+                  </div>
+                </SpotlightCard>
+              </Reveal>
+            );
+          })}
+        </div>
+
+        {/* Screenshot gallery — native horizontal scroll snap */}
+        <Reveal className="mt-12 md:mt-16">
+          <div className="mb-5 flex items-center justify-between">
+            <span className="meta">{t.games.gallery}</span>
+            <span className="meta text-tertiary">Scroll →</span>
+          </div>
+        </Reveal>
+      </div>
+
       <Reveal>
-        <SectionLabel index="02" label={t.games.label} />
-        <div className="mt-10 flex items-end justify-between border-b border-border-subtle pb-6">
-          <h2 className="font-display font-bold tracking-[-0.04em] leading-none text-[16vw] md:text-[9vw]">
-            GAMES<span className="font-mono font-normal text-[0.2em] tracking-normal align-super text-secondary ml-3">({String(games.length).padStart(2, '0')})</span>
-          </h2>
-          <span className="hidden md:block font-mono text-xs text-tertiary uppercase tracking-widest pb-3">Now on Steam — Wishlist</span>
+        <div className="fade-x no-scrollbar flex snap-x snap-mandatory gap-4 overflow-x-auto px-[max(var(--gutter),calc((100vw_-_var(--container))/2))] pb-2">
+          {shots.map((shot) => (
+            <figure key={shot.src} className="glass-border relative w-[min(78vw,520px)] flex-none snap-start overflow-hidden rounded-2xl">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src={shot.src}
+                alt={`${shot.name} screenshot`}
+                loading="lazy"
+                className="aspect-video w-full object-cover grayscale-[0.5] transition duration-700 hover:grayscale-0"
+              />
+              <figcaption className="meta absolute bottom-3 left-3 rounded-full bg-black/50 px-3 py-1.5 text-foreground backdrop-blur-md">
+                {shot.name}
+              </figcaption>
+            </figure>
+          ))}
         </div>
       </Reveal>
-
-      <div className="mt-16 md:mt-24 flex flex-col gap-20 md:gap-32">
-        {games.map((game, index) => {
-          const item = t.games.items[game.key];
-          return (
-            <Reveal key={game.key}>
-              <article id={`game-${game.key}`} className="group scroll-mt-24">
-                {/* Key art */}
-                <a
-                  href={game.steamUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="relative block aspect-video w-full overflow-hidden rounded-2xl md:rounded-3xl border border-border-subtle bg-white/[0.03] shadow-[0_40px_120px_-40px_rgba(255,255,255,0.25)]"
-                >
-                  {/* Key art already carries the game logo, so no title is overlaid */}
-                  {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img
-                    src={game.keyArt}
-                    alt={`${game.name} key art`}
-                    loading="lazy"
-                    className="absolute inset-0 h-full w-full object-cover transition-transform duration-[1200ms] ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-[1.03]"
-                  />
-
-                  <div className="absolute top-3 left-3 right-3 md:top-6 md:left-6 md:right-6 flex justify-between font-mono text-[10px] md:text-xs uppercase tracking-widest">
-                    <span className="glass rounded-full px-3 py-1.5 bg-black/30">/{String(index + 1).padStart(2, '0')}</span>
-                    <span className="glass rounded-full px-3 py-1.5 bg-black/30">
-                      {t.games.release} · {item.release}
-                    </span>
-                  </div>
-                </a>
-
-                {/* Title */}
-                <div className="mt-8 md:mt-10 flex flex-col gap-2 md:gap-3">
-                  <p className="text-sm md:text-lg font-medium tracking-tight text-secondary break-keep">{item.tagline}</p>
-                  <h3 className="font-display font-bold tracking-[-0.04em] leading-[0.9] uppercase text-[11vw] md:text-[5.5vw] break-keep">
-                    {game.name}
-                  </h3>
-                </div>
-
-                {/* Info row */}
-                <div className="mt-6 grid md:grid-cols-12 gap-6 md:gap-8 items-start">
-                  <p className="md:col-span-6 text-base md:text-lg leading-relaxed text-secondary break-keep whitespace-pre-line">
-                    {item.description}
-                  </p>
-                  <div className="md:col-span-3 flex flex-wrap gap-2">
-                    {game.tags.map((tag) => (
-                      <span
-                        key={tag}
-                        className="font-mono text-[11px] rounded-full border border-border-subtle text-secondary px-3 py-1 uppercase tracking-wider"
-                      >
-                        {tag}
-                      </span>
-                    ))}
-                  </div>
-                  <div className="md:col-span-3 flex md:justify-end">
-                    <a
-                      href={game.steamUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center gap-2 rounded-full bg-foreground text-background px-5 py-3 text-sm font-bold tracking-tight transition-[transform,box-shadow] duration-300 hover:-translate-y-0.5 hover:shadow-[0_10px_40px_-8px_rgba(255,255,255,0.45)]"
-                    >
-                      <SteamLogo />
-                      {t.games.wishlist}
-                      <span aria-hidden="true">↗</span>
-                    </a>
-                  </div>
-                </div>
-
-                {/* Screenshot strip */}
-                <div className="mt-6 md:mt-8 grid grid-cols-2 gap-3 md:gap-4">
-                  {game.shots.map((src) => (
-                    <div key={src} className="relative aspect-video overflow-hidden rounded-xl md:rounded-2xl border border-border-subtle">
-                      {/* eslint-disable-next-line @next/next/no-img-element */}
-                      <img
-                        src={src}
-                        alt={`${game.name} screenshot`}
-                        loading="lazy"
-                        className="h-full w-full object-cover grayscale-[0.6] transition duration-700 hover:grayscale-0 hover:scale-[1.03]"
-                      />
-                    </div>
-                  ))}
-                </div>
-              </article>
-            </Reveal>
-          );
-        })}
-      </div>
     </section>
   );
 }
