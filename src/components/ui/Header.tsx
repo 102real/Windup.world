@@ -3,7 +3,6 @@
 import React, { useState, useEffect } from 'react';
 import { useLanguage } from '@/context/LanguageContext';
 import LanguageToggle from '@/components/ui/LanguageToggle';
-import { games } from '@/data/games';
 
 const sections = ['studio', 'games', 'history', 'contact'] as const;
 
@@ -76,14 +75,6 @@ export default function Header() {
 
         <div className="flex items-center gap-2">
           <LanguageToggle />
-          <a
-            href={games[0].steamUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="hidden sm:inline-flex h-9 items-center rounded-full bg-foreground px-4 text-xs font-bold text-background transition-transform duration-300 hover:-translate-y-px"
-          >
-            Wishlist
-          </a>
         </div>
       </div>
     </header>
