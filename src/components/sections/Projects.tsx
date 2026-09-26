@@ -3,52 +3,12 @@
 import React from 'react';
 import { useLanguage } from '@/context/LanguageContext';
 import Reveal from '@/components/ui/Reveal';
-
-type Project = {
-  id: string;
-  name: string;
-  tags: string[];
-  link?: {
-    label: string;
-    href: string;
-  };
-};
-
-const projects: Project[] = [
-  {
-    id: "01",
-    name: "OMG: Oh My Gravity",
-    tags: ["2026 Q4", "Co-op", "Puzzle", "Platformer"]
-  },
-  {
-    id: "02",
-    name: "CLIMB",
-    tags: ["2026 Q4", "Simulation", "Incremental"]
-  },
-  {
-    id: "03",
-    name: "SHOWHAND",
-    tags: ["2027 Q1", "Roguelike", "Action", "Poker"],
-    link: {
-      label: "Steam",
-      href: "https://store.steampowered.com/app/4629890/SHOWHAND/",
-    },
-  },
-  {
-    id: "04",
-    name: "Heart stamp",
-    tags: ["2026 Q1", "Simulation", "Physics"]
-  }
-];
+import { SectionLabel } from '@/components/sections/Studio';
+import { games } from '@/data/games';
 
 function SteamLogo() {
   return (
-    <svg
-      aria-hidden="true"
-      className="h-4 w-4"
-      viewBox="0 0 24 24"
-      fill="none"
-    >
+    <svg aria-hidden="true" className="h-4 w-4" viewBox="0 0 24 24" fill="none">
       <circle cx="12" cy="12" r="9" stroke="currentColor" strokeWidth="2" />
       <circle cx="15.5" cy="8.5" r="2.4" stroke="currentColor" strokeWidth="1.8" />
       <circle cx="8.5" cy="15.5" r="2.2" stroke="currentColor" strokeWidth="1.8" />
@@ -67,88 +27,99 @@ export default function Projects() {
   const { t } = useLanguage();
 
   return (
-    <section id="projects" className="min-h-screen py-20 px-6 md:px-12 w-full overflow-hidden">
-      <div className="mb-20 md:mb-24">
-        <p className="font-mono text-[10px] md:text-xs uppercase tracking-widest text-tertiary mb-4">
-          ( 02 — {t.projects.title} )
-        </p>
-        <div className="flex items-end justify-between border-b border-border-strong pb-4">
-          <h2 className="text-4xl md:text-6xl font-black tracking-tight uppercase font-display">
-            {t.projects.title}
-            <span className="font-mono font-normal text-[0.35em] tracking-normal align-super text-secondary ml-3">({projects.length})</span>
+    <section id="games" className="relative px-4 md:px-12 py-28 md:py-40">
+      <Reveal>
+        <SectionLabel index="02" label={t.games.label} />
+        <div className="mt-10 flex items-end justify-between border-b border-border-subtle pb-6">
+          <h2 className="font-display font-bold tracking-[-0.04em] leading-none text-[16vw] md:text-[9vw]">
+            GAMES<span className="font-mono font-normal text-[0.2em] tracking-normal align-super text-secondary ml-3">({String(games.length).padStart(2, '0')})</span>
           </h2>
-          <span className="hidden md:block font-mono text-xs text-tertiary uppercase tracking-widest pb-2">
-            2026 — 2027
-          </span>
+          <span className="hidden md:block font-mono text-xs text-tertiary uppercase tracking-widest pb-3">Now on Steam — Wishlist</span>
         </div>
-      </div>
+      </Reveal>
 
-      <div className="flex flex-col gap-0">
-        {projects.map((project, index) => {
-          const itemT = t.projects.items[project.name];
-
+      <div className="mt-16 md:mt-24 flex flex-col gap-20 md:gap-32">
+        {games.map((game, index) => {
+          const item = t.games.items[game.key];
           return (
-            <Reveal key={project.id} delay={index * 100}>
-              <div
-                className="group relative border-b border-border-subtle py-16 md:py-24 transition-colors duration-500 hover:bg-[var(--surface-hover)] -mx-6 px-6 md:-mx-12 md:px-12"
-              >
-                {/* Accent bar on hover */}
-                <span
-                  className="absolute left-0 top-0 h-full w-[3px] bg-foreground scale-y-0 group-hover:scale-y-100 origin-top transition-transform duration-500"
-                  aria-hidden="true"
-                ></span>
+            <Reveal key={game.key}>
+              <article id={`game-${game.key}`} className="group scroll-mt-24">
+                {/* Key art */}
+                <a
+                  href={game.steamUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="relative block aspect-video w-full overflow-hidden rounded-2xl md:rounded-3xl border border-border-subtle bg-white/[0.03] shadow-[0_40px_120px_-40px_rgba(255,255,255,0.25)]"
+                >
+                  {/* Key art already carries the game logo, so no title is overlaid */}
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img
+                    src={game.keyArt}
+                    alt={`${game.name} key art`}
+                    loading="lazy"
+                    className="absolute inset-0 h-full w-full object-cover transition-transform duration-[1200ms] ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-[1.03]"
+                  />
 
-                {/* Title and details only sit side by side from xl up — below that
-                    the columns get too narrow, so they stack instead of shrinking. */}
-                <div className="grid grid-cols-12 gap-x-4 gap-y-8 items-start">
-                  {/* Index */}
-                  <span className="col-span-12 xl:col-span-1 font-mono text-xs md:text-sm text-tertiary group-hover:text-secondary transition-colors duration-500 xl:pt-3">
-                    /{project.id}
-                  </span>
-
-                  {/* Title */}
-                  <div className="col-span-12 xl:col-span-6">
-                    <h3 className="text-[clamp(3rem,15vw,10rem)] xl:text-[clamp(6rem,7.5vw,10rem)] font-bold tracking-tighter leading-none uppercase group-hover:translate-x-4 transition-transform duration-500 font-display break-keep">
-                      {project.name}
-                    </h3>
+                  <div className="absolute top-3 left-3 right-3 md:top-6 md:left-6 md:right-6 flex justify-between font-mono text-[10px] md:text-xs uppercase tracking-widest">
+                    <span className="glass rounded-full px-3 py-1.5 bg-black/30">/{String(index + 1).padStart(2, '0')}</span>
+                    <span className="glass rounded-full px-3 py-1.5 bg-black/30">
+                      {t.games.release} · {item.release}
+                    </span>
                   </div>
+                </a>
 
-                  {/* Details */}
-                  <div className="col-span-12 xl:col-span-5 flex flex-col gap-5 max-w-3xl xl:max-w-none xl:pt-2">
-                    <div className="flex flex-wrap gap-2 items-center">
-                      {project.tags.map(tag => (
-                        <span
-                          key={tag}
-                          className="font-mono text-xs rounded-full border border-border-subtle bg-foreground/[0.02] text-secondary px-3 py-1 uppercase tracking-wider transition-colors duration-500 group-hover:border-border-strong group-hover:text-foreground"
-                        >
-                          {tag}
-                        </span>
-                      ))}
-                    </div>
-                    {itemT?.direction && (
-                      <h4 className="text-2xl lg:text-3xl xl:text-2xl font-semibold leading-snug">
-                        {itemT.direction}
-                      </h4>
-                    )}
-                    {itemT?.description && (
-                      <p className="text-base lg:text-lg xl:text-base leading-relaxed break-keep whitespace-pre-line text-secondary">
-                        {itemT.description}
-                      </p>
-                    )}
-                    {project.link && (
-                      <a
-                        href={project.link.href}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="inline-flex w-fit items-center gap-2 rounded-full border border-border-strong px-5 py-2 font-mono text-sm uppercase tracking-wider transition-colors duration-300 hover:bg-foreground hover:text-background hover:border-foreground"
+                {/* Title */}
+                <div className="mt-8 md:mt-10 flex flex-col gap-2 md:gap-3">
+                  <p className="text-sm md:text-lg font-medium tracking-tight text-secondary break-keep">{item.tagline}</p>
+                  <h3 className="font-display font-bold tracking-[-0.04em] leading-[0.9] uppercase text-[11vw] md:text-[5.5vw] break-keep">
+                    {game.name}
+                  </h3>
+                </div>
+
+                {/* Info row */}
+                <div className="mt-6 grid md:grid-cols-12 gap-6 md:gap-8 items-start">
+                  <p className="md:col-span-6 text-base md:text-lg leading-relaxed text-secondary break-keep whitespace-pre-line">
+                    {item.description}
+                  </p>
+                  <div className="md:col-span-3 flex flex-wrap gap-2">
+                    {game.tags.map((tag) => (
+                      <span
+                        key={tag}
+                        className="font-mono text-[11px] rounded-full border border-border-subtle text-secondary px-3 py-1 uppercase tracking-wider"
                       >
-                        <SteamLogo />
-                        {project.link.label}
-                      </a>
-                    )}
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
+                  <div className="md:col-span-3 flex md:justify-end">
+                    <a
+                      href={game.steamUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-2 rounded-full bg-foreground text-background px-5 py-3 text-sm font-bold tracking-tight transition-[transform,box-shadow] duration-300 hover:-translate-y-0.5 hover:shadow-[0_10px_40px_-8px_rgba(255,255,255,0.45)]"
+                    >
+                      <SteamLogo />
+                      {t.games.wishlist}
+                      <span aria-hidden="true">↗</span>
+                    </a>
                   </div>
                 </div>
-              </div>
+
+                {/* Screenshot strip */}
+                <div className="mt-6 md:mt-8 grid grid-cols-2 gap-3 md:gap-4">
+                  {game.shots.map((src) => (
+                    <div key={src} className="relative aspect-video overflow-hidden rounded-xl md:rounded-2xl border border-border-subtle">
+                      {/* eslint-disable-next-line @next/next/no-img-element */}
+                      <img
+                        src={src}
+                        alt={`${game.name} screenshot`}
+                        loading="lazy"
+                        className="h-full w-full object-cover grayscale-[0.6] transition duration-700 hover:grayscale-0 hover:scale-[1.03]"
+                      />
+                    </div>
+                  ))}
+                </div>
+              </article>
             </Reveal>
           );
         })}
@@ -156,4 +127,3 @@ export default function Projects() {
     </section>
   );
 }
-
