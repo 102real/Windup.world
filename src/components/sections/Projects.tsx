@@ -26,7 +26,11 @@ function SteamLogo() {
 
 export default function Projects() {
   const { t } = useLanguage();
-  const shots = games.flatMap((game) => game.shots.map((src) => ({ src, name: game.name })));
+  // Alternate the two games' screenshots so the marquee mixes them
+  const longest = Math.max(...games.map((g) => g.shots.length));
+  const shots = Array.from({ length: longest }, (_, i) =>
+    games.flatMap((game) => (game.shots[i] ? [{ src: game.shots[i], name: game.name, steamUrl: game.steamUrl }] : []))
+  ).flat();
 
   return (
     <section id="games" className="relative isolate section-y">
@@ -94,7 +98,7 @@ export default function Projects() {
                       {item.description}
                     </p>
 
-                    <div className="mt-auto flex flex-wrap items-center justify-between gap-4 pt-4">
+                    <div className="mt-auto flex flex-col items-start gap-5 pt-4">
                       <div className="flex flex-wrap gap-2">
                         {game.tags.map((tag) => (
                           <span key={tag} className="meta rounded-full border border-border-subtle px-3 py-1.5">
@@ -120,31 +124,42 @@ export default function Projects() {
           })}
         </div>
 
-        {/* Screenshot gallery — native horizontal scroll snap */}
+        {/* Screenshot marquee header */}
         <Reveal className="mt-12 md:mt-16">
           <div className="mb-5 flex items-center justify-between">
-            <span className="meta">{t.games.gallery}</span>
-            <span className="meta text-tertiary">Scroll →</span>
+            <span className="text-sm font-medium text-secondary">{t.games.gallery}</span>
+            <span className="meta text-tertiary">{String(shots.length).padStart(2, '0')} Shots</span>
           </div>
         </Reveal>
       </div>
 
+      {/* Infinite marquee — the list is rendered twice and the track slides by -50%; hover pauses it */}
       <Reveal>
-        <div className="fade-x no-scrollbar flex snap-x snap-mandatory gap-4 overflow-x-auto px-[max(var(--gutter),calc((100vw_-_var(--container))/2))] pb-2">
-          {shots.map((shot) => (
-            <figure key={shot.src} className="glass-border relative w-[min(78vw,520px)] flex-none snap-start overflow-hidden rounded-2xl">
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
-                src={shot.src}
-                alt={`${shot.name} screenshot`}
-                loading="lazy"
-                className="aspect-video w-full object-cover grayscale-[0.5] transition duration-700 hover:grayscale-0"
-              />
-              <figcaption className="meta absolute bottom-3 left-3 rounded-full bg-black/50 px-3 py-1.5 text-foreground backdrop-blur-md">
-                {shot.name}
-              </figcaption>
-            </figure>
-          ))}
+        <div className="fade-x marquee-pause overflow-hidden">
+          <div className="animate-marquee marquee-slow gap-4 pr-4">
+            {[...shots, ...shots].map((shot, i) => (
+              <a
+                key={`${shot.src}-${i}`}
+                href={shot.steamUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-hidden={i >= shots.length || undefined}
+                tabIndex={i >= shots.length ? -1 : undefined}
+                className="glass-border relative block w-[min(72vw,440px)] flex-none overflow-hidden rounded-2xl"
+              >
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src={shot.src}
+                  alt={`${shot.name} screenshot`}
+                  loading="lazy"
+                  className="aspect-video w-full object-cover grayscale-[0.5] transition duration-700 hover:scale-[1.03] hover:grayscale-0"
+                />
+                <span className="meta absolute bottom-3 left-3 rounded-full bg-black/50 px-3 py-1.5 text-foreground backdrop-blur-md">
+                  {shot.name}
+                </span>
+              </a>
+            ))}
+          </div>
         </div>
       </Reveal>
     </section>

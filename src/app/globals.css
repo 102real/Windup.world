@@ -93,8 +93,8 @@ html {
   color: transparent;
   /* background-clip only paints inside the box, and tight tracking pushes glyph
      edges past it — pad the box out and pull it back so layout is unchanged */
-  padding-inline: 0.1em;
-  margin-inline: -0.1em;
+  padding: 0.12em 0.1em;
+  margin: -0.12em -0.1em;
   -webkit-box-decoration-break: clone;
   box-decoration-break: clone;
 }
@@ -321,6 +321,14 @@ html {
   animation: marquee 50s linear infinite;
   display: flex;
   width: max-content;
+}
+
+.animate-marquee.marquee-slow {
+  animation-duration: 90s;
+}
+
+.marquee-pause:hover .animate-marquee {
+  animation-play-state: paused;
 }
 
 .animate-scroll-line {

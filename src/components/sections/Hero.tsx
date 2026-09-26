@@ -34,7 +34,7 @@ export default function Hero() {
 
         <div className="relative">
           <div className="glow absolute -inset-x-[20%] -inset-y-[60%] -z-10" aria-hidden="true" />
-          <h1 className="inline-block py-[0.06em] font-gmarket font-bold tracking-[-0.05em] leading-[1] text-hero text-gradient animate-fade-in-up [animation-delay:150ms] select-none">
+          <h1 className="inline-block font-gmarket font-bold tracking-[-0.05em] leading-[1] text-hero text-gradient animate-fade-in-up [animation-delay:150ms] select-none">
             WINDUP
           </h1>
         </div>
