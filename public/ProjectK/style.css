@@ -31,3 +31,27 @@ html{scroll-snap-type:y proximity}.site-bar{height:64px;align-items:flex-start;p
 .hero img{width:100%;height:auto;aspect-ratio:1672/941}
 .hero-labels{position:static;width:100%;padding:10px;gap:10px;font-size:10px}
 }
+/* Story dossier: documentary evidence and short scene proposals. */
+.story-pair{display:grid;grid-template-columns:1fr 1fr;align-items:center;gap:4cqw;flex:1;min-height:0}
+.story-document{padding:2cqw 2.4cqw;background:#f4ebd7;color:#263c31;border-top:.35cqw solid #96674f;box-shadow:.5cqw .5cqw #0002;position:relative}
+.story-document .micro{color:#64715e}
+.story-document>strong{display:block;font-size:2.6cqw;line-height:1.25;margin:1.4cqw 0;color:#263c31;word-break:keep-all}
+.document-lines{border-top:1px solid #374e3938;padding-top:1cqw}
+.document-lines p{font-size:1.3cqw;line-height:1.9;word-break:keep-all}
+.story-document .stamp{margin-top:1.2cqw;font-size:1.15cqw;color:#915943;border-color:#915943}
+.story-quote{font-size:2.45cqw;line-height:1.6;padding-left:2cqw;border-left:2px solid var(--brass)}
+.story-quote small{font-size:1.1cqw;margin-top:1.8cqw}
+.story-sheet .summary{font-size:1.45cqw;line-height:1.7;max-width:100%}
+.story-sheet h2{font-size:3.4cqw}
+@media(max-width:900px){
+.story-pair{grid-template-columns:1fr;gap:28px}
+.story-document{padding:24px;border-top-width:4px}
+.story-document>strong{font-size:28px;margin:18px 0}
+.document-lines{padding-top:15px}
+.document-lines p{font-size:15px;line-height:1.9}
+.story-document .stamp{margin-top:18px;font-size:13px}
+.story-quote{font-size:24px;padding-left:20px}
+.story-quote small{font-size:12px;margin-top:20px}
+.story-sheet .summary{font-size:16px}
+.story-sheet h2{font-size:clamp(27px,6vw,42px)}
+}
