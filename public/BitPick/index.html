@@ -26,11 +26,17 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <symbol id="bp-mark" viewBox="0 0 20 20" shape-rendering="crispEdges">
+      <path fill="#F4F4F4" d="M0 0h9v11h11v9H0z"/>
+      <rect x="11" y="0" width="9" height="9" fill="#CCFF00"/>
+    </symbol>
+  </svg>
   <!-- ─────────────── HEADER ─────────────── -->
   <header class="header" id="header">
     <div class="header-inner notch">
       <a href="#top" class="wordmark" aria-label="BITPICK home">
-        <img class="wm-mark" src="assets/mark.png" width="13" height="13" alt="" aria-hidden="true">BITPICK
+        <svg class="bp-mark" aria-hidden="true"><use href="#bp-mark"/></svg>BITPICK
       </a>
       <nav class="nav" aria-label="Sections">
         <a href="#label" data-nav="label" data-i18n="nav.label">Studio</a>
@@ -61,7 +67,7 @@
         </div>
         <p class="readout meta rise" style="--d:1" id="readout" aria-live="polite">x = 0b00000000</p>
 
-        <h1 class="hero-title rise" style="--d:2">BITPICK<span class="cursor" aria-hidden="true"></span></h1>
+        <h1 class="hero-title rise" style="--d:2"><svg class="bp-mark" aria-hidden="true"><use href="#bp-mark"/></svg>BITPICK<span class="cursor" aria-hidden="true"></span></h1>
 
         <p class="hero-tag rise" style="--d:3" data-i18n="hero.tag">Small games. One good idea.</p>
         <p class="hero-sub rise" style="--d:4" data-i18n="hero.sub">A game company making small pixel games.<br>A new game every week.</p>
