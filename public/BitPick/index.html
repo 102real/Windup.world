@@ -1,0 +1,167 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#000000">
+  <meta name="author" content="BITPICK">
+  <meta name="description" content="BITPICK is a game company making small pixel games. One good idea per game, a new game every week.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://bitpickgames.com/">
+  <link rel="canonical" href="https://bitpickgames.com/">
+  <meta property="og:title" content="BITPICK — Small games. One good idea.">
+  <meta property="og:description" content="A game company making small pixel games. A new game every week.">
+  <meta name="twitter:card" content="summary_large_image">
+  <title>BITPICK — Small games. One good idea.</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 8' shape-rendering='crispEdges'%3E%3Crect width='8' height='8' fill='%23000'/%3E%3Cpath fill='%23fff' d='M1 1h1v6H1zM2 1h2v1H2zM2 4h2v1H2zM2 6h2v1H2zM4 2h1v2H4zM4 5h1v1H4z'/%3E%3Crect x='6' y='6' width='1' height='1' fill='%23C6FF00'/%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Silkscreen:wght@400;700&family=Space+Mono:wght@400;700&family=Noto+Sans+KR:wght@400;500;700&display=swap">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/galmuri@latest/dist/galmuri.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- ─────────────── HEADER ─────────────── -->
+  <header class="header" id="header">
+    <div class="header-inner notch">
+      <a href="#top" class="wordmark" aria-label="BITPICK home">
+        <span class="wm-mark" aria-hidden="true"></span>BITPICK
+      </a>
+      <nav class="nav" aria-label="Sections">
+        <a href="#label" data-nav="label" data-i18n="nav.label">Studio</a>
+        <a href="#games" data-nav="games" data-i18n="nav.drops">Games</a>
+        <a href="#rules" data-nav="rules" data-i18n="nav.rules">Rules</a>
+        <a href="#contact" data-nav="contact" data-i18n="nav.contact">Contact</a>
+      </nav>
+      <button class="lang" id="langToggle" type="button" aria-label="Switch language">
+        <span data-lang="en">EN</span><i>/</i><span data-lang="ko">KR</span>
+      </button>
+    </div>
+  </header>
+
+  <main>
+    <!-- ─────────────── HERO ─────────────── -->
+    <section class="hero" id="top">
+      <div class="bg-grid" aria-hidden="true"></div>
+      <div class="hero-glow" aria-hidden="true"></div>
+
+      <div class="hero-inner wrap">
+        <div class="status notch-sm rise" style="--d:0">
+          <span class="dot" aria-hidden="true"></span>
+          <span class="meta" data-i18n="hero.status">Game #001 — Coming soon</span>
+        </div>
+
+        <div class="bits rise" style="--d:1" id="bits" role="group" aria-label="Eight bits. Click to flip.">
+          <!-- filled by main.js -->
+        </div>
+        <p class="readout meta rise" style="--d:1" id="readout" aria-live="polite">x = 0b00000000</p>
+
+        <h1 class="hero-title rise" style="--d:2">BITPICK<span class="cursor" aria-hidden="true"></span></h1>
+
+        <p class="hero-tag rise" style="--d:3" data-i18n="hero.tag">Small games. One good idea.</p>
+        <p class="hero-sub rise" style="--d:4" data-i18n="hero.sub">A game company making small pixel games.<br>A new game every week.</p>
+
+        <a href="#games" class="btn rise" style="--d:5"><span data-i18n="hero.cta">See our games</span> <span aria-hidden="true">↓</span></a>
+      </div>
+
+      <div class="hero-foot wrap meta" aria-hidden="true">
+        <span data-i18n="hero.kind">Pixel game company</span>
+        <span class="hide-sm">WEEKLY · PIXEL · ONE IDEA</span>
+        <span class="scroll"><span data-i18n="hero.scroll">Scroll</span><i></i></span>
+      </div>
+    </section>
+
+    <!-- ─────────────── 01 LABEL ─────────────── -->
+    <section class="section" id="label">
+      <div class="halftone" aria-hidden="true"></div>
+      <div class="wrap">
+        <div class="hairline"></div>
+        <div class="section-label reveal"><b>01</b><i></i><span class="meta">0b0001</span><span class="meta" data-i18n="nav.label">Studio</span></div>
+
+        <div class="grid-12">
+          <h2 class="h2 col-7 reveal" data-i18n="label.h">A game doesn't have to be big<br>to be remembered.<br><em>We make those games.</em></h2>
+          <div class="col-r reveal" style="--d:1">
+            <p class="lead" data-i18n="label.lead">BITPICK is a small game company making tiny games — each one built around a single good idea.</p>
+            <p data-i18n="label.p1">We look for the one idea that feels fun the moment you touch it, then polish it until that fun comes through as clearly as possible. Strange arcade games, compact simulations, tiny strategy, experimental action — anything we think is worth turning into a game.</p>
+            <p data-i18n="label.p2">We care about how a game feels, not how big it is.<br>Every game ships complete, polished, and worth coming back to.</p>
+          </div>
+        </div>
+
+        <ul class="stats">
+          <li class="stat notch reveal" style="--d:0"><b>1<small>/week</small></b><span class="meta" data-i18n="stat.week">A new game every week</span></li>
+          <li class="stat notch reveal" style="--d:1"><b>1<small>idea</small></b><span class="meta" data-i18n="stat.idea">One good idea per game</span></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ─────────────── 02 GAMES ─────────────── -->
+    <section class="section" id="games">
+      <div class="wrap">
+        <div class="hairline"></div>
+        <div class="section-label reveal"><b>02</b><i></i><span class="meta">0b0010</span><span class="meta" data-i18n="nav.drops">Games</span></div>
+
+        <div class="drops-head reveal">
+          <h2 class="h2">GAMES <sup class="count" id="dropCount">(00)</sup></h2>
+          <span class="pill notch-sm meta"><span class="dot" aria-hidden="true"></span><span data-i18n="drops.pill">Every week</span></span>
+        </div>
+        <p class="drops-sub reveal" data-i18n="drops.sub">Every game starts by picking one bit — one good idea, grown into a complete game.</p>
+
+        <div class="drops" id="dropGrid"><!-- filled by main.js --></div>
+      </div>
+
+      <div class="marquee fade-x" aria-hidden="true">
+        <div class="marquee-track" id="marquee1"></div>
+      </div>
+    </section>
+
+    <!-- ─────────────── 03 RULES ─────────────── -->
+    <section class="section" id="rules">
+      <div class="wrap">
+        <div class="hairline"></div>
+        <div class="section-label reveal"><b>03</b><i></i><span class="meta">0b0011</span><span class="meta" data-i18n="nav.rules">Rules</span></div>
+
+        <div class="grid-12">
+          <div class="col-4 rules-side">
+            <div class="sticky reveal">
+              <h2 class="h2 rules-title">THE<br>BITPICK<br><em>RULES</em></h2>
+              <p class="rules-cap" data-i18n="rules.cap">Five rules every game follows.</p>
+            </div>
+          </div>
+          <ol class="col-8 rules" id="rulesList"><!-- filled by main.js --></ol>
+        </div>
+      </div>
+    </section>
+
+    <!-- ─────────────── 04 CONTACT ─────────────── -->
+    <section class="section contact" id="contact">
+      <div class="bg-grid bg-grid--low" aria-hidden="true"></div>
+      <div class="contact-glow" aria-hidden="true"></div>
+
+      <div class="marquee marquee--outline" aria-hidden="true">
+        <div class="marquee-track" id="marquee2"></div>
+      </div>
+
+      <div class="wrap">
+        <div class="section-label reveal"><b>04</b><i></i><span class="meta">0b0100</span><span class="meta" data-i18n="nav.contact">Contact</span></div>
+        <h2 class="h2 reveal" data-i18n="contact.h">Pick one.<br><em>Play for a while.</em></h2>
+        <p class="contact-sub reveal" data-i18n="contact.sub">Press, partnerships, or an idea you think deserves to be a game — we would love to hear from you.</p>
+
+        <a class="email reveal" id="emailBig" href="#"></a>
+
+        <div class="hairline"></div>
+        <div class="contact-row">
+          <div class="socials" id="socials"><!-- filled by main.js --></div>
+          <a class="meta mail-link" id="emailSmall" href="#"></a>
+        </div>
+        <footer class="footer meta">
+          <span>© <span id="year">2026</span> BITPICK. <span data-i18n="footer.tag">Small games. One good idea.</span></span>
+          <a href="#top" data-i18n="footer.top">Top ↑</a>
+        </footer>
+      </div>
+    </section>
+  </main>
+
+  <script src="drops.js"></script>
+  <script src="main.js"></script>
+</body>
+</html>
