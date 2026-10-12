@@ -1,4 +1,4 @@
-// ORU GDD — page behaviour: table-of-contents highlight, island map (season picker + region hover), character filter.
+// RAMU GDD — page behaviour: table-of-contents highlight, island map (season picker + region hover), character filter.
 (() => {
   // ---------- table of contents: highlight the section in view ----------
   const links = [...document.querySelectorAll(".toc a, .pills a")];
@@ -37,7 +37,7 @@
   const OPEN = { v: "summer", b: "summer", f: "summer", p: "summer", m: "autumn", l: "autumn", s: "autumn", c: "autumn",
     u: "winter", k: "winter", g: "winter", x: "winter", y: "spring" };
   const AREA_NAME = { v: "나사마을", b: "남쪽 해변", f: "서쪽 숲", p: "갈매기항", m: "동쪽 풀밭", l: "폭포", s: "버섯·늪 마을",
-    c: "해안 절벽 마을", u: "구름 고원", k: "눈 정상", g: "지하 동굴 마을", x: "화산 마을", y: "구름 마을" };
+    c: "해안 절벽 마을", u: "양떼 고원", k: "눈 정상", g: "지하 동굴 마을", x: "화산 마을", y: "구름 마을" };
   const GROUND = {
     summer: { g: "#86bf4f", f: "#5f9a3c", tree: "#3e7a2e", treeHi: "#5a9c3c" },
     autumn: { g: "#d9a85a", f: "#c47a3a", tree: "#b8532c", treeHi: "#dd8a3c" },
