@@ -1,4 +1,4 @@
-// Bolt Isle GDD — page behaviour: table-of-contents highlight, island map (season picker + region hover), character filter.
+// ORU GDD — page behaviour: table-of-contents highlight, island map (season picker + region hover), character filter.
 (() => {
   // ---------- table of contents: highlight the section in view ----------
   const links = [...document.querySelectorAll(".toc a, .pills a")];
@@ -30,14 +30,14 @@
 
   // ---------- island map ----------
   const I = window.ISLAND;
-  const cvTop = document.getElementById("cv-top"), cvUnder = document.getElementById("cv-under");
+  const cvTop = document.getElementById("cv-top"), cvUnder = document.getElementById("cv-under"), cvSky = document.getElementById("cv-sky");
   if (!I || !cvTop) return;
   const ORDER = ["summer", "autumn", "winter", "spring"];
   const NAME = { summer: "여름", autumn: "가을", winter: "겨울", spring: "봄" };
   const OPEN = { v: "summer", b: "summer", f: "summer", p: "summer", m: "autumn", l: "autumn", s: "autumn", c: "autumn",
-    u: "winter", k: "winter", g: "winter", x: "winter" };
+    u: "winter", k: "winter", g: "winter", x: "winter", y: "spring" };
   const AREA_NAME = { v: "나사마을", b: "남쪽 해변", f: "서쪽 숲", p: "갈매기항", m: "동쪽 풀밭", l: "폭포", s: "버섯·늪 마을",
-    c: "해안 절벽 마을", u: "구름 고원", k: "눈 정상", g: "지하 동굴 마을", x: "화산 마을" };
+    c: "해안 절벽 마을", u: "구름 고원", k: "눈 정상", g: "지하 동굴 마을", x: "화산 마을", y: "구름 마을" };
   const GROUND = {
     summer: { g: "#86bf4f", f: "#5f9a3c", tree: "#3e7a2e", treeHi: "#5a9c3c" },
     autumn: { g: "#d9a85a", f: "#c47a3a", tree: "#b8532c", treeHi: "#dd8a3c" },
@@ -46,7 +46,7 @@
   };
   const FIX = { p: "#d6c296", s: "#ecd8a0", r: "#a9a39b", t: "#cdc6b6", m: "#8d7558", b: "#b07a4a", d: "#b07a4a",
     k: "#6f6782", n: "#f3f6f9", l: "#e0582a", w: "#5b8fc9" };
-  const PX = 6, W = I.W, ID = I.island_d, UY = I.under_y;
+  const PX = 6, W = I.W, ID = I.island_d, UY = I.under_y, SY = I.sky_y || I.D;
   let season = "summer", focus = "";
 
   function shade(hex, k) {
@@ -61,7 +61,7 @@
   function draw(ctx, y0, y1) {
     const G = GROUND[season];
     const idx = ORDER.indexOf(season);
-    ctx.fillStyle = y0 >= UY ? "#3a3340" : (season === "winter" ? "#6f9bc8" : "#4f86bd");
+    ctx.fillStyle = y0 >= SY ? "#bfe0f2" : (y0 >= UY ? "#3a3340" : (season === "winter" ? "#6f9bc8" : "#4f86bd"));
     ctx.fillRect(0, 0, ctx.canvas.width, ctx.canvas.height);
     for (let y = y0; y < y1; y++) {
       for (let x = 0; x < W; x++) {
@@ -136,20 +136,21 @@
     Object.assign(out, { v: [47, 40], u: [76, 10], f: [12, 51], b: [30, 80.5], p: [79, 66] });
     return out;
   })();
-  const topBox = document.getElementById("surface"), underBox = document.getElementById("under");
+  const topBox = document.getElementById("surface"), underBox = document.getElementById("under"), skyBox = document.getElementById("sky");
   function labels() {
     const idx = ORDER.indexOf(season);
-    for (const box of [topBox, underBox]) box.querySelectorAll(".lb").forEach((e) => e.remove());
+    for (const box of [topBox, underBox, skyBox]) if (box) box.querySelectorAll(".lb").forEach((e) => e.remove());
     for (const a in centres) {
       const [cx, cy] = centres[a];
-      const under = cy >= UY;
+      const sky = cy >= SY, under = !sky && cy >= UY;
+      if (sky && !skyBox) continue;
       const el = document.createElement("div");
       const dim = focus ? a !== focus : ORDER.indexOf(OPEN[a]) > idx;
       el.className = "lb" + (dim ? " locked" : "");
       el.textContent = AREA_NAME[a];
       el.style.left = ((cx + .5) / W * 100) + "%";
-      el.style.top = (((under ? cy - UY : cy) + .5) / (under ? I.D - UY : ID) * 100) + "%";
-      (under ? underBox : topBox).appendChild(el);
+      el.style.top = (((sky ? cy - SY : under ? cy - UY : cy) + .5) / (sky ? I.D - SY : under ? SY - UY : ID) * 100) + "%";
+      (sky ? skyBox : under ? underBox : topBox).appendChild(el);
     }
     if (focus) return;
     for (const [x, y, t] of PINS) {
@@ -162,17 +163,19 @@
     }
   }
   cvTop.width = W * PX; cvTop.height = ID * PX;
-  cvUnder.width = W * PX; cvUnder.height = (I.D - UY) * PX;
+  cvUnder.width = W * PX; cvUnder.height = (SY - UY) * PX;
+  if (cvSky) { cvSky.width = W * PX; cvSky.height = (I.D - SY) * PX; }
   const note = document.getElementById("open-note");
   function render() {
     draw(cvTop.getContext("2d"), 0, ID);
-    draw(cvUnder.getContext("2d"), UY, I.D);
+    draw(cvUnder.getContext("2d"), UY, SY);
+    if (cvSky && SY < I.D) draw(cvSky.getContext("2d"), SY, I.D);
     labels();
     const idx = ORDER.indexOf(season);
     const open = Object.keys(OPEN).filter((a) => ORDER.indexOf(OPEN[a]) <= idx);
     const fresh = Object.keys(OPEN).filter((a) => OPEN[a] === season);
-    note.innerHTML = `<b>${idx + 1}장 ${NAME[season]}</b> · 열린 지역 ${open.length}/12` +
-      (fresh.length ? ` · 새로 열림: ${fresh.map((a) => AREA_NAME[a]).join(", ")}` : " · 새 지역 없음, 섬 전체가 벚꽃");
+    note.innerHTML = `<b>${idx + 1}장 ${NAME[season]}</b> · 열린 지역 ${open.length}/${Object.keys(OPEN).length}` +
+      (fresh.length ? ` · 새로 열림: ${fresh.map((a) => AREA_NAME[a]).join(", ")}` : " · 새 지역 없음");
     document.querySelectorAll(".seasons button").forEach((b) => b.setAttribute("aria-pressed", String(b.dataset.s === season)));
     document.querySelectorAll(".region").forEach((r) => r.classList.toggle("dim", ORDER.indexOf(r.dataset.season) > idx));
   }
