@@ -46,7 +46,7 @@
     summer: { g: "#86bf4f", f: "#5f9a3c", tree: "#3e7a2e", treeHi: "#5a9c3c" },
     autumn: { g: "#d9a85a", f: "#c47a3a", tree: "#b8532c", treeHi: "#dd8a3c" },
     winter: { g: "#e8edf1", f: "#dfe6ec", tree: "#b9c7d4", treeHi: "#f4f7fa" },
-    spring: { g: "#f0c6d3", f: "#e6abc0", tree: "#d9849f", treeHi: "#f3b9cb" },
+    spring: { g: "#b7cca6", f: "#c8b6b9", tree: "#df9eb5", treeHi: "#f1dcd7" },
   };
   const FIX = { p: "#d6c296", s: "#ecd8a0", r: "#a9a39b", t: "#cdc6b6", m: "#8d7558", b: "#b07a4a", d: "#b07a4a",
     k: "#6f6782", n: "#f3f6f9", l: "#e0582a", w: "#5b8fc9" };
