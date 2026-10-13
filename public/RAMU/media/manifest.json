@@ -8,23 +8,23 @@
   "clips": {
     "air": {
       "duration": 5.53333333333333,
-      "start": 36.6333333333333
+      "start": 33.4
     },
     "grapple": {
       "duration": 5.63333333333333,
-      "start": 30.0
+      "start": 26.7666666666667
     },
     "heavy": {
-      "duration": 7.13333333333333,
-      "start": 13.8
+      "duration": 5.3,
+      "start": 13.6
     },
     "light": {
-      "duration": 5.33333333333333,
+      "duration": 5.13333333333333,
       "start": 7.63333333333333
     },
     "motor": {
-      "duration": 7.23333333333333,
-      "start": 21.7666666666667
+      "duration": 6.03333333333333,
+      "start": 19.7333333333333
     },
     "movement": {
       "duration": 5.33333333333333,
