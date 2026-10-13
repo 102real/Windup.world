@@ -13,7 +13,11 @@
     if (!cur) return;
     (byId[cur.id] || []).forEach((a) => {
       a.classList.add("on");
-      if (a.closest(".pills")) a.scrollIntoView({ block: "nearest", inline: "nearest" });
+      const pills = a.closest(".pills");
+      if (pills) {
+        // Move only the horizontal menu; scrollIntoView also yanked the mobile page upward.
+        pills.scrollLeft += a.getBoundingClientRect().left - pills.getBoundingClientRect().left - (pills.clientWidth - a.clientWidth) / 2;
+      }
     });
   }
   let raf = 0;
@@ -187,4 +191,33 @@
     r.addEventListener("focusin", on); r.addEventListener("focusout", off);
   });
   render();
+})();
+
+// Only visible films play. Explicit pauses survive scrolling and tab switching.
+(() => {
+  const reduce = matchMedia('(prefers-reduced-motion: reduce)');
+  const entries = [...document.querySelectorAll('.play-film')].map(figure => {
+    const video = figure.querySelector('video'), button = figure.querySelector('.film-toggle');
+    const item = {video, button, visible:false, manual:reduce.matches, systemPause:false};
+    video.muted = true;
+    const sync = () => {button.textContent = video.paused ? '재생' : '일시정지';button.setAttribute('aria-label', figure.querySelector('h3').textContent + ' ' + button.textContent);};
+    video.addEventListener('play', sync);
+    video.addEventListener('pause', () => {if (!item.systemPause) item.manual = true; item.systemPause = false; sync();});
+    button.addEventListener('click', () => {
+      if (video.paused) {item.manual = false;video.play().catch(sync);} else {item.manual = true;video.pause();}
+    });
+    sync();return item;
+  });
+  function update(item) {
+    if (!item.visible || document.hidden) {
+      if (!item.video.paused) {item.systemPause = true;item.video.pause();}
+    } else if (!item.manual && !reduce.matches) item.video.play().catch(()=>{});
+  }
+  const observer = new IntersectionObserver(changes => changes.forEach(change => {
+    const item = entries.find(e => e.video === change.target);
+    item.visible = change.isIntersecting && change.intersectionRatio >= .25;update(item);
+  }), {threshold:[0,.25]});
+  entries.forEach(item => observer.observe(item.video));
+  document.addEventListener('visibilitychange', () => entries.forEach(update));
+  reduce.addEventListener('change', () => entries.forEach(item => {if(reduce.matches){item.manual=true;item.video.pause();}update(item);}));
 })();

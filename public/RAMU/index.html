@@ -10,9 +10,9 @@
 <link rel="stylesheet" href="gdd.css">
 </head>
 <body>
-<header class="top"><div class="top-in"><img class="px" src="img/logo.png" alt="RAMU" width="300" height="124"><span class="t">게임 기획서</span><span class="sp">누리섬 · v15 작업본 · 2026-10-13</span></div><div class="pills" aria-label="목차"><a href="#top">한눈에</a><a href="#year">1년 한눈에</a><a href="#play">게임 플레이</a><a href="#map">섬 지도</a><a href="#story">이야기</a><a href="#cast">캐릭터</a><a href="#theme">주제와 톤</a><a href="#status">숫자와 현황</a></div></header>
+<header class="top"><div class="top-in"><img class="px" src="img/logo.png" alt="RAMU" width="300" height="124"><span class="t">게임 기획서</span><span class="sp">누리섬 · 게임 디자인 · 2026-10-13</span></div><div class="pills" aria-label="목차"><a href="#top">한눈에</a><a href="#films">핵심 플레이</a><a href="#hook-rule">하나의 훅샷</a><a href="#pacing">50:50 목표</a><a href="#content">콘텐츠 설계</a><a href="#growth">성장과 경제</a><a href="#play">생활 시스템</a><a href="#year">사계절 이야기</a><a href="#map">섬 지도</a><a href="#story">이야기</a><a href="#cast">캐릭터</a><a href="#theme">주제와 톤</a><a href="#status">구현과 다음 과제</a></div></header>
 <div class="shell">
-<nav class="toc" aria-label="목차"><div class="tl">목차</div><ol><li><a href="#top">한눈에</a></li><li><a href="#year">1년 한눈에</a></li><li><a href="#play">게임 플레이</a></li><li><a href="#map">섬 지도</a></li><li><a href="#story">이야기</a><ul><li><a href="#story-rules">세계의 규칙</a></li><li><a href="#story-flow">네 계절</a></li><li><a href="#story-end">엔딩</a></li></ul></li><li><a href="#cast">캐릭터</a><ul><li><a href="#cast-lead">주인공들</a></li><li><a href="#cast-all">주민 도감</a></li></ul></li><li><a href="#theme">주제와 톤</a></li><li><a href="#status">숫자와 현황</a></li></ol></nav>
+<nav class="toc" aria-label="목차"><div class="tl">목차</div><ol><li><a href="#top">한눈에</a></li><li><a href="#films">핵심 플레이</a></li><li><a href="#hook-rule">하나의 훅샷</a></li><li><a href="#pacing">50:50 목표</a></li><li><a href="#content">콘텐츠 설계</a></li><li><a href="#growth">성장과 경제</a></li><li><a href="#play">생활 시스템</a></li><li><a href="#year">사계절 이야기</a></li><li><a href="#map">섬 지도</a></li><li><a href="#story">이야기</a><ul><li><a href="#story-rules">세계의 규칙</a></li><li><a href="#story-flow">네 계절</a></li><li><a href="#story-end">엔딩</a></li></ul></li><li><a href="#cast">캐릭터</a><ul><li><a href="#cast-lead">주인공들</a></li><li><a href="#cast-all">주민 도감</a></li></ul></li><li><a href="#theme">주제와 톤</a></li><li><a href="#status">구현과 다음 과제</a></li></ol></nav>
 <main>
 
 <section id="top" class="sec" style="padding-top:0">
@@ -20,7 +20,7 @@
     <div>
       <img class="logo px" src="img/logo.png" alt="RAMU — Four Seasons on Nuri Isle" width="300" height="124">
       <h1>라무: 누리섬의 사계절</h1>
-      <p class="lede">꼬마 청소 로봇 <b>마그</b>가 먼저 떠난 친구에게 소포를 보내려고 1년 동안 밭을 일구고, 계절마다 넓어지는 섬을 누비며 이웃들을 돕는 코지 농사 어드벤처.</p>
+      <p class="lede">꼬마 로봇 <b>마그</b>가 하나의 훅샷으로 작물을 당기고 섬을 건너며, 먼저 떠난 친구 클립에게 보낼 소포를 사계절 동안 준비하는 따뜻한 농사 어드벤처.</p>
       <div class="chips">
         <span class="chip"><img class="px" src="img/icons/crop_potato.png" alt="" width="32" height="32">코지 농사</span><span class="chip"><img class="px" src="img/icons/copter.png" alt="" width="32" height="32">탐험 어드벤처</span>
         <span class="chip"><img class="px" src="img/icons/helper_water.png" alt="" width="32" height="32">가벼운 자동화</span><span class="chip">Godot 4.7 · PC</span>
@@ -31,7 +31,7 @@
   </div>
   <div class="verbs">
     <div class="verb"><div class="ic"><img class="px" src="img/icons/crop_tomato.png" alt="" width="32" height="32"><img class="px" src="img/icons/crop_pumpkin.png" alt="" width="32" height="32"><img class="px" src="img/icons/crop_cabbage.png" alt="" width="32" height="32"></div><h3>밭을 일군다</h3><p>클립이 물려준 밭에서 계절 작물을 키워 출하한다. 코인으로 밭을 4×3에서 16×12까지 넓히고, 고철로 만든 도우미 로봇에게 일을 맡긴다.</p></div>
-    <div class="verb"><div class="ic"><img class="px" src="img/icons/copter.png" alt="" width="32" height="32"><img class="px" src="img/icons/vacuum.png" alt="" width="32" height="32"></div><h3>섬을 누빈다</h3><p>자석으로 고철을 끌어당기고, 모자의 새싹을 프로펠러 삼아 활공한다. 장마다 새 지역이 열리고, 계절 마을 사람들의 부탁을 다 들어주면 2단·3단 점프를 익혀 더 높은 곳에 간다.</p></div>
+    <div class="verb"><div class="ic"><img class="px" src="img/icons/copter.png" alt="" width="32" height="32"><img class="px" src="img/icons/vacuum.png" alt="" width="32" height="32"></div><h3>섬을 누빈다</h3><p>자석으로 고철을 끌어당기고, 모자의 새싹을 프로펠러 삼아 활공한다. 장마다 새 지역이 열리고, 작업대에서 훅샷 사거리·와인딩 모터·점프 추진기를 사서 더 먼 곳에 닿는다.</p></div>
     <div class="verb"><div class="ic"><img class="px" src="img/icons/stamp_summer.png" alt="" width="32" height="32"><img class="px" src="img/icons/crop_giant_potato.png" alt="" width="32" height="32"><img class="px" src="img/icons/quest.png" alt="" width="32" height="32"></div><h3>소포를 보낸다</h3><p>목표는 3,000 코인과 제일 큰 감자, 친구들이 하나씩 채워 주는 선물 상자. 봄에 소포 창구가 열린다. 그리고 창구엔 비밀이 있다.</p></div>
   </div>
   <div class="tbl-wrap">
@@ -39,60 +39,32 @@
       <thead><tr><th>누구를 위한 게임인가</th><th>좋아하는 것</th><th>라무가 주는 것</th></tr></thead>
       <tbody>
         <tr><td>농사 게임 팬<span class="sub">Stardew Valley, Rusty's Retirement</span></td><td>계절 작물, 밭 넓히기, 자동화가 돌아가는 쾌감</td><td>12가지 계절 작물, 192칸까지 넓어지는 밭, 물 주기부터 출하까지 4종 도우미</td></tr>
-        <tr><td>짧은 코지 탐험 팬<span class="sub">A Short Hike, Lil Gator Game</span></td><td>작은 섬, 길에서 만나는 사람들, 오를수록 넓어지는 이동</td><td>13지역 섬(하늘 1곳), 주민 32명의 부탁 61개, 마을을 도울 때마다 늘어나는 점프와 활공</td></tr>
+        <tr><td>짧은 코지 탐험 팬<span class="sub">A Short Hike, Lil Gator Game</span></td><td>작은 섬, 길에서 만나는 사람들, 오를수록 넓어지는 이동</td><td>13지역 섬(하늘 1곳), 주민 32명의 부탁 61개, 계절별 구매로 넓어지는 훅샷과 공중 추진</td></tr>
         <tr><td>솔라펑크·로봇 감성<span class="sub">기술과 자연이 같이 사는 이야기</span></td><td>고쳐 쓰기, 나누기, 서로 돕는 공동체</td><td>고철을 부품으로 되살리는 로봇들의 섬, 몰래 서로 돕는 이웃, 싸움 없는 이야기</td></tr>
       </tbody>
     </table>
   </div>
 </section>
-
-<section id="year" class="sec">
-  <div class="sec-head"><div class="eyebrow">1년 한눈에</div><h2>봄 끝 프롤로그, 그리고 네 계절</h2>
-  <p class="read">계절은 시간이 아니라 장(章)이다. 그 장의 사건을 다 풀고 오두막에서 자면 축제가 열리고 달력이 넘어간다. 장마다 섬이 한 겹씩 넓어지고, 땅 색이 바뀌고, 철새가 클립의 엽서를 물어 온다.</p></div>
-  <div class="prologue-strip"><span class="n">0</span><div><b>프롤로그 · 봄의 끝</b> <span class="muted">— 클립과 배 오는 날. 클립이 밭을 물려주며 당부하고, 벚꽃 지는 부두에서 승무원이 명단을 편다. "…클립 님." 이장님의 설명(튜토리얼), 저녁의 첫 "삐빅?", 그리고 여름 아침 볼트가 찾아온다</span></div><a href="#ch-prologue" class="small">보기 ↓</a></div>
-  <div class="board">
-    <article class="col s-summer">
-      <div class="col-head"><div class="row"><img class="px" src="img/icons/season_summer.png" alt="여름" width="32" height="32"><span class="no">1장 · 여름</span></div><h3>소포 값</h3></div>
-      <div class="cell"><span class="k">이야기 사건</span><ul><li>냠냠의 첫 시식회</li><li>밤에 물 준 범인 (새싹)</li><li>쓱싹의 고철 탑 대회</li><li>텅 빈 잔칫상 (이장님)</li></ul></div>
-      <div class='cell'><span class='k'>밭 목표</span><ul><li>클립이 준 밭의 고철 치우기</li><li>작물 5개 출하하기 (소포 값 모으기)</li><li>첫 도우미 로봇 만들기</li></ul></div>
-      <div class="cell"><span class="k">철새 엽서</span><div class="stamp-row"><img class="px" src="img/icons/stamp_summer.png" alt="제비 우표" width="32" height="32"><span>제비가 물어 온 엽서<br><span class="muted small">"마그! 나 잘 도착했어. 여기 진짜 좋아."</span></span></div></div>
-      <div class="cell"><span class="k">새로 열리는 곳</span><div class="chips" style="margin:0"><span class="chip">나사마을</span><span class="chip">남쪽 해변</span><span class="chip">서쪽 숲</span><span class="chip">갈매기항</span></div></div>
-      <div class="cell"><span class="k">제철 작물</span><div class="icons" title="토마토 · 옥수수 · 감자"><img class="px" src="img/icons/crop_tomato.png" alt="토마토" width="32" height="32"><img class="px" src="img/icons/crop_corn.png" alt="옥수수" width="32" height="32"><img class="px" src="img/icons/crop_potato.png" alt="감자" width="32" height="32"></div><span class="small muted">토마토 · 옥수수 · 감자</span></div>
-      <div class="cell"><span class="k">축제</span><b style="font-family:var(--f-display);font-weight:400">여름 불꽃놀이</b><a class="more" href="#ch-summer">이 장의 이야기 보기 ↓</a></div>
-    </article>
-    <article class="col s-autumn">
-      <div class="col-head"><div class="row"><img class="px" src="img/icons/season_autumn.png" alt="가을" width="32" height="32"><span class="no">2장 · 가을</span></div><h3>데려다주는 사람들</h3></div>
-      <div class="cell"><span class="k">이야기 사건</span><ul><li>무너진 다리와 물탱크 (뚝딱)</li><li>떠내려간 편지 묶음 (통통)</li><li>안개 속의 쌩쌩 (딩동)</li><li>등대 점등식 (반디)</li><li>절벽 망루의 첫 등 (갈매)</li></ul></div>
-      
-      <div class="cell"><span class="k">철새 엽서</span><div class="stamp-row"><img class="px" src="img/icons/stamp_autumn.png" alt="기러기 우표" width="32" height="32"><span>기러기가 물어 온 엽서<br><span class="muted small">"여기 사람들은 이상해. 길 헤매고 있으면 누가 꼭 와서 &#x27;어디 가니?&#x27; 하고 끝까지 데려다줘."</span></span></div></div>
-      <div class="cell"><span class="k">새로 열리는 곳</span><div class="chips" style="margin:0"><span class="chip">동쪽 풀밭</span><span class="chip">폭포</span><span class="chip">버섯·늪 마을</span><span class="chip">해안 절벽 마을</span></div></div>
-      <div class="cell"><span class="k">제철 작물</span><div class="icons" title="호박 · 밀 · 고구마"><img class="px" src="img/icons/crop_pumpkin.png" alt="호박" width="32" height="32"><img class="px" src="img/icons/crop_wheat.png" alt="밀" width="32" height="32"><img class="px" src="img/icons/crop_sweet_potato.png" alt="고구마" width="32" height="32"></div><span class="small muted">호박 · 밀 · 고구마</span></div>
-      <div class="cell"><span class="k">축제</span><b style="font-family:var(--f-display);font-weight:400">수확 축제</b><a class="more" href="#ch-autumn">이 장의 이야기 보기 ↓</a></div>
-    </article>
-    <article class="col s-winter">
-      <div class="col-head"><div class="row"><img class="px" src="img/icons/season_winter.png" alt="겨울" width="32" height="32"><span class="no">3장 · 겨울</span></div><h3>밤이 길다</h3></div>
-      <div class="cell"><span class="k">이야기 사건</span><ul><li>첫눈 날의 정전 (이장님)</li><li>눈보라 속 한 마리 (몽실)</li><li>밤의 섬 (냠냠)</li><li>하양의 초대장</li><li>벤치의 군고구마 (이장님)</li><li>별의 밤 준비 (딩동)</li></ul></div>
-      
-      <div class="cell"><span class="k">철새 엽서</span><div class="stamp-row"><img class="px" src="img/icons/stamp_winter.png" alt="두루미 우표" width="32" height="32"><span>두루미가 물어 온 엽서<br><span class="muted small">"여긴 겨울인데도 밤이 안 와. 진짜로."</span></span></div></div>
-      <div class="cell"><span class="k">새로 열리는 곳</span><div class="chips" style="margin:0"><span class="chip">양떼 고원</span><span class="chip">눈 정상</span><span class="chip">지하 동굴 마을</span><span class="chip">화산 마을</span></div></div>
-      <div class="cell"><span class="k">제철 작물</span><div class="icons" title="양배추 · 당근 · 눈딸기"><img class="px" src="img/icons/crop_cabbage.png" alt="양배추" width="32" height="32"><img class="px" src="img/icons/crop_carrot.png" alt="당근" width="32" height="32"><img class="px" src="img/icons/crop_snowberry.png" alt="눈딸기" width="32" height="32"></div><span class="small muted">양배추 · 당근 · 눈딸기</span></div>
-      <div class="cell"><span class="k">축제</span><b style="font-family:var(--f-display);font-weight:400">별의 밤</b><a class="more" href="#ch-winter">이 장의 이야기 보기 ↓</a></div>
-    </article>
-    <article class="col s-spring">
-      <div class="col-head"><div class="row"><img class="px" src="img/icons/season_spring.png" alt="봄" width="32" height="32"><span class="no">4장 · 봄</span></div><h3>이미, 그리고 아직</h3></div>
-      <div class="cell"><span class="k">이야기 사건</span><ul><li>고철 더미 속에서 (뚝딱)</li><li>나라섬 소포 (통통)</li><li>안개 걷히는 새벽 (하양)</li></ul></div>
-      <div class='cell'><span class='k'>밭 목표</span><ul><li>(권함) 눈 정상 구름 곤돌라로 구름 마을에 오르기</li></ul></div>
-      <div class="cell"><span class="k">철새 엽서</span><div class="stamp-row"><img class="px" src="img/icons/stamp_spring.png" alt="물떼새 우표" width="32" height="32"><span>물떼새가 물어 온 엽서<br><span class="muted small">"오늘 옆집 꼬마가 울길래 나도 같이 울었거든?"</span></span></div></div>
-      <div class="cell"><span class="k">새로 열리는 곳</span><div class="chips" style="margin:0"><span class="chip">구름 마을 (하늘)</span></div></div>
-      <div class="cell"><span class="k">제철 작물</span><div class="icons" title="무 · 딸기 · 해바라기"><img class="px" src="img/icons/crop_radish.png" alt="무" width="32" height="32"><img class="px" src="img/icons/crop_strawberry.png" alt="딸기" width="32" height="32"><img class="px" src="img/icons/crop_sunflower.png" alt="해바라기" width="32" height="32"></div><span class="small muted">무 · 딸기 · 해바라기</span></div>
-      <div class="cell"><span class="k">축제</span><b style="font-family:var(--f-display);font-weight:400">벚꽃 축제</b><a class="more" href="#ch-spring">이 장의 이야기 보기 ↓</a></div>
-    </article>
-  </div>
-</section>
+<section id="films" class="sec"><div class="sec-head"><div class="eyebrow">핵심 플레이</div><h2>당기는 손맛, 굴러가는 모험</h2></div><p>짧고 탄력 있는 전동휠 이동과 무게가 느껴지는 당기기를 중심으로, 밭에서의 수확과 섬에서의 이동을 하나의 조작 경험으로 연결한다.</p><div class="film-grid"><figure class="play-film"><video controls muted loop playsinline preload="none" width="1280" height="720" poster="media/movement.jpg" aria-label="작은 바퀴의 탄력 플레이 영상"><source src="media/movement.webm" type="video/webm"><source src="media/movement.mp4" type="video/mp4">영상 재생을 지원하는 브라우저가 필요합니다.</video><figcaption><h3>작은 바퀴의 탄력</h3><p>출발·제동·급반전. 실제 속도에 맞춰 팔이 흔들리고 몸과 모자가 따라온다.</p><button type="button" class="film-toggle">재생</button></figcaption></figure><figure class="play-film"><video controls muted loop playsinline preload="none" width="1280" height="720" poster="media/light.jpg" aria-label="내 손으로 첫 수확 플레이 영상"><source src="media/light.webm" type="video/webm"><source src="media/light.mp4" type="video/mp4">영상 재생을 지원하는 브라우저가 필요합니다.</video><figcaption><h3>내 손으로 첫 수확</h3><p>Ctrl로 걸고 뒤로 버텨 준비한 뒤, Ctrl로 회수한다. 초반에는 가벼운 작물도 직접 당긴다.</p><button type="button" class="film-toggle">재생</button></figcaption></figure><figure class="play-film"><video controls muted loop playsinline preload="none" width="1280" height="720" poster="media/heavy.jpg" aria-label="커다란 호박과 작은 두 손 플레이 영상"><source src="media/heavy.webm" type="video/webm"><source src="media/heavy.mp4" type="video/mp4">영상 재생을 지원하는 브라우저가 필요합니다.</video><figcaption><h3>커다란 호박과 작은 두 손</h3><p>성급하게 당기면 힘 부족 반응. 줄이 팽팽해지면 두 손을 모아 버티고, 뽑힌 작물은 포물선으로 품에 온다.</p><button type="button" class="film-toggle">재생</button></figcaption></figure><figure class="play-film"><video controls muted loop playsinline preload="none" width="1280" height="720" poster="media/motor.jpg" aria-label="같은 도구, 가벼워지는 일 플레이 영상"><source src="media/motor.webm" type="video/webm"><source src="media/motor.mp4" type="video/mp4">영상 재생을 지원하는 브라우저가 필요합니다.</video><figcaption><h3>같은 도구, 가벼워지는 일</h3><p>동일한 감자, 수동과 모터 I 비교. 강화 후에도 타겟 선택과 Ctrl 조작은 남고, 버티는 준비가 생략된다.</p><button type="button" class="film-toggle">재생</button></figcaption></figure><figure class="play-film"><video controls muted loop playsinline preload="none" width="1280" height="720" poster="media/grapple.jpg" aria-label="이번에는 마그가 간다 플레이 영상"><source src="media/grapple.webm" type="video/webm"><source src="media/grapple.mp4" type="video/mp4">영상 재생을 지원하는 브라우저가 필요합니다.</video><figcaption><h3>이번에는 마그가 간다</h3><p>고정 고리에 걸어 당기면 마그가 이동한다. 착지까지 하나의 동작으로 이어진다.</p><button type="button" class="film-toggle">재생</button></figcaption></figure><figure class="play-film"><video controls muted loop playsinline preload="none" width="1280" height="720" poster="media/air.jpg" aria-label="공중에서도 이어지는 한 줄 플레이 영상"><source src="media/air.webm" type="video/webm"><source src="media/air.mp4" type="video/mp4">영상 재생을 지원하는 브라우저가 필요합니다.</video><figcaption><h3>공중에서도 이어지는 한 줄</h3><p>점프·공중 추진·활공에서 고리를 잡고 이동한다. 최초 공중 연결은 고리 대상이며 작물은 지상에서 건다.</p><button type="button" class="film-toggle">재생</button></figcaption></figure></div></section>
+<section id="hook-rule" class="sec"><div class="sec-head"><div class="eyebrow">하나의 도구</div><h2>움직이는 것은 내게, 고정된 것은 내가 그쪽으로</h2></div>
+<div class="rule-pair"><article class="card"><div class="tag">작물 → 마그</div><h3>밭에서 배운 당기기</h3><p>익은 작물에 걸고, 뒤로 물러나 줄을 팽팽하게 만든다. 무거울수록 오래 버틴다. 두 손과 &gt;&lt; 눈이 힘을 설명하고, 준비가 끝나면 Ctrl로 수확한다.</p></article><article class="card"><div class="tag">마그 → 고리</div><h3>섬으로 이어지는 당기기</h3><p>같은 Ctrl로 고리를 잡고 당긴다. 대상 UI가 누가 움직일지 먼저 알려 준다. 점프와 활공으로 위치를 잡고, 마지막 거리는 훅샷으로 잇는다.</p></article></div>
+<p class="design-note">훅샷의 기본 대상은 익은 작물과 고정 고리다. 대상의 성질에 따라 이동 방향이 결정되며, 같은 조작으로 수확과 이동을 수행한다. 고철은 부품과 자동화의 재료가 되고, 봄에는 새 생명으로 이어진다.</p>
+<div class="tbl-wrap"><table><thead><tr><th>기본 조작</th><th>동작</th></tr></thead><tbody><tr><td>WASD / 방향키 · Shift</td><td>이동 · 달리기. 짧은 가감속, 달리는 속도에 맞는 바퀴와 팔.</td></tr><tr><td>Ctrl</td><td>자동 타겟에 걸기 → 다시 눌러 당기기. 준비 부족이면 실패 반응, 연결은 유지.</td></tr><tr><td>X</td><td>연결 해제. 걸기·당기기에 길게 누르기 판정 없음.</td></tr><tr><td>Space</td><td>점프 → 공중에서 다시 눌러 추진. 헬리콥터 보유 시 공중에서 누르고 있으면 활공.</td></tr></tbody></table></div>
+<p class="small muted">키 설정을 지원한다. 연결 중에는 강화 단계별 줄 길이 안에서 이동하며, 공중 추진과 활공 중에도 같은 제한이 적용된다.</p>
+<div class="rhythm"><div><span class="when">밭 → 섬</span><p>출하 코인 → 사거리·모터·추진기. 요리와 작물 → 여행 준비·계절 사건.</p></div><div><span class="when">섬 → 밭</span><p>씨앗·부품·이웃의 도움 → 새 작물과 배치, 도우미와 자동화.</p></div><div><span class="when">둘 다 → 소포</span><p>자란 감자, 모은 코인, 친구에게서 받은 선물이 클립에게 보낼 상자를 채운다.</p></div></div></section>
+<section id="pacing" class="sec"><div class="sec-head"><div class="eyebrow">플레이 시간 · 설계 목표</div><h2>밭에 절반, 모험에 절반</h2></div><div class="time-bar" aria-label="20분 목표: 농사 8분, 탐험 8분, 대화 정비 4분"><span>농사 8분</span><span>탐험 8분</span><span>대화·정비 4분</span></div><p>대표 세션은 20분을 기준으로 농사 8분, 탐험 8분, 대화·정비 4분으로 구성한다. 성장 대기와 로딩을 제외한 농사·탐험의 직접 플레이 비중은 50:50을 목표로 한다. 대화·꾸미기·정비 시간은 별도로 집계한다.</p><div class="tbl-wrap"><table><thead><tr><th>목표 세션</th><th>농사 · 8분</th><th>탐험 · 8분</th><th>대화·정비 · 4분</th></tr></thead><tbody><tr><td>초반 · 여름</td><td>감자·토마토 선택과 심기 3분 / 물·직접 수확 3분 / 출하·다음 밭 배치 2분</td><td>해변 고철·상자 3분 / 첫 고리와 점프 길 3분 / 새 씨앗을 들고 귀가 2분</td><td>클립의 엽서와 이웃 2분 / 강화 선택 2분</td></tr><tr><td>중반 · 가을</td><td>새 씨앗 시험 구역 2분 / 중간 무게 특별 수확 3분 / 사건 작물과 자동화 배치 3분</td><td>물탱크 주변 우회로 3분 / 당김 장치 퍼즐 3분 / 씨앗·부품 회수 2분</td><td>계절 부탁 2분 / 도우미와 모터 정비 2분</td></tr><tr><td>후반 · 겨울~봄</td><td>선물 작물 조합 3분 / 큰 작물 직접 수확 3분 / 다음 재배 선택 2분</td><td>수직 고리 코스 3분 / 배운 장치 조합 3분 / 소포 선물 탐색 2분</td><td>주민과 소포 이야기 3분 / 여행 준비 1분</td></tr></tbody></table></div><p>자동화가 진행될수록 농사의 중심을 반복 관리에서 작물 선택·재배 배치·특별 수확·계절 부탁 준비로 옮긴다. 익숙한 작업의 부담을 줄이면서 밭에서 내리는 선택은 넓힌다.</p><p class="design-note">밸런싱 기준: 초·중·후반의 행동 시간을 구분해 측정하고, 특별 수확의 빈도와 탐험 보상 배치로 두 활동의 비중을 조정한다.</p></section>
+<section id="content" class="sec"><div class="sec-head"><div class="eyebrow">수확 · 이동 · 퍼즐</div><h2>새 규칙보다, 같은 손동작의 새 쓰임</h2></div><p>무게별 수확과 고리 이동을 기본 문법으로 삼는다. 양손 버티기와 표정으로 저항을 전달하고, 모터 강화로 반복 작업의 부담을 줄인다. 콘텐츠 확장은 길 열기·장치 작동·이동 코스의 세 계열로 구성한다.</p><div class="tbl-wrap"><table><thead><tr><th>확장 콘텐츠안</th><th>밭에서</th><th>섬에서</th><th>읽기 쉬운 규칙·보상</th></tr></thead><tbody>
+<tr><td>① 뽑아 길 열기</td><td>새 밭 모서리의 낡은 뿌리 마개를 뽑아 재배 칸을 연다.</td><td>쓰러진 수레의 걸린 바퀴를 빼서 숲 샛길을 연다.</td><td>이동 가능한 손잡이 표시. 무게와 준비 UI를 공유. 새 배치/씨앗 보상, 실패 손실 없음.</td></tr>
+<tr><td>② 당겨 작동시키기</td><td>물탱크 수문 손잡이를 당겨 두 시험 밭 중 물길을 선택한다.</td><td>내려온 다리의 손잡이를 당겨 고정 걸쇠에 걸어 통로를 연다.</td><td>장치는 짧은 직선 스트로크 후 고정. 동시에 키를 누르거나 계속 붙들 필요 없음. 물길·다리가 결과를 보여 준다.</td></tr>
+<tr><td>③ 고리와 발판 잇기</td><td>온실 위 종자 선반에 올라 특별 씨앗을 가져온다.</td><td>절벽의 안전 발판 → 공중 고리 → 전망대. 돌아오는 지름길도 연다.</td><td>고정 고리 실루엣 통일. 필수 길은 넓은 착지면, 좁은 연속 코스는 선택 보상.</td></tr>
+</tbody></table></div><div class="grid"><article class="card"><div class="tag">필수 진행</div><h3>돌보고, 길을 잇고, 소포를 준비한다</h3><p>장별 사건과 소포 준비가 주 진행축이다. 필수 훅 구간은 해당 계절의 최소 장비로 통과할 수 있게 설계한다. 모든 주민 부탁이나 선택 코스 완주를 이동 능력의 구매 조건으로 묶지 않는다.</p></article><article class="card"><div class="tag">선택 도전</div><h3>익숙해지면 한 걸음 더</h3><p>긴 고리 연계·우회 수확·숨은 씨앗. 빠른 타이밍은 선택 도전에만 사용하고 재시작은 가까운 안전 발판에서 한다.</p></article><article class="card"><div class="tag">생활 콘텐츠</div><h3>섬에 머무를 이유</h3><p>주민 부탁·요리·낚시·꾸미기·사진을 유지한다. 부탁은 주민과 가까워지고 선물을 교환하는 계기를 제공한다.</p></article></div><p>훅샷은 <b>떨어진 것을 가까이하고, 끊긴 길을 다시 잇는 손</b>을 상징한다. 클립이 남긴 밭을 돌보던 손이 이웃의 고장 난 생활을 돕고, 봄에는 선물을 상자에 모은다. 대사로 주제를 설명하기보다 행동과 결과로 보여 준다.</p></section>
+<section id="growth" class="sec"><div class="sec-head"><div class="eyebrow">사계절 · 경제 · 자동화</div><h2>멀리 닿고, 덜 힘들게, 다시 익숙한 밭으로</h2></div><div class="grid"><article class="card"><div class="tag">여름 · 배우기</div><h3>4m, 내 손으로 거두는 첫 감자</h3><p>직접 수확과 기본 점프를 익힌다. 첫 추진과 모터 I를 선택해 가벼운 작물의 버티기를 줄인다. 첫 고리 코스에서 같은 조작이 나를 옮긴다는 것을 배운다.</p></article><article class="card"><div class="tag">가을 · 연결하기</div><h3>6m, 물길과 우회로</h3><p>모터 II로 중간 무게까지 편해진다. 물탱크·도우미와 새 작물 선택을 연결하고, 장치·우회로·발판을 한 동선으로 묶는다.</p></article><article class="card"><div class="tag">겨울 · 응용하기</div><h3>8m, 높이와 무게</h3><p>모터 III로 무거운 작물까지 준비를 생략한다. 온실의 계절 밖 작물과 수직 동선을 엮는다. 복합 코스는 이미 배운 동작의 조합으로 만든다.</p></article><article class="card"><div class="tag">봄 · 돌려주기</div><h3>새 조작 대신, 선물 한 상자</h3><p>익힌 능력으로 특별 수확과 선물을 모아 클립에게 보낼 소포를 완성한다. 마지막 추진 강화로 선택 탐험을 넓히고, 주민들과의 한 해를 엔딩으로 마무리한다.</p></article></div>
+<p class="design-note">장비는 계절마다 다음 단계가 판매된다. 사거리는 동선을 넓히고, 모터는 수확 부담을 줄이며, 추진기는 수직 탐험의 선택지를 늘린다.</p><div class="tbl-wrap"><table><thead><tr><th>작업대 장비</th><th>획득 결과</th><th>단계별 가격</th><th>판매 자격</th></tr></thead><tbody><tr><td>훅샷 사거리</td><td>4m · 기본</td><td>무료</td><td>시작</td></tr><tr><td>훅샷 사거리</td><td>6m</td><td>90 코인</td><td>가을부터</td></tr><tr><td>훅샷 사거리</td><td>8m</td><td>180 코인</td><td>겨울부터</td></tr><tr><td>와인딩 모터</td><td>직접 당기기 · 기본</td><td>무료</td><td>시작</td></tr><tr><td>와인딩 모터</td><td>I · 가벼움 자동 회수</td><td>30 코인</td><td>여름부터</td></tr><tr><td>와인딩 모터</td><td>II · 중간까지 자동 회수</td><td>90 코인</td><td>가을부터</td></tr><tr><td>와인딩 모터</td><td>III · 무거움까지 자동 회수</td><td>180 코인</td><td>겨울부터</td></tr><tr><td>점프 추진기</td><td>기본 점프 · 기본</td><td>무료</td><td>시작</td></tr><tr><td>점프 추진기</td><td>2단 점프 (공중 추진 1회)</td><td>50 코인</td><td>여름부터</td></tr><tr><td>점프 추진기</td><td>3단 점프 (공중 추진 2회)</td><td>90 코인</td><td>가을부터</td></tr><tr><td>점프 추진기</td><td>4단 점프 (공중 추진 3회)</td><td>150 코인</td><td>겨울부터</td></tr><tr><td>점프 추진기</td><td>5단 점프 (공중 추진 4회)</td><td>220 코인</td><td>봄부터</td></tr></tbody></table></div><p>강화는 순서대로 구매하며 가격은 누적액이 아니라 각 단계 비용이다. 1년 차에는 해당 계절 이상과 코인 조건을 확인하고, 2년 차에는 계절 판매 제한이 풀린다. 주민 부탁 전체 완료 조건은 없다. 기본 점프에 장비 추진 횟수가 더해지며 음식 효과는 별도다.</p><p>헬리콥터 180 코인 · 대시 부츠 100 코인. 모터의 ‘자동 회수’는 걸고 Ctrl로 당겼을 때 버티기를 생략한다는 뜻이다. 밭 전체를 스스로 거두는 수확봇과는 별개다.</p>
+<p><b>장비와 소포의 지출 구조:</b> 사거리·모터·추진기 전체의 추가 구매 총액은 1080 코인이다. 필수 동선에 필요한 강화와 선택 탐험용 강화를 나누고, 소포 3,000 코인을 모으는 과정에서 장비 구매의 편익과 저축의 목표가 함께 작동하도록 수익을 조정한다.</p><p><b>자동화 이후의 농사:</b> 도우미는 반복 물 주기·일반 수확·심기·출하를 덜어 준다. 직접 플레이는 계절별 작물 선택, 재배 배치, 특별 수확, 주민에게 줄 작물 준비로 유지한다. 자동화 이후에도 밭의 선택과 특별 수확이 농사 플레이의 중심을 이룬다.</p></section>
 
 <section id="play" class="sec">
   <div class="sec-head"><div class="eyebrow">게임 플레이</div><h2>밭과 섬이 서로를 굴리고, 둘 다 소포로 모인다</h2></div>
-  <div class="diagram" role="img" aria-label="밭에서 코인과 요리를 얻어 모험으로 가고, 모험에서 고철과 씨앗을 얻고, 마을 부탁을 다 끝내 점프를 익혀 밭으로 돌아온다. 소포는 밭의 코인과 감자, 모험의 선물 상자로 채워진다.">
+  <div class="diagram" role="img" aria-label="밭에서 코인과 요리를 얻어 모험으로 가고, 모험에서 고철과 씨앗을 얻고, 코인으로 추진기를 강화해 밭으로 돌아온다. 소포는 밭의 코인과 감자, 모험의 선물 상자로 채워진다.">
     <svg viewBox="0 0 680 340" xmlns="http://www.w3.org/2000/svg">
       <defs>
         <marker id="ha" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0 L10 5 L0 10 z" class="d-head-a"/></marker>
@@ -110,7 +82,7 @@
       <path d="M210 86 C 300 30, 380 30, 470 86" class="d-arrow a" marker-end="url(#ha)"/>
       <text x="340" y="36" text-anchor="middle" font-size="15">코인 → 이동 장비 · 요리 → 버프 · 작물 → 사건 재료</text>
       <path d="M470 138 C 380 194, 300 194, 210 138" class="d-arrow b" marker-end="url(#hb)"/>
-      <text x="340" y="200" text-anchor="middle" font-size="15">고철 → 부품 → 도우미 · 상자 → 씨앗 · 마을 부탁 → 점프</text>
+      <text x="340" y="200" text-anchor="middle" font-size="15">고철 → 부품 → 도우미 · 상자 → 씨앗 · 코인 → 추진기</text>
       <rect x="225" y="244" width="230" height="80" rx="16" class="d-goal"/>
       <image href="img/icons/stamp_spring.png" x="240" y="262" width="40" height="40" style="image-rendering:pixelated"/>
       <text x="356" y="278" text-anchor="middle" font-size="21" style="font-family:var(--f-display)">클립에게 보낼 소포</text>
@@ -135,10 +107,60 @@
   <div class="grid">
     <div class="card"><div class="ics"><img class="px" src="img/icons/crop_tomato.png" alt="토마토" width="32" height="32"><img class="px" src="img/icons/crop_pumpkin.png" alt="호박" width="32" height="32"><img class="px" src="img/icons/crop_cabbage.png" alt="양배추" width="32" height="32"><img class="px" src="img/icons/crop_radish.png" alt="무" width="32" height="32"><img class="px" src="img/icons/crop_giant_potato.png" alt="제일 큰 감자" width="32" height="32"></div><div class="tag">농사</div><h3>계절 작물과 넓어지는 밭</h3><p>계절마다 3종, 12가지 작물 + 가게 특산 버섯·용암 고구마. 4단계로 자라고 단계마다 물 한 번. 출하 상자는 밤에 정산, 그 자리에서 팔면 70%. 밭은 코인으로 6단계(100 ~ 3,000) 넓힌다. 처음 밭 바깥, 클립의 의자 아래엔 프롤로그에서 둘이 심은 감자 두 포기가 기다린다.</p></div>
     <div class="card"><div class="ics"><img class="px" src="img/icons/helper_water.png" alt="물뿌리개봇" width="32" height="32"><img class="px" src="img/icons/helper_harvest.png" alt="수확봇" width="32" height="32"><img class="px" src="img/icons/helper_plant.png" alt="심기봇" width="32" height="32"><img class="px" src="img/icons/sprinkler.png" alt="스프링클러" width="32" height="32"><img class="px" src="img/icons/scarecrow.png" alt="허수아비" width="32" height="32"></div><div class="tag">자동화</div><h3>고철로 만드는 도우미</h3><p>물뿌리개봇 50 · 수확봇 80 · 심기봇 100 · 출하봇 120 코인 + 부품, 각각 Lv0~3. 스프링클러(3×3), 허수아비(+25% 성장). 물탱크를 고치면 밭 전체에 저절로 물, 온실을 지으면 모든 계절 씨앗.</p></div>
-    <div class="card"><div class="ics"><img class="px" src="img/icons/vacuum.png" alt="자석" width="32" height="32"><img class="px" src="img/icons/copter.png" alt="새싹 프로펠러" width="32" height="32"><img class="px" src="img/icons/dash.png" alt="대시" width="32" height="32"><img class="px" src="img/icons/boat.png" alt="미니 보트" width="32" height="32"></div><div class="tag">이동·탐험</div><h3>자석, 새싹 프로펠러, 마을이 가르쳐 주는 점프</h3><p>가까운 고철은 자석에 끌려 온다. 점프 뒤 공중 추진은 계절 마을의 부탁을 다 끝낼 때마다 한 번씩(최대 4: 2단~5단 점프). 꾹 누르면 새싹 프로펠러로 활공. 대시, 미니 보트, 방수 코팅, 목도리.</p></div>
+    <div class="card"><div class="ics"><img class="px" src="img/icons/vacuum.png" alt="자석" width="32" height="32"><img class="px" src="img/icons/copter.png" alt="새싹 프로펠러" width="32" height="32"><img class="px" src="img/icons/dash.png" alt="대시" width="32" height="32"><img class="px" src="img/icons/boat.png" alt="미니 보트" width="32" height="32"></div><div class="tag">이동·탐험</div><h3>팔의 훅샷과 새싹 프로펠러</h3><p>가까운 고철은 자석에 끌려 온다. 점프 뒤 공중 추진은 작업대에서 계절별로 구매한다(장비 최대 4회: 기본 점프 포함 5단). 꾹 누르면 새싹 프로펠러로 활공. 대시, 미니 보트, 방수 코팅, 목도리.</p></div>
     <div class="card"><div class="ics"><img class="px" src="img/icons/part_gear.png" alt="톱니" width="32" height="32"><img class="px" src="img/icons/part_spring.png" alt="스프링" width="32" height="32"><img class="px" src="img/icons/part_panel.png" alt="패널" width="32" height="32"><img class="px" src="img/icons/part_bulb.png" alt="전구" width="32" height="32"></div><div class="tag">부품 경제</div><h3>먼 곳일수록 좋은 부품</h3><p>톱니(마을·해변) → 스프링(숲) → 패널(항구·늪) → 전구(양떼 마을·정상). 좋은 도우미를 만들려면 더 멀리 가야 한다.</p></div>
-    <div class="card"><div class="ics"><img class="px" src="img/icons/quest.png" alt="부탁" width="32" height="32"><img class="px" src="img/icons/map.png" alt="지도" width="32" height="32"></div><div class="tag">사람</div><h3>주민 32명, 부탁 61개</h3><p>계절 사건 19개(이야기)와 작은 부탁 42개. 놀이·도전·찾기·요리·낚시. 계절 마을의 부탁을 다 끝내면 점프가 한 단 는다. 마그는 고개를 갸웃하는 "삐빅?"으로 누구에게나 말을 건다.</p></div>
+    <div class="card"><div class="ics"><img class="px" src="img/icons/quest.png" alt="부탁" width="32" height="32"><img class="px" src="img/icons/map.png" alt="지도" width="32" height="32"></div><div class="tag">사람</div><h3>주민 32명, 부탁 61개</h3><p>계절 사건 19개(이야기)와 작은 부탁 42개. 놀이·도전·찾기·요리·낚시. 이동 강화는 계절 판매 자격과 코인 구매를 따른다. 마그는 고개를 갸웃하는 "삐빅?"으로 누구에게나 말을 건다.</p></div>
     <div class="card"><div class="ics"><img class="px" src="img/icons/food_soup.png" alt="요리" width="32" height="32"><img class="px" src="img/icons/fish.png" alt="물고기" width="32" height="32"><img class="px" src="img/icons/hat_flower.png" alt="모자" width="32" height="32"><img class="px" src="img/icons/photo.png" alt="사진" width="32" height="32"><img class="px" src="img/icons/shell.png" alt="조개" width="32" height="32"></div><div class="tag">수집·꾸미기</div><h3>요리, 물고기, 모자, 사진</h3><p>요리 15가지(따뜻함 · 날갯짓+1 · 긴 활공 버프), 물고기 13종, 장식 26가지, 모자 10개, 사진 모드와 앨범, 조개·버섯·소리 돌·로봇 양 찾기.</p></div>
+  </div>
+</section>
+
+<section id="year" class="sec">
+  <div class="sec-head"><div class="eyebrow">1년 한눈에</div><h2>봄 끝 프롤로그, 그리고 네 계절</h2>
+  <p class="read">계절은 시간이 아니라 장(章)이다. 그 장의 사건을 다 풀고 오두막에서 자면 축제가 열리고 달력이 넘어간다. 장마다 섬이 한 겹씩 넓어지고, 땅 색이 바뀌고, 철새가 클립의 엽서를 물어 온다.</p></div>
+  <div class="gallery two season-views" id="season-views">
+    <figure class="shot"><a href="img/season_summer.jpg" target="_blank" rel="noopener"><img src="img/season_summer.jpg" alt="여름 누리섬의 초록 숲과 연못 전경" loading="lazy" width="1920" height="1080"></a><figcaption>여름 · 녹음 사이로 흐르는 물길</figcaption></figure>
+    <figure class="shot"><a href="img/season_autumn.jpg" target="_blank" rel="noopener"><img src="img/season_autumn.jpg" alt="황금빛 단풍으로 물든 가을 숲과 연못" loading="lazy" width="1920" height="1080"></a><figcaption>가을 · 숲을 채우는 황금빛 단풍</figcaption></figure>
+    <figure class="shot"><a href="img/season_winter.jpg" target="_blank" rel="noopener"><img src="img/season_winter.jpg" alt="눈 덮인 겨울 숲과 푸른 연못 전경" loading="lazy" width="1920" height="1080"></a><figcaption>겨울 · 고요한 설경과 푸른 연못</figcaption></figure>
+    <figure class="shot"><a href="img/season_spring.jpg" target="_blank" rel="noopener"><img src="img/season_spring.jpg" alt="같은 연못을 둘러싼 봄의 풍성한 벚꽃 숲" loading="lazy" width="1920" height="1080"></a><figcaption>봄 · 연못을 감싸는 벚꽃 숲</figcaption></figure>
+  </div>
+  <div class="prologue-strip"><span class="n">0</span><div><b>프롤로그 · 봄의 끝</b> <span class="muted">— 클립과 배 오는 날. 클립이 밭을 물려주며 당부하고, 벚꽃 지는 부두에서 승무원이 명단을 편다. "…클립 님." 이장님의 설명(튜토리얼), 저녁의 첫 "삐빅?", 그리고 여름 아침 볼트가 찾아온다</span></div><a href="#ch-prologue" class="small">보기 ↓</a></div>
+  <div class="board">
+    <article class="col s-summer">
+      <div class="col-head"><div class="row"><img class="px" src="img/icons/season_summer.png" alt="여름" width="32" height="32"><span class="no">1장 · 여름</span></div><h3>소포 값</h3></div>
+      <div class="cell"><span class="k">이야기 사건</span><ul><li>냠냠의 첫 시식회</li><li>밤에 물 준 범인 (새싹)</li><li>쓱싹의 고철 탑 대회</li><li>텅 빈 잔칫상 (이장님)</li></ul></div>
+      <div class='cell'><span class='k'>밭 목표</span><ul><li>클립이 준 밭의 고철 치우기</li><li>작물 5개 출하하기 (소포 값 모으기)</li><li>첫 도우미 로봇 만들기</li></ul></div>
+      <div class="cell"><span class="k">철새 엽서</span><div class="stamp-row"><img class="px" src="img/icons/stamp_summer.png" alt="제비 우표" width="32" height="32"><span>제비가 물어 온 엽서<br><span class="muted small">"마그! 나 잘 도착했어. 여기 진짜 좋아."</span></span></div></div>
+      <div class="cell"><span class="k">새로 열리는 곳</span><div class="chips" style="margin:0"><span class="chip">나사마을</span><span class="chip">남쪽 해변</span><span class="chip">서쪽 숲</span><span class="chip">갈매기항</span></div></div>
+      <div class="cell"><span class="k">제철 작물</span><div class="icons" title="토마토 · 옥수수 · 감자"><img class="px" src="img/icons/crop_tomato.png" alt="토마토" width="32" height="32"><img class="px" src="img/icons/crop_corn.png" alt="옥수수" width="32" height="32"><img class="px" src="img/icons/crop_potato.png" alt="감자" width="32" height="32"></div><span class="small muted">토마토 · 옥수수 · 감자</span></div>
+      <div class="cell"><span class="k">축제</span><b style="font-family:var(--f-display);font-weight:400">여름 불꽃놀이</b><a class="more" href="#ch-summer">이 장의 이야기 보기 ↓</a></div>
+    </article>
+    <article class="col s-autumn">
+      <div class="col-head"><div class="row"><img class="px" src="img/icons/season_autumn.png" alt="가을" width="32" height="32"><span class="no">2장 · 가을</span></div><h3>데려다주는 사람들</h3></div>
+      <div class="cell"><span class="k">이야기 사건</span><ul><li>무너진 다리와 물탱크 (뚝딱)</li><li>떠내려간 편지 묶음 (통통)</li><li>안개 속의 쌩쌩 (딩동)</li><li>등대 점등식 (반디)</li><li>절벽 망루의 첫 등 (갈매)</li></ul></div>
+
+      <div class="cell"><span class="k">철새 엽서</span><div class="stamp-row"><img class="px" src="img/icons/stamp_autumn.png" alt="기러기 우표" width="32" height="32"><span>기러기가 물어 온 엽서<br><span class="muted small">"여기 사람들은 이상해. 길 헤매고 있으면 누가 꼭 와서 &#x27;어디 가니?&#x27; 하고 끝까지 데려다줘."</span></span></div></div>
+      <div class="cell"><span class="k">새로 열리는 곳</span><div class="chips" style="margin:0"><span class="chip">동쪽 풀밭</span><span class="chip">폭포</span><span class="chip">버섯·늪 마을</span><span class="chip">해안 절벽 마을</span></div></div>
+      <div class="cell"><span class="k">제철 작물</span><div class="icons" title="호박 · 밀 · 고구마"><img class="px" src="img/icons/crop_pumpkin.png" alt="호박" width="32" height="32"><img class="px" src="img/icons/crop_wheat.png" alt="밀" width="32" height="32"><img class="px" src="img/icons/crop_sweet_potato.png" alt="고구마" width="32" height="32"></div><span class="small muted">호박 · 밀 · 고구마</span></div>
+      <div class="cell"><span class="k">축제</span><b style="font-family:var(--f-display);font-weight:400">수확 축제</b><a class="more" href="#ch-autumn">이 장의 이야기 보기 ↓</a></div>
+    </article>
+    <article class="col s-winter">
+      <div class="col-head"><div class="row"><img class="px" src="img/icons/season_winter.png" alt="겨울" width="32" height="32"><span class="no">3장 · 겨울</span></div><h3>밤이 길다</h3></div>
+      <div class="cell"><span class="k">이야기 사건</span><ul><li>첫눈 날의 정전 (이장님)</li><li>눈보라 속 한 마리 (몽실)</li><li>밤의 섬 (냠냠)</li><li>하양의 초대장</li><li>벤치의 군고구마 (이장님)</li><li>별의 밤 준비 (딩동)</li></ul></div>
+
+      <div class="cell"><span class="k">철새 엽서</span><div class="stamp-row"><img class="px" src="img/icons/stamp_winter.png" alt="두루미 우표" width="32" height="32"><span>두루미가 물어 온 엽서<br><span class="muted small">"여긴 겨울인데도 밤이 안 와. 진짜로."</span></span></div></div>
+      <div class="cell"><span class="k">새로 열리는 곳</span><div class="chips" style="margin:0"><span class="chip">양떼 고원</span><span class="chip">눈 정상</span><span class="chip">지하 동굴 마을</span><span class="chip">화산 마을</span></div></div>
+      <div class="cell"><span class="k">제철 작물</span><div class="icons" title="양배추 · 당근 · 눈딸기"><img class="px" src="img/icons/crop_cabbage.png" alt="양배추" width="32" height="32"><img class="px" src="img/icons/crop_carrot.png" alt="당근" width="32" height="32"><img class="px" src="img/icons/crop_snowberry.png" alt="눈딸기" width="32" height="32"></div><span class="small muted">양배추 · 당근 · 눈딸기</span></div>
+      <div class="cell"><span class="k">축제</span><b style="font-family:var(--f-display);font-weight:400">별의 밤</b><a class="more" href="#ch-winter">이 장의 이야기 보기 ↓</a></div>
+    </article>
+    <article class="col s-spring">
+      <div class="col-head"><div class="row"><img class="px" src="img/icons/season_spring.png" alt="봄" width="32" height="32"><span class="no">4장 · 봄</span></div><h3>이미, 그리고 아직</h3></div>
+      <div class="cell"><span class="k">이야기 사건</span><ul><li>고철 더미 속에서 (뚝딱)</li><li>나라섬 소포 (통통)</li><li>안개 걷히는 새벽 (하양)</li></ul></div>
+      <div class='cell'><span class='k'>밭 목표</span><ul><li>(권함) 눈 정상 구름 곤돌라로 구름 마을에 오르기</li></ul></div>
+      <div class="cell"><span class="k">철새 엽서</span><div class="stamp-row"><img class="px" src="img/icons/stamp_spring.png" alt="물떼새 우표" width="32" height="32"><span>물떼새가 물어 온 엽서<br><span class="muted small">"오늘 옆집 꼬마가 울길래 나도 같이 울었거든?"</span></span></div></div>
+      <div class="cell"><span class="k">새로 열리는 곳</span><div class="chips" style="margin:0"><span class="chip">구름 마을 (하늘)</span></div></div>
+      <div class="cell"><span class="k">제철 작물</span><div class="icons" title="무 · 딸기 · 해바라기"><img class="px" src="img/icons/crop_radish.png" alt="무" width="32" height="32"><img class="px" src="img/icons/crop_strawberry.png" alt="딸기" width="32" height="32"><img class="px" src="img/icons/crop_sunflower.png" alt="해바라기" width="32" height="32"></div><span class="small muted">무 · 딸기 · 해바라기</span></div>
+      <div class="cell"><span class="k">축제</span><b style="font-family:var(--f-display);font-weight:400">벚꽃 축제</b><a class="more" href="#ch-spring">이 장의 이야기 보기 ↓</a></div>
+    </article>
   </div>
 </section>
 
@@ -171,7 +193,7 @@
         </article><article class="card region s-summer" data-area="b" data-season="summer" tabindex="0">
           <div class="head"><h3>남쪽 해변</h3><span class="chip"><span class="dot"></span>1장 여름</span></div>
           <div class="tag">남쪽 끝</div><p>긴 모래사장과 조개 자리 12곳. 클립의 엽서를 문 철새가 내려앉는 <b>철새 모래톱</b>. 아침마다 고철이 떠밀려 온다.</p>
-          
+
         </article><article class="card region s-summer" data-area="p" data-season="summer" tabindex="0">
           <div class="head"><h3>갈매기항</h3><span class="chip"><span class="dot"></span>1장 여름</span></div>
           <div class="tag">남동쪽 바닷가</div><p>동쪽으로 뻗은 <b>잔교</b>에 부름의 배가 닿는다. <b>소포 창구</b>는 봄에만 연다. 마을과는 바닷가 돌다리로 이어진다.</p>
@@ -179,7 +201,7 @@
         </article><article class="card region s-autumn" data-area="m" data-season="autumn" tabindex="0">
           <div class="head"><h3>동쪽 풀밭</h3><span class="chip"><span class="dot"></span>2장 가을</span></div>
           <div class="tag">동쪽</div><p>무너진 개울 다리를 고치면 열린다. <b>낡은 물탱크</b>를 고치면 밭 전체에 저절로 물이 간다.</p>
-          
+
         </article><article class="card region s-autumn" data-area="l" data-season="autumn" tabindex="0">
           <div class="head"><h3>폭포</h3><span class="chip"><span class="dot"></span>2장 가을</span></div>
           <div class="tag">섬 가운데 북쪽</div><p>반디의 <b>폭포 등대</b>와 링 6개를 지나는 활공 코스. 무지개 사진 자리.</p>
@@ -222,19 +244,14 @@
       <tr><td><span class="chip s-winter"><span class="dot"></span>겨울</span></td><td>폭포 위 층계 → 양떼 고원 → 서쪽 층계로 눈 정상. 지하는 ① 서쪽 숲 옛 광산 → 동굴 마을, ② 고원 승강기 → 화산 마을. 철길 수레가 마을과 양떼 마을을 잇는다.</td></tr>
       <tr><td><span class="chip s-spring"><span class="dot"></span>봄</span></td><td>눈 정상의 구름 곤돌라로 하늘의 구름 마을에 오른다. 섬 전체가 벚꽃으로 덮이고, 소포 창구가 열리고, 배가 온다.</td></tr>
     </tbody></table></div>
-  <div class="gallery">
-    <figure class="shot"><img src="img/season_summer.jpg" alt="여름의 밭" loading="lazy" width="1280" height="560"><figcaption>여름 · 초록</figcaption></figure>
-    <figure class="shot"><img src="img/season_autumn.jpg" alt="가을 숲" loading="lazy" width="1280" height="560"><figcaption>가을 · 단풍</figcaption></figure>
-    <figure class="shot"><img src="img/season_winter.jpg" alt="겨울 숲" loading="lazy" width="1280" height="560"><figcaption>겨울 · 초록 없는 눈</figcaption></figure>
-    <figure class="shot"><img src="img/season_spring.jpg" alt="봄 숲" loading="lazy" width="1280" height="560"><figcaption>봄 · 온통 분홍 꽃</figcaption></figure>
-  </div>
+
   <div class="gallery">
     <figure class="shot"><img src="img/area_sky.jpg" alt="구름 마을 하늘 정원의 쌓인 구름 기둥" loading="lazy" width="1600" height="900"><figcaption>구름 마을 · 진짜 구름 위 (봄)</figcaption></figure>
     <figure class="shot"><img src="img/area_sky_plaza.jpg" alt="구름 마을 큰 광장의 구름 분수" loading="lazy" width="1600" height="900"><figcaption>구름 마을 큰 광장 · 구름 분수</figcaption></figure>
     <figure class="shot"><img src="img/area_cave.jpg" alt="밤에 빛나는 수정 턱" loading="lazy" width="1600" height="900"><figcaption>지하 동굴 마을 · 밤의 수정</figcaption></figure>
     <figure class="shot"><img src="img/area_lava.jpg" alt="화산 마을 광장과 용광로" loading="lazy" width="1600" height="900"><figcaption>화산 마을 · 큰 용광로</figcaption></figure>
   </div>
-  <p class="small muted">사계절 스크린샷은 v14 섬 시절 화면이고, 구름 마을·지하 사진은 v16.4 화면이다. 지도는 지형 데이터에서 바로 그렸다.</p>
+
 </section>
 
 <section id="story" class="sec">
@@ -268,7 +285,7 @@
       <p>화면이 검게 저물고, 클립이 깨우던 첫 장면처럼 마그가 오두막 문을 열고 나오면 여름이다. 이번엔 문 두드리는 이가 없다. 마그는 클립이 서 있던 자리를 한 번 본다. 볼트가 걸어와 "허허, 이제 일어났나? 해가 중천이구먼" 하고, 통통이 맡기고 간 빈 소포 상자를 건넨다. 컷신이 끝나면 여름 첫날 오전 11시부터 시계가 흐른다.</p>
     </div>
   </div>
-  
+
   <div class="chapter s-summer" id="ch-summer">
     <div class="ch-no"><b>1</b><img class="px" src="img/icons/season_summer.png" alt="여름" width="32" height="32"><small>여름</small></div>
     <div class="body">
@@ -516,6 +533,7 @@
 </section>
 
 <section id="status" class="sec">
+  <div class="sec-head"><div class="eyebrow">개발 현황</div><h2>구현 범위와 개발 과제</h2></div><div class="grid"><article class="card done"><div class="tag">현재 구현</div><p>전동휠 이동·점프/착지·추진/활공, 자동 타겟 훅샷, 사거리 3단계, 와인딩 모터, 무게별 수확과 양손 자세, 실패 표정, 고리 이동, 공중 연결, 대상 UI.</p></article><article class="card next"><div class="tag">콘텐츠 설계안</div><p>뿌리 마개/수레 장애물, 수문/걸쇠 장치, 계절별 새 고리 코스와 보상 배치, 특별 수확 선택지, 농사·탐험 50:50 세션.</p></article><article class="card doing"><div class="tag">검증 필요</div><p>초·중·후반 실제 시간 비율, 강화와 소포 경제, 최소 장비 필수 동선, 신규 퍼즐의 가독성·재도전 부담.</p></article></div>
   <div class="sec-head"><div class="eyebrow">숫자와 현황</div><h2>지금 들어 있는 것, 그리고 다음</h2></div>
   <div class="stats">
     <div><b>4장</b><span>여름 → 가을 → 겨울 → 봄</span></div><div><b>13</b><span>섬 지역</span></div>
@@ -527,15 +545,15 @@
     <tbody>
       <tr><td><img class="px" src="img/icons/crop_corn.png" alt="" width="32" height="32"> 작물</td><td class="num">12 + 3</td><td>계절 작물 12, 가게 특산 2, 제일 큰 감자(출하 불가, 900초)</td></tr>
       <tr><td><img class="px" src="img/icons/helper_harvest.png" alt="" width="32" height="32"> 도우미 로봇</td><td class="num">4종 × 4레벨</td><td>물 주기, 거두기, 심기, 출하(한 번에 3·4·6·8개)</td></tr>
-      <tr><td>점프 단계</td><td class="num">4</td><td>계절 마을 부탁을 다 끝내면 한 단계 (2단~5단 점프)</td></tr>
+      <tr><td>점프 단계</td><td class="num">4</td><td>작업대에서 계절별 코인 구매 (추진 +1~4회)</td></tr>
       <tr><td><img class="px" src="img/icons/quest.png" alt="" width="32" height="32"> 숨은 상자</td><td class="num">74</td><td>다른 계절 씨앗, 희귀 씨앗</td></tr>
       <tr><td><img class="px" src="img/icons/food_soup.png" alt="" width="32" height="32"> 요리 · 물고기 · 장식 · 모자</td><td class="num">15 · 13 · 26 · 10</td><td>모자는 밀짚모자 + 가게 3 + 부탁 6</td></tr>
       <tr><td><img class="px" src="img/icons/stamp_winter.png" alt="" width="32" height="32"> 엽서 · 상자 물건</td><td class="num">5 · 15</td><td>철새 4종이 엽서를 물어 온다</td></tr>
-      <tr><td>하루 길이</td><td class="num">8분</td><td>06:00~22:00, 1초 = 2분. 경제 시뮬레이션: 여름 5일 · 가을 6일 · 겨울 6일에 약 3,370 코인(밭 10×6). 메인 이야기 3~5시간 예상</td></tr>
+      <tr><td>하루 길이</td><td class="num">8분</td><td>06:00~22:00, 1초 = 2분. 기존 시간 규칙. 새 강화 경제·이야기 소요 시간은 재검증 필요</td></tr>
     </tbody></table></div>
   <div class="status">
-    <div class="card done"><div class="tag">완료</div><h3>1년이 끝까지 돈다</h3><ul class="dots"><li>프롤로그부터 엔딩·자유 플레이까지</li><li>저장·이어하기, 키 바꾸기</li><li>macOS·Windows·Linux 빌드 (v1.0.0)</li><li>새 제목 라무: 누리섬의 사계절, 라무 전용 로고(둥근 흰 로봇 외장·이끼·두 잎 새싹·금빛 영문 부제)</li><li>하늘의 구름 마을: 떠 있는 섬 넷, 구름 곤돌라, 새 주민 솜솜과 봄 부탁</li><li>점프 단계: 계절 마을 부탁을 다 끝내면 2단~5단 점프 (황금 부품 삭제)</li><li>플랫포머 코스: 튀어오르기 버섯·열기둥, 동굴 갱도 탑·화산 망루, 해변 바다 바위길·언덕 전망 바위</li><li>빛 다듬기: 하늘·구름 그림자·햇살 줄기·바람·윤슬·밤 축제, 계절별 색감, 정면 햇빛</li><li>셰이더 컴파일 화면, 테스트 모드(₩: 장소 이동·계절·돈·점프·컷씬 넘기기)</li><li>프롤로그 다듬기: 클립의 밭 당부, 걸음 템포, 여름 아침 기상과 볼트 방문</li><li>HUD 시각 표시 (06:00~22:00)</li><li>클립과 심은 감자가 여름까지 이어짐, 엔딩 크레딧에 v15 주민</li><li>옵션: 화면 모드·창 크기·VSync·FPS·그래픽 품질·글자 크기·글 속도, 키·패드 바꾸기, 패드로 모든 창</li><li>첫날 안내, 수첩 엽서·가방 탭, 안 될 때 알림, 새로 시작 확인</li><li>사건 장면 7개 더, 엔딩 마지막 장면, 섬이 이야기에 반응(등대·풍차·정전·신호탑)</li><li>모자 아이콘, 바퀴·지하 소리, 축제 노점</li></ul></div>
-    <div class="card doing"><div class="tag">진행 중</div><h3>섬 확장 v15 다듬기</h3><ul class="dots"><li>섬 100×84 + 지하 (기존 76×64) — 들어감</li><li>새 지역 해안 절벽 · 지하 동굴 · 화산, 새 주민 10명과 가게 1차 — 들어감</li><li>경제·소포 값: 시뮬레이션으로 겨울 끝 ≈ 3,370에 맞춤(여름 480 · 가을 1,670) — 실제 플레이로 확인</li></ul></div>
+    <div class="card done"><div class="tag">완료</div><h3>1년이 끝까지 돈다</h3><ul class="dots"><li>프롤로그부터 엔딩·자유 플레이까지</li><li>저장·이어하기, 키 바꾸기</li><li>macOS·Windows·Linux 빌드 (v1.0.0)</li><li>새 제목 라무: 누리섬의 사계절, 라무 전용 로고(둥근 흰 로봇 외장·이끼·두 잎 새싹·금빛 영문 부제)</li><li>하늘의 구름 마을: 떠 있는 섬 넷, 구름 곤돌라, 새 주민 솜솜과 봄 부탁</li><li>점프 단계: 작업대에서 계절별 코인 구매로 2단~5단 점프</li><li>플랫포머 코스: 튀어오르기 버섯·열기둥, 동굴 갱도 탑·화산 망루, 해변 바다 바위길·언덕 전망 바위</li><li>빛 다듬기: 하늘·구름 그림자·햇살 줄기·바람·윤슬·밤 축제, 계절별 색감, 정면 햇빛</li><li>셰이더 컴파일 화면, 테스트 모드(₩: 장소 이동·계절·돈·점프·컷씬 넘기기)</li><li>프롤로그 다듬기: 클립의 밭 당부, 걸음 템포, 여름 아침 기상과 볼트 방문</li><li>HUD 시각 표시 (06:00~22:00)</li><li>클립과 심은 감자가 여름까지 이어짐, 엔딩 크레딧에 v15 주민</li><li>옵션: 화면 모드·창 크기·VSync·FPS·그래픽 품질·글자 크기·글 속도, 키·패드 바꾸기, 패드로 모든 창</li><li>첫날 안내, 수첩 엽서·가방 탭, 안 될 때 알림, 새로 시작 확인</li><li>사건 장면 7개 더, 엔딩 마지막 장면, 섬이 이야기에 반응(등대·풍차·정전·신호탑)</li><li>모자 아이콘, 바퀴·지하 소리, 축제 노점</li></ul></div>
+    <div class="card doing"><div class="tag">진행 중</div><h3>섬 확장 v15 다듬기</h3><ul class="dots"><li>섬 100×84 + 지하 (기존 76×64) — 들어감</li><li>새 지역 해안 절벽 · 지하 동굴 · 화산, 새 주민 10명과 가게 1차 — 들어감</li><li>경제·소포 값: 신규 장비 지출을 포함한 실제 플레이 재검증 필요</li></ul></div>
     <div class="card next"><div class="tag">다음</div><h3>2년 차와 출시 준비</h3><ul class="dots"><li>꼬물이와 두 번째 여름</li><li>솔라펑크 랜드마크 보강(유리 온실·풍력·물길) — 아트 비평에서 나온 과제</li><li>스팀 페이지, 트레일러</li></ul></div>
   </div>
   <figure class="shot"><img src="img/mag_turnaround.jpg" alt="마그 앞·옆·뒤 모습" loading="lazy" width="1600" height="900"><figcaption>마그 v8 · 게임 조명 아래 턴어라운드</figcaption></figure>
