@@ -319,15 +319,16 @@ details.lines .ls p { display: grid; gap: .15rem; }
 @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } * { transition: none !important; animation: none !important; } }
 
 /* Hookshot redesign: retain the existing pixel palette and document navigation. */
-.film-grid,.rule-pair{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px}
-.play-film{margin:0;min-width:0;background:var(--paper,#fff9e8);border:1px solid #c9c3a7;border-radius:12px;overflow:hidden}
-.play-film video{display:block;width:100%;height:auto;aspect-ratio:16/9;background:#9da1a2}
-.play-film figcaption{padding:16px}.play-film h3{margin:8px 0}.play-film p{margin:8px 0 12px}
+.rule-pair{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px}
+.film-grid{display:grid;grid-template-columns:minmax(0,1fr);gap:12px}
+.play-film{display:grid;grid-template-columns:280px minmax(0,1fr);align-items:center;gap:24px;padding:12px;margin:0;min-width:0;background:var(--paper,#fff9e8);border:1px solid #c9c3a7;border-radius:12px;overflow:hidden}
+.play-film video{display:block;width:100%;height:auto;aspect-ratio:16/9;background:#9da1a2;border-radius:6px}
+.play-film figcaption{min-width:0;padding:4px 12px 4px 0}.play-film h3{margin:0 0 8px}.play-film p{margin:0 0 12px}
 .film-toggle{font:inherit;cursor:pointer;border:1px solid #6f7c59;border-radius:6px;padding:7px 18px;color:#35472f;background:#edf1dd}
 .film-toggle:focus-visible{outline:3px solid #b77935;outline-offset:3px}
 .design-note{border-left:4px solid #ac8b54;padding:12px 18px;background:#f4eddb}
 .time-bar{display:flex;border-radius:10px;overflow:hidden;margin:24px 0;font-weight:bold;text-align:center}
 .time-bar span{flex:4;padding:20px 8px;background:#d4e4b7}.time-bar span:nth-child(2){background:#c8e2df}.time-bar span:last-child{flex:2;background:#ede1c0}
 main,.sec,.card{min-width:0}.tbl-wrap{max-width:100%;overflow-x:auto}
-@media(max-width:700px){.film-grid,.rule-pair{grid-template-columns:1fr}.time-bar span{padding:14px 4px;font-size:13px}.play-film figcaption{padding:14px}}
+@media(max-width:700px){.rule-pair{grid-template-columns:1fr}.play-film{grid-template-columns:minmax(0,1fr);gap:0;padding:0}.play-film video{border-radius:0}.time-bar span{padding:14px 4px;font-size:13px}.play-film figcaption{padding:14px}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
