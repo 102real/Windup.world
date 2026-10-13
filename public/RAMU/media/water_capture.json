@@ -1,0 +1,13 @@
+{
+  "source": "tools/v7/qa_hook_states.gd",
+  "real_input": "Ctrl, Ctrl; repeat",
+  "fps": 30,
+  "size": [
+    1280,
+    720
+  ],
+  "clip": {
+    "duration": 5.66666666666667,
+    "start": 4.6
+  }
+}
